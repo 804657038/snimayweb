@@ -1,0 +1,19 @@
+<include file='Public:pageHeader'/>
+<div class="c-banner" style="background:url(__ROOT__/{$ban['original_img']});background-size:cover"></div>
+<ul class="Y_hid clearfix">
+	<volist name="sale_list" id="vo" key="k">
+	<li <if condition="$k%2 == 0"> class="no"</if>>
+		<a href="{:U('Sales/detail',array('id'=>$vo['article_id']))}">
+		<div class="pic">
+			<em>进行中</em>
+			<img src="__ROOT__/{$vo.original_img}" alt="">
+		</div>
+		<div class="are">
+			<p class="title">{$vo.title}</p>
+			<p class="time">{$vo.add_time|date="Y-m-d",###}</p>
+		</div>
+		</a>
+	</li>
+	</volist>
+</ul>
+<include file='Public:pageFooter'/>

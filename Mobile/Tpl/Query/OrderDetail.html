@@ -1,0 +1,170 @@
+<title>订单详情-诗尼曼全屋定制</title>
+<meta name='keywords' content=""/>
+<meta name='description' content=""/>
+<include file='Public:pageHeader'/>
+<div class="g-banner" style="background:url(__ROOT__/{$ban['original_img']});background-size:cover"></div>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:16px;
+            color:#999;
+        }
+        #ddxq{
+            margin:0 auto;
+            /*background:red;*/
+            width:100%;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:14px;
+            color: #666;
+        }
+        #ddxq #oo{
+           /* background:blue;*/
+            border-bottom:1px solid darkgrey;
+            margin-bottom: 20px;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:18px;
+            color:#666666;
+
+        }
+        #ddxq #oo #baktitle{
+            display:inline-block;
+        }
+        #ddxq #oo #baktitle span{
+            display:block;
+            padding: 10px;
+            color: #000;
+        }
+        #ddxq #oo a{
+         /* position:absolute;
+          right: 2%;
+          top: 28.8%;*/
+          color: #666;
+          float: right;
+          font-size: 14px;
+        }
+        #ddxq #tabbox{
+            /*background:green;*/
+            width:100%;
+            margin:10px auto;
+            /*text-align:center;*/
+        }
+        #ddxq #tabbox tr td{
+            /*padding:0 100px 33px 0;*/
+        }
+        #ddxq #tabbox tr td span{
+            float:left;
+        }
+        #ddxq #tabbox input{
+            border: 0;
+            font-size: 16px;
+            color: #000;
+            padding-left: 15px;
+        }
+        #ddxq{height:50%;margin-bottom: 40px;}
+        .clear{margin:0;padding:0;border:0;margin:4% 4%;}  
+        .pn1{width:40%;}
+        .pn2{width:50%;}
+
+    </style>
+	<script>
+    function GetQueryString(name){
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+                            }
+                            
+        $(function(){
+            var po = GetQueryString("po");
+            var pN = GetQueryString("pN");
+             $('#OrderNo').val(""+po+"");
+             $('#bak').click(
+                function(){
+                    window.location.href='{:U('Query/OrderList')}?phoneNmber='+pN;
+                }
+             );
+                $.ajax({
+                type: 'get', 
+                dataType: 'jsonp',   
+                callback:'callback',   
+                url: "http://113.107.7.78:8090/5order/NewOrderQuery.asp?po="+po ,
+                success: function(msg){
+                    callback(msg);
+                }
+                })                    
+        })
+
+
+        function callback(msg){
+                console.log(msg);
+                $("#order").val(""+msg.order+"");
+                    $("#state").val(""+msg.state+"");
+                    $("#accepted").val(""+msg.accepted+"");
+                    $("#payment").val(""+msg.payment+"");
+                    $("#produce").val(""+msg.produce+"");
+                    $("#storage").val(""+msg.storage+"");
+                    $("#transport").val(""+msg.transport+"");
+
+        }
+    </script>
+
+    <div id = "ddxq">
+        <div id="oo">
+            <div id="baktitle">
+            <img id="u23_img" class="img " src="__IMG__/u23.png"/>
+                <span>订单详情<a id="bak" href="#">返回列表 &gt;</a></span>
+                </div>
+        </div>
+        <div id ="tabbox">
+<!--         <table width='600'>
+            <tr>
+                <td class="p10"><span>订单号:</span></td>
+                <td class="p10"><input type="text" id="order" readonly value=""></td>                   
+                <td class="p10"><span>订单状态:</span></td>
+                <td class="p10"><input type="text" id="state"  readonly value=""></td>
+            </tr>
+            <tr>
+                <td><span>受理时间:</span><input type="text" id="accepted"   readonly value="" ></td>
+                <td><span>打款时间:</span><input type="text" id="payment"  readonly value="" > </td>
+            </tr>
+            <tr>
+                <td><span>生产时间:</span><input type="text" id="produce"  readonly value="" ></td>
+                <td><span>入库时间:</span><input type="text" id="storage"  readonly value="" ></td>
+            </tr>
+            <tr>
+                <td><span>发货时间:</span><input type="text" id="transport"  readonly value="" ></td>
+            </tr>
+                </table> -->
+                <div class="clear">
+                    <span>订单号:</span>
+                    <input type="text" class="pn1" id="order" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>订单状态:</span>
+                    <input type="text" class="pn2" id="state" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>受理时间:</span><input class="pn1" type="text" id="accepted" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>打款时间:</span><input class="pn2" type="text" id="payment" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>生产时间:</span><input class="pn1" type="text" id="produce" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>入库时间:</span><input class="pn2" type="text" id="storage" readonly="" value="">
+                </div>
+                <div class="clear">
+                    <span>发货时间:</span><input class="pn1" type="text" id="transport" readonly="" value="">
+                </div>
+        </div>
+</div>
+<include file='Public:pageFooter'/>

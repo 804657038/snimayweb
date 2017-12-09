@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+		<meta name='description' content="{$site_description|strip_tags=###}"/>
+		<meta name='author' content="诗尼曼:http://m.snimay.com"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/swiper.css"/>
+		<script src="__JS__/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/slick.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/myScript.js" type="text/javascript" charset="utf-8"></script>
+		<title>{$site_title|strip_tags=###}</title>
+	</head>
+	<body>
+		<!--<div class="c-head" style="position:relative">
+			<a href="javascript:history.back(-1);" class="btn"></a>
+			<a href="###" class="nav-btn"></a>
+			<p style="text-indent:0.7rem">{$title}</p>
+			<ul class="nav">
+				<li class="active"><a href="/mobile.php/">首页</a></li>
+				<li><a href="{:U('About/investment')}">招商加盟</a></li>
+				<li><a href="{:U('Product/index')}">产品体验</a></li>
+				<li><a href="{:U('Sales/index')}">促销活动</a></li>
+				<li><a href="{:U('About/news',array('cat_id'=>16))}">新闻中心</a></li>
+				<li><a href="{:U('About/index',array('cat_id'=>2))}">关于诗尼曼</a></li>
+			</ul>
+		</div>-->
+
+<style type="text/css">.aa2 img{float: left;}</style>
+<div class="aa2">{$detail.content1}</div>
+<div class="Y_dis" style="float: left; width:100% ">
+	<form id='cmForm'>
+	<p class="input"><em class="ico_1"></em><input type="text" placeholder="姓名" name="name"></p>
+	<p class="input"><em class="ico_2"></em><input type="text" placeholder="电话" name="phone"></p>
+	<div class="input" style="background:none;border:none">
+	<div class="s-wrap">
+		<span>
+			<select name="province" onchange="getRegion4(this.value,'city4')" id="province4">
+			<option value="">请选省份</option>
+			<volist name="province" id="vo">
+				<option value="{$vo.region_id}">{$vo.region_name}</option>
+			</volist>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span class="mid">
+			<select name="city" class="sl1" id="city4" onchange="getRegion4(this.value,'district4')">
+				<option value="">选择城市</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span>
+			<select name="district" class="sl1" id="district4">
+				<option value="">选择区域</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+	</div>
+	</div>
+	<input type="hidden" name="hd_name" value="{$detail.title}">
+	<input type="hidden" name="type" value="2">
+	<input type="button" class="button" value="马上留言" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')">
+	</form>
+	<!-- <p class="hot">报名热线：<img src="images/Y_2.png" alt=""></p> -->
+</div>
+<style type="text/css">
+	.input select{border: 1px solid #ccc; box-sizing: border-box; color: #999999; display: inline-block; font-size: 0.24rem; height: 100%; outline: medium none; padding-left: 0.18rem; vertical-align: top; width: 100%; } 
+	.s-wrap span{
+    display: inline-block;
+    height: 0.76rem;
+    position: relative;
+    width: 1.66rem;
+}
+	.s-wrap span em {
+    background: rgba(0, 0, 0, 0) url(__IMG__/yx.png) no-repeat scroll center center / contain ;
+    height: 0.22rem;
+    position: absolute;
+    right: 0.17rem;
+    top: 10%;
+   }
+   
+</style>
+<script type="text/javascript">
+function getRegion4(region_id, container){
+	var province4 = parseInt('[province]') || parseInt('Array');
+	var city4 = parseInt('[city]') || parseInt('');
+	var district4 = parseInt('[district]') || parseInt('');
+    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province4' && province4>0){
+            document.getElementById('province4').value = province4;
+            getRegion4(province4, 'city4');
+        }
+        if(container == 'city4'  && city4>0){
+            document.getElementById('city4').value = city4;
+            getRegion4(city4, 'district4');
+        }
+        if(container == 'district4' && district4>0){
+            document.getElementById('district4').value = district2;
+        }
+
+    },'html')
+}
+</script>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,59 @@
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+<ul class="pp-m1" style="padding-top:35px">
+<volist name="honor_pic" id="vo">
+	<li><a href="{$vo.link}"><span style="background-image: url(__ROOT__/{$vo.original_img});"></span><i>{$vo.description}</i></a></li>
+</volist>
+</ul>
+<!-- <ul class="pp-m2">
+	<li class="on"><span>2013-2016 年</span><i></i></li>
+	<li><span>2009-2011 年</span><i></i></li>
+	<li><span>2005-2008 年</span><i></i></li>
+	<li><span>2003-2004 年</span><i></i></li>
+</ul> -->
+<div class="pp-m3">
+	
+		<ul class="u clearfix" id="d">
+		<volist name="honor_list" id="vo" key='k'>
+			<volist name="vo" id="vo2">
+			<li class="clearfix">
+				<span>{$vo2.title}</span>
+				<p>{$vo2.content}</p>
+			</li>
+			</volist>
+		</volist>
+		</ul>
+	
+</div>
+<style type="text/css">
+	#d{display: block;}
+	.u{display: none}
+</style>
+<script type="text/javascript">
+	$(".pp-m2 li").click( function () { 
+		$(".pp-m2 li").removeClass("on");
+		$(this).addClass("on");
+		var index  =  $(".pp-m2 li").index(this);
+		$(".pp-m3 ul").stop(true,true).fadeOut();
+		$(".pp-m3 ul").stop(true,true).eq(index).fadeIn();
+	})
+</script>
+<script type="text/javascript">
+	$(function(){
+	    $('.pp-m1').slick({
+	        dots: false,
+	        infinite: true,
+			slidesToShow: 2,
+			slidesToScroll: 2
+	    });
+	});
+	$(function(){
+	    $('.pp-m2').slick({
+	        dots: false,
+	        infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 3
+	    });
+	});
+</script>
+<include file='Public:pageFooter'/>

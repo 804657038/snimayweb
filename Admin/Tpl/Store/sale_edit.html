@@ -1,0 +1,84 @@
+<include file="Index:pageHeader" />
+<style>
+	#allmap {width: 500px;height: 300px;overflow: hidden;margin:0;font-family:"微软雅黑";}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A50a5cf7e9ea0b2c2101356125c4e1c5"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+	address2();
+});
+
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : false,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul id="tab2">
+			<li class="current"><a href="javascript:">导购信息</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+				<form method="post" action="{:U('Store/sale_update')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr>
+								<td style="text-align:right;">销售名字：</td>
+								<td style="text-align:left;"><input type="text" name="name" value="{$info['name']}" size="35" /></td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">姓别：</td>
+								<td style="text-align:left;"><input type="text" value="{$info['sex']}" name="sex" size="50"/></td>
+							</tr>						
+							<tr>
+								<td style="text-align:right;">头像预览：</td>
+								<td style="text-align:left;"><center></center><img src="__ROOT__/{$info['original_img']}" style='max-width:500px; max-height:200px;'/></td>
+							</tr>
+							
+							<tr>
+								<td style="text-align:right;">更改头像图片：</td>
+								<td style="text-align:left;"><input type="file" name="images" size="35" /><em>*</em></td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">联系方式：</td>
+								<td style="text-align:left;"><input type="text" value="{$info['phone']}" name="phone" size="50"/></td>
+							</tr>
+
+							
+							<tr>
+								<td style="text-align:right;">排序：</td>
+								<td style="text-align:left;"><input type="text" class="txt" value="{$info['sort_order']}" name="sort_order" size="5"  /><em>*</em> </td>
+							</tr>
+							
+							<tr>
+								<td>&nbsp;</td>
+								<td style="text-align:left;">
+									<input type="hidden" name="id" value="{$info.id}"/>
+									<input type="hidden" name="store_id" value="{$info.store_id}"/>
+									<input type="submit" value="提交"/>
+								</td>
+							</tr>
+							<tr></tr>
+						</tbody>
+					</table>
+				</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

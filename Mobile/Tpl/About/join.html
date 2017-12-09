@@ -1,0 +1,130 @@
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+<p class="web-m">您要查看的省份和城市</p>
+<div class="web-m2 clearfix">
+	<div class="fl in">
+		<select name="province" onchange="getRegion(this.value,'city'),findMallListByProvinceId(this.value)" id="province">
+			<option value="">请选择</option>
+			<volist name="province" id="vo">
+			<option value="{$vo.region_id}">{$vo.region_name}</option>
+			</volist>
+		</select>
+	</div>
+	<div class="fr in">
+		<select name="city" id="city" onchange="getRegion(this.value),findMallListByCityId(this.value)">
+			<option value="">请选择</option>
+		</select>
+	</div>
+</div>
+<div class="w_box">
+
+</div>
+
+
+
+
+<script type="text/javascript">
+$(".web-m3 .btn").live(toggle,function(){
+	$(this).parent().parent().addClass("on");
+	$(this).parent().next().slideDown();
+},function(){
+	$(this).parent().parent().removeClass("on");
+	$(this).parent().next().slideUp();
+})
+
+var province = parseInt('[province]') || parseInt('{$province}');
+var city = parseInt('[city]') || parseInt('{$city}');
+var district = parseInt('[district]') || parseInt('{$district}');
+
+function getRegion(region_id, container){
+
+    $.get("{:U('Control/getRegion')}",{'region_id':region_id},function(res){
+
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province' && province>0){
+            document.getElementById('province').value = province;
+            getRegion(province, 'city');
+        }
+        if(container == 'city' && city>0){
+            document.getElementById('city').value = city;
+        }
+
+    },'html')
+}
+
+function getRegion1(region_id, container){
+	var province = parseInt('[province]') || parseInt('{$province}');
+	var city = parseInt('[city]') || parseInt('{$city}');
+	var district = parseInt('[district]') || parseInt('{$district}');
+    $.get("{:U('Control/getRegion')}",{'region_id':region_id},function(res){
+
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province1'){
+
+            document.getElementById('province1').value = province;
+
+            getRegion(province, 'city1');
+        }
+        if(container == 'city1'){
+            document.getElementById('city1').value = city;
+        }
+
+    },'html')
+}
+
+function findMallByProviceId(provinceId){
+   $("#province option[value='"+provinceId+"']").attr("selected","selected");
+   findMallListByProvinceId(provinceId);
+   getRegion(provinceId, 'city');
+}
+
+function findMallListByProvinceId(provinceId){
+	$.get("{:U('About/get_location')}",{'id':provinceId},function(res){
+		if(res == ''){
+			$('.w_box').html('');
+			$('.w_box').append('<div class="w_box">暂无该专卖店！</div>');
+		}else{
+			$('.w_box').html('');
+			$('.w_box').append(res);
+		}
+		
+    },'html')
+	 
+}
+
+function findMallListByCityId(provinceId){
+	$.get("{:U('About/get_location1')}",{'id':provinceId},function(res){
+		if(res == ''){
+			$('.w_box').html('');
+			$('.w_box').append('<div class="w_box">暂无该专卖店！</div>');
+		}else{
+			$('.w_box').html('');
+			$('.w_box').append(res);
+		}
+    },'html')
+	 
+}
+//搜索的关键词
+function searchDealer(){
+   var keywords = $("#keywords").val(); 
+   if(keywords=='请输入关键字'||keywords==''){
+     alert('请输入搜索关键词', '#keywords');
+     return ;
+   }
+	 $.get("{:U('About/get_location2')}",{'key':keywords},function(res){
+		if(res == ''){
+			$('.w_box').html('');
+			$('.w_box').append('<div class="w_box">暂无该专卖店！</div>');
+		}else{
+			$('.w_box').html('');
+			$('.w_box').append(res);
+		}
+	},'html')
+   
+}
+</script>
+<include file='Public:pageFooter'/>

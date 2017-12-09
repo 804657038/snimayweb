@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>前往专卖店</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	 <link rel="stylesheet" href="__STORE__/css/normalize.css">
+	<style>
+		header img{margin:0;display:block;}
+		.pic img{width:80px;height:80px;border-radius:50px;}
+		nav{text-align: center;}
+		nav a{display:block;width:32.78%;color:#000;height:30px;background: #eeeeee;float:left;border: 1px solid #dddddd;line-height: 30px;text-decoration: none;}
+    	@media screen and (max-width: 320px) {
+         	nav a{display:block;width:32.7%;}
+         	.conn{float:right;margin:7% 7% 0px 0px;width:20%;}
+    	}
+	</style>
+	    <script src="__STORE__/js/jquery.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <script>
+    	var res = BdmapEncryptToMapabc({$info.lat},{$info.lng});
+        wx.config({
+            debug: false,
+            appId: '{$signPackage.appId}',
+            timestamp: '{$signPackage.timestamp}',
+            nonceStr: '{$signPackage.nonceStr}',
+            signature: '{$signPackage.signature}',
+            jsApiList: [
+                'checkJsApi',
+                'openLocation',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            wx.openLocation({
+			    latitude: res.lat, // 纬度，浮点数，范围为90 ~ -90
+			    longitude: res.lng, // 经度，浮点数，范围为180 ~ -180。
+			    name: "{$info.name}", // 位置名
+			    address: "{$info.address}", // 地址详情说明
+			    scale: 18, // 地图缩放级别,整形值,范围从1~28。默认为最大
+			    infoUrl: "" // 在查看位置界面底部显示的超链接,可点击跳转
+			});
+        });
+        // wx.error(function (res) {
+        //     alert(res.errMsg);
+        // });
+        function BdmapEncryptToMapabc(bd_lat,bd_lon)  
+		{  
+		 var point=new Object();  
+		 var x_pi = 3.14159265358979324 * 3000.0 / 180.0;  
+		    var x = new Number(bd_lon - 0.0065);  
+		    var y = new Number(bd_lat - 0.006);  
+		    var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * x_pi);  
+		    var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * x_pi);  
+		    var Mars_lon = z * Math.cos(theta);  
+		    var Mars_lat = z * Math.sin(theta);  
+		    point.lng=Mars_lon;  
+		    point.lat=Mars_lat;  
+		    return point;  
+		}  
+		// window.location.href="{:U('Store/store_list')}";
+		document.onkeydown=function(){
+			if(event.keyCode==8)//获取点击返回键的编号
+				alert('123');
+			
+		};
+    </script>
+</head>
+<body>
+
+		 
+
+</body>
+</html>

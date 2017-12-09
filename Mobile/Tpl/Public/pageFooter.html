@@ -1,0 +1,193 @@
+<div style="position:fixed;right:5px;top:30%;width:0.40rem;z-index:999;font-size:0.22rem;background:red; padding:0.08rem 0.15rem;border-radius:0.1rem"><a href="http://p.qiao.baidu.com/cps/chat?siteId=4608929&userId=6160127" style="color:#fff" target="_blank">在线咨询</a></div>
+<div class="footer">
+<ul class="hr-list aaa clearfix bbb" style="display:none;">
+<div class="block_no block_no1" style=" height:6rem">
+	<p class="title"><i></i>加盟留言</p>
+	<form  id='cmForm' class="cm">
+	<input type="text" class="i1" placeholder="姓名" name="name"/>
+	<input type="text" class="i1" placeholder="手机号码" name="phone"/>
+	<div class="s-wrap">
+		<span>
+			<select name="province" onchange="getRegion2(this.value,'city2')" id="province2">
+			<option value="">请选省份</option>
+			<volist name="province" id="vo">
+				<option value="{$vo.region_id}">{$vo.region_name}</option>
+			</volist>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span class="mid">
+			<select name="city" class="sl1" id="city2" onchange="getRegion2(this.value,'district2')">
+				<option value="">选择城市</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span>
+			<select name="district" class="sl1" id="district2">
+				<option value="">选择区域</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+	</div>
+	<!-- <textarea style="width:100%; height:100px; font-size:0.3rem;border:1px solid #ccc;line-height:2;color:#666; text-indent:20px;" ></textarea> -->
+	<input type="hidden" name="type" value="1">
+		<input type="button" value="确认提交" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')" class="btn" />
+		
+	</form>
+</div>
+</ul>
+<ul class="hr-list eee clearfix ccc" style="display:none">
+<div class="block_no block_no2" style="height:6rem">
+	<p class="title"><i></i>免费预约量尺</p>
+	<form  id='cmForm2' class="cm">
+	<input type="text" class="i1" placeholder="姓名" name="name"/>
+	<input type="text" class="i1" placeholder="手机号码" name="phone"/>
+	<div class="s-wrap">
+		<span>
+			<select name="province" onchange="getRegion3(this.value,'city3')" id="province3">
+			<option value="">请选省份</option>
+			<volist name="province" id="vo">
+				<option value="{$vo.region_id}">{$vo.region_name}</option>
+			</volist>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span class="mid">
+			<select name="city" class="sl1" id="city3" onchange="getRegion3(this.value,'district3')">
+				<option value="">选择城市</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+		<span>
+			<select name="district" class="sl1" id="district3">
+				<option value="">选择区域</option>
+			</select>
+			<em style="width:0.3rem"></em>
+		</span>
+	</div>
+	<!-- <textarea style="width:100%; height:100px; font-size:0.3rem;border:1px solid #ccc;line-height:2;color:#666; text-indent:20px;" placeholder="留言内容"></textarea> -->
+	<input type="hidden" name="type" value="3">
+		<input type="button" value="确认提交" onclick="mySubmit('cmForm2','{:U('Info/addMessage')}','cmresult1')" class="btn" />
+		<font color='red' size='-1' id='cmresult1' style="position:absolute;bottom:100px;left:2.2rem;text-align:left"></font>
+	</form>
+</div>
+</ul>
+			<div class="i4-left">
+				<span>{$site_info.tel_hot}</span>
+				<i>全国服务热线</i>
+			</div>
+			<div class="i4-right join_btn">
+				<span>加盟留言</span>
+				<i>加盟创赢</i>
+			</div>
+			<a href="http://m.snimay.com/mobile.php/Query">
+				<div class="i4-right_1 ">
+					<span>订单查询</span>
+					<i>查询订单</i>
+				</div>
+			</a>
+		</div>
+		<div class="footer2">
+			<p>{$site_info.icp} </p>
+			<p>Copyright © 2017 广州市诗尼曼家居有限公司</p>
+		</div>
+		<ul class="footer3 clearfix">
+			<li><a href="/mobile.php"  <if condition="$nid eq 1">class='active'</if>><i></i><span>首页</span></a></li>
+			<li><a href="{:U('About/investment')}" <if condition="$hover eq 5">class='active'</if>><i ></i><span>加盟</span></a></li>
+			<li><a href="{:U('Product/index')}" <if condition="$hover eq 6">class='active'</if>><i ></i><span>产品</span></a></li>
+			<li><a href="javascript:void(0)" class="join_btn"><i ></i><span>留言</span></a></li>
+		</ul>
+		<script type="text/javascript">
+			$(function(){
+			    $('.banner').slick({
+			        dots: true,
+			        arrows:false
+			    });
+			});
+			$(".nav-btn").toggle(
+				function(){
+					$(".nav").slideDown();
+				},function(){
+					$(".nav").slideUp();
+				}
+			)
+			$(".nav li").click(function(){
+				$(".nav li").removeClass("active");
+				$(this).addClass("active");
+			})
+		</script>
+		<script type="text/javascript">
+			function getRegion2(region_id, container){
+				var province2 = parseInt('[province]') || parseInt('Array');
+				var city2 = parseInt('[city]') || parseInt('');
+				var district2 = parseInt('[district]') || parseInt('');
+			    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+			    	$('#'+container+' option:gt(0)').remove();
+					$('#'+container).append(res);
+			        $('#'+container).show();
+			        if(container == 'province2' && province2>0){
+			            document.getElementById('province2').value = province2;
+			            getRegion2(province2, 'city2');
+			        }
+			        if(container == 'city2'  && city2>0){
+			            document.getElementById('city2').value = city2;
+			            getRegion2(city2, 'district2');
+			        }
+			        if(container == 'district2' && district2>0){
+			            document.getElementById('district2').value = district2;
+			        }
+
+			    },'html')
+			}
+
+			function getRegion3(region_id, container){
+				var province3 = parseInt('[province]') || parseInt('Array');
+				var city3     = parseInt('[city]') || parseInt('');
+				var district3 = parseInt('[district]') || parseInt('');
+			    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+			    	$('#'+container+' option:gt(0)').remove();
+					$('#'+container).append(res);
+			        $('#'+container).show();
+			        if(container == 'province3' && province3>0){
+			            document.getElementById('province3').value = province3;
+			            getRegion3(province3, 'city3');
+			        }
+			        if(container == 'city3' && city3>0){
+			            document.getElementById('city3').value = city3;
+			            getRegion3(city3, 'district3');
+			        }
+			        if(container == 'district3' && district3>0){
+			            document.getElementById('district3').value = district3;
+			        }
+
+			    },'html')
+			}
+			
+			/*招聘弹窗*/
+			$(function () {
+				$(".join_btn").click(function () {
+					$(".block_no1 ").fadeIn();
+					$(".bbb").fadeIn();
+				});
+				$(".aaa  i").click(function () {
+					$(".block_no1 ").fadeOut();
+					$(".bbb").fadeOut()
+				})
+
+				$(".aa1").click(function () {
+					$(".block_no2 ").fadeIn();
+					$(".ccc").fadeIn();
+				});
+				$(".eee  i").click(function () {
+					$(".block_no2 ").fadeOut();
+					$(".ccc").fadeOut()
+				})
+			})
+		</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259855927'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259855927' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<style type="text/css">
+	#cnzz_stat_icon_1259855927{display: none;}
+</style>
+</body>
+</html>

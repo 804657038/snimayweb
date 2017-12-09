@@ -1,0 +1,58 @@
+﻿<include file='Public:pageHeader_dealer'/>
+    <div class="btn">
+      <notempty name='town_id'>
+        <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+        <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+        <!-- <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a> -->
+      <else />
+        <a href="{:U('Dealer/detail',array('district_id'=>$district_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+        <a href="{:U('Dealer/detail',array('district_id'=>$district_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+      </notempty>
+    </div>
+    <p>{$u_here}</p>
+    <div class="aeraText">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <empty name="data_list">
+            <ul style="width: 99%;"><li style="line-height: 26px;text-align: center;">该地区暂无经销商，欢迎随时加盟</li></ul>
+          <else />
+            <foreach name="data_list" item="item">
+              <if condition="$item.schedule neq 6">
+                <ul>
+                  <li>
+                    <h4>区级</h4>
+                    <div class="text">{$item.district_name}</div>
+                  </li>
+                  <li>
+                    <h4>镇街</h4>
+                    <div class="text">{$item.town_name}</div>
+                  </li>
+                  <li>
+                    <h4>开发人</h4>
+                    <div class="text">{$item.principal_id}</div>
+                  </li>
+                  <li>
+                    <h4>店面面积</h4>
+                    <div class="text">{$item.area}</div>
+                  </li>
+                  <li>
+                    <h4>进度</h4>
+                    <div class="text">{$item.schedule_name}</div>
+                  </li>
+                  <li>
+                    <h4>加盟时间</h4>
+                    <div class="text"><empty name="item.join_time">无<else />{$item.join_time|date='Y-m-d',###}</empty></div>
+                  </li>
+                  <li>
+                    <h4>传图时间</h4>
+                    <div class="text"><empty name="item.postback_time">无<else />{$item.postback_time|date='Y-m-d',###}</empty></div>
+                  </li>
+                </ul>
+              </if>
+            </foreach>
+          </empty>
+        </div>
+      </div>
+    </div>
+  </div>
+<include file='Public:pageFooter'/>

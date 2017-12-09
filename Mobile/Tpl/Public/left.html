@@ -1,0 +1,9 @@
+
+<div class="g-banner" style="background:url(__ROOT__/{$ban['original_img']});background-size:cover"></div>
+<div class="about-nav clearfix">
+	<div><a href="{:U('About/index',array('cat_id'=>2))}"  <if condition="$_GET['cat_id'] eq '2'"> class="on" </if>>公司介绍</a></div>
+	<div><a href="{:U('About/index',array('cat_id'=>3))}"  <if condition="$_GET['cat_id'] eq '3'"> class="on" </if>>品牌荣誉</a></div>
+	<!-- <div><a href="{:U('About/index',array('cat_id'=>4))}" <if condition="$_GET['cat_id'] eq '4'"> class="on" </if>>人力招聘</a></div> -->
+	<div><a href="{:U('About/index',array('cat_id'=>14))}" <if condition="$_GET['cat_id'] eq '14'"> class="on" </if>>联系我们</a></div>
+	<div><a href="{:U('About/index',array('cat_id'=>5))}" <if condition="$_GET['cat_id'] eq '5'"> class="on" </if>>营销网络</a></div>
+</div>

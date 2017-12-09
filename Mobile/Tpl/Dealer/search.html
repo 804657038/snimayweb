@@ -1,0 +1,16 @@
+﻿<include file='Public:pageHeader_dealer'/>
+    <div class="btn">
+      <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+      <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+      <a href="{:U('Dealer/detail',array('town'=>$town_id, 'store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a>
+    </div>
+    <p>{$u_here}</p>
+    <div class="aeraText">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <ul style="width: 99%;"><li style="line-height: 26px;text-align: center;">未搜索到关于“<em>{$keyword}</em>”的内容</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>文章管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+	<script src="__PUBLIC__/Admin/Js/My97DatePicker/WdatePicker.js"></script>
+	<!-- <script type="text/javascript" src="__PUBLIC__/Admin/Js/jquery-1.7.2.js"></script> -->
+	<link rel="stylesheet" href="__PUBLIC__/Admin/Css/zyupload-1.0.0.min.css" type="text/css">
+	<link rel="stylesheet" href="__PUBLIC__/Admin/Css/zyupload-1.0.0.css" type="text/css">
+	<script type="text/javascript" src="__PUBLIC__/Admin/Js/zyupload-1.0.0.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/Js/zyupload.basic-1.0.0.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Admin/Js/zyupload-1.0.0.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	autoHeight(jQuery('.autoHeight'));
+	jQuery(".column_Box").each(function () {
+		var t = jQuery(this);
+		if (t.length < 1) return;
+		Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+	});
+});
+
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		allowFileManager : false,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+KindEditor.ready(function(K) {
+	K.create('#content1', {
+		allowFileManager : false,
+		pasteType : 2,
+		newlineTag : 'p',
+		urlType : 'absolute'
+	});
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">文章属性</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Article/save_press')}" id="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">报刊名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value="" size='60' /><em>*</em></td>
+						</tr>
+
+						<tr>
+							<td style="text-align:right;">文章分类：</td>
+							<td style="text-align:left;">
+								<select name="cat_id" onchange="checkcat(this);">
+									<option value="0">请选择...</option>
+									{$cat_select}
+								</select>
+							<em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="50" name="sort_order"  /><em>*</em> </td>
+						</tr>
+
+						<!-- <tr>
+							<td style="text-align:right;">是否显示：</td>
+							<td style="text-align:left;">
+						      <input type="radio" name="is_open" value="1" checked="checked"/>是&nbsp;&nbsp;
+						      <input type="radio" name="is_open" value="0"/>否
+							</td>
+						</tr>-->
+							<tr>
+								<td style="text-align:right;">添加时间：</td>
+								<td style="text-align:left;">
+									<input type="text" name='add_time' onclick="WdatePicker();">&nbsp;<font color='red'>留空为当前时间</font>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">报刊封面：</td>
+								<td style="text-align:left;">
+								<img src="__PUBLIC__/Admin/Img/add_img.png" class="thumb" width="200">
+								<input type="file" name="firstimg" id="firstimg" style="display:none;" />
+								<font color='red'>*封面图片尺寸推荐：320x200 </font></br>
+								<font color='red'>*点击图片进行修改</font>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">报刊图片：</td>
+								<td style="text-align:left;">
+								<php>$a=0</php>
+								<a href="javascript:;" id="add_img" ><input type="button" value="添加"></a>
+									<div id="press_img">
+										<div class='img_0'>
+											<img src="__PUBLIC__/Admin/Img/add_img.png" class="thumb_0"  width="100" onclick="add_imgs(0)">
+											<input type='file' name='photo{$a}' date-id='0' class='photo' id="photo_0" style="display:none;">
+											<span>排序(数字小的在前面)：</span>
+											<input type='number' name='press[{$a}][yeshu]' value='0'>
+											&nbsp;&nbsp;<span>报刊日期：</span>
+											<input type='text' name='press[{$a}][addtime]' placeholder="请选择报刊日期..." onclick='WdatePicker();' placeholder='请选择时间...' required>
+											<a href='JavaScript:;' onclick='del(0)'>移除</>
+										</div>
+									</div>
+									<php>$a++</php>
+								</td>
+							</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td style="text-align:left;">
+								<input type="submit" name="submit" value="提交">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+	<script type="text/javascript">
+	$(function(){
+		var i=1;
+		$('#add_img').click(function(){
+			var res="<div class='img_"+i+"'>";
+			res +='<img src="__PUBLIC__/Admin/Img/add_img.png" class="thumb_'+i+'"  width="100" onclick="add_imgs('+i+')">';
+			res +="<input type='file' name='photo"+i+"' date-id='"+i+"' class='photo' id='photo_"+i+"' style='display:none;'>";
+			res +="<span>排序(数字小的在前面)：</span> ";
+			res +="<input type='number' name='press["+i+"][yeshu]' value='0'>";
+			res +="<span>报刊日期：</span>";
+			res +="<span></span>";
+			res +="<input type='text' name='press["+i+"][addtime]' placeholder='请选择报刊日期...' onclick='WdatePicker();' placeholder='请选择时间...'>";
+			res +="<a href='JavaScript:;' onclick='del("+i+")'>移除</>";
+			res +="</div>";
+			$('#press_img').append(res);
+			i++;
+		})
+		$('.thumb').on('click',function(){
+			$('#firstimg').click();
+		})	
+		$('#firstimg').on('change',function(){
+			yulan('.thumb','#firstimg')	
+			
+		})
+		$('body').on('change','.photo',function(){
+				var ids=$(this).attr('date-id');
+		
+				yulan('.thumb_'+ids,'#photo_'+ids);	
+		})
+	})
+
+		function add_imgs(ids){
+	
+			$('#photo_'+ids).click();
+		}
+		function yulan(cls,ids){
+			 var preview = document.querySelector(cls);
+			 var file  = document.querySelector(ids).files[0];
+
+			 var reader = new FileReader();
+			 reader.onloadend = function () {
+			  preview.src = reader.result;
+			 }
+			 if (file) {
+			  reader.readAsDataURL(file);
+			 } else {
+			  preview.src = "";
+			 }
+		}
+		function del(i){
+			$('.img_'+i).remove();
+		}
+	</script>	
+</body>
+</html>

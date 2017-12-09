@@ -1,0 +1,311 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delDealer(id) {
+  if(confirm('你确定要删除这个客户吗？')){
+    window.location.href="{:U('Dealer/del_dealer')}/id/"+id;
+  }
+}
+function exportdata(){
+  if(confirm('你确定要导出吗？')){
+    window.location.href="{:U('Dealer/export_data')}";
+  }
+}
+</script>
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">文章列表</a></li>
+    </ul>
+  </div>
+  <div class="wrapBox mainAutoHeight">
+    <!--文章列表-->
+    <div class="body User">
+      <div class="item" style="height: 60px;">
+        <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i style="height: 24px;"><input type="button" value="新建客户" class="submitNoBg" onclick="window.location.href='{:U('Dealer/add_dealer')}'"/></i></a>
+        <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_import"></span><i style="height: 24px;"><input type="button" value="导入经销商" class="submitNoBg" onclick="$('#excel').click();"/></i></a>
+        <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_export"></span><i style="height: 24px;"><input type="button" value="导出经销商" class="submitNoBg" onclick="exportdata()"/></i></a>
+        <div id="excel_name"></div>
+        <div style="display: none;">
+          <form action="{:U('Dealer/import_data')}" method="post" enctype="multipart/form-data" id="excel_from">
+            <input type="file" name="excel" id="excel">
+          </form>
+        </div>
+        <script>
+          var clear_btn = '<a href="javascript:;" id="clear_btn">清除</a>';
+          if($('#excel').val()){
+            $('#excel_name').html($('#excel').val()+'&nbsp;&nbsp;&nbsp;'+clear_btn);
+          }
+          $('#excel').change(function(){
+            $('#excel_name').html($(this).val()+'&nbsp;&nbsp;&nbsp;'+clear_btn);
+            // alert('修改了表字段，导入需要修改，暂时别用');
+            $('#excel_from').submit();
+          })
+          $('#clear_btn').live('click', function(){
+            $('#excel').val('');
+            $('#excel_name').empty();
+          })
+        </script>
+
+        <div class="searchBar" style="text-align: right;line-height: 30px;">
+          <form action="{:U('Dealer/index')}">
+            店面类型：
+            <select name="store_type" class="dot_Item">
+              <option value="">选择类型</option>
+              <option value="1" <if condition="$filter.store_type eq 1">selected</if>>衣柜</option>
+              <option value="2" <if condition="$filter.store_type eq 2">selected</if>>厨柜</option>
+              <!-- <option value="3" <if condition="$filter.store_type eq 3">selected</if>>衣柜+厨柜</option> -->
+            </select>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            地区
+            <select name="province" id="province" class="dot_Item" style="width: 100px;">
+              <option value="">省</option>
+              <foreach name="province_list" item="item">
+                <option value="{$item.province_id}" <if condition="$item['province_id'] eq $filter['province']">selected</if>>{$item.province_name}</option>
+              </foreach>
+            </select>
+            <select name="city" id="city" class="dot_Item" style="width: 100px;">
+              <option value="">市</option>
+              <notempty name="city_list">
+                <foreach name="city_list" item="item">
+                  <option value="{$item.city_id}" <if condition="$item['city_id'] eq $filter['city']">selected</if>>{$item.city_name}</option>
+                </foreach>
+              </notempty>
+            </select>
+            <select name="district" id="district" class="dot_Item" style="width: 100px;">
+              <option value="">区</option>
+              <notempty name="district_list">
+                <foreach name="district_list" item="item">
+                  <option value="{$item.country_id}" <if condition="$item['country_id'] eq $filter['district']">selected</if>>{$item.country_name}</option>
+                </foreach>
+              </notempty>
+            </select>
+            <!-- &nbsp;&nbsp;|&nbsp;&nbsp;
+            分部：
+            <select name="team" id="team" class="dot_Item" style="width: 100px;">
+              <option value="">选择分部</option>
+              <foreach name="team_list" item="item">
+                <option value="{$item.id}" <if condition="$item['id'] eq $filter['team']">selected</if>>{$item.t_name}</option>
+              </foreach>
+            </select>
+            开发人：
+            <select name="principal" id="principal" class="dot_Item" style="width: 100px;">
+              <option value="">选择开发人</option>
+              <notempty name="principal_list">
+                <foreach name="principal_list" item="item">
+                  <option value="{$item.id}" <if condition="$item['id'] eq $filter['principal']">selected</if>>{$item.p_name}</option>
+                </foreach>
+              </notempty>
+            </select> -->
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            进度：
+            <select name="schedule" class="dot_Item">
+              <option value="">选择进度</option>
+              <option value="1" <if condition="$filter.store_type eq 1">selected</if>>已下厂</option>
+              <option value="2" <if condition="$filter.store_type eq 2">selected</if>>正在设计平面图</option>
+              <option value="3" <if condition="$filter.store_type eq 3">selected</if>>正在设计施工图</option>
+              <option value="4" <if condition="$filter.store_type eq 4">selected</if>>正在设计样柜图</option>
+              <option value="14" <if condition="$filter.store_type eq 14">selected</if>>未回传图纸</option>
+              <option value="5" <if condition="$filter.store_type eq 5">selected</if>>待客户确认平面图</option>
+              <option value="6" <if condition="$filter.store_type eq 6">selected</if>>待客户确认施工图</option>
+              <option value="7" <if condition="$filter.store_type eq 7">selected</if>>待客户确认样柜图</option>
+              <option value="8" <if condition="$filter.store_type eq 8">selected</if>>待审核图纸</option>
+              <option value="9" <if condition="$filter.store_type eq 9">selected</if>>待审核报价</option>
+              <option value="10" <if condition="$filter.store_type eq 10">selected</if>>正在计料</option>
+              <option value="11" <if condition="$filter.store_type eq 11">selected</if>>待优化</option>
+              <option value="12" <if condition="$filter.store_type eq 12">selected</if>>已退出</option>
+              <option value="13" <if condition="$filter.store_type eq 13">selected</if>>已开店</option>
+            </select>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <br>
+            排序方式：
+            <select name="sort_by" class="dot_Item">
+              <option value="">请选择排序方式</option>
+              <option value="id" <if condition="$filter.sort_by eq 'id'">selected</if>>编号</option>
+              <option value="join_time" <if condition="$filter.sort_by eq 'join_time'">selected</if>>加盟时间</option>
+              <option value="postback_time" <if condition="$filter.sort_by eq 'postback_time'">selected</if>>回传图纸日期</option>
+              <option value="specimen_time" <if condition="$filter.sort_by eq 'specimen_time'">selected</if>>样柜下场日期</option>
+              <option value="update_time" <if condition="$filter.sort_by eq 'update_time'">selected</if>>更新时间</option>
+            </select>
+            排序：
+            <select name="sort_order" class="dot_Item">
+              <option value="">请选择排序</option>
+              <option value="DESC" <if condition="$_GET['sort_order'] eq 'DESC'">selected</if>>倒序</option>
+              <option value="ASC" <if condition="($filter.sort_order eq 'ASC') or empty($_GET['sort_order'])">selected</if>>顺序</option>
+            </select>
+            <select name="key_type" class="dot_Item">
+              <option value="3" <if condition="$filter.key_type eq 3">selected</if>>专卖店名称</option>
+              <option value="1" <if condition="$filter.key_type eq 1">selected</if>>开发人</option>
+              <option value="2" <if condition="$filter.key_type eq 2">selected</if>>招商部门</option>
+            </select> ：
+            <input type="text" class="txt" name="keyword" value="{$filter.keyword}"/>&nbsp;&nbsp;<input type="submit" class="submit btn_search" value="搜索" />
+          </form>
+        </div>
+      </div>
+        
+      <form method="POST" action="{:U('Dealer/batch')}" name="listForm">
+        <table border="0" cellpadding="0" cellspacing="0" class="center">
+          <thead>
+            <tr>
+              <th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" />编号</th>
+              <!-- <th>项目</th> -->
+              <th>店面类型</th>
+              <th>加盟时间</th>
+              <th>省份</th>
+              <th>城市</th>
+              <th>区/县</th>
+              <th>专卖店名称</th>
+              <th>姓名</th>
+              <th>分部</th>
+              <th>开发人</th>
+              <th>回传图纸日期</th>
+              <th>样柜下场日期</th>
+              <th>更新时间</th>
+              <th>进度</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name="list" item="vo">
+              <tr>
+                <td><input type="checkbox" name="checkboxes[]" class="checkBox_list" value="{$vo.id}" />{$vo.id}</td>
+                <!-- <td>{$vo.project}</td> -->
+                <td>{$vo.store_type_name}</td>
+                <td><empty name="vo.join_time">无<else />{$vo.join_time|date='Y-m-d',###}</empty></td>
+                <td>{$vo.province_name}</td>
+                <td>{$vo.city_name}</td>
+                <td>{$vo.district_name}</td>
+                <td>{$vo.shopname}</td>
+                <td>{$vo.u_name}</td>
+                <td>{$vo.team_id}</td>
+                <td>{$vo.principal_id}</td>
+                <td><empty name="vo.postback_time">无<else />{$vo.postback_time|date='Y-m-d',###}</empty></td>
+                <td><empty name="vo.specimen_time">无<else />{$vo.specimen_time|date='Y-m-d',###}</empty></td>
+                <td><empty name="vo.update_time">无<else />{$vo.update_time|date='Y-m-d',###}</empty></td>
+                <td>{$vo.schedule_name}</td>
+                <td>
+                  <span>
+                    <a title="编辑" href="{:U('Dealer/edit_dealer',array('id'=>$vo['id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+                    <a title="移除" onclick="delDealer('{$vo.id}')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+                  </span>
+                </td>
+              </tr>
+            </foreach>
+          </tbody>
+        </table>
+          
+          
+        <div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
+        <div class="batchChange">
+          <!-- <div class="f_l">
+            <select onchange="changeAction()" id="selAction" name="type">
+              <option value="">请选择...</option>
+              <option value="button_remove">批量删除</option>
+              <option value="button_hide">批量隐藏</option>
+              <option value="button_show">批量显示</option>
+              <option value="button_recommend_yes">批量推荐</option>
+              <option value="button_recommend_no">取消推荐</option>
+              <option value="move_to">转移到分类</option>
+            </select>
+            <select name="target_cat" style="display:none">
+              <option value="0">请选择...</option>
+              {$cat_select}
+            </select>
+            <input type="submit" class="button" name="btnSubmit" id="btnSubmit" value=" 确定 "/>
+          </div> -->
+          <div class="f_r">
+            <div class="pagination">{$page}</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    $('#team').change(function(){
+      var url = '{:U("Dealer/ajax_team")}';
+      var data = 't_id='+$(this).val();
+      
+      ajax_post(url, data, teamResult);
+    });
+
+    $('#province').change(function(){
+      var url = '{:U("Dealer/ajax_region")}';
+      var data = 'province='+$(this).val()+'&type=province';
+
+      ajax_post(url, data, regionResult);
+    });
+    $('#city').change(function(){
+      var url = '{:U("Dealer/ajax_region")}';
+      var data = 'city='+$(this).val()+'&type=city';
+
+      ajax_post(url, data, regionResult);
+    });
+  })
+  function teamResult(data){
+    $('#principal').empty();
+    $('#principal').append(data.html);
+  }
+  function regionResult(data){
+    if(data.error){
+      alert(data.msg);
+    }else{
+      switch(data.type){
+        case 'province':
+          $('#city').empty();
+          $('#city').append(data.html);
+          $('#district').empty();
+          $('#district').append('<option value="">区</option>');
+          $('#town').empty();
+          $('#town').append('<option value="">镇</option>');
+          break; 
+        case 'city':
+          $('#district').empty();
+          $('#district').append(data.html);
+          $('#town').empty();
+          $('#town').append('<option value="">镇</option>');
+          break; 
+        case 'district':
+          $('#town').empty();
+          $('#town').append(data.html);
+          break; 
+      }
+    }
+  }
+  function ajax_post(url, data, resultFunction, type){
+    if(!type){
+      type = 'json';
+    }
+    $.post(url, data, resultFunction, type);
+  }
+</script>
+<script type="text/javascript">
+  /**
+   * @param: bool ext 其他条件：用于转移分类
+   */
+  function confirmSubmit(frm, ext){
+    if (frm.elements['type'].value == 'button_remove'){
+      return confirm('您确定要删除文章吗');
+    }else if (frm.elements['type'].value == 'not_on_sale'){
+      return confirm('您确定要隐藏文章吗');
+    }else if (frm.elements['type'].value == 'move_to'){
+      ext = (ext == undefined) ? true : ext;
+      return ext && frm.elements['target_cat'].value != 0;
+    }else if (frm.elements['type'].value == ''){
+      return false;
+    }else{
+      return true;
+    }
+  }
+  function changeAction(){
+    var frm = document.forms['listForm'];
+    // 切换分类列表的显示
+    frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
+    if (!document.getElementById('btnSubmit').disabled &&
+      confirmSubmit(frm, false)){
+      frm.submit();
+    }
+  }
+</script>
+</body>
+</html>

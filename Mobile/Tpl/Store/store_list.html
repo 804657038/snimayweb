@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>附近的门店</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="__STORE__/css/swiper.min.css">
+    <script src="__STORE__/js/jquery.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <script>
+        $(document).ready(function(){
+            var lat = "{$lat2}";
+            var lon = "{$lon2}";
+            $.ajax({
+                 url:"http://api.map.baidu.com/geocoder/v2/?output=json&ak=A50a5cf7e9ea0b2c2101356125c4e1c5&location="+lat+","+lon,
+                type:'POST', //GET
+                async:true,    //或false,是否异步
+                data:{
+                    
+                },
+                timeout:5000,    //超时时间
+                dataType:'JSONP',    //返回的数据格式：json/xml/html/script/jsonp/text
+                success:function(data,textStatus,jqXHR){
+
+                    var address=data.result.addressComponent;
+                    var city = address.province;
+                    var province = address.city;
+                    var district = address.district;
+                    $("#city").html(city);
+                    $("#province").html(province);
+                    $("#district").html(district);
+                },
+                error:function(xhr,textStatus){
+                    alert('错误')
+                }
+            });
+            $("#find_store").on('input',function(e){
+            var keyword = $("#search").val();  
+               $.ajax({
+                    url:"{:U('Store/search')}/text/"+keyword+"/lat/"+lat+"/lon/"+lon,
+                    type:'POST', //GET
+                    async:true,    //或false,是否异步
+                    data:{
+                        // text:search
+                    },
+                    timeout:5000,    //超时时间
+                    dataType:'JSON',    //返回的数据格式：json/xml/html/script/jsonp/text
+                    success:function(data,textStatus,jqXHR){
+                        $("ul").find("li").remove(); 
+                        for(var i = 0; i<data.length; i++){
+                            var industry = data[i];
+                            $(".list ul").append("<li><div class='pic'><img src='__ROOT__/"+industry.original_img+"' width='130px' /></div><div class='font'><p class='font2'>"+industry.name+"<span class='font1 right'>距您"+industry.distance+"km</span></p><p class='font1'>"+industry.address+"</p><p class='font1'><img src='__STORE__/images/time.jpg' width='8px' />"+industry.time+"</p></div><div class='button'><a href='{:U('Store/sale')}/store_id/"+industry.id+"'><img src='__STORE__/images/touch.jpg' width='80px' /></a><a href='{:U('Store/mapnav')}/store_id/"+industry.id+"'><img src='__STORE__/images/nav.jpg' width='80px' /></a></div><div style='clear: both;'></div></li>");
+                        }
+                        // console.log(data);
+                    },
+                    error:function(xhr,textStatus){
+                        alert('错误');
+                    }
+                });  
+            });
+        }); 
+        // wx.error(function (res) {
+        //     alert(res.errMsg);
+        // });
+
+    </script>
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 60%;
+    }
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: auto;
+        
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        /*-webkit-align-items: center;
+        align-items: center;*/
+    }
+    #address{margin-top:10px;}
+    #address img{float:left;padding-left: 5px;width: 4%;}
+    #address h5{float:left;margin:2px 0px 0px 6px;line-height:16px;font-size:0.8em;font-weight: normal;}
+    #find_store {float:right;background: #c9cbca;border-radius:8px;color:#fff;margin:-5px 5px 0 0;}
+    #find_store img{float:left;margin: 6px 0px 6px 10px;}
+    #find_store input{
+        float:right;  
+        padding: 0; 
+        margin: 7px 0 0 7px; 
+        border: 0; 
+        width: 80px; 
+        background: none; 
+        font-size: .8em; 
+    }
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+        color: #fff; 
+    } 
+    input:-moz-placeholder, textarea:-moz-placeholder { 
+        color: #fff; 
+    } 
+    input::-moz-placeholder, textarea::-moz-placeholder { 
+        color: #fff; 
+    } 
+    input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+        color: #fff; 
+    }
+    .list ul{margin:0;padding: 0px;}
+    .list li{list-style: none;padding-top: 12px;padding-bottom: 6px;}
+    .list ul li:nth-child(2n+1) {
+        background-color: white;
+    }
+    .list ul li:nth-child(2n) {
+        background-color:#eeeeee;
+    }
+    .list .pic{float: left;margin:0px 10px 0px 4px;}
+    .clear{margin-top:36px;margin-bottom:0px;border-top:1px solid #ddd;}
+    .list .font{padding-top:0.1px;}
+    /*.list .font p{line-height: 0.5rem;}*/
+    .font1{font-size: 0.64rem;margin:0 0 10px 0;}
+    .font2{font-size: 0.76rem;margin:0 0 5px 0;}
+    .right{float:right;}
+    .button{float:right;margin-right: 4px;}
+    .button a{margin-left:10px;}
+    @media screen and (max-width: 320px) {
+         .button a{margin-left:2px;}
+         .font2{font-size: 0.6rem;}
+         .font1{font-size: 0.54rem;}
+    }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <volist name="banner_list" id="vo">
+            <div class="swiper-slide"><a href="{$vo.link}"><img src="__ROOT__/{$vo.original_img}" width="100%"></a></div>
+        </volist>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="__STORE__/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 4500,
+        autoplayDisableOnInteraction: false
+    });
+    </script>
+    <div id="lbs">
+    	<div id="address"><img src="__STORE__/images/tip.jpg" /><h5>您的当前位置：<span id="city">广东</span>、<spn id="province">济南</spn>、<span id="district">北园大街</span></h5></div>
+    	<div id="find_store"><form><img src="__STORE__/images/search.jpg" /><input id="search" type="text" name="search" placeholder="查找专卖店" /></form></div>
+    </div>
+    <div class="clear"></div>
+    <section class="list">
+        <ul>
+            <foreach name="result" item="vo">
+                <li>
+                    <div class="pic">
+                        <a href="{:U('Store/activity')}/store_id/{$vo.id}"><img src="__ROOT__/{$vo.original_img}" width="130px" /></a>
+                    </div>
+                    <div class="font">
+                        <p class="font2"><a style="color:#000;text-decoration:none;" href="{:U('Store/activity')}/store_id/{$vo.id}"><strong>{$vo.name}</strong></a><span class="font1 right">距您{$vo.distance}km</span></p>
+                        <p class="font1" style="display:block;width:15em;margin:0px 0px 5px 0px;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{$vo.address}</p>
+                        <p class="font1"><img src="__STORE__/images/time.jpg" width="8px" />{$vo.time}</p>
+                    </div>
+                    <div class="button">
+                        <a href="{:U('Store/sale')}/store_id/{$vo.id}"><img src="__STORE__/images/touch.jpg" width="80px" /></a>
+                        <a href="{:U('Store/mapnav')}/store_id/{$vo.id}"><img src="__STORE__/images/nav.jpg" width="80px" /></a>
+                    </div>
+                    <div style="clear: both;"></div>
+                </li>
+            </foreach>
+        </ul>
+    </section>
+</body>
+</html>

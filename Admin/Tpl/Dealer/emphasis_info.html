@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>经销商管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+  <script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+  <script src="__PUBLIC__/Admin/Js/My97DatePicker/WdatePicker.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+  autoHeight(jQuery('.autoHeight'));
+  jQuery(".column_Box").each(function () {
+    var t = jQuery(this);
+    if (t.length < 1) return;
+    Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+  });
+});
+</script>
+
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">经销商属性</a></li>
+    </ul>
+  </div>
+  <style>
+    .column_Box .body .store_type { width: 100%; }
+    .column_Box .body .store_type li { float: left;padding: 10px;font-size: 16px;font-family: '微软雅黑'; }
+    .column_Box .body .store_type li.on { border-bottom: 2px solid #da251d; }
+    .column_Box .body .search { width: 100%;margin: 10px 0; }
+  </style>
+  <div class="column_Box mainAutoHeight wrapBox">
+    <div class="body">
+      <ul class="store_type">
+        <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/emphasis_info', array('type'=>1,'filtrate'=>$filtrate))}">衣柜</a></li>
+        <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/emphasis_info', array('type'=>2,'filtrate'=>$filtrate))}">橱柜</a></li>
+        <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/emphasis_info', array('type'=>3,'filtrate'=>$filtrate))}">衣柜+橱柜</a></li> -->
+        <div style="clear: both;"></div>
+      </ul>
+      <div class="search">
+        <input type="text" name="search_keywords" id="search_keywords" size="50">
+        <input type="button" id="search_btn" value="搜索">
+      </div>
+      <form method="post" action="{:U('Dealer/change_emphasis')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <if condition="($filtrate eq 'province') or ($filtrate eq 'all')">
+              <tr>
+                <td style="text-align:right;" width="150px">省级区域：</td>
+                <td style="text-align:left;" id="province_list">
+                  请在上方搜索关键字区域。
+                </td>
+              </tr>
+            </if>
+            <if condition="($filtrate eq 'city') or ($filtrate eq 'all')">
+              <tr>
+                <td style="text-align:right;">市级区域：</td>
+                <td style="text-align:left;" id="city_list">
+                  请在上方搜索关键字区域。
+                </td>
+              </tr>
+            </if>
+            <if condition="($filtrate eq 'district') or ($filtrate eq 'all')">
+              <tr>
+                <td style="text-align:right;">县级区域：</td>
+                <td style="text-align:left;" id="district_list">
+                  请在上方搜索关键字区域。
+                </td>
+              </tr>
+            </if>
+            <if condition="($filtrate eq 'town') or ($filtrate eq 'all')">
+              <tr>
+                <td style="text-align:right;">镇级区域：</td>
+                <td style="text-align:left;" id="town_list">
+                  请在上方搜索关键字区域。
+                </td>
+              </tr>
+            </if>
+            <tr>
+              <td>&nbsp;</td>
+              <td style="text-align:left;">
+                <input type="hidden" name="filtrate" value="{$filtrate}"/>
+                <input type="hidden" name="store_type" value="{$store_type}"/>
+                <input type="submit" value="提交"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      <script>
+        $(function(){
+          $('#search_btn').click(function(){
+            var search_keywords = $('#search_keywords').val();
+            var filtrate = '{$filtrate}';
+            var store_type = '{$store_type}';
+
+            $.post('{:U("Dealer/ajax_search")}', 'search_keywords='+search_keywords+'&filtrate='+filtrate+'&store_type='+store_type, function(data){
+              if(filtrate == 'all'){
+                $('#province_list').empty();
+                $('#city_list').empty();
+                $('#district_list').empty();
+                $('#town_list').empty();
+                $('#province_list').append(data.province);
+                $('#city_list').append(data.city);
+                $('#district_list').append(data.district);
+                $('#town_list').append(data.town);
+              }
+              if(filtrate == 'province'){
+                $('#province_list').empty();
+                $('#province_list').append(data.province);
+              }
+              if(filtrate == 'city'){
+                $('#city_list').empty();
+                $('#city_list').append(data.city);
+              }
+              if(filtrate == 'district'){
+                $('#district_list').empty();
+                $('#district_list').append(data.district);
+              }
+              if(filtrate == 'town'){
+                $('#town_list').empty();
+                $('#town_list').append(data.town);
+              }
+            }, 'json');
+          })
+        })
+      </script>
+    </div>
+  </div>
+</div>
+</body>
+</html>

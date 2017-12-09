@@ -1,0 +1,138 @@
+<title>订单查询-诗尼曼全屋定制</title>
+<meta name='keywords' content=""/>
+<meta name='description' content=""/>
+<include file='Public:pageHeader'/>  
+<div class="g-banner" style="background:url(__ROOT__/{$ban['original_img']});background-size:cover"></div>
+<!--     <script type="text/javascript" src="__JS__/jquery.js"></script> -->
+	<style>
+	 #chaxun{
+	 text-align:center;
+	 margin-top: 3%;
+	 width: 100%;
+	 }
+	 #chaxun span{
+    font-family: '微软雅黑 Regular', '微软雅黑';
+    font-weight: 400;
+    font-size: 36px;}
+	#chaxun #getPhoneNmber{
+		height:45px;
+		/*background:red;*/
+		
+		text-align:center;
+	}
+	#chaxun #getPhoneNmber img{
+		/*position:absolute;*/
+		width:40px;
+		height:38px;
+		border:1px solid #999999;
+		border-left:none;
+		float:left;
+	}
+	#chaxun #getPhoneNmber input{
+		width: 60%;
+		height: 40px;
+		color: #999999;
+		border:1px solid #999999;
+		padding-left: 10px;
+		float:left;
+		margin-left:14%;
+	}
+	#chaxun #getPhoneNmber input:focus{
+		border:1px solid #799bd2;
+	}
+	
+	#maoshu{
+		text-align:center;
+		margin:0 auto;
+		width: 100%;
+		height: 310px;
+	}
+	#maoshu ul {
+		margin:30PX auto;
+		
+	}
+	#maoshu ul li{
+		padding-top:10px;
+		background:rgba(0,0,0,0.1);
+		width: 254px;
+		height: 300px;
+		list-style:none;
+		float:left;
+		text-align:center;
+		line-height:20px;
+		margin:10px 10px 30px 10px;
+		text-align:center;
+	}
+	#maoshu ul li img{
+		width:70px;
+		height:70px;
+		padding-top: 10px;
+	}
+	#maoshu ul li p{
+		font-weight: 400;
+		font-size: 14px;
+		text-align: left;
+		color: #999999;
+		line-height: 30px;
+		padding: 0px 20px 0 20px;
+	}
+	#maoshu ul li span{
+		display: block;
+		font-size: 20px;
+		padding: 20px;
+	}
+	#tishi{
+		color: #ff0000;
+		font-size: 12px;
+		margin-left: 14%;
+		margin-bottom: 2%
+	}
+	</style>
+	<script>
+	function getOrders() {
+		var phoneNmber = document.getElementById("phoneNmber").value;
+		$.ajax({
+		type: "POST",
+		url: "http://crm.snimay.com/snimaycrm/connector/customerOrders.jsp?phone="+phoneNmber,
+		dataType: 'jsonp',
+			success: function(msg){	
+				// console.log(msg);	
+				var ret = msg.ret.toString();
+				if(ret == '1'){
+	            	window.location.href="{:U('Query/OrderList')}?phoneNmber="+phoneNmber;
+	            }else {
+				   	alert("您的手机号码没有相关的订单信息");		
+				   	document.getElementById("phoneNmber").value = "";	
+				}
+			}
+		})
+	}
+	
+	function  callback(msg){
+		console.log(msg);
+		 var  ret2 = msg.ret.toString();
+						   if (ret2 == '1'){
+						   	 window.location.href="{:U('Query/OrderList')}?phoneNmber="+document.getElementById("phoneNmber").value;
+						   	}else {
+						   		alert("您的手机号码没有相关的订单信息");		
+						   	document.getElementById("phoneNmber").value = "";	}		
+		}         
+				
+	</script>
+
+	<div id="chaxun">
+		<div id = 'getPhoneNmber'>
+		<input id="phoneNmber" type="text" placeholder="以门店预留手机号码为准" />
+		<a href="#" id="postPhoneNmber">
+		<img src = "__IMG__/u45.png" onclick="getOrders()">
+		</a>
+		</div>	
+	</div>
+    <div id="tishi">
+		<!-- <p>订单查询功能维护升级中，查询功能暂停开放</p> -->
+	</div>
+	<div>
+		<img src = "__IMG__/prmess.jpg" />
+	</div>
+
+<include file='Public:pageFooter'/>

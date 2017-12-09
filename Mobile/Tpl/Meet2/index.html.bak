@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>诗尼曼全屋定制诚邀加盟</title>
+	<link href="__CSS__/normalize.css" rel="stylesheet" type="text/css"> 
+	<link href="__CSS__/jBox.css" rel="stylesheet" type="text/css"> 
+	<link href="__CSS__/meet2.css" rel="stylesheet" type="text/css"> 
+	<script src="__JS__/meet/jquery-1.9.1.js"></script>
+	<script src="__JS__/meet/jBox.js"></script>
+	<script src="__JS__/myScript.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+	<script>
+	wx.config({
+		debug: false,
+		appId: '{$signPackage.appId}',
+		timestamp: '{$signPackage.timestamp}',
+		nonceStr: '{$signPackage.nonceStr}',
+		signature: '{$signPackage.signature}',
+		jsApiList: [
+			'checkJsApi',
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage'
+		]
+		});
+		wx.ready(function () {
+			var shareData = {
+				title: '掌舵全屋定制风口，共享千亿市场，诗尼曼全屋定制诚邀加盟！',
+				desc: '掌舵全屋定制风口，共享千亿市场',
+				link: '{$signPackage.url}',
+				imgUrl: 'http://m.snimay.com/Public/Mobile/images/h5.jpg'
+			};
+			wx.onMenuShareAppMessage(shareData);
+			wx.onMenuShareTimeline(shareData);
+		});
+		// wx.error(function (res) {
+		// 	alert(res.errMsg);
+		// });
+
+	//显示灰色 jQuery 遮罩层   
+	function showBg() {   
+	    var bh = $("body").height();   
+	    var bw = $("body").width();   
+	    $("#fullbg").css({   
+	        height:bh,   
+	        width:bw,   
+	        display:"block"   
+	    });   
+	 $("#dialog").show();   
+	}   
+	//关闭灰色 jQuery 遮罩   
+	function closeBg() {   
+		$("#fullbg,#dialog").hide();   
+	}  
+	function mySubmit2(theForm,url,result){  
+	    function default_callback(res){
+	    	//console.log(res);
+	        //result.html(res.info);
+	        alert(res.info);
+	        if(res.status=='1'){
+	            document.getElementById(theForm).reset();
+	            showBg();
+	            if(res.url!=''){
+	                location.href = res.url;
+	            }else{
+	                window.setTimeout(function(){
+	                    result.html('');
+	                },2000);
+	            }
+	        }
+	    }
+
+	    var callback = arguments[3] || default_callback;
+
+	    var result = $('#'+result);
+	    result.html('loading...');
+	    var data = $('#'+theForm).serialize();//2014/10/07更新
+
+	    $.post(url,data,callback,'json');
+	    return false;
+	}
+ </script>
+
+	</head>
+	<body>
+<!-- 		<img src="__IMG__/h5.jpg" width="0" height="0" /> -->
+
+		<header>
+			<img src="__IMG__/meet/head01.jpg" />
+			<img src="__IMG__/meet/head02.jpg" />
+			<div class="num">
+				<p>---今天已有<font>{$info.num1}</font>人咨询加盟---<!--，今日仅剩<strong>{$info.num2}</strong>个名额！--></p>
+			</div>
+		</header>
+		<section class="report2">
+			<form id='cmForm'>
+				<ul>
+					<li><input type="text" name="name"  placeholder="您的姓名" /></li>
+					<li><input type="text" name="phone"  placeholder="您的电话" /></li>
+				</ul>
+				<div id="city">
+					<ul>  
+						<li>
+							<select name="province" onchange="getRegion4(this.value,'city4')" class="prov">
+								<option value="">省</option>
+								<volist name="province" id="vo">
+									<option value="{$vo.region_id}">{$vo.region_name}</option>
+								</volist>
+							</select>
+						</li>
+					  <li class="center">
+					  		<select name="city" class="sl1" id="city4" onchange="getRegion4(this.value,'district4')">
+					  			<option value="">市</option>
+					  		</select>
+					  	</li>
+					  	<li>
+					  		<select name="district" class="sl1" id="district4">
+					  			<option value="">县/区</option>
+					  		</select>
+					  	</li>  
+					</ul>
+				</div>
+				<input type="hidden" name="hd_name" value="广点通加盟客户" />
+				<input type="hidden" name="type" value="7">
+				<center><input class="submit1" type="button" value="抢先预约" onclick="mySubmit2('cmForm','{:U('Meet2/addMessage')}','cmresult')" /></center>
+			</form>
+ <script type="text/javascript">
+function getRegion4(region_id, container){
+	var province4 = parseInt('[province]') || parseInt('Array');
+	var city4 = parseInt('[city]') || parseInt('');
+	var district4 = parseInt('[district]') || parseInt('');
+    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province4' && province4>0){
+            document.getElementById('province4').value = province4;
+            getRegion4(province4, 'city4');
+        }
+        if(container == 'city4'  && city4>0){
+            document.getElementById('city4').value = city4;
+            getRegion4(city4, 'district4');
+        }
+        if(container == 'district4' && district4>0){
+            document.getElementById('district4').value = district2;
+        }
+
+    },'html')
+}
+</script>
+		</section>
+		<section id="product">
+			<center>
+				<img src="__IMG__/meet/p_01.jpg" />
+				<img src="__IMG__/meet/p_02.jpg" />
+				<img src="__IMG__/meet/p_03.jpg" />
+				<img src="__IMG__/meet/p_04.jpg" />
+				<img src="__IMG__/meet/p_05.jpg" />
+				<img src="__IMG__/meet/p_06.jpg" />
+				<img src="__IMG__/meet/p_07.jpg" />
+				<img src="__IMG__/meet/p_08.jpg" />
+				<img src="__IMG__/meet/p_09.jpg" />
+				<img src="__IMG__/meet/p_10.jpg" />
+				<img src="__IMG__/meet/p_11.jpg" />
+				<img src="__IMG__/meet/p_12.jpg" />
+				<img src="__IMG__/meet/p_13.jpg" />
+			</center>
+		</section>
+		<!--<section id="activity">
+			<p>更多活动</p>
+			<center><a href="{$info.url2}"><img src="__IMG__/meet/temp.jpg" /></a></center>
+		</section>-->
+		<div id="fullbg"></div>   
+<div id="dialog">   
+    <div class="close"><a href="#" onclick="closeBg();"><img src="__IMG__/meet/close.png" /></a></div>   
+    	<div class="content">
+			<div class="submit2"><center><a href="http://m.snimay.com/"><input type="submit" value="返回官网" /></a></center></div>
+        </div>  
+</div>
+<div style="display:none;"> 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259855927'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259855927' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+	</body>
+</html>

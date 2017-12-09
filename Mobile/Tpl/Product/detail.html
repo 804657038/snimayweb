@@ -1,0 +1,63 @@
+<include file='Public:pageHeader'/>
+	
+		<!--<div class="c-banner" style="background:url(__ROOT__/{$ban['original_img']});background-size:cover"></div>
+		<!-- <div class="new-main">
+			<p class="new-top">全部分类</p>
+		</div> -->
+		<ul class="new-banner">
+			<volist name="detail.images" id="vo">
+			<li><a href="#"><img src="__ROOT__/{$vo.original_img}"/></a></li>
+        	</volist>
+		</ul>
+		<div class="new-main2">
+			<p class="p1">{$detail.title}</p>
+			<p class="p2">{$detail.short}</p>
+		</div>
+		<!--<div class="new-main3 clearfix">
+			<span>所属分类 ：</span>
+			<volist name="detail.cat_list" id="vo">
+			<em>{$vo}</em>
+			</volist>
+		</div>
+		<div class="new-main4">
+			<ul class="nM4 clearfix">
+				<li class="l1">当前颜色:</li>
+				<volist name="detail.color_list" id="vo">
+				<li class="l3" style="background-image: url(__ROOT__/{$vo});"></li>
+				</volist>
+			</ul>
+            <if condition="$detail.is_mesa eq 1">
+
+                <ul class="nM4 clearfix" style="font-size:14px">
+                    <li class="l1"><a href="javascript:void(0)">台&nbsp;&nbsp;面:</a></li>
+
+                    <volist name="detail.mesa_list" id="vo">
+                        <li class="l3" style="display:block"><img src="__ROOT__/{$vo.img}" style="width: 1rem;height: 0.5rem" title="{$vo.title}"></li>
+                    </volist>
+                </ul>
+            <else />
+                <ul class="nM5 clearfix">
+                    <li class="l1"><a href="javascript:void(0)">可选板材:</a></li>
+                    <if condition="in_array('1',$detail['mucai_list'])"><li class="l3"><a href="#">禾香板</a></li></if>
+                    <if condition="in_array('2',$detail['mucai_list'])"><li class="l3"><a href="#">EO级实木颗粒板</a></li></if>
+                </ul>
+            </if>
+
+		</div>-->
+		<!--<div class="new-main5 clearfix" style="padding: 0.5rem 2.8rem;">
+			<a href="javascript:void(0)" class="a1 aa1" style="text-align:center">免费预约量尺</a>
+			<!-- <a href="{$detail.link}" class="a2">商城购买</a> 
+		</div>-->
+		<p class="new-main6">产品详情</p>
+		<div class="new-main7" style="font-size:0.2rem; line-height:2">
+			{$detail.content}
+		</div>
+		<script type="text/javascript">
+			$(function(){
+			    $('.new-banner').slick({
+			        dots: true,
+			        arrows:false
+			    });
+			});
+		</script>
+<include file='Public:pageFooter'/>

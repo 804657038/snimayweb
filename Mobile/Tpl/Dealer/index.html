@@ -1,0 +1,107 @@
+﻿<include file='Public:pageHeader_dealer'/>
+    <div class="btn">
+      <a href="{:U('Dealer/index',array('store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+      <a href="{:U('Dealer/index',array('store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+      <!-- <a href="{:U('Dealer/index',array('store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a> -->
+    </div>
+    <div class="aera">
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide">
+          <form action="{:U('Dealer/detail')}" method="get">
+            <select name="province" id="province">
+              <option value="">省</option>
+              <foreach name="province_list" item="item">
+                <option value="{$item.province_id}" <if condition="$item['province_id'] eq $info['province']">selected</if>>{$item.province_name}</option>
+              </foreach>
+            </select>
+            <select name="city" id="city">
+              <option value="">市</option>
+              <notempty name="city_list">
+                <foreach name="city_list" item="item">
+                  <option value="{$item.city_id}" <if condition="$item['city_id'] eq $info['city']">selected</if>>{$item.city_name}</option>
+                </foreach>
+              </notempty>
+            </select>
+            <select name="district" id="district">
+              <option value="">区</option>
+              <notempty name="district_list">
+                <foreach name="district_list" item="item">
+                  <option value="{$item.country_id}" <if condition="$item['country_id'] eq $info['district']">selected</if>>{$item.country_name}</option>
+                </foreach>
+              </notempty>
+            </select>
+            <select name="town_id" id="town">
+              <option value="">镇</option>
+              <notempty name="town_list">
+                <foreach name="town_list" item="item">
+                  <option value="{$item.town_id}" <if condition="$item['town_id'] eq $info['town']">selected</if>>{$item.town_name}</option>
+                </foreach>
+              </notempty>
+            </select>
+            <input type="hidden" name="store_type" value="{$store_type}">
+            <input type="submit" id="submit" style="display: none;">
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+<script>
+  $(function(){
+    $('#province').change(function(){
+      var url = '{:U("Dealer/ajax_region")}';
+      var data = 'province='+$(this).val()+'&type=province';
+
+      ajax_post(url, data, regionResult);
+    });
+    $('#city').change(function(){
+      var url = '{:U("Dealer/ajax_region")}';
+      var data = 'city='+$(this).val()+'&type=city';
+
+      ajax_post(url, data, regionResult);
+    });
+    $('#district').change(function(){
+      var url = '{:U("Dealer/ajax_region")}';
+      var data = 'district='+$(this).val()+'&type=district';
+
+      ajax_post(url, data, regionResult);
+    });
+    $('#town').change(function(){
+      if($('#province').val() && $('#city').val() && $('#district').val() && $(this).val()){
+        $('#submit').click();
+      }
+    })
+  })
+  function regionResult(data){
+    if(data.error){
+      alert(data.msg);
+    }else{
+      switch(data.type){
+        case 'province':
+          $('#city').empty();
+          $('#city').append(data.html);
+          $('#district').empty();
+          $('#district').append('<option value="">区</option>');
+          $('#town').empty();
+          $('#town').append('<option value="">镇</option>');
+          break; 
+        case 'city':
+          $('#district').empty();
+          $('#district').append(data.html);
+          $('#town').empty();
+          $('#town').append('<option value="">镇</option>');
+          break; 
+        case 'district':
+          $('#town').empty();
+          $('#town').append(data.html);
+          break; 
+      }
+    }
+  }
+  function ajax_post(url, data, resultFunction, type){
+    if(!type){
+      type = 'json';
+    }
+    $.post(url, data, resultFunction, type);
+  }
+</script>
+<include file='Public:pageFooter'/>

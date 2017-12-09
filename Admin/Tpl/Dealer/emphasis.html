@@ -1,0 +1,99 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+function delEmphasis(store_type, ar) {
+  if(confirm('你确定要删除此处所选吗？')){
+    window.location.href="{:U('Dealer/del_emphasis')}/store_type/"+store_type+"/ar/"+ar;
+  }
+}
+</script>
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">重点区域列表</a></li>
+    </ul>
+  </div>
+  <style>
+    .column_Box .body .store_type { width: 100%; }
+    .column_Box .body .store_type li { float: left;padding: 10px;font-size: 16px;font-family: '微软雅黑'; }
+    .column_Box .body .store_type li.on { border-bottom: 2px solid #da251d; }
+    .column_Box .body table { text-align: center;width: 80%;margin-top: 50px; }
+    .column_Box .body table td.b { font-weight: bold; }
+  </style>
+  <div class="wrapBox mainAutoHeight">
+    <!--文章列表-->
+    <div class="body User">
+      <div class="item">
+        <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="添加重点区域" class="submitNoBg" onclick="window.location.href='{:U('Dealer/emphasis_info',array('type'=>$store_type))}'"/></i></a>
+      </div>
+        
+      <ul class="store_type">
+        <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/emphasis',array('type'=>1))}">衣柜</a></li>
+        <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/emphasis',array('type'=>2))}">橱柜</a></li>
+        <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/emphasis',array('type'=>3))}">衣柜+橱柜</a></li> -->
+        <div style="clear: both;"></div>
+      </ul>
+      <table>
+        <tr>
+          <td class="b" width="150px">省级区域</td>
+          <td>
+            <empty name="province_list">
+              未选择任何省份！
+            <else />
+              <foreach name="province_list" item="item">
+                {$item.province_name} &nbsp;&nbsp;&nbsp; 
+              </foreach>
+            </empty>
+          </td>
+          <td width="150px"><a href="{:U('Dealer/emphasis_info',array('type'=>$store_type,'filtrate'=>'province'))}">修改</a> &nbsp; | &nbsp; <a href="javascript:;" onclick="delEmphasis({$store_type}, 'province')">删除</a></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="b" width="150px">市级区域</td>
+          <td>
+            <empty name="city_list">
+              未选择任何城市！
+            <else />
+              <foreach name="city_list" item="item">
+                {$item.city_name} &nbsp;&nbsp;&nbsp; 
+              </foreach>
+            </empty>
+          </td>
+          <td width="150px"><a href="{:U('Dealer/emphasis_info',array('type'=>$store_type,'filtrate'=>'city'))}">修改</a> &nbsp; | &nbsp; <a href="javascript:;" onclick="delEmphasis({$store_type}, 'city')">删除</a></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="b" width="150px">县级区域</td>
+          <td>
+            <empty name="district_list">
+              未选择任何县区！
+            <else />
+              <foreach name="district_list" item="item">
+                {$item.district_name} &nbsp;&nbsp;&nbsp; 
+              </foreach>
+            </empty>
+          </td>
+          <td width="150px"><a href="{:U('Dealer/emphasis_info',array('type'=>$store_type,'filtrate'=>'district'))}">修改</a> &nbsp; | &nbsp; <a href="javascript:;" onclick="delEmphasis({$store_type}, 'district')">删除</a></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td class="b" width="150px">镇级区域</td>
+          <td>
+            <empty name="town_list">
+              未选择任何乡镇！
+            <else />
+              <foreach name="town_list" item="item">
+                {$item.town_name} &nbsp;&nbsp;&nbsp; 
+              </foreach>
+            </empty>
+          </td>
+          <td width="150px"><a href="{:U('Dealer/emphasis_info',array('type'=>$store_type,'filtrate'=>'town'))}">修改</a> &nbsp; | &nbsp; <a href="javascript:;" onclick="delEmphasis({$store_type}, 'town')">删除</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

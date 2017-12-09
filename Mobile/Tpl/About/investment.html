@@ -1,0 +1,210 @@
+<include file='Public:pageHeader'/>
+<script type="text/javascript">
+$(".c-main3 .prevx").click(function(){
+	$(this).addClass("active1");
+	$(".c-main3 .nextx").removeClass("active2");
+})
+$(".c-main3 .nextx").click(function(){
+	$(this).addClass("active2");
+	$(".c-main3 .prevx").removeClass("active1");
+})
+$(function(){
+    $('.join-m4I').slick({
+        dots: true,
+        infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 2,
+		arrows:false
+    });
+});
+$(function(){
+    $('.join-m5I').slick({
+        infinite: true,
+    });
+});
+</script>
+		<div class="join-banner" style="background:url(__ROOT__/{$ban['original_img']}) no-repeat center;background-size: cover;" ></div>
+		
+		<ul class="join-m clearfix">
+			
+			<li>
+				<i style="background-image: url(__IMG__/j4.jpg);"></i>
+				<span>
+					全国商联衣柜专委会执行会长
+				</span>
+			</li>
+			<li>
+				<i style="background-image: url(__IMG__/j5.jpg);"></i>
+				<span>
+					中国衣柜行业设计金奖
+				</span>
+			</li>
+			<li>
+				<i style="background-image: url(__IMG__/j6.jpg);"></i>
+				<span>
+					中国衣柜行业十年影响力品牌
+				</span>
+			</li>
+			<li>
+				<i style="background-image: url(__IMG__/j7.jpg);"></i>
+				<span>
+					十年影响力品牌
+				</span>
+			</li>
+		</ul>
+		<div class="join-m1">
+			<form  id='cmForm'>
+			<input type="text" class="i1" placeholder="姓名" name="name"/>
+			<input type="text" class="i1" placeholder="手机号码" name="phone"/>
+			<div class="s-wrap">
+				<span>
+					<select name="province" onchange="getRegion1(this.value,'city1')" id="province1">
+					<option value="">选择省份</option>
+					<volist name="province" id="vo">
+						<option value="{$vo.region_id}">{$vo.region_name}</option>
+					</volist>
+					</select>
+					<em></em>
+				</span><span class="mid">
+					<select name="city" class="sl1" id="city1" onchange="getRegion1(this.value,'district1')">
+						<option value="">选择城市</option>
+					</select>
+					<em></em>
+				</span><span>
+					<select name="district" class="sl1" id="district1">
+						<option value="">选择区域</option>
+					</select>
+					<em></em>
+				</span>
+			</div>
+			<input type="hidden" name="type" value="1">
+				<input type="button" value="提交加盟申请" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')" class="btn" />
+			</form>
+		</div>
+		<div class="join-m2">
+			<p class="p1">品牌优势</p>
+			<p class="p2xx"></p>
+			<ul class="join-m2I clearfix">
+				<li>
+					<i style="background-image: url(__IMG__/jo1.png);"></i>
+					<span>{$arti_1.title}</span>
+					<em>{$arti_1.content|mySubstr=###,30}</em>
+				</li>
+				<li>
+					<i style="background-image: url(__IMG__/jo2.png);"></i>
+					<span>{$arti_2.title}</span>
+					<em>{$arti_2.content|mySubstr=###,30}</em>
+				</li>
+				<li>
+					<i style="background-image: url(__IMG__/jo3.png);"></i>
+					<span>{$arti_3.title}</span>
+					<em>{$arti_3.content|mySubstr=###,30}</em>
+				</li>
+				<li>
+					<i style="background-image: url(__IMG__/jo4.png);"></i>
+					<span>{$arti_4.title}</span>
+					<em>{$arti_4.content|mySubstr=###,30}</em>
+				</li>
+			</ul>
+		</div>
+		<div class="join-m3" id="join-m3">
+			<p class="p1">8大加盟优势</p>
+			<p class="p2xx"></p>
+			<ul class="join-m3I">
+				<volist name="ys_list" id="vo" key="k">
+				<li class="clearfix">
+					<div class="kk" style="background-image: url(__IMG__/jn{$k}.png);"></div>
+					<em>{$vo.content}</em>
+				</li>
+				</volist>
+			</ul>
+		</div>
+		<div class="join-m4" id="join-m4">
+			<p class="p1">加盟支持</p>
+			<p class="p2xx"></p>
+			<ul class="join-m4I">
+				<volist name="join_list" id="vo">
+				<li>
+					<span style="background-image: url(__ROOT__/{$vo.original_img});"></span>
+					<i>{$vo.title}</i>
+					<!-- <em>Advertising support</em> -->
+					<b>{$vo.content|mySubstr=###,60}</b>
+				</li>
+				</volist>
+			</ul>
+		</div>
+		<div class="join-m5">
+			<p class="p1">经销商风采</p>
+			<p class="p2xx"></p>
+			<ul class="join-m5I">
+			<volist name="bess_list" id="vo">
+				<li>
+					<div class="m5I-L" style="background-image: url()" style=" width:70%"><img src="__ROOT__/{$vo['list'][0]['original_img']}" style="border-radius:300px; "></div>
+					<div class="m5I-R">
+						<p class="p1">{$vo.short}</p>
+						<p class="p2">{$vo.title}</p>
+					</div>
+					<div style=" float:left; text-indent:0.2rem; margin-top:0.1rem; line-height:2;font-size:0.18rem; width:100%; color:#666">{$vo.content1|mySubstr=###,200}</div>
+				</li>
+				</volist>
+				
+		</div>
+		<div class="join-m6">
+			<p class="p1">加盟条件</p>
+			<p class="p2xx"></p>
+			<ul class="m6I">
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js1.png);"></span>
+					<em>有建材或家具相关行业经营管理经验优先</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js2.png);"></span>
+					<em>专卖店面积100平方米以上为佳</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js3.png);"></span>
+					<em>专卖店最好位于较规范的建材商铺集中地段</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js4.png);"></span>
+					<em>专卖店必须按照诗尼曼的统一规定进行设计装饰运营</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js5.png);"></span>
+					<em>专卖店内必须专营诗尼曼的产品,不得经营其他厂家的同类产品</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js6.png);"></span>
+					<em>交纳品牌保证金</em>
+				</li>
+				<li class="clearfix">
+					<span style="background-image: url(__IMG__/js7.png);"></span>
+					<em>按规定配置相关人员,并定期接受培训和考核</em>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+
+			function getRegion1(region_id, container){
+				var province1 = parseInt('[province]') || parseInt('');
+				var city1 = parseInt('[city]') || parseInt('');
+				var district1 = parseInt('[district]') || parseInt('');
+			    $.get("{:U('Control/getRegion')}",{'region_id':region_id},function(res){
+			    	$('#'+container+' option:gt(0)').remove();
+					$('#'+container).append(res);
+			        $('#'+container).show();
+			        if(container == 'province1' && province1>0){
+			            document.getElementById('province1').value = province1;
+			            getRegion1(province1, 'city1');
+			        }
+			        if(container == 'city1' && city1>0){
+			            document.getElementById('city1').value = city1;
+			        }
+			        if(container == 'district1' && district1>0){
+			            document.getElementById('district1').value = district1;
+			        }
+			    },'html')
+			}
+	
+		</script>
+<include file='Public:pageFooter'/>

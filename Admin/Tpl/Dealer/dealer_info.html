@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>经销商管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+  <script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+  <script src="__PUBLIC__/Admin/Js/My97DatePicker/WdatePicker.js"></script>
+    <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+  autoHeight(jQuery('.autoHeight'));
+  jQuery(".column_Box").each(function () {
+    var t = jQuery(this);
+    if (t.length < 1) return;
+    Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+  });
+});
+
+KindEditor.ready(function(K) {
+  K.create('#content', {
+    allowFileManager : false,
+    pasteType : 2,
+    newlineTag : 'p',
+    urlType : 'absolute'
+  });
+});
+</script>
+<style>
+  .line { width: 1px;height: 100%;border-left: 1px dashed #D2D5E0;float: left;margin: 0 100px; }
+  .column_Box .body table { width: 500px; }
+  .column_Box .body table.fl { float: left; }
+  .column_Box .body table select { width: 180px; }
+</style>
+
+<div class="column_Box mainAutoHeight">
+  <div class="tab">
+    <ul>
+      <li class="current"><a href="javascript:">文章属性</a></li>
+    </ul>
+  </div>
+  <div class="column_Box mainAutoHeight wrapBox">
+    <div class="body">
+      <form method="post" action="{:U('Dealer/'.$type.'_dealer')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
+        <table border="0" cellpadding="0" cellspacing="0" class="fl left_table">
+          <tbody>
+            <tr style="display: none;">
+              <td style="text-align: right;width: 100px;">项目：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="project" value="{$info.project}" /></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">店面类型：</td>
+              <td style="text-align: left;">
+                <select name="store_type" id="store_type">
+                  <option value="1" <if condition="$info.store_type eq 1">selected</if>>衣柜</option>
+                  <option value="2" <if condition="$info.store_type eq 2">selected</if>>橱柜</option>
+                  <!-- <option value="3" <if condition="$info.store_type eq 3">selected</if>>衣柜+橱柜</option> -->
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">加盟时间：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="join_time" value="<empty name='info.join_time'>{:date('Y-m-d')}<else />{$info.join_time|date='Y-m-d',###}</empty>" onclick="WdatePicker();" readonly></td>
+            </tr>
+            
+            <if condition="$type eq 'insert'">
+              <tr>
+                <td style="text-align: right;"><if condition="$i eq 1">地区<else />其他地区</if>：</td>
+                <td style="text-align: left;">
+                  <select name="province[]" class="province" style="width: 20%;">
+                    <option value="">省</option>
+                    <foreach name="province_list" item="item">
+                      <option value="{$item.province_id}">{$item.province_name}</option>
+                    </foreach>
+                  </select>
+                  <select name="city[]" class="city" style="width: 20%;">
+                    <option value="">市</option>
+                    <notempty name="city_list">
+                      <foreach name="city_list" item="item">
+                        <option value="{$item.city_id}">{$item.city_name}</option>
+                      </foreach>
+                    </notempty>
+                  </select>
+                  <select name="district[]" class="district" style="width: 20%;">
+                    <option value="">区</option>
+                    <notempty name="district_list">
+                      <foreach name="district_list" item="item">
+                        <option value="{$item.country_id}">{$item.country_name}</option>
+                      </foreach>
+                    </notempty>
+                  </select>
+                  <select name="town[]" class="town" style="width: 20%;">
+                    <option value="">镇</option>
+                    <notempty name="town_list">
+                      <foreach name="town_list" item="item">
+                        <option value="{$item.town_id}">{$item.town_name}</option>
+                      </foreach>
+                    </notempty>
+                  </select>
+                  <input type="button" id="add_address" style="width: 16%;padding: 0;height: 24px;" value="添加地址">
+                </td>
+              </tr>
+            <elseif condition="$type eq 'update'" />
+              <volist name="address_list" id="address">
+                <tr>
+                  <td style="text-align: right;"><if condition="$i eq 1">地区<else />其他地区</if>：</td>
+                  <td style="text-align: left;">
+                    <select name="province[]" class="province" style="width: 20%;">
+                      <option value="">省</option>
+                      <foreach name="address.province_list" item="item">
+                        <option value="{$item.province_id}" <if condition="$item['province_id'] eq $address['province']">selected</if>>{$item.province_name}</option>
+                      </foreach>
+                    </select>
+                    <select name="city[]" class="city" style="width: 20%;">
+                      <option value="">市</option>
+                      <notempty name="address.city_list">
+                        <foreach name="address.city_list" item="item">
+                          <option value="{$item.city_id}" <if condition="$item['city_id'] eq $address['city']">selected</if>>{$item.city_name}</option>
+                        </foreach>
+                      </notempty>
+                    </select>
+                    <select name="district[]" class="district" style="width: 20%;">
+                      <option value="">区</option>
+                      <notempty name="address.district_list">
+                        <foreach name="address.district_list" item="item">
+                          <option value="{$item.country_id}" <if condition="$item['country_id'] eq $address['district']">selected</if>>{$item.country_name}</option>
+                        </foreach>
+                      </notempty>
+                    </select>
+                    <select name="town[]" class="town" style="width: 20%;">
+                      <option value="">镇</option>
+                      <notempty name="address.town_list">
+                        <foreach name="address.town_list" item="item">
+                          <option value="{$item.town_id}" <if condition="$item['town_id'] eq $address['town']">selected</if>>{$item.town_name}</option>
+                        </foreach>
+                      </notempty>
+                    </select>
+                    <if condition="$i eq 1">
+                      <input type="button" id="add_address" style="width: 16%;padding: 0;height: 24px;" value="添加地址">
+                    <else />
+                      <input type="button" class="del_address" style="width: 16%;padding: 0;height: 24px;" value="删除">
+                    </if>
+                  </td>
+                </tr>
+              </volist>
+            </if>
+            <tr id="u_name">
+              <td style="text-align: right;">姓名：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="u_name" value="{$info.u_name}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">联系电话：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="tel" value="{$info.tel}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">专卖点名称：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="shopname" value="{$info.shopname}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">礼品领取登记：</td>
+              <td style="text-align: left;">
+                <input type="text" class="txt" name="IPAD" value="{$info.IPAD}">
+                <!-- <select name="IPAD" id="IPAD">
+                  <option value="1" <if condition="$info.IPAD eq 1">selected</if>>已领取</option>
+                  <option value="2" <if condition="$info.IPAD eq 2">selected</if>>未领取</option>
+                  <option value="3" <if condition="$info.IPAD eq 3">selected</if>>政策无</option>
+                </select> -->
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">面积：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="area" value="{$info.area}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">分部：</td>
+              <td style="text-align: left;">
+                <input type="text" class="txt" name="team_id" value="{$info.team_id}">
+                <!-- <select name="team_id" id="team_id">
+                  <option value="">选择分部</option>
+                  <foreach name="team_list" item="item">
+                    <option value="{$item.id}" <if condition="$item['id'] eq $info['team_id']">selected</if>>{$item.t_name}</option>
+                  </foreach>
+                </select> -->
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">开发人：</td>
+              <td style="text-align: left;">
+                <input type="text" class="txt" name="principal_id" value="{$info.principal_id}">
+                <!-- <select name="principal_id" id="principal_id">
+                  <option value="">选择开发人</option>
+                  <notempty name="principal_list">
+                    <foreach name="principal_list" item="item">
+                      <option value="{$item.id}" <if condition="$item['id'] eq $info['principal_id']">selected</if>>{$item.p_name}</option>
+                    </foreach>
+                  </notempty>
+                </select> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="line"></div>
+        <table border="0" cellpadding="0" cellspacing="0" class="fl right_table">
+          <tbody>
+            <tr>
+              <td style="text-align: right;width: 100px;">政策支持：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="policy" value="{$info.policy}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">保证金：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="deposit" value="{$info.deposit}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">回传图纸日期：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="postback_time" value="<empty name='info.postback_time'><else />{$info.postback_time|date='Y-m-d',###}</empty>" onclick="WdatePicker();" readonly></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">样柜下厂日期：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="specimen_time" value="<empty name='info.specimen_time'><else />{$info.specimen_time|date='Y-m-d',###}</empty>" onclick="WdatePicker();" readonly></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">更新时间：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="update_time" value="<empty name='info.update_time'>{:date('Y-m-d')}<else />{$info.update_time|date='Y-m-d',###}</empty>" onclick="WdatePicker();" readonly></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">进度：</td>
+              <td style="text-align: left;">
+                <select name="schedule" id="schedule">
+                  <option value="1" <if condition="$info.schedule eq 1">selected</if>>已下厂</option>
+                  <option value="2" <if condition="$info.schedule eq 2">selected</if>>正在设计平面图</option>
+                  <option value="3" <if condition="$info.schedule eq 3">selected</if>>正在设计施工图</option>
+                  <option value="4" <if condition="$info.schedule eq 4">selected</if>>正在设计样柜图</option>
+                  <option value="14" <if condition="$info.schedule eq 14">selected</if>>未回传图纸</option>
+                  <option value="5" <if condition="$info.schedule eq 5">selected</if>>待客户确认平面图</option>
+                  <option value="6" <if condition="$info.schedule eq 6">selected</if>>待客户确认施工图</option>
+                  <option value="7" <if condition="$info.schedule eq 7">selected</if>>待客户确认样柜图</option>
+                  <option value="8" <if condition="$info.schedule eq 8">selected</if>>待审核图纸</option>
+                  <option value="9" <if condition="$info.schedule eq 9">selected</if>>待审核报价</option>
+                  <option value="10" <if condition="$info.schedule eq 10">selected</if>>正在计料</option>
+                  <option value="11" <if condition="$info.schedule eq 11">selected</if>>待优化</option>
+                  <option value="12" <if condition="$info.schedule eq 12">selected</if>>已退出</option>
+                  <option value="13" <if condition="$info.schedule eq 13">selected</if>>已开店</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">意向书登记：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="intention" value="{$info.intention}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">信息来源：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="information_source" value="{$info.information_source}"></td>
+            </tr>
+            <tr>
+              <td style="text-align: right;">提供日期：</td>
+              <td style="text-align: left;"><input type="text" class="txt" name="offer_time" value="<empty name='info.offer_time'>{:date('Y-m-d')}<else />{$info.offer_time|date='Y-m-d',###}</empty>" onclick="WdatePicker();" readonly></td>
+            </tr>
+          </tbody>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 1202px;">
+          <tr>
+            <td style="padding: 0 50px;">
+              <input type="hidden" name="id" value="{$info.id}">
+              <input type="hidden" name="add_time" value="{$info.add_time}">
+              <input type="submit" value="提交">
+            </td>
+          </tr>
+        </table>
+      </form>
+      <script>
+        $(function(){
+          $('.line').height($('.left_table').height());
+
+          $('#team_id').change(function(){
+            var url = '{:U("Dealer/ajax_team")}';
+            var data = 't_id='+$(this).val();
+            
+            ajax_post(url, data, teamResult);
+          });
+
+          $('.province').live('change', function(){
+            var _this = $(this);
+            var url = '{:U("Dealer/ajax_region")}';
+            var data = 'province='+$(this).val()+'&type=province';
+
+            $.post(url, data, function(data){
+              _this.siblings('.city').empty();
+              _this.siblings('.city').append(data.html);
+              _this.siblings('.district').empty();
+              _this.siblings('.district').append('<option value="">区</option>');
+              _this.siblings('.town').empty();
+              _this.siblings('.town').append('<option value="">镇</option>');
+            }, 'json');
+          });
+          $('.city').live('change', function(){
+            var _this = $(this);
+            var url = '{:U("Dealer/ajax_region")}';
+            var data = 'city='+$(this).val()+'&type=city';
+
+            $.post(url, data, function(data){
+              _this.siblings('.district').empty();
+              _this.siblings('.district').append(data.html);
+              _this.siblings('.town').empty();
+              _this.siblings('.town').append('<option value="">镇</option>');
+            }, 'json');
+          });
+          $('.district').live('change', function(){
+            var _this = $(this);
+            var url = '{:U("Dealer/ajax_region")}';
+            var data = 'district='+$(this).val()+'&type=district';
+
+            $.post(url, data, function(data){
+              _this.siblings('.town').empty();
+              _this.siblings('.town').append(data.html);
+            }, 'json');
+          });
+
+          var html = '<tr><td style="text-align: right;">其他地区：</td><td style="text-align: left;"> <select name="province[]" class="province" style="width: 20%;"><option value="">省</option><foreach name="province_list" item="item"><option value="{$item.province_id}">{$item.province_name}</option></foreach></select> <select name="city[]" class="city" style="width: 20%;"><option value="">市</option><notempty name="city_list"><foreach name="city_list" item="item"><option value="{$item.city_id}">{$item.city_name}</option></foreach></notempty></select> <select name="district[]" class="district" style="width: 20%;"><option value="">区</option><notempty name="district_list"><foreach name="district_list" item="item"><option value="{$item.country_id}">{$item.country_name}</option></foreach></notempty></select> <select name="town[]" class="town" style="width: 20%;"><option value="">镇</option><notempty name="town_list"><foreach name="town_list" item="item"><option value="{$item.town_id}">{$item.town_name}</option></foreach></notempty></select> <input type="button" class="del_address" style="width: 16%;padding: 0;height: 24px;" value="删除"></td></tr>';
+          $('#add_address').click(function(){
+            $('#u_name').before(html);
+            $('.line').height($('.left_table').height());
+          });
+          $('.del_address').live('click', function(){
+            $(this).parent().parent().remove();
+            $('.line').height($('.left_table').height());
+          })
+
+        })
+        function teamResult(data){
+          $('#principal_id').empty();
+          $('#principal_id').append(data.html);
+        }
+        function regionResult(data){
+          if(data.error){
+            alert(data.msg);
+          }else{
+            switch(data.type){
+              case 'province':
+                $('#city').empty();
+                $('#city').append(data.html);
+                $('#district').empty();
+                $('#district').append('<option value="">区</option>');
+                $('#town').empty();
+                $('#town').append('<option value="">镇</option>');
+                break; 
+              case 'city':
+                $('#district').empty();
+                $('#district').append(data.html);
+                $('#town').empty();
+                $('#town').append('<option value="">镇</option>');
+                break; 
+              case 'district':
+                $('#town').empty();
+                $('#town').append(data.html);
+                break; 
+            }
+          }
+        }
+        function ajax_post(url, data, resultFunction, type){
+          if(!type){
+            type = 'json';
+          }
+          $.post(url, data, resultFunction, type);
+        }
+      </script>
+    </div>
+  </div>
+</div>
+</body>
+</html>

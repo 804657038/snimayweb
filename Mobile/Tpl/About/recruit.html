@@ -1,0 +1,69 @@
+<include file='Public:pageHeader'/>
+
+<include file='Public:left'/>
+<div class="hr-m">
+	<p class="p1">诗尼曼期待您的加入</p>
+	<p class="p2"><span>请您将简历投递至：</span><i>jobs@snimay.com</i></p>
+	
+</div>
+
+<ul class="hr-list clearfix">
+<volist name="recruit_list" id="vo" key="k">
+	<li>
+		<h1 class="clearfix fl">
+			<span>{$vo.zw_name}</span>
+			<em>{$vo.job_type}  | {$vo.location}</em>
+		</h1>
+		<a href="###">投选简历</a>
+		<div class="block_no">
+			<p class="title"><i></i>{$vo.zw_name}</p>
+			<div class="dic">
+				<p>工作地点：{$vo.location}</p>
+				<div class="dic_are">
+					{$vo.content}
+				</div>
+			</div>
+		</div>
+	</li>
+	</volist>
+</ul>
+<div class="page clearfix">
+	<ul class="clearfix">
+	{$page->show()}
+	</ul>
+</div>
+		
+
+<script type="text/javascript">
+	$(function(){
+	    $('.pp-m1').slick({
+	        dots: false,
+	        infinite: true,
+			slidesToShow: 2,
+			slidesToScroll: 2
+	    });
+	});
+	$(function(){
+	    $('.pp-m2').slick({
+	        dots: false,
+	        infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 3
+	    });
+	});
+
+
+	/*Yuan*/
+	/*招聘弹窗*/
+	$(function () {
+		$(".hr-list li h1").click(function () {
+			$(".block_me").fadeIn();
+			$(this).nextAll(".block_no").fadeIn();
+		});
+		$(".hr-list .block_no i").click(function () {
+			$(".block_me").fadeOut();
+			$(this).parents(".block_no").fadeOut()
+		})
+	})
+</script>
+<include file='Public:pageFooter'/>

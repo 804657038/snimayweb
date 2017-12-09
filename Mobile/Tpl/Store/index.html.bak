@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>附近的门店</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="__STORE__/css/swiper.min.css">
+    <script src="__STORE__/js/jquery.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{$signPackage.appId}',
+            timestamp: '{$signPackage.timestamp}',
+            nonceStr: '{$signPackage.nonceStr}',
+            signature: '{$signPackage.signature}',
+            jsApiList: [
+                'checkJsApi',
+                'getLocation',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            wx.getLocation({
+                type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+                    var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    var speed = res.speed; // 速度，以米/每秒计
+                    var accuracy = res.accuracy; // 位置精度
+                    //处理
+                        $.ajax({
+                            url:'http://api.map.baidu.com/geocoder/v2/?output=json&ak=A50a5cf7e9ea0b2c2101356125c4e1c5&location='+latitude+','+longitude,
+                            type:'POST', //GET
+                            async:true,    //或false,是否异步
+                            data:{
+                                
+                            },
+                            timeout:5000,    //超时时间
+                            dataType:'JSONP',    //返回的数据格式：json/xml/html/script/jsonp/text
+                            success:function(data,textStatus,jqXHR){
+
+                                var address=data.result.addressComponent;
+                                var city = address.city;
+                                var province = address.province;
+                                var district = address.district;
+                                $("#city").html(city);
+                                $("#province").html(province);
+                                $("#district").html(district);
+                            },
+                            error:function(xhr,textStatus){
+                                alert('错误')
+                            }
+                        })
+                }
+            });
+        });
+        // wx.error(function (res) {
+        //     alert(res.errMsg);
+        // });
+
+    </script>
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 60%;
+    }
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        /*-webkit-align-items: center;
+        align-items: center;*/
+    }
+    #address{margin-top:10px;}
+    #address img{float:left;}
+    #address h5{float:left;margin:0px 0px 0px 6px;line-height:16px;font-size:0.8em;font-weight: normal;}
+    #find_store {float:right;background: #c9cbca;border-radius:8px;color:#fff;margin-right:4px;}
+    #find_store img{float:left;margin: 3px 0px 0px 10px;}
+    #find_store input{
+        float:right;  
+        padding: 0; 
+        margin: 3px 0 0 6px; 
+        border: 0; 
+        width: 80px; 
+        background: none; 
+        font-size: .8em; 
+    }
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+        color: #fff; 
+    } 
+    input:-moz-placeholder, textarea:-moz-placeholder { 
+        color: #fff; 
+    } 
+    input::-moz-placeholder, textarea::-moz-placeholder { 
+        color: #fff; 
+    } 
+    input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+        color: #fff; 
+    }
+    .list ul{margin:0;padding: 0px;}
+    .list li{list-style: none;padding-top: 12px;padding-bottom: 6px;}
+    .list ul li:nth-child(2n+1) {
+        background-color: white;
+    }
+    .list ul li:nth-child(2n) {
+        background-color:#eeeeee;
+    }
+    .list .pic{float: left;margin:0px 10px 0px 4px;}
+    .clear{margin-top:36px;margin-bottom:0px;border-top:1px solid #ddd;}
+    .list .font{padding-top:0.1px;}
+    .list .font p{line-height: 0.4rem;}
+    .font1{font-size: 0.64rem;}
+    .font2{font-size: 0.76rem;}
+    .right{float:right;}
+    .button{float:right;margin-right: 4px;}
+    .button a{margin-left:10px;}
+    @media screen and (max-width: 320px) {
+         .button a{margin-left:2px;}
+         .font2{font-size: 0.6rem;}
+         .font1{font-size: 0.54rem;}
+    }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+            <div class="swiper-slide"><img src="__STORE__/images/banner1.jpg" width="100%" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="__STORE__/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 4500,
+        autoplayDisableOnInteraction: false
+    });
+    </script>
+    <div id="lbs">
+    	<div id="address"><img src="__STORE__/images/tip.jpg" /><h5>您的当前位置：<span id="city">广东</span>、<spn id="province">济南</spn>、<span id="district">北园大街</span></h5></div>
+    	<div id="find_store"><form><img src="__STORE__/images/search.jpg" /><input type="text" name="search" placeholder="查找专卖店" /></form></div>
+    </div>
+    <div class="clear"></div>
+    <section class="list">
+        <ul>
+            <li>
+                <div class="pic">
+                    <img src="__STORE__/images/shop.jpg" width="130px" />
+                </div>
+                <div class="font">
+                    <p class="font2">济南北园银座诗尼曼专卖店<span class="font1 right">距您1.2km</span></p>
+                    <p class="font1">山东省济南北园大街银座中心店三楼</p>
+                    <p class="font1"><img src="__STORE__/images/time.jpg" width="8px" />10:00~21:00</p>
+                </div>
+                <div class="button">
+                    <a href="#"><img src="__STORE__/images/touch.jpg" width="80px" /></a>
+                    <a href="#"><img src="__STORE__/images/nav.jpg" width="80px" /></a>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+            <li>
+                <div class="pic">
+                    <img src="__STORE__/images/shop.jpg" width="130px" />
+                </div>
+                <div class="font">
+                    <p class="font2">济南北园银座诗尼曼专卖店<span class="font1 right">距您1.2km</span></p>
+                    <p class="font1">山东省济南北园大街银座中心店三楼</p>
+                    <p class="font1"><img src="__STORE__/images/time.jpg" width="8px" />10:00~21:00</p>
+                </div>
+                <div class="button">
+                    <a href="#"><img src="__STORE__/images/touch.jpg" width="80px" /></a>
+                    <a href="#"><img src="__STORE__/images/nav.jpg" width="80px" /></a>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+            <li>
+                <div class="pic">
+                    <img src="__STORE__/images/shop.jpg" width="130px" />
+                </div>
+                <div class="font">
+                    <p class="font2">济南北园银座诗尼曼专卖店<span class="font1 right">距您1.2km</span></p>
+                    <p class="font1">山东省济南北园大街银座中心店三楼</p>
+                    <p class="font1"><img src="__STORE__/images/time.jpg" width="8px" />10:00~21:00</p>
+                </div>
+                <div class="button">
+                    <a href="#"><img src="__STORE__/images/touch.jpg" width="80px" /></a>
+                    <a href="#"><img src="__STORE__/images/nav.jpg" width="80px" /></a>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+            <li>
+                <div class="pic">
+                    <img src="__STORE__/images/shop.jpg" width="130px" />
+                </div>
+                <div class="font">
+                    <p class="font2">济南北园银座诗尼曼专卖店<span class="font1 right">距您1.2km</span></p>
+                    <p class="font1">山东省济南北园大街银座中心店三楼</p>
+                    <p class="font1"><img src="__STORE__/images/time.jpg" width="8px" />10:00~21:00</p>
+                </div>
+                <div class="button">
+                    <a href="#"><img src="__STORE__/images/touch.jpg" width="80px" /></a>
+                    <a href="#"><img src="__STORE__/images/nav.jpg" width="80px" /></a>
+                </div>
+                <div style="clear: both;"></div>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

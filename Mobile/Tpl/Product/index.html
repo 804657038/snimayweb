@@ -1,0 +1,80 @@
+<include file='Public:pageHeader'/>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+<div class="c-banner" style="background:url(__ROOT__/{$ban['original_img']}) ;background-size:cover"></div>
+
+<div class="c-btn clearfix">
+	<a href="javascript:void(0);" class="<if condition="$_GET['cat_id2'] || $_GET['cat_id3'] || $_GET['cat_id4'] ">a2<else/>a1</if> cat" >全部分类</a>
+	<a href="{$pro_ban.link}" style="color:#822d43">3D 体验馆</a>
+</div>
+<script type="text/javascript">
+	$('.c-btn .cat').click(function(){
+		if($(this).hasClass('a1')){
+			$(this).removeClass('a1').addClass('a2');
+
+		}else{
+			$(this).removeClass('a2').addClass('a1');
+		}
+	
+	})
+</script>
+<div class="c-main" style="display: <if condition="$_GET['cat_id2'] || $_GET['cat_id3'] || $_GET['cat_id4'] ">block<else/>none</if>;">
+	<volist name="cat_list" id="vo" key="kk">
+	<div class="cm1 clearfix">
+		<span>{$vo.cat_name}：</span>
+		<ul class="clearfix u{$kk}">
+		<volist name="vo.list" id="vo2" key="k">
+			<li class="<if condition="in_array($vo2['id'], $push_catid)"> active </if>"><a href="javascript:js_aup<if condition="in_array($vo2['id'], $push_catid)">3</if>('cat_id{$vo2.cat_id}','{$vo2.id}');" val="{$vo2.id}" class="cat_id " >
+			{$vo2.title}
+			</a></li>
+		</volist>
+		</ul>
+	</div>
+	</volist>
+</div>
+<ul class="c-main2 clearfix">
+	<volist name="product_list" id="vo" key="k" empty='暂无该分类产品！'>
+	<li <if condition="$k%2 == 0">class="l2"`</if>>
+		<a href="{:U('Product/detail',array('id'=>$vo['goods_id']))}">
+			<img src="__ROOT__/{$vo['goods_img']}" alt="" />
+			<span>{$vo.title}</span>
+		</a>
+	</li>
+	</volist>
+</ul>
+<script type="text/javascript">myFilters('on','cat_id')</script>
+<div class="page clearfix" style="display:table">
+	<ul class="clearfix">
+		{$page->show()}
+	</ul>
+</div>
+		<script type="text/javascript">myFilters('active','cat_id')</script>
+		<script type="text/javascript">
+		$(".cm1 .u1 li").click(function(){
+			$(".cm1 .u1 li").removeClass("active");
+			$(this).addClass("active");
+		})
+		$(".cm1 .u2 li").click(function(){
+			$(".cm1 .u2 li").removeClass("active");
+			$(this).addClass("active");
+		})
+		$(".cm1 .u3 li").click(function(){
+			$(".cm1 .u3 li").removeClass("active");
+			$(this).addClass("active");
+		})
+		$(".c-main3 .prevx").click(function(){
+			$(this).addClass("active1");
+			$(".c-main3 .nextx").removeClass("active2");
+		})
+		$(".c-main3 .nextx").click(function(){
+			$(this).addClass("active2");
+			$(".c-main3 .prevx").removeClass("active1");
+		})
+		$(".c-btn .cat").click(function(){
+			if($(".c-main").is(":hidden")==true){
+				$(".c-main").slideDown();
+			}else{
+				$(".c-main").slideUp();
+			}
+		})
+		</script>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/Public/Spree/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Public/Spree/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/Public/Spree/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Public/Spree/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/Public/Spree/css/mescroll.css">
+    <script type="text/javascript" src="/Public/Spree/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/Spree/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Public/Spree/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/Public/Spree/js/json2.js"></script>
+    <script src="/Public/Spree/js/mescroll.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Public/Spree/js/mescroll-option.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        var cate_id,price_id,type_id;
+        var base_uri='http://39.108.156.196/api/gift';
+        var redirect_uri = '?uid=SNIMAYCRM&pwd=cdb36c6ddb541636d16a4fae817f1ffe';
+       // var url=base_uri+'/getGiftIndexPhotoList'+redirect_uri;
+        var url=base_uri+'/getGiftIndexPhotoList'+'{$redirect_uri}';
+        var type_uri=base_uri+'/getGiftTypelist'+'{$redirect_uri}';
+        var category_uri=base_uri+'/getGiftSortlist'+'{$redirect_uri}';
+		//alert(category_uri);
+        var price_uri = base_uri+'/getGiftPriceTaglist'+'{$redirect_uri}';
+        var gift_uri = base_uri+'/getGiftList'+'{$redirect_uri}';
+		
+        function senddata(url,data,async,type,dataType){
+            var result = '';
+            async = (async==null || async=="false" || typeof(async)=="undefined")? "true" : async;
+            type = (type==null || type=="" || typeof(type)=="undefined")? "post" : type;
+            dataType = (dataType==null || dataType=="" || typeof(dataType)=="undefined")? "json" : dataType;
+           // data = (data==null || data=="" || typeof(data)=="undefined")? {"date": new Date().getTime()} : data;+
+		   
+		   data = {userId: "<?php echo $cook['userId'];?>", token: "<?php echo $cook['token'];?>"};
+		   
+            $.ajax({
+                async: async,
+				contentType: "application/json; charset=utf-8",
+                //data:JSON.stringify(data),
+                data:'<?php echo json_encode($cook);?>',
+                url: url,
+                type:type,
+                dataType: dataType,
+                
+                success: function(data,textStatus,jqXHR){
+				
+					if(data.code != 0) {
+						window.location.href='{:U("Spree/logout")}'; 
+					}
+                    result = data;
+                },
+                error: function(e,textStatus,jqXHR){
+                    console.log(e);
+                    if(!(data.status == 200)){
+                        alert("服务器异常");
+                    }
+                }
+            });
+            return result;
+        }
+		
+		
+		
+        $(document).ready(function(){
+            // alert(gift_uri);
+            var result = senddata(url,'',false);
+            var type_data = senddata(type_uri,'',false);
+            var category_data = senddata(category_uri,'',false);
+            var price_data = senddata(price_uri,'',false);
+            // var gift_data = senddata(gift_uri,'',false);
+            // console.log(gift_data);
+            showbanner(result);
+            category(category_data.resultList);
+            type(type_data.resultList);
+            price(price_data.resultList);
+            // gift_list(gift_data);
+            cate_id = $("#myTab .active a").data("id");
+            price_id= $("#price .active a").data("id");
+            type_id= $("#type .active a").data("id");
+
+            //创建MeScroll对象
+            var mescroll = initMeScroll("mescroll", {
+                down:{
+                    isLock:true,
+                },
+                up: {
+                    auto:false,//初始化完毕,是否自动触发上拉加载的回调
+                    isBoth: false, //上拉加载时,如果滑动到列表顶部是否可以同时触发下拉刷新;默认false,两者不可同时触发; 这里为了演示改为true,不必等列表加载完毕才可下拉;
+                    offset:0,
+                    callback: upCallback, //上拉加载的回调
+                    page:{num : 1,size : 10,time : null }//num:页数 size:个数
+                }
+            });
+
+            /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+            function upCallback(page){
+                getListDataFromNet(page.num, page.size, function(data){
+                    if(typeof data == 'string'){data=JSON.parse(data);}
+                    //联网成功的回调,隐藏上拉加载的状态
+                    mescroll.endSuccess(data.length);//传参:数据的总数; mescroll会自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+                    //设置列表数据
+                    setListData(data, true);
+                }, function(){
+                    //联网失败的回调,隐藏上拉加载的状态
+                    mescroll.endErr();
+                });
+            }
+            /*设置列表数据*/
+            function setListData(data, isAppend) {
+                 console.log(data);
+                var listDom=document.getElementById("newsList");
+                for (var i = 0; i < data.length; i++) {
+                    var newObj=data[i];
+                    
+                    var str="<li><div class='col-xs-6 num22'><a href='gift_detail.html?id="+newObj.id+"'><img src='"+newObj.photoUrl+"' width='100%' /><p>"+newObj.name+"</p><span>￥"+newObj.price+"</span></a></div></li>";
+                    var liDom=document.createElement("li");
+                    liDom.innerHTML=str;
+                    
+                    if (isAppend) {
+                        listDom.appendChild(liDom);//加在列表的后面,上拉加载
+                    } else{
+                        listDom.insertBefore(liDom, listDom.firstChild);//加在列表的前面,下拉刷新
+                    }
+                }
+            }
+            
+            /*联网加载列表数据*/
+            var downIndex=0;
+            function getListDataFromNet(pageNum,pageSize,successCallback,errorCallback) {
+                //延时一秒,模拟联网
+
+                    /*try{
+                        var url = base_uri+"/getGiftList?uid=SNIMAYCRM&pwd=cdb36c6ddb541636d16a4fae817f1ffe&giftTypeId="+type_id+"&giftPriceTagId="+price_id+"&giftSortId="+cate_id+"&pageSize="+pageSize+"&page="+pageNum;
+                   // alert(url);
+				   console.log(url);
+                    $.get(url, function(result){successCallback&&successCallback(result.data);})
+                        //联网成功的回调
+                        
+                    }catch(e){
+                        //联网失败的回调
+                        errorCallback&&errorCallback();
+                    }*/
+					
+					var pk_url = base_uri+"/getGiftList"+'{$redirect_uri}'+"&giftTypeId="+type_id+"&giftPriceTagId="+price_id+"&giftSortId="+cate_id+"&pageSize="+pageSize+"&page="+pageNum;
+					var result = senddata(pk_url,'',false);console.log(result);
+					successCallback&&successCallback(result.data);
+            }
+
+        $(document).on('click', '#myTab li a', function(e) {
+
+            cate_id = $(this).data("id");
+			//alert(cate_id);
+            price_id= $("#price .active a").data("id");
+            type_id= $("#type .active a").data("id");
+			            clear_list();
+            mescroll.resetUpScroll();
+             //console.log(cate_id+'---'+price_id+'---'+type_id);
+            // var data = "&giftTypeId="+type_id+"&giftPriceTagId="+price_id+"&giftSortId="+cate_id;
+            // alert(gift_uri+data);
+            // var gift_data = senddata(gift_uri+data,'',false);
+            // gift_list(gift_data);
+			//page={num : 1,size : 1,time : null }
+			//upCallback(page);
+
+        });
+        $(document).on('click', '#price li a', function(e) {
+
+            $(this).parent('li').siblings('li').removeClass('active');
+            $(this).parent('li').addClass('active');
+            cate_id = $("#myTab .active a").data("id");
+            price_id = $(this).data("id");
+            type_id= $("#type .active a").data("id");
+			clear_list();
+            mescroll.resetUpScroll();
+            // console.log(cate_id2+'---'+price_id2+'---'+type_id2);
+            // var data = "&giftTypeId="+type_id2+"&giftPriceTagId="+price_id2+"&giftSortId="+cate_id2;
+            // var gift_data = senddata(gift_uri+data,'',false);
+            // gift_list(gift_data);
+        });
+        $(document).on('click', '#type li a', function(e) {
+            clear_list();
+
+            $(this).parent('li').siblings('li').removeClass('active');
+            $(this).parent('li').addClass('active');
+            type_id = $(this).data("id");
+            price_id= $("#price .active a").data("id");
+            cate_id = $("#myTab .active a").data("id");
+			 mescroll.resetUpScroll();
+            // console.log(cate_id3+'---'+price_id3+'---'+type_id3);
+            // var data = "&giftTypeId="+type_id3+"&giftPriceTagId="+price_id3+"&giftSortId="+cate_id3;
+            // var gift_data = senddata(gift_uri+data,'',false);
+            // gift_list(gift_data);
+        });
+        //显示轮播图
+        function showbanner(data){
+            // var data2 = JSON.stringify(data);
+            var html = '';
+            $.each(data.url,function(key,val){
+                html += "<div class='swiper-slide'><a href='#''><img src='"+val+"' width='100%' ></a></div>";
+            });
+            $(".swiper-wrapper").append(html);
+        }
+        //显示礼品分类
+        function category(data){
+            // console.log(data);
+            var html = '';
+            $.each(data,function(key,val){
+                if(key == '0'){
+                    html += "<li class='col-xs-3 col-md-2 active'><a href='#' data-id='"+val.id+"' data-toggle='tab'>"+val.name+"</a></li>";
+                }else{
+                    html += "<li class='col-xs-3 col-md-2'><a href='#' data-id='"+val.id+"' data-toggle='tab'>"+val.name+"</a></li>";
+                }
+            });
+            $("#myTab").append(html);            
+        }
+        //获取礼品类型
+        function type(data){
+            var html = '';
+            $.each(data,function(key,val){
+
+                    html += "<li><a href='#' data-id='"+val.id+"'>"+val.name+"</a></li>";
+
+            });
+            $("#type").append(html);
+        }
+        //获取礼品价格
+        function price(data){
+            var html = '';
+            $.each(data,function(key,val){
+
+                    html += "<li><a href='#' data-id='"+val.id+"'>"+val.name+"</a></li>";
+
+            });
+            $("#price").append(html);
+        }
+        //获取礼品列表
+        function gift_list(data){
+            var pnl = document.getElementById('newsList');
+            for(var i = pnl.childNodes.length - 1; i >= 0; i--)
+            { 
+                pnl.removeChild(pnl.childNodes[i]); 
+            }
+            var html = '';
+            var data2 = data.data;
+            if(typeof data2 == 'object'){
+                $.each(data2,function(key,val){
+                    html += "<li><div class='col-xs-6 num22'><a href='gift_detail.html'><img src='"+val.photoUrl+"' width='100%' /><p>"+val.name+"</p><span>￥"+val.price+"</span></a></div></li>";
+                });
+                $("#newsList").append(html);
+            }
+        }
+        function clear_list(){
+            var pnl = document.getElementById('newsList');
+            for(var i = pnl.childNodes.length - 1; i >= 0; i--)
+            { 
+                pnl.removeChild(pnl.childNodes[i]); 
+            }
+        }
+    });
+	var $body = $('body');
+document.title = '大礼包采购平台';
+var $iframe = $('<iframe src="/favicon.ico"></iframe>');
+$iframe.on('load',function() {
+  setTimeout(function() {
+      $iframe.off('load').remove();
+  }, 0);
+}).appendTo($body);
+    </script>
+            <style type="text/css">
+
+        </style>
+</head>
+
+<body style="padding-top:0px;">
+    <!-- <header class="navbar-fixed-top"> -->
+        <!-- <a href="#"><img src="./image/tip.png" width="25" /></a> -->
+        <!-- <h5>大礼包采购平台</h5> -->
+    <!-- </header> -->
+<div id="mescroll" class="mescroll" style="top:0px;">
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+            <!-- tab标签 -->
+        <ul id="myTab" class="nav nav-tabs">
+            <!-- <li class="active col-xs-3 col-md-2">
+                <a href="#home" data-toggle="tab">生活电器</a>
+            </li>
+            <li class="col-xs-3 col-md-2">
+                <a href="#ios" data-toggle="tab">厨房电器</a>
+            </li>
+            <li class="col-xs-3 col-md-2">
+                <a href="#jmeter" data-toggle="tab">时尚礼品</a>
+            </li>
+            <li class="col-xs-3 col-md-2">
+                <a href="#ejb" data-toggle="tab">大牌家纺</a>
+            </li> -->
+        </ul>
+
+    <div class="container-fluid">
+        <!-- 每个tab页对应的内容 -->
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+                <div class="opt">
+                    <ul id="price">
+                        <li>价格区间:</li>
+                        <!-- <li class="active"><a href="#">10以下</a></li>
+                        <li><a href="#">10-50</a></li>
+                        <li><a href="#">50以上</a></li> -->
+                    </ul>
+                    <br>
+                    <ul id="type">
+                        <li>礼品类型:</li>
+                        <!-- <li><a href="#">进店礼</a></li>
+                        <li><a href="#">预购礼</a></li>
+                        <li><a href="#">签单礼</a></li>
+                        <li><a href="#">答谢礼</a></li> -->
+                    </ul>
+                </div>
+
+                        <!--模拟的内容-->
+                        <!--展示上拉加载的数据列表-->
+                        <ul id="newsList" class="news-list">
+<!--                             <li>
+                                <div class="col-xs-6 num22">
+                                    <a href="gift_detail.html">
+                                      <img src="./image/ta_03.jpg" width="100%" />
+                                      <p>skg电煮锅电热锅泡面锅小火锅多功能迷你电锅学1</p>
+                                      <span>￥128</span>
+                                    </a>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-6 num22">
+                                    <a href="gift_detail.html">
+                                      <img src="./image/ta_03.jpg" width="100%" />
+                                      <p>skg电煮锅电热锅泡面锅小火锅多功能迷你电锅学1</p>
+                                      <span>￥128</span>
+                                    </a>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-6 num22">
+                                    <a href="gift_detail.html">
+                                      <img src="./image/ta_03.jpg" width="100%" />
+                                      <p>skg电煮锅电热锅泡面锅小火锅多功能迷你电锅学1</p>
+                                      <span>￥128</span>
+                                    </a>
+                                  </div>
+                            </li> -->
+                        </ul>
+                
+            </div>
+<!--             <div class="tab-pane fade" id="ios">
+                <p>jMeter 是一款开源的测试软件。</p>
+            </div>
+            <div class="tab-pane fade" id="jmeter">
+                <p>jMeter 是一款开源的测试软件。</p>
+            </div>
+            <div class="tab-pane fade" id="ejb">
+                <p>EJB是一个创建高度可扩展性和强大企业级应用程序的开发架构。</p>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!--     <div class="main_nav_bottom">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container" align="center">
+                <style>
+
+                </style>
+                <ul class="nav nav-tabs nav-tabs-justified">
+                    <div class="row" align="center">
+                        <div class="col-md-4 col-sm-4 col-xs-4" align="center">
+                            <li>
+                                <a href="index.html"><img src="./image/computer.png" width="30" /><p>工作台</p></a>
+                            </li>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4" align="center">
+                            <li><a href="people.html"><img src="./image/people.png" width="30" /><p>个人中心</p></a></li>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-4" align="center">
+                            <li><a href="more.html"><img src="./image/home.png" width="30" /><p>更多功能</p></a></li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </div> -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        initialSlide :0,
+        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true,//修改swiper的父元素时，自动初始化swiper
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        autoplay: 2500,
+    });
+    </script>
+</body>
+
+</html>

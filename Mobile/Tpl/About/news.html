@@ -1,0 +1,31 @@
+<include file='Public:pageHeader'/>
+
+<div class="xw-banner" style="background:url(__ROOT__/{$ban['original_img']}) no-repeat; background-size:cover"></div>
+<div>
+<ul class="xw-nav clearfix">
+	<li><a href="{:U('About/news')}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="on" </if>>公司新闻</a></li>
+	<li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="on" </if>>媒体报道</a></li>
+	<li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="on" </if>>家居课堂</a></li>
+	<li><a href="{:U('About/news',array('cat_id'=>56))}" <if condition="$_GET['cat_id'] eq '56'"> class="on" </if>>视频中心</a></li>
+</ul>
+<ul class="xw-m">
+	<volist name="article_list" id="vo" empty="暂无新闻，待更新！">
+		<li class="clearfix">
+		<a href="{:U('About/detail',array('cat_id'=>$vo['cat_id'],'id'=>$vo['article_id']))}">
+			<div class="xw-l" style="background-image: url(__ROOT__/{$vo.original_img});"></div>
+			<div class="xw-r">
+				<p class="p1">{$vo.title}</p>
+				<p class="p2 clearfix"><span>{$vo.add_time|date='Y-m-d',###}</span><!-- <span>诗尼曼</span> --><span>浏览量：{$vo.click_sum}</span></p>
+			</div>
+		</a>
+		</li>
+	</volist>
+</ul>
+</div>
+<div class="page clearfix" id="m" style="display:table">
+	<ul class="clearfix">
+	{$page->show()}
+	</ul>
+</div>
+
+<include file='Public:pageFooter'/>

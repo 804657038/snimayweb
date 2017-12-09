@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script type="text/javascript"></script>
+    <title>橱柜加盟-整体橱柜加盟-诗尼曼橱柜</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/cgmobile/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/cgmobile/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/cgmobile/style.css">
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var url="http://www.snimay.com/mobile.php/";
+    </script>
+</head>
+<body>
+<div id="main">
+
+    <div id="app">
+        <div id="text" v-html="one_title"></div>
+        <img src="__PUBLIC__/cgmobile/assets/banner1_01.jpg" >
+        <img src="__PUBLIC__/cgmobile/assets/banner1_02.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_03.jpg">
+      <img src="__PUBLIC__/cgmobile/assets/banner1_04.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_05.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_06.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_07.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_08.jpg">
+       <img src="__PUBLIC__/cgmobile/assets/banner1_09.jpg">
+    </div>
+
+    <div id="two">
+        <div style="height:8%"></div>
+        <div id="two-back">
+            <img src="__PUBLIC__/cgmobile/assets/haiqing.png" alt="" class="form-title">
+            <div id="form">
+                <div id="name_label">
+                    <div class="icon">
+                        <img src="__PUBLIC__/cgmobile/assets/name-icon.png" alt="">
+                    </div>
+                    <label>
+                        <input type="text" name="name" placeholder="您的姓名">
+                    </label>
+                </div>
+                <div id="phone_label">
+                    <div class="icon">
+                        <img src="__PUBLIC__/cgmobile/assets/phone-icon.png" alt="">
+                    </div>
+                    <label>
+                        <input type="text" name="mobile" placeholder="您的手机">
+                    </label>
+                </div>
+                <div class="city-select">
+                    <li>
+
+                        <select v-on:change="getRegion1('city')" id="province" name="province" class="bm_sel" selectedindex="0">
+                            <option value="">请选省份</option>
+                            <option v-for="item in province" :value="item.id">{{item.name}}</option>
+
+                        </select>
+                    </li>
+                    <li>
+                        <select v-on:change="getRegion1('district')" id="city1" name="city" class="bm_sel sl1">
+                            <option value="">市</option>
+                            <option v-for="item2 in city" :value="item2.id">{{item2.name}}</option>
+                        </select>
+                        <div id="postMsg2" class="pmtx"></div>
+                    </li>
+                    <li>
+                        <select id="district1" name="district" class="bm_sel sl1">
+                            <option value="">区</option>
+                            <option v-for="item in district" :value="item.id">{{item.name}}</option>
+                        </select>
+                    </li>
+                </div>
+                <button class="button" v-on:click="submit()">提交加盟申请</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="three">
+        <div class="title">
+            <img src="__PUBLIC__/cgmobile/assets/three-title.png" alt="">
+        </div>
+        <div style="height:5%"></div>
+        <div class="se-title">
+            <span class="t-1">连续十年保持超<span class="number">70%</span>的盈利增长</span><br>
+            <span class="t-2">创造行业黄金增长法则</span>
+        </div>
+        <div style="height:5%"></div>
+        <div class="three-img">
+
+            <div class="swiper-container model1">
+                <div class="swiper-wrapper" style="display: none"> <!--品牌力-->
+
+                    <div class="swiper-slide" v-for="item in ppl"><img :src="item.thumb">
+                        <div class="img-text"><span>{{item.title}}</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="four">
+        <div style="height:10%"></div>
+        <div class="title">
+            <img src="__PUBLIC__/cgmobile/assets/four-title.png" alt="">
+        </div>
+        <div style="height:20px;"></div>
+
+        <div class="four-title">
+            <span class="f-t-1">{{f_title}}</span>
+            <span class="f-t-2">{{f_title2}}</span>
+        </div>
+        <div style="height:20px"></div>
+        <div class="four-img">
+            <div class="four-img-1" style="display: none">
+                <div class="model2">
+
+                    <div class="swiper-wrapper"> <!--产品力1-->
+                        <div class="swiper-slide" v-for="item in cpl.list1">
+                            <img :src="item.thumb">
+                            <div class="img-text"><span>{{item.title}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: both;height: 10px"></div>
+                <div class="model2">
+                    <div class="swiper-wrapper"> <!--产品力2-->
+                        <div class="swiper-slide" v-for="item in cpl.list2">
+                            <img :src="item.thumb">
+                            <div class="img-text"><span>{{item.title}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height:20px"></div>
+        <div id="four-2">
+
+            <div class="four-title">
+                <span class="f-t-1">{{f_title3}}</span>
+                <span class="f-t-2">{{f_title4}}</span>
+            </div>
+            <div style="height:20px"></div>
+            <div class="four-2-img">
+                <img :src="cpl.four_img" alt=""></div>
+            <div style="height:20px"></div>
+            <div class="four-title">
+                <span class="f-t-1">{{f_title5}}</span>
+                <span class="f-t-2">{{f_title6}}</span>
+            </div>
+            <div class="f-2-box">
+                <span class="four-title-2">{{f_title_2}}</span></div>
+            <div style="height:25px"></div>
+            <div class="four-show-img" >
+                <div class="hyperlink">
+                    <img src="__PUBLIC__/cgmobile/assets/four-show-img.png" alt=""  v-bind:class="{ img_show: showpic }">
+
+                    <a href="http://www.snimay.com/mobile.php/product_list?cat_id2=54" target="_blank">查看更多诗尼曼橱柜产品</a>
+                </div>
+
+
+                <div class="tangchu-img" v-if="showimg==0&&showpic==true"><img src="__PUBLIC__/cgmobile/assets/tangchu-1.png" v-on:click="imgshow"></div>
+                <div class="tangchu-img-1" v-if="showimg==1&&showpic==true"><img src="__PUBLIC__/cgmobile/assets/tangchu-2.png" v-on:click="imgshow"></div>
+                <div class="tangchu-img-2" v-if="showimg==2&&showpic==true"><img src="__PUBLIC__/cgmobile/assets/tangchu-3.png" v-on:click="imgshow"></div>
+                <div class="wave animate tooltipstered" v-on:click="show(2)">
+                    <div class="w1"></div>
+                  
+                    <div class="w4"></div>
+                </div>
+                <div class="wave2 animate tooltipstered" v-on:click="show(0)">
+                    <div class="w1"></div>
+                   
+                    <div class="w4"></div>
+                </div>
+                <div class="wave3 animate tooltipstered" v-on:click="show(1)">
+                    <div class="w1"></div>
+                   
+                    <div class="w4"></div>
+                </div>
+                <div class="show-icon" >
+                    <img src="__PUBLIC__/cgmobile/assets/four-icon.png" >
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="five">
+        <div style="height:5px"></div>
+        <div class="title">
+            <img src="__PUBLIC__/cgmobile/assets/five-title.png" alt="">
+            <div style="height:30px"></div>
+        </div>
+        <div class="four-title">
+            <span class="f-t-1">{{five_title}}</span>
+            <span class="f-t-2">{{five_title_sub}}</span>
+        </div>
+        <div style="height:25px"></div>
+        <div class="tag">
+    <span id="tag-content" v-for="(item,index) in staritems.list1" v-on:click="active(index)"
+          v-bind:class="{ 'tag_active':index==i,'no':noAcitve}">{{item.title}}</span>
+
+        </div>
+        <div class="five-img-back">
+            <div class="five-img">
+
+                <div class="swiper-container model3_1">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide" v-for="item in staritems.list1"><img :src="item.thumb">
+                            <div class="img-text"><span>{{item.title}}</span></div></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="five-button-prev" slot="button-prev"></div>
+            <div class="five-button-next" slot="button-next"></div>-->
+        </div>
+        <div id="five-2">
+            <div style="height:30px"></div>
+            <div class="four-title">
+                <span class="f-t-1">{{five_title_2}}</span>
+                <span class="f-t-2">{{five_title_2_sub}}</span>
+            </div>
+            <div style="height:20px"></div>
+            <div class="sub-content">
+                {{sub_content}}
+            </div>
+            <div style="height:30px"></div>
+            <div class="five-2-1">
+                <div class="five-2-img">
+
+                    <div class="swiper-container model3_2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide " v-for="item in staritems.list2"><img :src="item.thumb"></div>
+                        </div>
+                    </div>
+                    <!--    <swiper :options="swiperOption2" class="swiper-box" id="swiper" ref="mySwiperB">
+                       <swiper-slide class="swiper-item"><img src="__PUBLIC__/cgmobile/assets/little-lunbo-1.png">
+                       </swiper-slide>
+                       <swiper-slide class="swiper-item"><img src="__PUBLIC__/cgmobile/assets/little-lunbo-2.png">
+                       </swiper-slide>
+                         <swiper-slide class="swiper-item"><img src="__PUBLIC__/cgmobile/assets/little-lunbo-3.png">
+                       </swiper-slide>
+
+                     </swiper> -->
+                </div>
+                <div class="keyboard"><img src="__PUBLIC__/cgmobile/assets/keyboard.png"></div>
+            </div>
+
+            <div class="five-2-2">
+                <div class="four-title">
+                    <span class="f-t-1">{{five_title_3}}</span>
+                    <span class="f-t-2">{{five_title_3_sub}}</span>
+                </div>
+                <div style="height:20px"></div>
+                <div class="sub-content">
+                    {{sub_content_2}}
+                </div>
+                <div style="height:20px"></div>
+                <img src="__PUBLIC__/cgmobile/assets/map.png" alt="" width="100%">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="six">
+        <div style="height:5px"></div>
+        <div class="title">
+            <img src="__PUBLIC__/cgmobile/assets/six-title.png" alt="">
+            <div style="height:15px"></div>
+        </div>
+        <div class="four-title">
+            <span class="f-t-1">{{six_title}}</span>
+            <span class="f-t-2">{{six_title_sub}}</span>
+        </div>
+        <div style="height:20px"></div>
+        <div class="six-img" style="height: auto !important;">
+            <div class="swiper-container model4_1" style="overflow:visible !important;">
+                <div class="swiper-wrapper">  <!--团队力-->
+                    <div class="swiper-slide" v-for="item in trainitems.tdl">
+                        <div style="height: 250px !important;overflow: hidden">
+                            <img :src="item.thumb">
+                        </div>
+                        <div style="height:10px"></div>
+                        <div class="six-img-text">
+                        <span class="text-title" style="left: 0"  >
+                          {{item.title}}
+                        </span>
+                            <div class="s-content" v-html="item.content" style="left: 0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="six-img-text-2">
+            <div class="half-1">
+                <div class="four-title">
+                    <span class="f-t-1">{{six_title_2}}</span>
+                    <span class="f-t-2">{{six_title_sub_2}}</span>
+                </div>
+                <div style="height:20px"></div>
+                <div class="s-content">{{six_2_content}}</div>
+            </div>
+            <div style="height:20px"></div>
+            <div class="six-img-2-box"> <!--千强名师-->
+                <div class="s-2-tag">
+                    <span id="tag-content-2" v-for="(item,index) in trainitems.ms" v-on:click="six_tag_active(index)" v-bind:class="{ 'tag_active':index==train_active,'no':noAcitve}">{{item.title}}</span>
+
+                </div>
+                <div class="six-img-2">
+                    <div class="swiper-container model4_2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="item in trainitems.ms"><img :src="item.thumb"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="seven">
+        <div class="title">
+            <img src="__PUBLIC__/cgmobile/assets/seven-title.png" alt="">
+        </div>
+        <div style="height:30px"></div>
+        <img src="__PUBLIC__/cgmobile/assets/yuan.png" width="100%">
+        <div style="height:30px"></div>
+        <div class="jiameng">
+            <nav id="zhichi-nav">
+                <div class="col" v-for="(item,index) in items" v-on:click="jiamengactive(index)"
+                     v-bind:class="{ 'tag_active':index==jm,'no':noAcitve}">{{item.content}}</div>
+            </nav>
+
+            <div class="zhichi-text" v-if="jmactive==0">
+                <div style="height:30px"></div>
+                <div class="zhichi-text-left">
+        <span id="tag-zhichi-1" v-for="(item,index) in spans" v-on:click="activetag(index)"
+              v-bind:class="{ 'tag_active':index==j,'no':noAcitve}">{{item.title}}</span>
+                </div>
+                <div class="zhichi-text-right">
+                    <table>
+                        <tr v-for="item in tbody">
+                            <th>{{item[0]}}</th>
+                            <th>{{item[1]}}</th>
+                        </tr>
+                    </table>
+                </div>
+                <div style="clear: both;height: 30px"></div>
+            </div>
+            <div class="zhichi-text" v-if="jmactive==1">
+                <!--<div class="lc-title"><span style="float:left">诗尼曼全屋定制橱柜项目 加盟条件(经销商要求）</span></div>-->
+
+				<div  v-html="jmtj.content"></div>
+                <div style="clear: both;height: 30px"></div>
+            </div>
+            <div class="zhichi-text" v-if="jmactive==2">
+                <div style="height:30px"></div>
+                <div v-html="hzlc.content"></div>
+                <div style="clear: both;height: 30px"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="bottom">
+        <div class="bottom-title">优质合作伙伴</div>
+        <div class="bottom-img">
+
+
+            <div class="swiper-container model5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="item in hzhb"><img :src="item.thumb"></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="top" v-on:click="top"></div>
+        <div class="message" v-on:click="message"></div>
+    </div>
+
+
+</div>
+
+
+<!--
+
+     <div id="five">
+   </div>
+     <div id="six">
+   </div>
+    <div id="seven">
+   </div>
+    <div id="bottom">
+   </div> -->
+</div>
+
+</body>
+
+<script type="text/javascript" src="__PUBLIC__/cgmobile/main.js"></script>
+<script type="text/javascript" src="__PUBLIC__/cgmobile/js/swiper.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/cgmobile/js/slide.js"></script>
+
+</html>

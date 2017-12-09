@@ -1,0 +1,108 @@
+<include file='Public:pageHeader'/>
+<style>
+  /*新增页面*/
+
+  .navbo{margin-bottom: .5rem}
+  .navbo .navlist{padding: 0 4%;border-bottom: 1px solid #f6f6f6;width: 92%;}
+  .navbo .navlist li{padding:  .25rem 0; position: relative; width: 25%;float: left;text-align: center;font-size: .3rem;color: #666666;background: url(../images/x01.jpg)  center right no-repeat;background-size: .29rem .56rem}
+  .navbo .navlist li a{color: #666666}
+  .navbo .navlist li:nth-child(4){background: none}
+  .navbo .navlist li i{display: none; position: absolute;background: url(../images/x02.png) no-repeat;background-size: 1.15rem .22rem;width: 1.15rem ;height: .22rem;bottom: -29%;left: 0;right: 0;margin: 0 auto}
+  .navbo .navlist li.on i{display: block;}
+
+  .navbo dl{height: .86rem;text-align: center;background: #f9f9f9;font-size: .28rem;}
+  .navbo dl dd{display: inline-block;font-size: .3rem;line-height: .86rem;margin: 0 3%}
+  .navbo dl dd a{color: #666666;}
+  .navbo dl dd.on a {color: #8f1d43;}
+
+  .videolist{background: #fff;width: 94%;padding:  3%}
+  .videolist li {margin-bottom: .3rem}
+  .videolist li .text {margin-top: .2rem;}
+  .videolist li .text h4{font-size: .32rem;color: #000000}
+  .videolist li .text p{font-size: .3rem;color: #666666;margin-top: .1rem}
+
+  .fade{position: fixed;background: url(__START__/images/bmt75.png);width: 100%;height: 100%;top: 0;z-index: 99;display: none}
+  .showBox{width: 100%;max-width: 600px;height: 200px;background: #333;position: fixed;z-index: 999;display: none;top:0;background: #000;z-index: 1000;}
+  .showBox .colse {text-align: right;width: 30px;height: 30px;position: absolute;top: 0;right: 0;z-index: 999;}
+  .showBox .colse img{width: 100%; cursor: pointer;}
+  .showBox .content{width: 100%;height: 100%;text-align: center;font-size: 30px;color: #fff;}
+</style>
+<div class="xw-banner" style="background:url(__ROOT__/{$ban['original_img']}) no-repeat; background-size:cover"></div>
+<div>
+<ul class="xw-nav clearfix">
+  <li><a href="{:U('About/news')}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="on" </if>>公司新闻</a></li>
+  <li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="on" </if>>媒体报道</a></li>
+  <li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="on" </if>>家居课堂</a></li>
+  <li><a href="{:U('About/news',array('cat_id'=>56))}" <if condition="($_GET['cat_id'] eq '56') or ($_GET['cat_id'] eq '58') or ($_GET['cat_id'] eq '59') or ($_GET['cat_id'] eq '60')"> class="on" </if>>视频中心</a></li>
+</ul>
+<div class="navbo">
+  <dl>
+    <volist name="sub_nav" id="vo">
+      <dd <if condition="$vo['cat_id'] eq $cat_id">class="on"</if>><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></dd>
+    </volist>
+  </dl>
+  <ul class="videolist">
+    <volist name="article_list" id="vo" empty="暂无视频，待更新！">
+      <li>
+        <a href="javascript:;" data-id="{$vo.article_id}">
+          <div class="pic">
+            <img src="__ROOT__/{$vo.original_img}">
+          </div>
+          <div class="text">
+            <h4>{$vo.title|mySubstr=###,17}</h4>
+            <p>{$vo.short|mySubstr=###,20}</p>
+          </div>
+        </a>
+      </li>
+    </volist>
+  </ul>
+</div>
+</div>
+<div class="page clearfix" id="m" style="display:table">
+  <ul class="clearfix">
+  {$page->show()}
+  </ul>
+</div>
+<div class="fade"></div>
+<div class="showBox">
+  <div class="colse">
+    <img src="__START__/images/colsebb.png">
+  </div>
+  <div class="content">
+    视频加载中...
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    var num  = 2;
+    var dhd = $(window).height();
+
+    $('.videolist li').each(function(){
+      var index = $(this).index()
+      if(num == index ){
+        $('.list li').eq(num).css({'margin-right':0})
+        num+=3
+      }
+      $(this).children('a').click(function(){
+        var id = $(this).attr('data-id');
+        $.post('{:U("About/ajax_video")}', 'art_id='+id, function(data){
+          $('.showBox .content').empty();
+          $('.showBox .content').append(data);
+        }, 'json');
+
+        $('.showBox,.fade').fadeIn();
+        $('.showBox').css({
+          'top':(dhd-$('.showBox').height()) / 2,
+        })
+
+        return false
+      })
+    })
+    $('.showBox .colse img,.fade').click(function(){
+      $('.showBox,.fade').fadeOut();
+      $('.showBox .content').empty();
+    })
+  })
+</script>
+
+<include file='Public:pageFooter'/>

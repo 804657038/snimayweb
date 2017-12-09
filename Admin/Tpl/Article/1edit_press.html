@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>报刊管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+	<script src="__PUBLIC__/Admin/Js/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">文章属性</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="{:U('Article/update_press')}" id="submitForm" enctype="multipart/form-data">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">报刊名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value="{$press['title']}" size='60' /><em>*</em></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">英文名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="en_title" value="{$press['en_title']}" size='60' /></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">文章分类：</td>
+							<td style="text-align:left;">
+								<select name="cat_id" onchange="checkcat(this);">
+									<option value="0">请选择...</option>
+									{$cat_select}
+								</select>
+							<em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="{$press['sort_order']}" name="sort_order"  /><em>*</em> </td>
+						</tr>
+
+						<!-- <tr>
+							<td style="text-align:right;">是否显示：</td>
+							<td style="text-align:left;">
+						      <input type="radio" name="is_open" value="1" checked="checked"/>是&nbsp;&nbsp;
+						      <input type="radio" name="is_open" value="0"/>否
+							</td>
+						</tr>-->
+							<tr>
+								<td style="text-align:right;">添加时间：</td>
+								<td style="text-align:left;">
+									<input type="text" name='add_time' value="{$press['add_time']|date='Y-m-d',###}" onclick="WdatePicker();">&nbsp;<font color='red'>留空为当前时间</font>
+								</td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">封面预览：</td>
+								<td style="text-align:left;"><img src="__ROOT__/{$press.original_img1}" style="max-height:300px;" /></td>
+							</tr>
+							<tr>
+								<td style="text-align:right;">图片预览：</td>
+								<td style="text-align:left;">
+								<foreach name="press_img" item="val">
+								  <div class="img_wrap">
+									<img src="__ROOT__/{$val}" style="max-height:300px;">
+									<input type="hidden" name="hidden[]" value="{$val}" />
+									<a href="JavaScript:;" class="del_img">移除</a>
+								 </div>
+								</foreach>
+								<input type="hidden" name="article_id" value="{$press['article_id']}">
+								</td>
+							<tr>
+								<td style="text-align:right;">报刊图片：</td>
+								<td style="text-align:left;">
+								<a href="javascript:;" id="add_img"><input type="button" value="添加"></a>
+									<div id="press_img"></div>
+								</td>
+							</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td style="text-align:left;">
+								<input type="submit" name="submit" value="提交">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var i=0;
+		$('#add_img').click(function(){
+			var res="<div class='img_"+i+"'>";
+			res +="<input type='file' name='photo["+i+"]'>";
+			res +="<a href='JavaScript:;' onclick='del("+i+")'>移除</>";
+			res +="</div>";
+			$('#press_img').append(res);
+			i++;
+		})
+
+	})
+		function del(i){
+			$('.img_'+i).remove();
+		}
+
+	$(".del_img").on("click",function(e){
+		e.preventDefault();
+		$(this).parent().remove();
+	})
+</script>
+</body>
+</html>

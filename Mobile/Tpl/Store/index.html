@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>附近的门店</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <script src="__STORE__/js/jquery.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{$signPackage.appId}',
+            timestamp: '{$signPackage.timestamp}',
+            nonceStr: '{$signPackage.nonceStr}',
+            signature: '{$signPackage.signature}',
+            jsApiList: [
+                'checkJsApi',
+                'getLocation',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            wx.getLocation({
+                type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+                    var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    var speed = res.speed; // 速度，以米/每秒计
+                    var accuracy = res.accuracy; // 位置精度
+                    //处理
+                    var res = MapabcEncryptToBdmap(latitude,longitude);
+                    window.location.href="{:U('Store/store_list')}/lat/"+res.lat+"/lon/"+res.lng+"}";
+                }
+            });
+        });
+        // wx.error(function (res) {
+        //     alert(res.errMsg);
+        // });
+        function MapabcEncryptToBdmap(gg_lat, gg_lon)    
+         {                  
+             var point=new Object();  
+             var x_pi = 3.14159265358979324 * 3000.0 / 180.0;  
+             var x = new Number(gg_lon);  
+             var y = new Number(gg_lat);    
+             var z =  Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);    
+             var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);    
+             var bd_lon = z * Math.cos(theta) + 0.0065;    
+             var bd_lat = z * Math.sin(theta) + 0.006;   
+             point.lng=bd_lon;  
+             point.lat=bd_lat;  
+             //alert("-1:"+point.lng+","+point.lat);  
+             return point;  
+         }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

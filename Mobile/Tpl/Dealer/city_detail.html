@@ -1,0 +1,60 @@
+﻿<include file='Public:pageHeader_dealer'/>
+    <div class="btn">
+      <if condition="$select eq 'province'">
+        <a href="{:U('Dealer/city_detail',array('province_id'=>$province_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+        <a href="{:U('Dealer/city_detail',array('province_id'=>$province_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+        <!-- <a href="{:U('Dealer/city_detail',array('province_id'=>$province_id, 'store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a> -->
+      <elseif condition="$select eq 'city'" />
+        <a href="{:U('Dealer/city_detail',array('city_id'=>$city_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+        <a href="{:U('Dealer/city_detail',array('city_id'=>$city_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+        <!-- <a href="{:U('Dealer/city_detail',array('city_id'=>$city_id, 'store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a> -->
+      <elseif condition="$select eq 'district'" />
+        <a href="{:U('Dealer/city_detail',array('district_id'=>$district_id, 'store_type'=>1))}" <if condition="$store_type eq 1">class="on"</if>>衣柜</a>
+        <a href="{:U('Dealer/city_detail',array('district_id'=>$district_id, 'store_type'=>2))}" <if condition="$store_type eq 2">class="on"</if>>橱柜</a>
+        <!-- <a href="{:U('Dealer/city_detail',array('district_id'=>$district_id, 'store_type'=>3))}" <if condition="$store_type eq 3">class="on"</if>>衣柜+橱柜</a> -->
+      </if>
+      
+      <h6 class="color1">可优化</h6>
+      <h6 class="color2">可加盟</h6>
+      <h6 class="color3">已加盟</h6>
+    </div>
+    <p>{$u_here}</p>
+    <div class="aera">
+      <div class="aearlist swiper-wrapper">
+        <div class="item swiper-slide ">
+          <div class="top">
+            <h4>区域名称</h4>
+          </div>
+          <div class="bot">
+            <select id="choose">
+              <option value="">请选择区域</option>
+              <if condition="$select eq 'province'">
+                <foreach name="city_list" item="city">
+                  <option value="{:U('Dealer/city_detail', array('city_id'=>$city['city_id']))}">{$city.city_name}</option>
+                </foreach>
+              <elseif condition="$select eq 'city'" />
+                <foreach name="district_list" item="district">
+                  <option value="{:U('Dealer/detail', array('district_id'=>$district['country_id']))}">{$district.country_name}</option>
+                </foreach>
+              <elseif condition="$select eq 'district'" />
+                <foreach name="town_list" item="town">
+                  <option value="{:U('Dealer/detail', array('town_id'=>$town['town_id']))}">{$town.town_name}</option>
+                </foreach>
+              </if>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function(){
+      $('#choose').change(function(){
+        var v = $(this).val();
+        if(v){
+          window.location.href=v;
+        }
+      })
+    })
+  </script>
+<include file='Public:pageFooter'/>

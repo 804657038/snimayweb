@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+		<meta name='description' content="{$site_description|strip_tags=###}"/>
+		<meta name='author' content="互诺科技:http://www.hunuo.com"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/index.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/swiper.css"/>
+		<script src="__JS__/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/slick.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>{$site_title|strip_tags=###}</title>
+	</head>
+	<body>
+		<div class="head clearfix">
+			<img src="__ROOT__/{$logo.original_img}" alt="" class="logo"/>
+			<a href="###" class="nav-btn"></a>
+			<ul class="nav">
+				<li class="active"><a href="/mobile.php/">首页</a></li>
+				<li><a href="{:U('About/investment')}">招商加盟</a></li>
+				<li><a href="{:U('Product/index')}">产品体验</a></li>
+				<li><a href="{:U('Sales/index')}">专题活动</a></li>
+				<li><a href="{:U('About/news')}">新闻中心</a></li>
+				<li><a href="{:U('About/index')}">关于诗尼曼</a></li>
+			</ul>
+		</div>
+		<div class="h"></div>
+		<div id="banner">
+		<div class="swiper-container">
+			<ul class="swiper-wrapper">
+			<volist name="banner_list" id="vo">
+				<li class="swiper-slide"><a href="{$vo.link}"><img src="__ROOT__/{$vo.original_img}"></a></li>
+			</volist>
+			</ul>
+			<div class="swiper-pagination"></div>
+		</div>
+		<script>
+			 var swiper = new Swiper('.swiper-container', {
+			    pagination: '.swiper-pagination',
+			    paginationClickable: true,
+			    autoplay : 3000,
+		});
+		</script>
+		</div>
+		<div class="rl" style="text-align:center">
+			<h3 style="font-size:0.45rem; font-weight:bold;margin-top:.3rem">诚邀加盟</h3>
+			<div class="a1 clearfix" style="margin-top:-1rem;">
+				<i style="margin-left:75px"></i>
+				<p style="font-size:0.26rem"><em style="color:#ccc"><img src="__IMG__/xxx.jpg" style="width:20%"></em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017聚势谋局,共享盛诗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em style="color:#ccc"><img src="__IMG__/xxx.jpg" style="width:20%"></em></p>
+				<em></em>
+			</div>
+		</div>
+		<ul class="i-main clearfix">
+
+			<li>
+				<a href="/mobile.php/introduce.html">
+					<img src="__IMG__/i1.png" alt="" />
+					<span>14年行业先锋</span>
+					<i>实力见证</i>
+				</a>
+			</li>
+			<li>
+				<a href="/mobile.php/join.html#join-m3">
+					<img src="__IMG__/i2.png" alt="" />
+					<span>8大加盟优势</span>
+					<i>共创收益</i>
+				</a>
+			</li>
+			<li>
+				<a href="/mobile.php/join.html#join-m4">
+					<img src="__IMG__/i3.png" alt="" />
+					<span>9大开店支持</span>
+					<i>保姆式全程服务</i>
+				</a>
+			</li>
+		</ul>
+		<div class="i-main2">
+			<div class="i-main2-top clearfix">
+				<p>产品中心</p>
+				<ul class="i-main2-nav">
+					<li><a href="javascript:;" class="oo" data-id="16">卧房</a></li>
+					<li><a href="javascript:;"  data-id="17">客厅</a></li>
+					<li><a href="javascript:;"  data-id="18">餐厅</a></li>
+					<li><a href="javascript:;"  data-id="19">书房</a></li>
+					<li><a href="javascript:;"  data-id="20">儿童房</a></li>
+				</ul>
+			</div>
+
+			<div class="tab-wrap">
+				<ul class="i-main2-inner clearfix" style="display: block;">
+					<volist name="index_pro" id="vo" key="k1">
+					<li <if condition="$k1%2==0">class="l2"</if>>
+						<a href="{:U('Product/detail',array('id'=>$vo['goods_id']))}">
+							<img src="__ROOT__/{$vo.goods_img}" alt="" />
+							<span>{$vo.title}</span>
+						</a>
+					</li>
+					</volist>
+				</ul>
+			</div>
+			<script type="text/javascript">
+				$(function(){
+					$('.i-main2-nav a').click(function(){
+						$('.i-main2-nav a').removeClass('oo');
+						$(this).addClass('oo');
+						var id = $(this).attr('data-id');
+						$.get("{:U('Index/get_product')}",{'id':id},function(result){
+							if(result == ''){
+								$('.i-main2-inner li').remove();
+								$('.i-main2-inner').append('<li class="l2">暂无该产品！</li>');
+							}else{
+								$('.i-main2-inner li').remove();
+								$('.i-main2-inner').append(result);
+							}
+						},'html')
+					})
+					
+					
+				})
+			</script>
+			<a href="{:U('Product/index')}" class="i-mian2-btn">更多产品</a>
+		</div>
+		<div class="i-main3">
+			<div class="i-main3-top clearfix">
+				<p>新闻中心</p>
+				<a href="{:U('About/news')}" class="btn">更多</a>
+			</div>
+			<ul class="i-main3-inner">
+			<volist name="rec_articles" id="vo" key="k">
+				<li class="clearfix">
+					<a href="{:U('About/detail',array('cat_id'=>$vo['cat_id'],'id'=>$vo['article_id']))}">
+					<div class="i3-left" style="background-image: url(__ROOT__/{$vo.original_img});"></div>
+					<div class="i3-right">
+						<p>{$vo.title}</p>
+						<span>{$vo.add_time|date='Y-m-d',###}</span>
+					</div>
+					</a>
+				</li>
+			</volist>
+			</ul>
+		</div>
+
+<include file='Public:pageFooter'/>

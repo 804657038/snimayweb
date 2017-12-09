@@ -1,0 +1,36 @@
+<include file='Public:pageHeader'/>
+
+<div class="xw-banner" style="background:url(__ROOT__/{$ban['original_img']}) no-repeat; background-size:cover"></div>
+<ul class="xw-nav clearfix">
+	<li><a href="{:U('About/news')}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="on" </if>>公司新闻</a></li>
+	<li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="on" </if>>媒体报道</a></li>
+	<li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="on" </if>>居家课堂</a></li>
+</ul>
+<div class="new-xx" style="font-size:0.28rem; line-height:2.2">
+	<p class="p1">{$detail.title}</p>
+	<p class="p2"><span>{$detail.add_time|date='Y-m-d',###}</span><!-- <span>诗尼曼</span> --><span>浏览量：{$detail.click_sum}</span></p>
+	<p class="p3"></p>
+	{$detail.content}
+	<div class="tips clearfix">
+		<span>标签：</span>
+		<volist name="detail.tip" id="vo">
+		<em><a href="{:U('About/news',array('keyword'=>$vo))}">{$vo}</a></em>
+		</volist>
+	</div>
+	<p class="p5"></p>
+	<p class="p6 clearfix">
+		<empty name="front">
+		<span>上一篇：</span><em>没有了</em></p>
+        <else/>
+        <a href="{:U('About/detail',array('cat_id'=>$_GET['cat_id'],'id'=>$front['article_id']))}"><span>上一篇：</span><em>{$front.title}</em></a>
+        </empty>
+	</p>
+	<p class="p6 clearfix">
+		<empty name="after">
+		<span>下一篇：</span><em>没有了</em></p>
+        <else/>
+        <a href="{:U('About/detail',array('cat_id'=>$_GET['cat_id'],'id'=>$after['article_id']))}"><span>下一篇：</span><em>{$after.title}</em></a>
+        </empty>
+	</p>
+</div>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/Public/Spree/css/login.css">
+    <script type="text/javascript" src="/Public/Spree/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/Spree/js/layer.js"></script>
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body style="padding-top:0px;">
+
+	<div class="main_box">
+		<div class="login_box">
+			
+			<div class="login_logo">
+				<img src="/Public/Spree/image/login_title.png">
+			</div>
+			
+			<div class="tip">
+				&nbsp;&nbsp;
+			</div>
+			
+			
+			<div class="login_form">
+				<form action="/pcLogin" id="loginForm" method="post" novalidate="novalidate">
+					
+					<input name="tg_domain" type="text" hidden="true" value="admin">
+					<div class="form-group">
+						<input id="username" value="" name="name" placeholder="用户名" type="text" maxlength="25">
+					</div>
+					<div class="form-group">
+						<input id="password" value="" name="password" placeholder="密码" type="password" maxlength="25">
+					</div>
+					
+					<div class="form-group space" id="submit_button">
+					<b>登&nbsp;&nbsp;录</b>
+					</div>
+				</form>
+				
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="tip2" style="color:7ab9e6">
+		广州诗尼曼家居股份有限公司	
+	</div>
+    <!-- <form method="post">
+		<div class="loginbox-textbox">
+			<input type="text"  name="name" id="name" placeholder="用户名"  required/>
+		</div>
+		<div class="loginbox-textbox">
+			<input type="password"  name="password" id="password" placeholder="密码" required />
+		</div>
+			<a id="submit_button">登录</a>
+	</form>   -->
+	
+	<script>
+		$("#submit_button").click(function () {
+			var name = $("#username").val();
+			var password = $("#password").val();
+			
+			if(!name || !password) {
+				/*layer.open({
+					content: '请填写完整用户名和密码'
+					,btn: '确认'
+				});
+				return false;*/
+				$(".tip").text("请填写完整用户名和密码");
+				$(".tip").show();
+				return false;
+			}
+			
+			$.ajax({
+                data: {'name':name,'password':password},
+                url: '{:U("Spree/login")}',
+                type:'post',
+                success: function(r){
+                    if(r.error) {
+						/*layer.open({
+							content: r.msg
+							,btn: '确认'
+						});*/
+						$(".tip").text(r.msg);
+						$(".tip").show();
+					} else if(r.error == '0') {
+						/*layer.open({
+							content: '登录成功'
+							,skin: 'msg'
+							,time: 1 //2秒后自动关闭
+						});*/
+						window.location.href='{:U("Spree/gift")}'; 
+						
+					} else {
+						/*layer.open({
+							content: '网络错误,请重试'
+							,btn: '确认'
+						});*/
+						$(".tip").text("网络错误,请重试");
+						$(".tip").show();
+					}
+                }
+            });
+		});
+	</script>
+</body>
+
+</html>
