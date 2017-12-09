@@ -9,14 +9,19 @@ class SurveyAction extends CommonAction {
 	 * @return [type] [description]
 	 */
 	public function index(){
-		$limit 		= 20;
+        $key = $_REQUEST['key'];
+        $where = '';
+        if($key){
+            $where= "email='".$key."'";
+        }
 		import("ORG.Util.Page");       //载入分页类
-		$count 		= M('survey')->count();
+		$count 		= M('survey')->where($where)->count();
         $page 		= new Page($count, 20);
         $showPage 	= $page->show();
-		$this->assign("filter", $filter);
+		$title = M('survey')->group('email')->select();
+        $this->assign("title", $title);
         $this->assign("page", $showPage);
-		$this->list = M('survey')->order('add_time desc')->limit($page->firstRow, $page->listRows,$filter)->select();
+		$this->list = M('survey')->where($where)->order('add_time desc')->limit($page->firstRow, $page->listRows)->select();
 
 		$this->display();
 	}

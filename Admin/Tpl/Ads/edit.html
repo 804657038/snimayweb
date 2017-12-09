@@ -31,6 +31,16 @@ KindEditor.ready(function(K) {
 			<form method="post" action="{:U('Ads/update')}" id="submitForm" name="submitForm" enctype="multipart/form-data">
 				<table border="0" cellpadding="0" cellspacing="0">
 					<tbody>
+                        <tr>
+                            <td style="text-align:right;">分类：</td>
+                            <td style="text-align:left;">
+                                <select name="cat_id" id="cat_id" onchange="mx()" style="width: 283px;height: 30px;">
+                                    <option value="">请选择</option>
+                                    {$data}
+                                </select>
+                                <em>*</em>
+                            </td>
+                        </tr>
 						<tr>
 							<td style="text-align:right;">外部链接：</td>
 							<td style="text-align:left;"><input type="text" name="link" value="{$info['link']}" size="35" /></td>
@@ -85,8 +95,8 @@ KindEditor.ready(function(K) {
 							<td style="text-align:left;"><input type="text" name="img_size" value='{$info.img_size}' style='color:red;' /></td>
 						</tr>
 
-						<if condition="$cat_id eq 17">
-							<tr>
+
+							<tr id="art" style="display: none">
 								<td style="text-align:right;">关联内页：</td>
 								<td style="text-align:left;">
 									<select name="article_id" id="article_id">
@@ -97,7 +107,7 @@ KindEditor.ready(function(K) {
 									</select>
 								</td>
 							</tr>
-						</if>
+
 						
 						<tr>
 							<td>&nbsp;</td>
@@ -116,3 +126,17 @@ KindEditor.ready(function(K) {
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    var cid = "{$cat_id}";
+    if(cid == 17){
+        $("#art").show();
+    }
+    function mx(){
+        var cat_id = $("#cat_id").val();
+        if(cat_id == 17){
+            $("#art").show();
+        }else{
+            $("#art").hide();
+        }
+    }
+</script>

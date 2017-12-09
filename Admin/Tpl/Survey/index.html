@@ -1,6 +1,5 @@
 <include file="Index:pageHeader" />
 
-
     <div class="column_Box mainAutoHeight">
         <div class="tab">
             <ul>
@@ -13,7 +12,18 @@
             <!--招聘列表-->
             <div class="body User">
 
-				
+				<div style="float: right;margin-bottom: 10px;">
+                    <form action="{:U('Survey/index')}" method="get">
+                        <label>职业分类：</label>
+                        <select name="key">
+                            <option value="">全部分类</option>
+                            <foreach name="title" item="vv">
+                                <option value="{$vv.email}">{$vv.email}</option>
+                            </foreach>
+                        </select>
+                        &nbsp;&nbsp;<input style="background: #DA251E;border: medium none;color: #FFFFFF;cursor: pointer;height: 22px;width: 60px;" type="submit" class="btn_search" value="搜索" />
+                    </form>
+                </div>
 				<form method="POST" action="{:U('Feedback/batch')}" name="listForm">
 					<table border="0" cellpadding="0" cellspacing="0" class="center">
 						<thead>
