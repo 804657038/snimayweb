@@ -1,0 +1,51 @@
+    <include file='Public:pageHeader'/>
+    <div class="xw-wrap">
+    <ul class="xw clearfix">
+        <li><a href="{:U('About/news',array('cat_id'=>16))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="hover" </if>>公司新闻</a></li>
+        <span></span>
+        <li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="hover" </if>>媒体报道</a></li>
+        <span></span>
+        <li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="hover" </if>>家居课堂</a></li>
+        <span></span>
+        <li><a href="{:U('About/news',array('cat_id'=>56))}" <if condition="$_GET['cat_id'] eq '56'"> class="hover" </if>>视频中心</a></li>
+        <span></span>
+        <li><a href="{:U('About/news',array('cat_id'=>28))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '28'"> class="hover" </if>>电子报刊</a></li>
+    </ul>
+</div>
+     <link href="http://cdn.bootcss.com/Swiper/3.3.0/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/press/css/newspaper_sec.css">
+    <section class="newspaper_sec main">
+        <ul>
+        <foreach name="article_list" item="val">
+            <li class="periods">
+                <div class="a6 clearfix">
+              <a href="__URL__/press_album/id/{$val.article_id}" target="_blank">
+                <div>
+                    <dl>
+                        <dt>
+                            <img src="__ROOT__/{$val.original_img1}">
+                        </dt>
+                        <dd class="dd2"></dd>
+                        <dd>
+                            <div>
+                                <h4>{$val.title}</h4>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+              </a>
+              </div>
+            </li>
+        </foreach>
+           
+        </ul>
+    </section>
+    <div class="page" id="m">
+        {$page->show()}
+    </div>
+<include file='Public:pageFooter'/>
+    <script src="http://cdn.bootcss.com/Swiper/3.3.0/js/swiper.jquery.min.js"></script>
+    <script src="__CSS__/press/js/sHover.min.js"></script>
+    <script type="text/javascript">
+        var cover_img = new sHover("cover_img","new_info");
+    </script>

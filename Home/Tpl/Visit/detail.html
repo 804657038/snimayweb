@@ -1,0 +1,91 @@
+﻿<include file='Public:pageHeader_dealer2'/>
+  <style>
+    .axxxm .listx2 ul li dl dt .sp1 { width: 104px; }
+    .axxxm .listx2 ul li dl dd .sp1 { width: 104px; }
+  </style>
+        <div class="axxxm">
+          <div class="top">
+            <div class="hd">
+              <ul>
+                <notempty name='town_id'>
+                  <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Visit/detail',array('town_id'=>$town_id,'store_type'=>1))}">衣柜</a></li>
+                  <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Visit/detail',array('town_id'=>$town_id,'store_type'=>2))}">橱柜</a></li>
+                  <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/detail',array('town_id'=>$town_id,'store_type'=>3))}">衣柜+橱柜</a></li> -->
+                <else />
+                  <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Visit/detail',array('district_id'=>$district_id,'store_type'=>1))}">衣柜</a></li>
+                  <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Visit/detail',array('district_id'=>$district_id,'store_type'=>2))}">橱柜</a></li>
+                </notempty>
+              </ul>
+            </div>
+
+            <!-- <h6>可优化<span></span></h6>
+            <h5>可加盟<em></em></h5>
+            <h4>已加盟<i></i></h4> -->
+          </div>
+          <div class="bd listx2">
+            <h5>{$u_here}</h5>
+            <ul style="max-height: 350px;overflow: auto;">
+              <li>
+                <dl>
+                  <dt>
+                    <span class="sp13">区级</span>
+                    <span class="sp13">专卖点名称</span>
+                    <span class="sp13">加盟状态</span>
+                  </dt>
+                  <empty name="data_list">
+                    <if condition="$town_id">
+                      <if condition="$shopname eq ''">
+                      <dd>
+                        <span class="sp13">{$district_info.country_name}</span>
+                        <span class="sp13">{$town.shopname}</span>
+                        <span class="sp13">可加盟</span>
+                      </dd>
+                    <else />
+                      <foreach name="town_list" item="item">
+                        <dd>
+                          <span class="sp13">{$district_info.country_name}</span>
+                          <span class="sp13">{$item.shopname}</span>
+                          <span class="sp13">{$item.status}<if condition="$item.status neq '4'">已锁定<else />可加盟</if></span>
+                        </dd>
+                      </foreach>
+                      </if>
+                    <else />
+                      <if condition="$shopname eq ''">
+                      <dd>
+                        <span class="sp13">{$district_info.country_name}</span>
+                        <span class="sp13">{$town.shopname}</span>
+                        <span class="sp13">可加盟</span>
+                      </dd>
+                    <else />
+                      <foreach name="town_list" item="item">
+                        <dd>
+                          <span class="sp13">{$district_info.country_name}</span>
+                          <span class="sp13">{$item.shopname}</span>
+                          <span class="sp13">{$item.status}<if condition="$item.status neq '4'">已锁定<else />可加盟</if></span>
+                        </dd>
+                      </foreach>
+                      </if>
+                    </if>
+                  <else />
+                    <foreach name="data_list" item="item">
+                      <if condition="$item.schedule neq 0">
+                        <dd>
+                          <span class="sp13">{$item.district_name}</span>
+                          <span class="sp13">{$item.shopname}</span>
+                          <span class="sp13"><if condition="($item.shopname neq '') AND ($item.schedule neq 11) AND ($item.schedule neq 12) AND ($item.schedule neq 14)">已锁定<else />可加盟</if></span>
+                        </dd>
+                      </if>
+                    </foreach>
+                  </empty>
+                </dl>
+              </li>
+            </ul>
+          </div>
+          <a href="javascript:history.go(-1);" class="back">返回</a>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<include file='Public:pageHeader'/>
+<div class="b_nav">当前位置 ：<a href="/">首页</a> > <a href="{:U('About/news',array('cat_id'=>$detail['cat_id']))}">{$cat_info['cat_name']}</a> > {$detail.title}</div>
+<div class="xwx" style="margin-top:20px">
+	<p class="p1">{$detail.title}</p>
+	<p class="p2"><i>{$detail.f_time|date='Y-m-d',###}</i><i>浏览量：{$detail.click_sum}</i><i></i></p>
+	{$detail.content}
+</div>
+<div class="clearfix xwx2 " style="margin-top:20px">
+	<ul class="u1">
+		<li><a href="#">标签:</a></li>
+		<volist name="detail.tip_list" id="vo">
+		<li><a href="{:U('About/news',array('keyword'=>$vo))}">{$vo}</a></li>
+		</volist>
+	</ul>
+	<ul class="u2 bdsharebuttonbox">
+		<li><a href="#" class="bds_qzone " data-cmd="qzone" title="分享到QQ空间"></a></li>
+		<li><a href="#" class="bds_tsina " data-cmd="tsina" title="分享到新浪微博"></a></li>
+		<li><a href="#" class="bds_renren " data-cmd="renren" title="分享到人人网"></a></li>
+		<li><a href="#" class="bds_tqq " data-cmd="tqq" title="分享到腾讯微博"></a></li>
+		<li><a title="分享到微信" href="#" class="bds_weixin " data-cmd="weixin"></a></li>
+		<li><a href="#" class="bds_more a6" data-cmd="more"></a></li>
+	</ul>
+</div>
+<style type="text/css">
+	.xwx2 .u2 li a{margin-right: 0px!important; padding-left: 10px}
+	.b_nav{ width: 1100px; margin: 10px auto 0 ; color: #666; font-size: 14px}
+	.b_nav a{color:#666}
+</style>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<div class="xwx3 clearfix" >
+	<div class="xwx31">
+		<empty name="front">
+		<p><a href="javascript:;"><i>上一篇：</i><span>没有了</span></a></p>
+        <else/>
+        <p><a href="{:U('About/detail',array('cat_id'=>$_GET['cat_id'],'id'=>$front['article_id']))}"><i>上一篇：</i><span>{$front.title}</span></a></p>
+        </empty>
+		<empty name="after">
+		<p><a href="javascript:;"><i>下一篇：</i><span>没有了</span></a></p>
+        <else/>
+        <p><a href="{:U('About/detail',array('cat_id'=>$_GET['cat_id'],'id'=>$after['article_id']))}"><i>下一篇：</i><span>{$after.title}</span></a></p>
+        </empty>
+	</div>
+	<!-- <div class="xwx32">
+		<a href="{:U('About/news',array('cat_id'=>$_GET['cat_id']))}">返回列表</a>
+	</div> -->
+</div>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,138 @@
+<title>订单详情-诗尼曼全屋定制</title>
+<meta name='keywords' content=""/>
+<meta name='description' content=""/>
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:16px;
+            color:#666;
+        }
+        #ddxq{
+            margin:0 auto;
+            /*background:red;*/
+            width:1100px;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:16px;
+        }
+        #ddxq #oo{
+           /* background:blue;*/
+            border-bottom:1px solid darkgrey;
+            margin-bottom: 33px;
+            font-family:'微软雅黑 Regular', '微软雅黑';
+            font-weight:400;
+            font-size:18px;
+            color:#666666;
+
+        }
+        #ddxq #oo #baktitle{
+            display:inline-block;
+        }
+        #ddxq #oo #baktitle span{
+            display:block;
+            padding: 15px;
+        }
+        #ddxq #oo a{
+          //  position:absolute;
+            float:right;
+        }
+        #ddxq #tabbox{
+            /*background:green;*/
+            width:1065px;
+            margin:0 auto;
+            text-align:center;
+        }
+        #ddxq #tabbox tr td{
+            padding:0 100px 33px 0;
+        }
+        #ddxq #tabbox tr td input{
+            border: 0;
+            padding-left: 9px;
+            font-size: 14px;
+        }
+
+    </style>
+	<script>
+    function GetQueryString(name){
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+                            }
+                            
+        $(function(){
+            var po = GetQueryString("po");
+            var pN = GetQueryString("pN");
+             $('#OrderNo').val(""+po+"");
+             $('#bak').click(
+                function(){
+                    window.location.href='{:U('Query/OrderList')}?phoneNmber='+pN;
+                }
+             );
+                $.ajax({
+                type: 'get', 
+                dataType: 'jsonp',   
+                callback:'callback',   
+                url: "http://113.107.7.78:8090/5order/NewOrderQuery.asp?po="+po ,
+                success: function(msg){
+                    callback(msg);
+                    console.log("success");
+                }
+
+                })
+        })
+
+
+        function callback(msg){
+                $("#order").val(""+msg.order+"");
+                    $("#state").val(""+msg.state+"");
+                    $("#accepted").val(""+msg.accepted+"");
+                    $("#payment").val(""+msg.payment+"");
+                    $("#produce").val(""+msg.produce+"");
+                    $("#storage").val(""+msg.storage+"");
+                    $("#transport").val(""+msg.transport+"");
+
+        }
+    </script>
+
+    <div id = "ddxq">
+        <div id="oo">
+            <div id="baktitle">
+            <img id="u23_img" class="img " src="__IMG__/u23.png"/>
+                <span>订单详情</span>
+                </div>
+               <a id="bak" href="#">返回列表 &gt;</a>
+        </div>
+        <div id ="tabbox">
+    <form id='addForm'>
+        <table >
+            <tr>
+                <td>订单号:
+                    <input type="text" id="order" readonly value=""></td>
+                    
+                <td> 订单状态:<input type="text" id="state"  readonly value=""></td>
+                <td> 受理时间:<input type="text" id="accepted"   readonly value="" >
+                    </td>
+                </tr>
+                    <tr>
+                <td>打款时间:<input type="text" id="payment"  readonly value="" > </td>
+                <td>生产时间:<input type="text" id="produce"  readonly value="" >
+                    </td>
+                <td>入库时间: <input type="text" id="storage"  readonly value="" ></td>
+                    </tr>
+                    <tr>
+                <td>发货时间: <input type="text" id="transport"  readonly value="" ></td>
+            </tr>
+                </table>
+            </form>
+        </div>
+</div>
+<include file='Public:pageFooter'/>

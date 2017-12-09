@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site_title|strip_tags=###}</title>
+<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+<meta name='description' content="{$site_description|strip_tags=###}"/>
+<meta name='author' content="互诺科技:http://www.hunuo.com"/>
+<meta name="viewport" content="width=1920,initial-scale=1">
+<link rel="Shortcut Icon" href="/favicon.ico">
+<link rel="Bookmark" href="/favicon.ico">
+<link type="text/css" rel="stylesheet" href="__CSS__/style.css?v=3"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/js.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+</head>
+<body> 
+<div class="head">
+    <div class="top clearfix">
+        <a href="/"><img src="__ROOT__/{$logo.original_img}" alt='logo'></a>
+        <ul class="top-nav f12">
+            <li><a href="{$site_info.link1}"  target="_blank">京东官方商城</a></li>
+            <li><a href="{$site_info.link2}"  target="_blank">天猫官方商城</a></li>
+            <li><a href="{$site_info.link3}"  target="_blank">诗尼曼官方商城</a></li>
+            <li><a href="{$site_info.link4}"  target="_blank">诗尼曼门窗</a></li>
+        </ul>
+        <div class="tel fr">
+            <p>全国服务热线</p>
+            <p>{$site_info.tel_hot}</p>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="wrap clearfix" style="width:1140px">
+            <li><a href="/" <if condition="$nid eq 1">class='hover'</if>>首页 </a></li>
+            <li><a href="{:U('About/investment')}" <if condition="$hover eq 5">class='hover'</if>>招商加盟</a>
+                <div class="sec_nav">
+                    <span><a href="/join.html#tag1">品牌优势</a></span>
+                    <span><a href="/join.html#tag2">加盟优势</a></span>
+                    <span><a href="/join.html#tag3">加盟支持</a></span>
+                    <span><a href="/join.html#tag4">经销商风采</a></span>
+                    <span><a href="/join.html#tag5">加盟条件</a></span>
+                    <span><a href="/join.html#tag6">加盟流程</a></span>
+                </div>
+            </li>
+            <li><a href="{:U('Product/index')}" <if condition="$hover eq 6">class='hover'</if>>产品体验</a>
+                <div class="sec_nav">
+                    <span><a href="/product_list?cat_id2=16">卧房</a></span>
+                    <span><a href="/product_list?cat_id2=17">客厅</a></span>
+                    <span><a href="/product_list?cat_id2=18">餐厅</a></span>
+                    <span><a href="/product_list?cat_id2=19">书房</a></span>
+                    <span><a href="/product_list?cat_id2=20">儿童房</a></span>
+                
+                </div>
+            </li>
+
+					
+			 <!-- <li> <a href="{:U('Tips/index')}" <if condition="$hover eq 7">class='hover'</if>>3D云设计</a></li> -->
+
+
+
+            <li><a href="{:U('Sales/index')}" <if condition="$hover eq 4">class='hover'</if>>促销活动</a></li>
+            <li><a href="{:U('About/news')}" <if condition="$hover eq 3">class='hover'</if>>新闻中心 </a>
+                <div class="sec_nav">
+                <volist name="all_cats1" id="vo">
+                    <span><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+                </volist>
+                </div>
+            </li>
+            <li><a href="{:U('About/index')}" <if condition="$hover eq '2'">class='hover'</if>>关于诗尼曼</a>
+                <div class="sec_nav">
+                <volist name="all_cats" id="vo">
+                    <span><a href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+                </volist>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="bannerx" >
+        <img src="__ROOT__/{$ban.original_img}" alt="" />
+    </div>
+    
+</div>
+		<div class="Cmain">
+			<div class="ca1 clearfix">
+				<div class="ca11">
+					<a href="{$pro_ban.link}" target="_blank"><img src="__ROOT__/{$pro_ban.original_img}" alt="" /></a>
+			<!-- <div class="ca11-inner1"></div>
+			<div class="ca11-inner2"></div> -->
+				</div>
+				<div class="ca12">
+					<p>
+                        <a href="{:U('Product/index')}" style="font-size:16px" class="cat_id">全部分类</a>
+                    </p>
+					<volist name="cat_list" id="vo">
+					<ul class="clearfix">
+						<li class="l1"  style="float:left"><span>{$vo.cat_name}:</span></li>
+						<ul  style="width:790px;float:left">
+							<volist name="vo.list" id="vo2" key="k">
+							<li>
+							<a href="javascript:;" class="cat_id" data-catid="{$vo2.cat_id}" data-id="{$vo2.id}">
+							{$vo2.title}
+							</a>
+							</li>
+							</volist>
+						</ul>
+					</ul>
+					</volist>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		$('.cat_id').click(function(){
+			var cat_id = $(this).attr('data-catid');
+			var id     = $(this).attr('data-id');
+			window.location.href = '/product_list?cat_id'+cat_id+'='+id+'';
+		})
+			
+		</script>
+		<style type="text/css">
+	        .nav ul li{position: relative;}
+	        .sec_nav { width: 164px; position: absolute;left: 0;top: 45px; background: #000; display: none; z-index: 99999999}
+	        .sec_nav span{line-height: 45px;text-align: center; width: 166px; display: block; }
+	        .sec_nav span a{color: #fff}
+	    </style>
+
+		<div class="ca3 clearfix" style="padding-bottom:50px">
+			<div class="b_nav">当前位置 ：<a href="/">首页</a> > <a href="{:U('Product/index')}">产品列表</a> > {$detail.title}</div>
+			<style type="text/css">
+				.b_nav{ width: 1140px; margin:0px auto 20px auto; color: #666; font-size: 14px}
+				.b_nav a{color:#666}
+				
+			</style>
+			<div class="ca31">
+			        <ul class="bd">
+			        <volist name="detail.images" id="vo">
+			            <li><img src="__ROOT__/{$vo.original_img}" width="650" height="430"></li>
+			        </volist>
+			        </ul>
+			        <div class="hdWrap clearfix">
+			        	<a href="javascript:;" class="prev"></a>
+				        <div class="hd">
+				            <ul>
+				            	<volist name="detail.images" id="vo">
+				            	<li style="background-image: url(__ROOT__/{$vo.original_img}) ;background-size:130px 86px"></li>
+				            	</volist>
+				            </ul>
+				        </div>
+				        <a href="javascript:;" class="next"></a>
+			        </div>
+			        
+			        
+			        <script type="text/javascript">
+						//大图切换
+						jQuery(".ca31").slide({ titCell:".hd li", mainCell:".bd", effect:"fold", autoPlay:true,delayTime:200});
+						//小图左滚动切换
+						jQuery(".ca31 .hdWrap").slide({ mainCell:"ul",delayTime:100,vis:4,effect:"left",autoPage:true,prevCell:".prev",nextCell:".next" });
+			       </script>
+			</div>
+			<div class="ca32">
+				<p class="p1">{$detail.title}</p>
+				<p class="p2">{$detail.short}</p>
+				<ul class="u3">
+					<li><span>所属分类 :</span></li>
+					<volist name="detail.cat_list" id="vo">
+					<li><a href="###">{$vo}</a></li>
+					<span>|</span>
+					</volist>
+				</ul>
+				<div class="ca33">
+					<ul class="u1 clearfix">
+						<li><span style="font-size:14px">当前颜色:</span></li>
+						<volist name="detail.color_list" id="vo">
+						<li class="l1" style="display:block"><img src="__ROOT__/{$vo.co}" width="50" height="50" title="{$vo.tit}"></li>
+						</volist>
+					</ul>
+
+                    <if condition="$detail.is_mesa eq 1">
+                        <ul class="u2 clearfix" style="font-size:14px">
+                            <li><span>台&nbsp;&nbsp;&nbsp;&nbsp;面:</span></li>
+                            <volist name="detail.mesa_list" id="vo">
+                                <li class="l1" style="display:block"><img src="__ROOT__/{$vo.img}" width="64" height="21" title="{$vo.title}"></li>
+                            </volist>
+                        </ul>
+                    <else />
+                        <ul class="u2 clearfix" style="font-size:14px">
+                            <li><span>可选板材:</span></li>
+                            <if condition="in_array('1',$detail['mucai_list'])">禾香板&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</if>
+                            <if condition="in_array('2',$detail['mucai_list'])">实木颗粒板</if>
+                        </ul>
+                    </if>
+
+				</div>
+				<div class="ca34">
+					<a href="###" class="book">免费预约量尺</a><a href="{$detail.link}" target="_blank">商城购买</a>
+				</div>
+			</div>
+		</div>
+		<div class="yxwl13" style="display:none">
+			<div class="popup">
+			<div class="popup-inner clearfix">
+				<img src="__IMG__/mn.png" alt="" />
+				<div class="popup-right">
+					<p class="p1 ttt"></p>
+					<form id='cmForm'>
+						<div class="di1 clearfix"><span>姓 名:</span><input type="text" name="name" value="" /></div>
+						<div class="di1 clearfix"><span>手 机:</span><input type="text" name="phone" value="" /></div>
+						<div class="di2 clearfix">
+							<span>区 域:</span>
+							<div class="re">
+								<select name="province" onchange="getRegion2(this.value,'city2')" id="province2">
+								<option value="">请选省份</option>
+								<volist name="province" id="vo">
+									<option value="{$vo.region_id}">{$vo.region_name}</option>
+								</volist>
+								</select>
+								<!-- <b></b> -->
+							</div>
+							<div class="re">
+								<select name="city" class="sl1" id="city2" onchange="getRegion2(this.value,'district2')">
+									<option value="">选择城市</option>
+								</select>
+								<!-- <b></b> -->
+							</div>
+						</div>
+						<div class="di3 clearfix">
+							<select name="district" class="" id="district2">
+								<option value="">选择区域</option>
+							</select>
+							<!-- <b></b> -->
+						</div>
+						<input type="hidden" name="type" value="3">
+						<input type="button" value="免费预约" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')" style='background-color: #7a2b40; color: #fff; display: block; font-size: 16px;border:0; height: 46px;cursor: pointer; line-height: 36px; margin-left: 38px;margin-top: 18px; float:left; text-align: center; width: 190px; border-radius:5px'/> &nbsp;&nbsp;&nbsp;&nbsp;<font color='red' size='-1' id='cmresult' style="position:absolute;bottom:10px;left:363px;text-align:left"></font>
+					</form>
+					<a href="###" class="closeBtn"></a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script>
+	        $('.nav ul li').hover(function(){
+	            $(this).find('.sec_nav').stop(true,true).slideToggle();
+	        })
+	        $('.closeBtn').click(function(){
+				$('.yxwl13').hide();
+			})
+			$('.book').click(function(){
+				$('.yxwl13').show();
+			})
+	    </script> 
+		<div class="ca4">
+			<h3>产品细节</h3>
+			<i></i>
+			<div class="ca3">
+			{$detail.content}
+			</div>
+		</div>
+<include file='Public:pageFooter'/>

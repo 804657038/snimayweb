@@ -1,0 +1,246 @@
+/***************Color*****************/
+/***************Font-size*****************/
+/*css  reset*/
+body,
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-x: hidden;
+  position: relative;
+  font-family: "微软雅黑";
+  font-size: 20px;
+  color: #fff;
+  height:100%;
+  
+}
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+input,
+select {
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+li {
+  padding: 0;
+  margin: 0;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+p {
+  margin: 0;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.paper_header{
+  height:8%;
+  background:#fff;
+  color:#b22535;
+  text-align: center;
+  padding:20px 0;
+  font-size:20px;
+  border-bottom:1px solid #b22535;
+}
+
+.wrapper{
+  background:url("../img/bg.jpg") no-repeat center center;
+  background-size:cover;
+  height:90%;
+  position:relative;
+  width:100%;
+  background-color:#ececec;
+  padding-bottom:5%;
+}
+
+.swiper-container{
+  width:75%;
+  margin:0 auto;
+  padding-top:5%;
+  height:100%;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    border:1px solid #945163;
+    border-radius:100%;
+    -webkit-border-radius:100%;
+    width:50px;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    color:#945163;
+    background-image:none;
+    top:35%;
+}
+.swiper-button-prev{
+   margin-left:3%;
+}
+.swiper-button-next{
+  margin-right:3%;
+}
+.swiper-pagination{
+  width:100%;
+  bottom:20%;
+}
+.swiper-pagination-bullet{
+    width: 40px;
+    height: 10px;
+    border-radius:999em;
+    margin-right:10px;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #802c42;
+}
+
+.swiper-slide-next{
+  transition:all 0.3s ease-in;
+  transform:scale(1.2) translate3d(0,3.5%,0);
+  z-index:100;
+}
+.swiper-slide-active{
+  /*margin-left:2%;*/
+}
+.swiper-slide-active, .swiper-slide-next + .swiper-slide{
+    transform:scale(0.6) translate3d(0,-18%,0);
+}
+
+.slider-geer{
+  width:100%;
+}
+
+.slider-geer .btn_wrap{
+  position:absolute;
+  top:5%;
+  left:3%;
+}
+.btn_wrap .select_imgs{
+  color:#5f5e5e;
+  width:100px;
+  padding:10px;
+  font-size:16px;
+  border-radius:5px;
+
+}
+
+.zoomIn{
+  cursor: pointer;
+}
+
+.return{
+   position:absolute;
+   top:2%;
+   right:10%;
+   width:80px;
+   height:30px;
+   border:1px solid #bfbfbf;
+   line-height: 30px;
+   text-align: center;
+   font-size:16px;
+   color:#5f5e5e;
+   border-radius:5px;
+   z-index:110;
+}
+.return:hover{
+  border:1px solid #802c42;
+}
+
+.return .iconfont{
+  font-size:16px;
+  display:inline-block;
+  margin-left:-5px;
+}
+
+.periods{
+  color:#000;
+  text-align:center;
+  margin-bottom:15px;
+  padding-left:100px;
+}
+
+.ye{
+  font-weight: 300;
+  font-size:16px;
+  margin-left:-10%;
+}
+.date{
+  font-size:10px;
+  text-align: right;
+   line-height:1;
+}
+.date-day{
+    float:right;
+    font-size:25px;
+    margin-left:3px;
+    margin-top:-4px;
+}
+
+/*focus_img*/
+#pageContent {width: 100%; height: 100%;overflow: hidden;position:relative;margin:0px auto;}
+#imgContainer {width: 80%;height: 80%; margin:0 auto;}
+#positionButtonDiv {background: rgb(58, 56, 63);background: rgba(58, 56, 63, 0.8);border: solid 1px #100000;color: #fff;padding: 8px;text-align: left;position: absolute;right:35px;top:35px;}
+#positionButtonDiv .positionButtonSpan img {float: right;border: 0;}
+.positionMapClass area {
+  cursor: pointer;
+}
+.zoomButton {border: 0; cursor: pointer;}
+
+.zoomableContainer{
+  width:100% !important;
+  height:100% !important;
+}
+
+
+/*fonts*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont/iconfont.eot');
+  src: url('iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont/iconfont.woff') format('woff'),
+  url('iconfont/iconfont.ttf') format('truetype'),
+  url('iconfont/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:30px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<meta name='author' content="定制家具加盟:http://www.snimay.com"/>
+		<meta name="viewport" content="width=1920,initial-scale=1">
+		<link rel="Shortcut Icon" href="/favicon.ico">
+		<link rel="Bookmark" href="/favicon.ico">
+		<link type="text/css" rel="stylesheet" href="__CSS__/style.css?v=111"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+		<script type="text/javascript" src="__JS__/jquery.js"></script>
+		<script type="text/javascript" src="__JS__/js.js"></script>
+		<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+		<script type="text/javascript" src="__JS__/myScript.js"></script>
+
+		<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>	
+		<title>诗尼曼-3D云设计体验</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#tips{
+				width: 100%;
+				border: 0px;
+				top: 0;
+				left: 0;
+			}
+			#tip{
+				width: 100%;
+				background-color: rgba(0,0,0,0.5);
+				z-index: 100;
+				top: 0;
+				left: 0;
+				color: white;
+				position: absolute;
+			}
+			#box{
+				width: 100%;
+				position: relative;
+			}
+			#tip ul li:nth-child(1){
+				font-size: 30px;
+				line-height: 50px;
+			}
+			#tip ul li:nth-child(2){
+				font-size: 18px;
+				line-height: 38px;
+			}
+			#tip ul li:nth-child(3){
+				font-size: 14px;
+				line-height: 46px;
+			}
+			#tip ul li:nth-child(4) button{
+				margin-top: 21px;
+				font-size: 18.97px;
+				line-height: 54px;
+				width: 152px;
+				border: 1px solid white;
+				border-radius: 4px;
+				background-color:rgba(0,0,0,0);
+				color: white;
+				cursor: pointer;
+				cursor: -ms-pointer;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="head">
+  <div class="top clearfix">
+    <h1><a href="/"><img src="__ROOT__/{$logo.original_img}" alt='定制家具加盟' title='定制家具加盟'></a></h1>
+    <ul class="top-nav f12">
+      <li><a href="{$site_info.link1}"  target="_blank" rel="nofollow" >京东官方商城</a></li>
+      <li><a href="{$site_info.link2}"  target="_blank" rel="nofollow" >天猫官方商城</a></li>
+      <li><a href="{$site_info.link3}"  target="_blank" rel="nofollow" >诗尼曼官方商城</a></li>
+      <li><a href="{$site_info.link4}"  target="_blank" rel="nofollow" >诗尼曼门窗</a></li>
+    </ul>
+    <div class="tel fr">
+      <p>全国服务热线</p>
+      <p>{$site_info.tel_hot}</p>
+    </div>
+  </div>
+  <div class="nav">
+    <ul class="wrap clearfix" style="width:1100px">
+      <li><a href="/" <if condition="$nid eq 1">class='hover'</if>>首页 </a></li>
+      <li>
+        <a  <if condition="$hover eq 5">class='hover'</if>>招商加盟</a>
+        <div class="sec_nav">
+          <!-- <span><a href="/join.html#tag1">品牌优势</a></span>
+          <span><a href="/join.html#tag2">加盟优势</a></span>
+          <span><a href="/join.html#tag3">加盟支持</a></span>
+          <span><a href="/join.html#tag4">经销商风采</a></span>
+          <span><a href="/join.html#tag5">加盟条件</a></span>
+          <span><a href="/join.html#tag6">加盟流程</a></span>-->
+          <span><a href="/join.html">全屋定制加盟</a>
+          <span><a href="http://www.snimay.com/cgzs" target="_blank">橱柜加盟</a>
+        </div>
+      </li>
+
+      <li>
+        <a href="{:U('Product/index')}" <if condition="$hover eq 6">class='hover'</if>>产品体验</a>
+        <div class="sec_nav">
+          <span><a href="/product_list?cat_id2=54">厨房</a></span>
+          <span><a href="/product_list?cat_id2=16">卧房</a></span>
+          <span><a href="/product_list?cat_id2=17">客厅</a></span>
+          <span><a href="/product_list?cat_id2=18">餐厅</a></span>
+          <span><a href="/product_list?cat_id2=19">书房</a></span>
+          <span><a href="/product_list?cat_id2=20">儿童房</a></span>
+        </div>
+      </li>
+
+
+      <li>
+        <a href="{:U('Tips/index')}" class='hover'>3D云设计</a>
+      </li>
+
+
+      
+      <li>
+        <a  <if condition="$hover eq 4">class='hover'</if>>专题活动</a>
+        <div class="sec_nav">
+          <span><a href="/Sales">专题活动</a></span>
+          <span><a href="/Sales/zhibo" rel="nofollow" >诗尼曼直播</a></span>
+          <span><a href="/Sales/mxj" rel="nofollow" >明星季专题</a></span>
+        </div>
+      </li>
+      <li>
+        <a href="{:U('About/news')}" <if condition="$hover eq 3">class='hover'</if>>新闻中心 </a>
+        <div class="sec_nav">
+          <volist name="all_cats1" id="vo">
+            <span><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+          </volist>
+        </div>
+      </li>
+      <li>
+        <a href="{:U('About/index')}" <if condition="$hover eq '2'">class='hover'</if>>关于诗尼曼</a>
+        <div class="sec_nav">
+          <volist name="all_cats" id="vo">
+            <span><a href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+          </volist>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+    $('.nav ul li').hover(function(){
+      $(this).find('.sec_nav').stop(true,true).slideToggle();
+    })
+  </script> 
+
+
+
+		<div id="box">
+			<iframe id="tips" src="https://yun.kujiale.com/design/3FO4IEVW1PMD/show?fromqrcode=true"></iframe>
+			<div id="tip">
+				<div align="center">
+					<ul>
+						<li>
+							<p class="animated fadeInRightBig">3D云设计体验</p>
+						</li>
+						<li>
+							<p class="animated fadeInLeftBig">720°全方位浏览/细节还原/海量模型</p>
+						</li>
+						<li>
+							<p class="animated fadeInDownBig">无需下载·终身免费·随心设计·光速渲染</p>
+						</li>
+						<li>
+							<button id="go" class="animated fadeInUpBig">立即体验</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		<include file='Public:pageFooter'/>
+	</body>
+
+	<script>
+		$(function(){
+			$('#tips').height($(window).height()-165);
+			$('#tip').height($(window).height()-165);
+			$('#tip>div').css('padding-top',($(window).height()-165-$('#tip>div').height())/2);
+			$(window).resize(function(){
+				$('#tips').height($(window).height()-165);
+				$('#tip').height($(window).height()-165);
+				$('#tip>div').css('padding-top',($(window).height()-165-$('#tip>div').height())/2);
+			});
+			$('#go').click(function(){
+				window.location.href="http://www.snimay.com/3D/index.php/Home/Login/login";
+				$('#tip').hide();
+			});
+		})
+	</script>
+</html>

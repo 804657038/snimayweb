@@ -1,0 +1,209 @@
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+<div class="yxwl">
+	<div class="yxwl1 clearfix">
+		<div class="yxwl11">
+			<!--net_map-->
+      <div class="net_map">
+        <div class="map" id="dataMap">
+         
+        <span style="top:365px;left:380px"><a href="javascript:void(0)" onclick="findMallByProviceId('6');">广东</a></span>
+        
+		<span style="top:375px;left:315px"><a href="javascript:void(0)" onclick="findMallByProviceId('7')">广西</a></span>
+        
+        <span style="top:130px;left:125px"><a href="javascript:void(0)" onclick="findMallByProviceId('29')">新疆</a></span>
+        
+		<span style="top:165px;left:305px"><a href="javascript:void(0)" onclick="findMallByProviceId('19')">内蒙古</a></span>
+        
+        <span style="top:162px;left:392px"><a href="javascript:void(0)" onclick="findMallByProviceId('2')" class="hotcity">北京</a></span>
+
+		<span style="top:176px;left:408px"><a href="javascript:void(0)" onclick="findMallByProviceId('27')">天津</a></span>
+
+		<span style="top:190px;left:380px"><a href="javascript:void(0)" onclick="findMallByProviceId('10')">河北</a></span>
+
+		<span style="top:210px;left:350px"><a href="javascript:void(0)" onclick="findMallByProviceId('23')">山西</a></span>
+
+		<span style="top:138px;left:433px"><a href="javascript:void(0)" onclick="findMallByProviceId('18')">辽宁</a></span>
+
+		<span style="top:110px;left:465px;"><a href="javascript:void(0)" onclick="findMallByProviceId('15')">吉林</a></span>
+		
+		<span style="top:70px;left:460px"><a href="javascript:void(0)"  onclick="findMallByProviceId('12')">黑龙江</a></span>
+
+		<span style="top:280px;left:458px"><a href="javascript:void(0)" onclick="findMallByProviceId('25')" class="hotcity">上海</a></span>
+		
+		<span style="top:250px;left:435px"><a href="javascript:void(0)" onclick="findMallByProviceId('16')">江苏</a></span>
+		
+		<span style="top:296px;left:445px"><a href="javascript:void(0)" onclick="findMallByProviceId('31')">浙江</a></span>
+		
+		<span style="top:265px;left:410px"><a href="javascript:void(0)" onclick="findMallByProviceId('3')">安徽</a></span>
+		
+		<span style="top:340px;left:420px"><a href="javascript:void(0)" onclick="findMallByProviceId('4')">福建</a></span>
+		
+		<span style="top:317px;left:400px"><a href="javascript:void(0)" onclick="findMallByProviceId('17')">江西</a></span>
+		
+		<span style="top:206px;left:400px"><a href="javascript:void(0)" onclick="findMallByProviceId('22')">山东</a></span>
+		
+		<span style="top:240px;left:360px"><a href="javascript:void(0)" onclick="findMallByProviceId('11')">河南</a></span>
+
+		<span style="top:277px;left:357px"><a href="javascript:void(0)" onclick="findMallByProviceId('13')">湖北</a></span>
+
+		<span style="top:317px;left:343px"><a href="javascript:void(0)" onclick="findMallByProviceId('14')">湖南</a></span>
+
+		<span style="top:420px;left:342px"><a href="javascript:void(0)" onclick="findMallByProviceId('9')">海南</a></span>
+
+		<span style="top:290px;left:310px"><a href="javascript:void(0)" onclick="findMallByProviceId('32')">重庆</a></span>
+
+		<span style="top:293px;left:255px"><a href="javascript:void(0)" onclick="findMallByProviceId('26')">四川</a></span>
+
+		<span style="top:335px;left:295px"><a href="javascript:void(0)" onclick="findMallByProviceId('8')">贵州</a></span>
+		
+		<span style="top:359px;left:237px"><a href="javascript:void(0)" onclick="findMallByProviceId('30')">云南</a></span>
+
+		<span style="top:260px;left:120px"><a href="javascript:void(0)" onclick="findMallByProviceId('28')">西藏</a></span>
+
+		<span style="top:240px;left:310px"><a href="javascript:void(0)" onclick="findMallByProviceId('24')">陕西</a></span>
+
+		<span style="top:165px;left:200px"><a href="javascript:void(0)" onclick="findMallByProviceId('5')">甘肃</a></span>
+
+		<span style="top:222px;left:180px"><a href="javascript:void(0)" onclick="findMallByProviceId('21')">青海</a></span>
+
+		<span style="top:200px;left:300px"><a href="javascript:void(0)" onclick="findMallByProviceId('20')">宁夏</a></span>
+
+		<span style="top:383px;left:392px"><a href="javascript:void(0)" onclick="findMallByProviceId('33')">香港</a></span>
+
+		<span style="top:385px;left:355px"><a href="javascript:void(0)" onclick="findMallByProviceId('34')">澳门</a></span>
+
+		<span style="top:360px;left:460px"><a href="javascript:void(0)" onclick="findMallByProviceId('35')">台湾</a></span>
+        
+         </div>
+        <div class="map_right"> <!-- <img src="__IMG__/map_right.gif"> --> </div>
+      </div>
+      <!--net_map-->
+		</div>
+		
+	</div>
+	<div class="yxwl2">
+		<div class="yxwl21 clearfix">
+			<div class="fl g1">
+				<span>您要查看的省份和城市</span>
+				<select name="province" onchange="getRegion(this.value,'city'),findMallListByProvinceId(this.value)" id="province">
+					<option value="">请选择</option>
+					<volist name="province" id="vo">
+					<option value="{$vo.region_id}">{$vo.region_name}</option>
+					</volist>
+				</select>
+				<select name="city" id="city" onchange="getRegion(this.value),findMallListByCityId(this.value)">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			<div class="fr g2">
+				<span>搜索关键字</span>
+				<input type="text" class="i1" placeholder="请输入关键字" id='keywords'/>
+				<a class="i2" onclick="searchDealer();" style="cursor: pointer;">提交</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ul class="yxwl3">
+	<li class="l1"><span>专卖店名称</span><i>专卖店地址</i><em>营业时间</em></li>
+</ul>
+
+<script type="text/javascript">
+
+var province = parseInt('[province]') || parseInt('{$province}');
+var city = parseInt('[city]') || parseInt('{$city}');
+var district = parseInt('[district]') || parseInt('{$district}');
+
+function getRegion(region_id, container){
+
+    $.get("{:U('Control/getRegion')}",{'region_id':region_id},function(res){
+
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province' && province>0){
+            document.getElementById('province').value = province;
+            getRegion(province, 'city');
+        }
+        if(container == 'city' && city>0){
+            document.getElementById('city').value = city;
+        }
+
+    },'html')
+}
+
+function getRegion1(region_id, container){
+	var province = parseInt('[province]') || parseInt('{$province}');
+	var city = parseInt('[city]') || parseInt('{$city}');
+	var district = parseInt('[district]') || parseInt('{$district}');
+    $.get("{:U('Control/getRegion')}",{'region_id':region_id},function(res){
+
+    	$('#'+container+' option:gt(0)').remove();
+		$('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province1'){
+
+            document.getElementById('province1').value = province;
+
+            getRegion(province, 'city1');
+        }
+        if(container == 'city1'){
+            document.getElementById('city1').value = city;
+        }
+
+    },'html')
+}
+
+function findMallByProviceId(provinceId){
+   $("#province option[value='"+provinceId+"']").attr("selected","selected");
+   findMallListByProvinceId(provinceId);
+   getRegion(provinceId, 'city');
+}
+
+function findMallListByProvinceId(provinceId){
+	$.get("{:U('About/get_location')}",{'id':provinceId},function(res){
+		if(res == ''){
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append('<li class="l2">暂无该专卖店！</li>');
+		}else{
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append(res);
+		}
+		
+    },'html')
+	 
+}
+
+function findMallListByCityId(provinceId){
+	$.get("{:U('About/get_location1')}",{'id':provinceId},function(res){
+		if(res == ''){
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append('<li class="l2">暂无该专卖店！</li>');
+		}else{
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append(res);
+		}
+    },'html')
+	 
+}
+//搜索的关键词
+function searchDealer(){
+   var keywords = $("#keywords").val(); 
+   if(keywords=='请输入关键字'||keywords==''){
+     alert('请输入搜索关键词', '#keywords');
+     return ;
+   }
+	 $.get("{:U('About/get_location2')}",{'key':keywords},function(res){
+		if(res == ''){
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append('<li class="l2">暂无该专卖店！</li>');
+		}else{
+			$('.yxwl3 li.l2').remove();
+			$('.yxwl3').append(res);
+		}
+	},'html')
+   
+}
+</script>
+<include file='Public:pageFooter'/>

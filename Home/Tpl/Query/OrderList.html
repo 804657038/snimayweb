@@ -1,0 +1,106 @@
+<title>订单列表-诗尼曼全屋定制</title>
+<meta name='keywords' content=""/>
+<meta name='description' content=""/>
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+	<link href="__CSS__/easyui.css" rel="stylesheet" />
+	<script src="__JS__/jquery.easyui.min.js"></script>
+	
+	<script>
+   var pN = GetQueryString("phoneNmber");
+		function GetQueryString(name){
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if(r!=null)return  unescape(r[2]); return null;
+		}
+
+		$(function(){
+			    $('#dataList').datagrid({
+					url:'',
+					method:'post',
+					onClickRow: function (rowIndex, rowData) {
+						$(this).datagrid('unselectRow', rowIndex);
+					}, 
+					columns:[[
+					{field:'xuhao',title:'序号',width:137,align:'center'},
+					{field:'OrderNo',title:'订单号',width:341,align:'center'},
+					{field:'dd',title:'状态',width:294,align:'center'},
+					{field:'price',title:'生产信息',width:328,align:'center'}
+							]]
+					});
+					
+			$.ajax({
+				type: "POST",
+				url: "http://39.108.156.196:8080/gw/getOrderList.php?phone="+pN , //暂时调用72接口
+				dataType: 'jsonp',
+				jsonpCallback:"callback",
+				success: function(msg){
+					//var ret = msg.ret.toString();           
+			      	callback(msg);
+      			},
+				error: function (r){
+					console.log(99);
+				}
+			});
+		})
+		function callback(msg){console.log(msg);
+	      	var b = [];
+			var listData = {};
+			var s = msg.data.length;
+		
+			for(i=0;i < s;i++){
+				var a = {};
+				a.xuhao = i+1;
+				a.OrderNo = msg.data[i].ORDERNO;
+				a.dd = msg.data[i].STATUS;
+				if(msg.data[i].STATUS == "已审核"){
+					a.price = "<a href=\"{:U('Query/OrderDetail')}?po="+msg.data[i].ORDERNO+"&pN="+pN+"\" >点击查看</a>"
+				}
+				b.push(a);	     
+			}
+			listData.total = s;
+			listData.rows = b;
+			$('#dataList').datagrid('loadData',listData);	
+		}
+	</script>
+	<style>
+	 #orderList{
+		margin:20px auto;
+		width:1100px;
+		height:600px;
+		text-align:center;
+	 }
+	 #orderList #title span{
+		display: block;
+		font-weight: 400;
+		font-size: 24px;
+		color: #666666;
+		text-align:center;
+		padding-bottom: 20px;
+	 }
+	  #orderList #list_Shell{
+		 margin:0 auto;
+		 width:1100px;
+		 height:400px;
+		// background:red;
+	 }
+	 ##orderList #list_Shell table tbody tr td{
+			font-weight: 400;
+			font-size: 18px;
+			color: #666666;
+	 }
+	</style>
+
+	<div id="orderList">
+	<div id= "title">
+	<span>订单列表</span>
+	</div>
+	<div id = "list_Shell">
+		<table id="dataList" class="easyui-datagrid">		
+		<tbody>
+		</tbody>
+		</table>
+	</div>
+	</div>
+<include file='Public:pageFooter'/>

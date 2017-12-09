@@ -1,0 +1,317 @@
+<include file='Public:pageHeader'/>
+<script type="text/javascript">
+		function side(el1,el2,zt){
+	    var canGo = true;
+	    var al= $(el1);
+	    var main = $(el2);
+	    var on=zt;
+	    var abc=main.length;
+		$(window).scroll(function() {
+	   		 main.each(function(index, element) {
+	        if ($(window).scrollTop()>=$(this).offset().top) {
+	            al.removeClass(on);
+				
+	            al.eq(index).addClass(on);
+	        }
+	    	});
+		})
+	    al.each(function(index, element) {
+	        $(this).click(function() {
+	            canGo = false;
+	            al.removeClass(on);
+	            $(this).addClass(on);
+	            $("html,body").stop(true, true).animate({
+	                "scrollTop": main.eq(index).offset().top
+	            }, 500,function(){
+	                canGo=true;
+	            });
+	        });
+	 });
+	}
+</script>
+<script>
+	/*$(document).ready(function(){
+		side('#za1 li','.turn','hover');
+	});*/
+</script>
+
+<!--主要内容-->
+		<div class="Zmain">
+			<div class="za1 clearfix" id="tagx">
+				<ul class="fl" id="za1" style="display:none">
+					<div class="l1"><a href="###"></a></div>
+					<li class="l2" ><a href="#tag1">品牌优势</a><em></em></li>
+					<li class="l3" ><a href="#tag2">加盟优势</a><em></em></li>
+					<li class="l4" ><a href="#tag3">加盟支持</a><em></em></li>
+					<li class="l5" ><a href="#tag4">经销商风采</a><em></em></li>
+					<li class="l6" ><a href="#tag5">加盟条件</a><em></em></li>
+					<li class="l7" ><a href="#tag6">加盟流程</a><em></em></li>
+					<!-- <em></em> -->
+				</ul>
+				<div class="za1-inner clearfix turn" id="tag1">
+					<div class="za11 fl">
+						<dl>
+							<dt>{$arti_1.title}</dt>
+							<dd>{$arti_1.content}</dd>
+						</dl>
+						<dl>
+							<dt>{$arti_2.title}</dt>
+							<dd>{$arti_2.content}</dd>
+						</dl>
+					</div>
+					<div class="za12 fl">
+						<dl>
+							<dt>{$arti_3.title}</dt>
+							<dd>{$arti_3.content}</dd>
+						</dl>
+						<dl>
+							<dt>{$arti_4.title}</dt>
+							<dd>{$arti_4.content}</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			
+			<div class="za2 turn" id="tag2">
+				<div class="za2l"><!-- <img src="__IMG__/d7.png" alt="" /> --></div>
+				<div class="za2-inner clearfix">
+					<div class="za21 fl">
+						<ul>
+							<volist name="ys_list" id="vo" key="k">
+							<li class="l{$k}">
+								<p>{$vo.title}</p>
+								<span>{$vo.content}</span>
+							</li>
+							</volist>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="za3 turn" id="tag3">
+				<h3>加盟支持</h3>
+				<div class="a1 clearfix"><i></i><p>大电商广渠道，线上千万客户资源 </p><em></em></div>
+				<div class="za3-inner">
+			        <ul class="bd">
+			        	<volist name="join_list" id="vo">
+			            <li>
+			            	<img src="__ROOT__/{$vo.original_img}" alt="" />
+			            		<span>{$vo.title}</span>
+			            		<em>{$vo.en_title}</em>
+			            		<i>{$vo.content}</i>
+			            </li>
+			            </volist>
+			        </ul>
+			        <a href="javascript:;" class="prev"></a>
+			        <a href="javascript:;" class="next"></a>
+			    </div>
+			    <script type="text/javascript">
+			        	jQuery(".za3-inner").slide({titCell:".hd ul",mainCell:".bd ",autoPage:true,effect:"left",autoPlay:true,vis:3,trigger:"click",
+			        	});
+			    </script>
+			</div>
+			
+			<div class="za4 turn" id="tag4">
+				<h3>经销商风采</h3>
+				<div class="a1 clearfix"><i></i><p>天下英才 尽入诗尼曼</p><em></em></div>
+				<div class="za4-inner">
+					 <ul class="bd">
+					 
+					 <volist name="bess_list" id="vo">
+			          <li class="clearfix">
+			          	<div class="fc1" ><img src="__ROOT__/{$vo['list'][0]['original_img']}" width="471" height="471" style="border-radius:250px; width:90%;height:90%;margin-top:30px "></div>
+			          	<div class="fc2">
+			          		<!-- <p class="px1">{$vo.short}</p> -->
+			          		<p class="px2">{$vo.title}</p>
+			          		<p class="px3">{$vo.content}</p>
+			          		<div class="fc-wrap clearfix">
+			          			<volist name="vo.list" id="vo2">
+			          			<div>
+			          				<i></i>
+			          				<span class="span1" style="background:none"><img src="__ROOT__/{$vo2.original_img}" width="110" height="110" style="border-radius:55px;width:99%;height:99%;"></span>
+			          			</div>
+			          			</volist>
+			          		</div>
+			          	</div>
+			          </li>
+			          </volist>
+			        </ul>
+			        <a href="javascript:;" class="prev"></a>
+			        <a href="javascript:;" class="next"></a>
+				</div>
+				<script type="text/javascript">
+			        	jQuery(".za4-inner").slide({titCell:".hd ul",mainCell:".bd ",interTime:6000,autoPage:true,effect:"left",autoPlay:true,vis:1,trigger:"click",
+			        	
+			        	});
+			    </script>
+			</div>
+			
+			<div class="za5 turn" id="tag5">
+				<h3>加盟条件</h3>
+				<div class="a1 clearfix"><i></i><p>高度统一的标准化VI系统展示</p><em></em></div>
+				<ul class="za5-inner clearfix">
+					<li class="pp1">
+						<i class="i1" ></i>
+						<p>1.有建材或家具相关行业
+    经营管理经验优先</p>
+					</li>
+					<li class="pp2">
+						<i class="i2"></i>
+						<p>2.专卖店面积100平方米
+    以上为佳</p>
+					</li>
+					<li class="pp3">
+						<i class="i3"></i>
+						<p>3.专卖店最好位于较规范
+   的建材商铺集中地段</p>
+					</li>
+					<li class="pp4">
+						<i class="i4"></i>
+						<p>4.专卖店必须按照诗尼曼的
+统一规定进行设计装饰运营</p>
+					</li>
+				</ul>
+				<ul class="za5-inner2 clearfix">
+					<li class="pp5">
+						<i class="i5"></i>
+						<p>5.专卖店内必须专营诗尼曼
+的产品，不得经营其他厂家
+的同类产品</p>
+					</li>
+					<li class="pp6">
+						<i class="i6"></i>
+						<p>6.交纳品牌保证金</p>
+					</li>
+					<li class="pp7">
+						<i class="i7"></i>
+						<p>7.按规定配置相关人
+员，并定期接受培训和考核</p>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="za6 turn" id="tag6">
+				<h3>加盟流程</h3>
+				<ul class="za6-inner clearfix">
+					<li class="pp1">
+						<i class="i1"></i>
+						<em>提交加盟申请</em>
+					</li>
+					<span class="pp2"></span>
+					<li class="pp3">
+						<i class="i2"></i>
+						<em>总部审核资质</em>
+					</li>
+					<span class="pp4"></span>
+					<li class="pp5">
+						<i class="i3"></i>
+						<em>签署加盟协议</em>
+					</li>
+					<span class="pp6"></span>
+					<li class="pp7">
+						<i class="i4"></i>
+						<em>专业设计师全程 装修设计跟踪</em>
+					</li>
+					<span class="pp8"></span>
+					<li class="pp9">
+						<i class="i5"></i>
+						<em>店面样品安装/ 总部培训支持</em>
+					</li>
+					<span class="pp10"></span>
+					<li class="pp11">
+						<i class="i6"></i>
+						<em>开业庆典（总部专 业人员策划开业活动）</em>
+					</li>
+				</ul> 
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function($){
+				$.fn.zxxAnchor = function(options){
+					var defaults = {
+						ieFreshFix: true,
+						anchorSmooth: true,
+						anchortag: "anchor",
+						animateTime: 1000
+					};
+					var sets = $.extend({}, defaults, options || {});
+					//修复IE下刷新锚点失效的问题
+					if(sets.ieFreshFix){
+						var url = window.location.toString();
+						var id = url.split("#")[1];
+						if(id){
+							var t = $("#"+id).offset().top;
+							$(window).scrollTop(t);
+						}	
+					}
+					//点击锚点跳转
+					$(this).each(function(){
+						$(this).click(function(){
+							var aim = $(this).attr(sets.anchortag).replace(/#/g,"");	//跳转对象id
+							var pos = $("#"+aim).offset().top;
+							if(sets.anchorSmooth){
+								//平滑
+								$("html,body").animate({scrollTop: pos}, sets.animateTime);	
+							}else{
+								$(window).scrollTop(pos);
+							}
+							return false;				   
+						});	
+					});
+				};
+			})(jQuery);
+			$(window).scroll(function(){
+				var h = $(window).height();
+				$(window).scrollTop()>h ? $("#za1").show():$("#za1").hide();
+				var h1 = $(".za2").get(0).getBoundingClientRect().top;
+				var h2 = $(".za3").get(0).getBoundingClientRect().top;
+				var h3 = $(".za4").get(0).getBoundingClientRect().top;
+				var h4 = $(".za5").get(0).getBoundingClientRect().top;
+				var h5 = $(".za6").get(0).getBoundingClientRect().top;
+				console.log(h5);
+				if(h1 <= 0 && h1 > -200){
+					$(".za1 ul li").removeClass("on");
+					$(".za1 ul .l3").addClass("on");
+				}
+				else if(h2 <= 0 && h2 > -200){
+					$(".za1 ul li").removeClass("on");
+					$(".za1 ul .l4").addClass("on");
+				}
+				else if(h3 <= 0 && h3 > -200){
+					$(".za1 ul li").removeClass("on");
+					$(".za1 ul .l5").addClass("on");
+				}
+				else if(h4 <= 0 && h4 > -200){
+					$(".za1 ul li").removeClass("on");
+					$(".za1 ul .l6").addClass("on");
+				}
+				else if(h5 <= 200 && h5 > -200){
+					$(".za1 ul li").removeClass("on");
+					$(".za1 ul .l7").addClass("on");
+				}
+			})
+			$("#tagx .l2 a").zxxAnchor({
+				anchortag:"href"
+			})
+			$("#tagx .l3 a").zxxAnchor({
+				anchortag:"href"
+			})
+			$("#tagx .l4 a").zxxAnchor({
+				anchortag:"href"
+			})
+			$("#tagx .l5 a").zxxAnchor({
+				anchortag:"href"
+			})
+			$("#tagx .l6 a").zxxAnchor({
+				anchortag:"href"
+			})
+			$("#tagx .l7 a").zxxAnchor({
+				anchortag:"href"
+			})
+//			$("#za1 li a").click(function(){
+//				$(".za1 ul li").removeClass("on");
+//				$(this).parent().addClass("on");
+//			})
+		</script>
+<include file='Public:pageFooter'/>

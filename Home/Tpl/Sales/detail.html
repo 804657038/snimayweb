@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site_title|strip_tags=###}</title>
+<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+<meta name='description' content="{$site_description|strip_tags=###}"/>
+<meta name='author' content="互诺科技:http://www.hunuo.com"/>
+<meta name="viewport" content="width=1920,initial-scale=1">
+
+<link type="text/css" rel="stylesheet" href="__CSS__/style.css?v=13"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/js.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+</head>
+<body style="left: 50%; margin-left: -960px; overflow-x: hidden; position: absolute; top: 0; width: 1920px;">
+<div class="head">
+    <div class="top clearfix">
+        <a href="/"><img src="__ROOT__/{$logo.original_img}" alt='logo'></a>
+        <ul class="top-nav f12">
+            <li><a href="{$site_info.link3}"  target="_blank" rel="nofollow" >诗尼曼官方商城</a></li>
+            <li><a href="{$site_info.link4}"  target="_blank" rel="nofollow" >诗尼曼门窗</a></li>
+            <li><a href="http://cg.snimay.com/"  target="_blank" rel="nofollow" >诗尼曼橱柜</a></li>     
+            <li><a href="{$site_info.link1}"  target="_blank" rel="nofollow" >京东官方商城</a></li>
+            <li><a href="{$site_info.link2}"  target="_blank" rel="nofollow" >天猫官方商城</a></li>
+        </ul>
+        <div class="tel fr">
+            <p>免费服务热线</p>
+            <p>{$site_info.tel_hot}</p>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="wrap clearfix">
+            <li><a href="/" <if condition="$nid eq 1">class='hover'</if>>首页 </a></li>
+            <li><a href="{:U('About/investment')}" <if condition="$hover eq 5">class='hover'</if>>招商加盟</a></li>
+            <li><a href="{:U('Product/index')}"    <if condition="$hover eq 6">class='hover'</if>>产品体验</a></li>
+
+            <!-- <li><a href="{:U('Tips/index')}" <if condition="$hover eq 7">class='hover'</if>>3D云设计</a></li> -->
+
+            <li><a href="{:U('Sales/index')}"      <if condition="$hover eq 4">class='hover'</if>>专题活动</a></li>
+            <li><a href="{:U('About/news')}"       <if condition="$hover eq 3">class='hover'</if>>新闻中心 </a></li>
+            <li><a href="{:U('About/index')}"      <if condition="$hover eq 2">class='hover'</if>>关于诗尼曼</a></li>
+        </ul>
+    </div>
+    <!-- <div class="" style="width:100%; height:494px">
+        <img src="__ROOT__/{$detail.original_img1}" alt="" />
+    </div> -->
+</div>
+<div  class="hd" style="text-align:center">
+    {$detail.content}
+</div>
+<style type="text/css">
+    .hd img{ width: auto;}
+</style>
+<div style="background:url(__ROOT__/{$detail.original_img1}) center top no-repeat">
+<div class="cx" style="position:relative;<if condition="$_GET['id'] eq 1000">display:none</if>">
+	<div class="cx_ban" >
+     <img src="__ROOT__/{$detail['original_img']}" width="618" height="403">
+	</div>
+	<div class="csinner">
+		<form id='cmForm'>
+			<input type="text" class="i1" placeholder="姓名" name="name"/>
+			<input type="text" class="i2" placeholder="电话" name="phone"/>
+			<div class="di2 clearfix">
+                
+                <div class="re">
+                    <select name="province" onchange="getRegion3(this.value,'city3')" id="province3">
+                    <option value="">请选省份</option>
+                    <volist name="province" id="vo">
+                        <option value="{$vo.region_id}">{$vo.region_name}</option>
+                    </volist>
+                    </select>
+                    <!-- <b></b> -->
+                </div>
+                <div class="re">
+                    <select name="city" class="sl1" id="city3" onchange="getRegion3(this.value,'district3')">
+                        <option value="">选择城市</option>
+                    </select>
+                    <!-- <b></b> -->
+                </div>
+                <div class="re">
+                    <select name="district" class="" id="district3">
+                        <option value="">选择区域</option>
+                    </select>
+                </div>
+            </div>
+           
+            <input type="hidden" name="hd_name" value="{$detail.title}">
+            <input type="hidden" name="type" value="2">
+			<input type="button" value="确认提交" onclick="mySubmit('cmForm','{:U('Info/addMessage')}','cmresult')" style='background-color: #7a2b40; color: #fff; display: block; font-size: 16px;border:0; height: 46px;cursor: pointer; line-height: 36px;padding-left:0; text-align: center; width: 190px;'/> &nbsp;&nbsp;&nbsp;&nbsp;<font color='red' size='-1' id='cmresult' style="float:left;margin-left:0px;margin-top:-10px"></font>
+		</form>
+	</div>
+</div>
+</div>
+<div class="cx2">
+	
+</div>
+<style type="text/css">
+	.cx_ban{position: absolute;left: 20px;top: 20px}
+    .re select{background-color: transparent; border: 1px solid #ede2cd; color: #000; float: left; font-size: 12px; height: 34px; line-height: 34px; margin-right: 5px; padding-left: 14px; width: 94px; } 
+</style>
+<script type="text/javascript">
+function getRegion3(region_id, container){
+    var province3 = parseInt('[province]') || parseInt('Array');
+    var city3 = parseInt('[city]') || parseInt('');
+    var district3 = parseInt('[district]') || parseInt('');
+    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+        $('#'+container+' option:gt(0)').remove();
+        $('#'+container).append(res);
+        $('#'+container).show();
+        if(container == 'province3' && province3>0){
+            document.getElementById('province3').value = province3;
+            getRegion3(province3, 'city3');
+        }
+        if(container == 'city3'  && city3>0){
+            document.getElementById('city3').value = city3;
+            getRegion3(city3, 'district3');
+        }
+        if(container == 'district3' && district3>0){
+            document.getElementById('district2').value = district2;
+        }
+
+    },'html')
+}
+</script>
+<include file='Public:pageFooter'/>
