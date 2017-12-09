@@ -1,0 +1,84 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>招商查询系统登录</title>
+	<link rel="stylesheet" href="__CSS__/zscx.css">
+
+	<!--<link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+-->
+	<!-- For-Mobile-Apps-and-Meta-Tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="招商查询系统登录" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //For-Mobile-Apps-and-Meta-Tags -->
+<load href="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js" />
+<load href="__PUBLIC__/Admin/Js/jquery.form.js" />
+<!-- <css href="__PUBLIC__/Admin/Css/css_hunuo.css"/> -->
+<script language="JavaScript">
+$(function(){
+	$('#form1').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if( '' == $.trim($('.name').val())){
+			$('#result').html('用户名不能为空！').show();
+			return false;
+		}else if( '' == $.trim($('.password').val())){
+			$('#result').html('密码不能为空！').show();
+			return false;
+		}
+	}
+	function complete(data){
+		$('#result').html(data.info).show();
+		if (data['status']==1){
+			window.location.href="{:U('Dealer/index')}";
+		}
+	}
+});
+</script>
+</head>
+
+<body>
+    <h1></h1>
+    <div class="container w3">
+        <!-- <h2>现在登录</h2> -->
+		<form name="theForm" method="post" action="{:U('Public/checkLogin')}" id="form1">
+			<div class="biaoti">
+				<p class="biaotiname">诗尼曼全国加盟信息查询</p>
+			<div class="username">
+				<span class="username" style="height:19px">用户:</span>
+				<input type="text" name="tel" class="name" placeholder="" required="">
+				<div class="clear"></div>
+			</div>
+			<div class="password-agileits">
+				<span class="username" style="height:19px">密码:</span>
+				<input type="password" name="pwd" class="password" placeholder="" required="">
+				<div class="clear"></div>
+			</div>
+<!-- 			<div class="rem-for-agile">
+				<input type="checkbox" name="remember" class="remember">记得我
+　　
+<br>
+				<a href="#">忘记了密码</a><br>
+			</div> -->
+			<div class="login-w3">
+					<input style="margin-right:80px;" type="submit" class="login" value="内部登录">
+					<a href="{:U('Visit/index')}"><input type="button" class="login" value="游客访问"></a>
+			</div>
+			<div class="clear"></div>
+			<div style="margin-top:20px;color:red;" id="result"></div>
+		</form>
+	</div>
+
+</body>
+</html>

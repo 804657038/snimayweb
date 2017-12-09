@@ -1,0 +1,26 @@
+﻿<include file='Public:pageHeader_dealer'/>
+        <div class="axxxm">
+          <div class="top">
+            <div class="hd">
+              <ul>
+                <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/search',array('keyword'=>$keyword,'store_type'=>1))}">衣柜</a></li>
+                <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/search',array('keyword'=>$keyword,'store_type'=>2))}">橱柜</a></li>
+                <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/search',array('keyword'=>$keyword,'store_type'=>3))}">衣柜+橱柜</a></li> -->
+              </ul>
+            </div>
+
+            <!-- <h6>可优化<span></span></h6>
+            <h5>可加盟<em></em></h5>
+            <h4>已加盟<i></i></h4> -->
+          </div>
+          <div class="bd listx2">
+            <h5>未搜索到关于“<em>{$keyword}</em>”的内容</h5>
+          </div>
+          <a href="{:U('Dealer/index')}" class="back">返回</a>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</body>
+</html>

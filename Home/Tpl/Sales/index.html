@@ -1,0 +1,28 @@
+<include file='Public:pageHeader'/>
+<div class="Hm" style="background:none">
+<div class="hm-inner">
+	<ul class="clearfix">
+		<volist name="sale_list" id="vo">
+		<li>
+			<a href="{:U('Sales/detail',array('id'=>$vo['article_id']))}">
+				<i class="i1">
+					<img src="__ROOT__/{$vo.original_img}" width="333" height="203">
+					<span <if condition="$vo['is_ing'] eq 0"> class="on"</if>><if condition="$vo['is_ing'] eq 1">进行中<else/>已结束</if></span>
+				</i>
+				<em class="e1">{$vo.title}</em>
+				<em class="e2">{$vo.short}</em>
+				<p></p>
+				<em class="e3">{$vo.add_time|date="Y-m-d",###}</em>
+			</a>
+		</li>
+		</volist>
+	</ul>
+</div>
+
+<div class="page" id="p">
+	<ul class="clearfix">
+		{$page->show()}
+	</ul>
+</div>
+</div>
+<include file='Public:pageFooter'/>

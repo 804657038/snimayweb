@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="__CG__/style.css">
+    <link rel="stylesheet" type="text/css" href="__CG__/newstyle.css">
+      <link rel="stylesheet" type="text/css" href="__CG__/css/tooltipster.bundle.min.css" />
+    <title>橱柜加盟-整体橱柜加盟-衣橱柜加盟-诗尼曼橱柜</title>
+
+    <!--[if !IE 9]><!-->
+    <link rel="stylesheet" type="text/css" href="__CG__/css/swiper.min.css">
+      <!--<![endif]-->
+    <link rel="stylesheet" type="text/css" href="__CG__/css/animate.min.css">
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="__CG__/js/tooltipsy.min.js"></script>
+    <script src="__CG__/js/tooltipsy.source.js"></script>
+     <script src="__CG__/js/tooltipster.bundle.min.js"></script>
+    <link rel="stylesheet" href="__CG__/layui/css/layui.css">
+    <script type="text/javascript" src="__CG__/layui/layui.js"></script>
+       <!--[if IE 9]>
+       <link rel="stylesheet" href="__CG__/css/idangerous.swiper.css">
+
+       <script type="text/javascript" src="__CG__/js/idangerous.swiper.min.js"></script>
+         <script type="text/javascript">
+       </script>
+       <![endif]-->
+    <script type="text/javascript">
+    var root="__ROOT__";
+    var circle1 = "__CG__/img/circle1.png",
+        circle3 = "__CG__/img/circle3.png",
+        circle2 = "__CG__/img/circle2.png",
+        j9_1 = "__CG__/img/9-1.png",
+        j9_2 = "__CG__/img/9-2.png",
+        j9_3 = "__CG__/img/9-3.png",
+        j9_4 = "__CG__/img/9-4.png",
+        j9_5 = "__CG__/img/9-5.png",
+        j9_6 = "__CG__/img/9-6.png",
+        j9_7 = "__CG__/img/9-7.png",
+        j9_8 = "__CG__/img/9-8.png",
+        j9_9 = "__CG__/img/9-9.png",
+        jiameng_1 = "__CG__/img/jiameng-1.png",
+        jiameng_2 = "__CG__/img/jiameng-2.png",
+        jiameng_3 = "__CG__/img/jiameng-3.png",
+        jmzy={$jmzy},
+        jmtj={$jmtj},
+        hzlc={$hzlc},
+        yxl={$ysl|json_encode},
+        tdl={$tdl|json_encode},
+        zcl_content={$zcl_content};
+
+
+    </script>
+    <script type="text/javascript" charset="utf-8" src="__CG__/js/location.js"></script>
+    <script type="text/javascript">
+    function getRegion1(region_id, container) {
+        var province1 = parseInt('[province]') || parseInt('Array');
+        var city1 = parseInt('[city]') || parseInt('');
+        var district1 = parseInt('[district]') || parseInt('');
+        var url = "__ROOT__/index.php/Control/getRegion";
+        $.get(url, {
+            'region_id': region_id
+        }, function(res) {
+            $('#' + container + ' option:gt(0)').remove();
+            $('#' + container).append(res);
+            $('#' + container).show();
+            if (container == 'province1' && province1 > 0) {
+                document.getElementById('province1').value = province1;
+                getRegion1(province1, 'city1');
+            }
+            if (container == 'city1' && city1 > 0) {
+                document.getElementById('city1').value = city1;
+                getRegion1(city1, 'district1');
+            }
+            if (container == 'district1' && district1 > 0) {
+                document.getElementById('district1').value = district1;
+            }
+
+        }, 'html')
+    }
+
+    function getRegion2(region_id, container) {
+        var province2 = parseInt('[province]') || parseInt('Array');
+        var city2 = parseInt('[city]') || parseInt('');
+        var district2 = parseInt('[district]') || parseInt('');
+        var url = "__ROOT__/index.php/Control/getRegion";
+        $.get(url, {
+            'region_id': region_id
+        }, function(res) {
+            $('#' + container + ' option:gt(0)').remove();
+            $('#' + container).append(res);
+            $('#' + container).show();
+            if (container == 'province2' && province2 > 0) {
+                document.getElementById('province2').value = province2;
+                getRegion2(province2, 'city2');
+            }
+            if (container == 'city2' && city2 > 0) {
+                document.getElementById('city2').value = city2;
+                getRegion2(city2, 'district2');
+            }
+            if (container == 'district2' && district2 > 0) {
+                document.getElementById('district2').value = district2;
+            }
+
+        }, 'html')
+    }
+    $(function() {
+        $("#ppl_li li").click(function() {
+            var eq = $(this).index();
+            $('.pingpai-img img').eq(eq).show().siblings().hide();
+        })
+    })
+    </script>
+    <style type="text/css">
+    .pingpai-img img {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="banner">
+            <img src="__CG__/img/banner_all_01.jpg" />
+            <img src="__CG__/img/banner_all_02.jpg" />
+            <img src="__CG__/img/banner_all_03.jpg" />
+            <img src="__CG__/img/banner_all_04.jpg">
+            <img src="__CG__/img/banner_all_05.jpg" />
+            <img src="__CG__/img/banner_all_06.jpg" />
+        </div>
+        <div id="ango"><img src="__CG__/img/jiantou.png" class="animated bounce infinite">
+        </div>
+        <!--<div id="header-text">
+            {$cat_content}
+        </div> -->
+        <ul id="nav">
+            <li class="a_title" id="nav_title"></li>
+            <li><a href="http://p.qiao.baidu.com//im/index?siteid=2911356&ucid=6160127" target="_blank">加盟咨询</a></li>
+            <li><a id="silde1">品牌力</a></li>
+            <li><a id="silde2">产品力</a></li>
+            <li><a id="silde3">营销力</a></li>
+            <li><a id="silde4">团队力</a></li>
+            <li><a id="silde5">支持力</a></li>
+            <li class="home"><a href="http://www.snimay.com/" target="_blank" style="text-decoration:none;">返回首页</a></li>
+            <li>
+                <a id="top"><img src="__CG__/img/top.png" alt=""></a>
+            </li>
+        </ul>
+        <div class="sem_left"><img src="__CG__/img/show.png"></div>
+        <div class="bottom-box">
+            <i class="close_sem"><img src="__CG__/img/close.png" width="100%"></i>
+            <div class="bottom-box-out">
+                <div class="bottom-box-ad">
+                    <div class="bottom-box-ad-img">
+                        <img src="__CG__/img/bottom-ad.png" alt="" style="width: 95%;">
+                    </div>
+                </div>
+                <div class="from">
+                    <div id="name_label">
+                        <div class="icon"><img src="__CG__/img/name-icon.png" alt="">
+                        </div>
+                        <label>
+                            <input type="text" name="name" placeholder="您的姓名">
+                        </label>
+                    </div>
+                    <div id="phone_label">
+                        <div class="icon"><img src="__CG__/img/phone-icon.png" alt="">
+                        </div>
+                        <label>
+                            <input type="text" name="mobile" placeholder="您的手机号码">
+                        </label>
+                    </div>
+                    <div class="city-select">
+                        <li>
+                            <select onchange="getRegion1(this.value,'city1')" id="province" name="province" class="bm_sel" selectedindex="0">
+                                <option value="">请选省份</option>
+                                <volist name="province" id="vo">
+                                    <option value="{$vo.region_id}">{$vo.region_name}</option>
+                                </volist>
+                            </select>
+                        </li>
+                        <li>
+                            <select id="city1" onchange="getRegion1(this.value,'district1')" name="city" class="bm_sel sl1">
+                                <option value="">市</option>
+                            </select>
+                            <div id="postMsg2" class="pmtx"></div>
+                        </li>
+                        <li>
+                            <select id="district1" name="district" class="bm_sel sl1">
+                                <option value="">区域</option>
+                            </select>
+                        </li>
+                    </div>
+                    <button class="button" onclick="submit()">
+                        提交加盟申请
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="back">
+        <div class="pingpaili">
+            <div class="title"><img src="__CG__/img/title1.png">
+            </div>
+            <div class="pingpaili-center">
+                <div class="pingpai-img">
+                    <div class="swiper-container model6">
+                        <div class="swiper-wrapper">
+                            <volist name="ppl" id="vo">
+                                <div class="swiper-slide"><img src="__ROOT__/{$vo.original_img}" style="display: block"></div>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+                <div class="pingpaili-text">
+                    <div class="text-title-img">
+                        连续十年保持超<b>70%</b>的盈利增长
+                        <br>创造行业黄金增长法则
+                        <!--   <img src="__CG__/img/gold-text-title.png" /> -->
+                    </div>
+                    <div class="text-font">
+                        <ul id="p_li">
+                            <php>$num=1;</php>
+                            <volist name="ppl" id="vo">
+                                <if condition="$num eq 1">
+                                    <li id="li1">{$vo.title}</li>
+                                <else />
+                                    <li>{$vo.title}</li>
+                                </if>
+                                <php>$num++;</php>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="changpingli">
+            <div class="changpingli-back">
+            </div>
+            <div class="changpingli-center">
+                <div class="title"><img src="__CG__/img/title2.png">
+                </div>
+                <div class="changpingli-1">
+                    <div class="c-img">
+                        <div class="swiper-container model">
+                            <div class="swiper-wrapper">
+                                <volist name="cpl" id="vo">
+                                    <div class="swiper-slide"><img src="__ROOT__/{$vo.original_img}" alt=""></div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-text">
+                        <span class="c-title">工业4.0时代</span>
+                        <span class="c-left-text">多方布局战略性制造</span>
+                    </div>
+                    <div id="box4">
+                        <volist name="cpl" id="vo">
+                            <div class="col"><div class="col-nei">{$vo.title}</div></div>
+                        </volist>
+                        <script type="text/javascript">
+                        if ($('.col').length == 4) {
+                            $('.col').last().attr("id", "col4");
+                        }
+                        </script>
+                    </div>
+                    <div class="swiper-button-prev-c arrow-cp-prev"></div>
+                    <div class="swiper-button-next-c arrow-cp-next"></div>
+                </div>
+                <div style="height: 70px"></div>
+                <div class="changpingli-2">
+                    <div class="c-2-center">
+                        <div class="c-2-img">
+                            <img src="__ROOT__/{$yfsj.original_img}" alt="">
+                            <div class="c-2-right-text">
+                                <span class="c-2-r-title">独立研发设计</span>
+                                <span class="c-2-r-title-2">优秀研发设计核心团队</span>
+                                <ul class="c-2-r-t-content">
+                                    <li>国际大师加盟</li>
+                                    <li>核心设计团队</li>
+                                    <li>专业产品研发</li>
+                                    <li>实验检测中心</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="c-2-img-2">
+                            <span class="c-2-title-1">5大标准</span>
+                            <span class="c-2-title-2">打造好橱柜</span>
+                            <span class="c-2-title-3">考量每一处空间细节<br/>传递格调生活态度</span>
+                            <div class="five-icon">
+                                <div class="icon-col"><img src="__CG__/img/five-icon-1.png" alt=""></div>
+                                <div class="icon-col"><img src="__CG__/img/five-icon-2.png" alt=""></div>
+                                <div class="icon-col"><img src="__CG__/img/five-icon-3.png" alt=""></div>
+                                <div class="icon-col"><img src="__CG__/img/five-icon-4.png" alt=""></div>
+                                <div class="icon-col"><img src="__CG__/img/five-icon-5.png" alt=""></div>
+                            </div>
+                            <!--  <img src="__CG__/img/c-2-center-2.png" alt=""> -->
+                        </div>
+                    </div>
+                    <!--  <img src="__CG__/img/good-center.png" alt=""> -->
+                </div>
+                <div style="height: 56px"></div>
+                <div class="changpingli-3">
+                    <div class="wave animate">
+                        <div class="w1"></div>
+                        <div class="w2"></div>
+                        <div class="w3"></div>
+                        <div class="w4"></div>
+                    </div>
+                    <div class="wave2 animate">
+                        <div class="w1"></div>
+                        <div class="w2"></div>
+                        <div class="w3"></div>
+                        <div class="w4"></div>
+                    </div>
+                    <div class="wave3 animate">
+                        <div class="w1"></div>
+                        <div class="w2"></div>
+                        <div class="w3"></div>
+                        <div class="w4"></div>
+                    </div>
+                      <div class="wave4">
+                        <a href="http://www.snimay.com/product_list?cat_id2=54" target="_blank">查看更多诗尼曼橱柜产品</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yingxiaoli">
+            <div class="title"><img src="__CG__/img/title3.png">
+            </div>
+            <div class="yingxiaoli-1">
+                <div class="yingxiaoli-img">
+                    <div class="swiper-container model2">
+                        <div class="swiper-wrapper">
+
+                        </div>
+                        <!--<div class="swiper-button-prev1"></div>
+                        <div class="swiper-button-next1"></div>-->
+                    </div>
+                </div>
+                <div class="yingxiaoli-squre">
+                    <div class="yingxiaoli-text" id="yingxiao-text">
+                            <div class="yingxiao-content">
+                                <div class="text-title">
+                                    <span id="y-t-title">实战营销</span>
+                                    <span id="y-t-title-2">大牌明星全年全力助阵</span>
+                                </div>
+                                <div class="y-text">
+                                    <div class="tag">
+                                        <php>
+                                            $num=1;
+                                        </php>
+                                        <volist name="ysl" id="vo" key="k">
+                                            <span data-id="{$k-1}" <if condition="$num NEQ 1">class="dels"</if>>{$vo.title}</span>
+                                            <php>
+                                                $num++;
+                                            </php>
+
+                                        </volist>
+                                    </div>
+                                    <div class="tag-text">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yingxiaoli-2">
+                <div class="little-lunbo-back">
+                    <div class="little-lunbo-text">
+                        <span class="little-lunbo-title">全网覆盖</span>
+                        <span class="little-lunbo-title-2">覆盖国内各大电商渠道</span>
+                        <div class="little-text">
+                            除诗尼曼自营平台“家居100”外，诗尼曼携手天猫、京东商城等各大电商平台，实现电商全网覆盖，拓宽定制家居互联网渠道，实现线上截流引流，客户流量的高效转化。
+                        </div>
+                    </div>
+                    <div class="little-lunbo">
+                        <div class="swiper-container model5">
+                            <div class="swiper-wrapper">
+                                <volist name="qwfg" id="vo">
+                                    <div class="swiper-slide"><img src="__ROOT__/{$vo.original_img}" alt=""></div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="y-2">
+                    <div class="y-2-back">
+                        <span class="y-title-1">营销网络</span>
+                        <span class="y-title-2">14年匠心定制</span>
+                        <div class="y-2-content">
+                            作为中国定制家居创始品牌之一，诗尼曼一直专注绿色健康家居定制；15年签约影视巨星海清为代言人，携手海清荣登美国纽约时代广场。未来，诗尼曼多措并举，对内在各省市自治区扎根，对外开启全球化产业布局，向迪拜、阿联酋、加拿大、西班牙、澳大利亚等国家推进，成为“全球绿色家居第一品牌”。
+                        </div>
+                    </div>
+                    <img src="__CG__/img/y-2-center-2.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="team-power">
+            <div class="title"><img src="__CG__/img/title4.png"> </div>
+            <div class="team-power-1">
+                <div class="team-power-img">
+                    <div class="swiper-container model3">
+                        <div class="swiper-wrapper">
+
+                        </div>
+                        <div class="swiper-button-prev1 team-power-1-prev"></div>
+                        <div class="swiper-button-next1 team-power-1-next"></div>
+                    </div>
+                </div>
+                <div class="team-power-squre">
+                    <div class="team-power-text">
+
+                            <div class="team-content">
+                                <div class="text-title">
+                                    <span id="t-t-title">黄金营销团</span>
+                                    <span id="t-t-title-2">精准助战</span>
+                                </div>
+                                <div class="y-text">
+                                    <div class="tag">
+                                        <php>
+                                            $num2=1;
+                                        </php>
+                                        <volist name="tdl" id="tvo" key="k">
+
+                                            <span data-id="{$k-1}" <if condition="$num2 NEQ 1">class="dels"</if>>{$tvo.title}</span>
+                                            <php>
+                                                $num2++;
+                                            </php>
+                                        </volist>
+                                    </div>
+                                    <div class="tag-text-team">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="team-power-2">
+                <div class="team-2-back">
+                    <span class="y-title-1">诗尼曼商学院</span>
+                    <span class="y-title-2">千强名师</span>
+                    <div class="y-2-content">
+                        诗尼曼拥有一支配置完善，执行力强，快速响应市场的精英营销团队，并不断通过各种培训和营销实战提升团队的综合素质，市场、推广、营销联合驱动，为经销商的高速发展提供有力的支持保障。从前期预约客户，到现场活动组织，再到活动成功落地，诗尼曼营销团队保姆式全程帮扶创富。
+                    </div>
+                </div>
+            </div>
+            <div class="team-power-3">
+                <div class="team-power-3-img">
+                    <div class="swiper-container model4">
+                        <div class="swiper-wrapper">
+                            <volist name="ms" id="mvo">
+                                <div class="swiper-slide"><img src="__ROOT__/{$mvo.original_img}" alt=""></div>
+                            </volist>
+                        </div>
+                        <div class="team-button-prev"></div>
+                        <div class="team-button-next"></div>
+                    </div>
+
+                </div>
+                <div class="team-p-3-text">
+                <span class="team-p-3-t-title-1">面面俱到</span>
+                <span class="team-p-3-t-title-2">免费培训</span>
+                  <ul class="t-2-r-t-content">
+                                    <li>系统培训</li>
+                                    <li>人才培训</li>
+                                    <li>管理培训</li>
+                                    <li>服务培训</li>
+                   </ul>
+                </div>
+            </div>
+        </div>
+        <div class="zhichili">
+            <div class="title"><img src="__CG__/img/title5.png">
+            </div>
+            <div class="zhichili-1">
+                <div style="height:100px"></div>
+                <div class="zhichi-cricle" id="zhichi-cricle">
+                    <ul id="cricle-gd">
+                        <php>$num=1;</php>
+                        <volist name="zcl" id="v">
+                            <if condition="$num eq 1">
+                                <li id="oop">{$v['title']}</li>
+                            <else />
+                                <li id="oop{$num}">{$v['title']}</li>
+                            </if>
+                            <php>$num++;</php>
+                        </volist>
+
+                    </ul>
+                    <ul id="cricle-number" class="cricle-number">
+                        <volist name="zcl" id="v" key="k">
+                            <li id="o{$k}">0{$k}</li>
+                        </volist>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="zhichili-2">
+                <div class="zhichili-nav">
+                    <nav id="zhichi-nav">
+                        <div class="col" id="col1"><div class="ie-jiameng">加盟模式</div></div>
+                        <div class="col" id="col2"><div class="ie-jiameng">加盟条件</div></div>
+                        <div class="col col3" id="col33"><div class="ie-jiameng">合作流程</div></div>
+                    </nav>
+                </div>
+                <div class="zhichili-img">
+
+                </div>
+            </div>
+        </div>
+        <div class="zhichili-3">
+            <div class="icon-jiameng">
+                <div class="swiper-container model7">
+                    <div class="swiper-wrapper">
+                        <volist name="hzhb" id="v">
+                        <div class="swiper-slide">
+                            <if condition="$v[en_title]">
+                                <a href="{$v[en_title]}" target="_blank"><img src="__ROOT__/{$v.original_img}" alt=""></a>
+                            <else />
+                                <img src="__ROOT__/{$v.original_img}" alt="">
+                            </if>
+
+                        </div>
+                        </volist>
+
+                    </div>
+                </div>
+                    <div class="swiper-button-prev swiper-button-black jiameng-prev"></div>
+                    <div class="swiper-button-next swiper-button-black jiameng-next "></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="__CG__/index.js"></script>
+<!--[if !IE 9]><!-->
+<script type="text/javascript" src="__CG__/js/swiper.min.js"></script>
+<!--<![endif]-->
+<script type="text/javascript" src="__CG__/index2.js"></script>
+<script type="text/javascript">
+layui.use('layer', function() {
+    var layer = layui.layer;
+
+});
+var is_post = 0;
+submit = function() {
+    //        var url="{:U('Info/addMessage')}";
+    var url = "__ROOT__/index.php/Info/addMessage";
+    var data = {};
+    data.name = $("[name='name']").val();
+    data.phone = $("[name='mobile']").val();
+    data.province = $("[name='province']").val();
+    data.city = $("[name='city']").val();
+    data.district = $("[name='district']").val();
+    data.type = 4;
+    is_post++;
+    if (is_post == 1) {
+        $.post(url, data, function(res) {
+            if (res.status == 1) {
+                layer.alert(res.info, {
+                    icon: 6
+                }, function() {
+                    layer.closeAll('dialog');
+                    $('.bottom-box').animate({
+                        "left": -1920 + "px"
+                    }, 1000);
+                    $('.sem_left').delay(600).fadeIn();
+                    return false;
+                });
+                return false;
+            } else {
+                layer.msg(res.info, {
+                    icon: 5,
+                    time: 1000
+                });
+                is_post = 0;
+                return false;
+            }
+        }, 'json');
+    } else {
+        layer.msg("请不要重复提交", {
+            icon: 5,
+            time: 1000
+        });
+    }
+
+
+}
+</script>
+ <!--[if IE 9]>
+  <script type="text/javascript" src="__CG__/js/ie9.js"></script>  <![endif]-->
+</html>

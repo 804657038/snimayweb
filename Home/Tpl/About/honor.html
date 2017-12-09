@@ -1,0 +1,47 @@
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+<div class="bp clearfix" id="picScroll">
+		<ul class="bd">
+			<volist name="honor_pic" id="vo">
+			<li>
+				<a href="{$vo.link}" target="_blank">
+					<div class="img"><img src="__ROOT__/{$vo.original_img}" alt="" /></div>
+					<p>{$vo.description}</p>
+				</a>
+			</li>
+			</volist>
+		</ul>
+		<a href="javascript:;" class="prev"></a>
+		<a href="javascript:;" class="next"></a>
+		<script type="text/javascript">
+        $(function(){
+            jQuery("#picScroll").slide({titCell:".hd",effect:"leftLoop",autoPlay:true,vis:3});
+        })
+        </script>
+	</div>
+</div>
+<div class="bp2">
+	<ul class="u1 clearfix">
+		<li><a href="javascript:">2015-2017 年</a></li>
+		<li><a href="javascript:">2011-2014 年</a></li>
+		<li><a href="javascript:">2007-2010 年</a></li>
+		<li><a href="javascript:">2003-2006 年</a></li>
+	</ul>
+	<div class="d1" id="dm">
+		<volist name="honor_list" id="vo" key='k'>
+		<ul <if condition="$k eq 1">id="d"</if>>
+			<volist name="vo" id="vo2">
+			<li><span>{$vo2.title}</span><i>{$vo2.content}</i></li>
+			</volist>
+		</ul>
+		</volist>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".bp2 .u1 li").click(function(){
+		var index = $(this).index();
+		$("#dm ul").fadeOut();
+		$("#dm ul").eq(index).fadeIn();
+	})
+</script>
+<include file='Public:pageFooter'/>

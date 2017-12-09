@@ -1,0 +1,103 @@
+﻿<include file='Public:pageHeader_dealer'/>
+        <div class="axxxm">
+          <div class="top">
+            <div class="hd">
+              <ul>
+                <if condition="$select eq 'province'">
+                  <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/city_detail',array('province_id'=>$province_id,'store_type'=>1))}">衣柜</a></li>
+                  <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/city_detail',array('province_id'=>$province_id,'store_type'=>2))}">橱柜</a></li>
+                  <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/city_detail',array('province_id'=>$province_id,'store_type'=>3))}">衣柜+橱柜</a></li> -->
+                <elseif condition="$select eq 'city'" />
+                  <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/city_detail',array('city_id'=>$city_id,'store_type'=>1))}">衣柜</a></li>
+                  <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/city_detail',array('city_id'=>$city_id,'store_type'=>2))}">橱柜</a></li>
+                  <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/city_detail',array('city_id'=>$city_id,'store_type'=>3))}">衣柜+橱柜</a></li> -->
+                <elseif condition="$select eq 'district'" />
+                  <li <if condition="$store_type eq 1">class="on"</if>><a href="{:U('Dealer/city_detail',array('district_id'=>$district_id,'store_type'=>1))}">衣柜</a></li>
+                  <li <if condition="$store_type eq 2">class="on"</if>><a href="{:U('Dealer/city_detail',array('district_id'=>$district_id,'store_type'=>2))}">橱柜</a></li>
+                  <!-- <li <if condition="$store_type eq 3">class="on"</if>><a href="{:U('Dealer/city_detail',array('district_id'=>$district_id,'store_type'=>3))}">衣柜+橱柜</a></li> -->
+                </if>
+              </ul>
+            </div>
+
+            <!-- <h6>可优化<span></span></h6>
+            <h5>可加盟<em></em></h5>
+            <h4>已加盟<i></i></h4> -->
+          </div>
+          <div class="bd listx1" style="overflow: auto;max-height: 450px;">
+            <h5>{$u_here}</h5>
+            <ul>
+              <li>
+                <dl>
+                  <dt>
+                    <span class="sp">区域名称</span>
+                  </dt>
+                  <if condition="$select eq 'province'">
+                    <dd>
+                      <span class="sp">
+                        <foreach name="city_list" item="city">
+                          <a href="{:U('Dealer/city_detail', array('city_id'=>$city['city_id']))}">
+                            <!-- <if condition="$city.status eq '1'">
+                              <em>{$city.city_name}</em>
+                            <elseif condition="$city.status eq '2'" />
+                              {$city.city_name}
+                            <elseif condition="$city.status eq '3'" />
+                              <i>{$city.city_name}</i>
+                            <else />
+                              {$city.city_name}
+                            </if> -->
+                            {$city.city_name}
+                          </a> &nbsp;&nbsp;&nbsp;
+                        </foreach>
+                      </span>
+                    </dd>
+                  <elseif condition="$select eq 'city'" />
+                    <dd>
+                      <span class="sp">
+                        <foreach name="district_list" item="district">
+                          <!-- <a href="{:U('Dealer/city_detail', array('district_id'=>$district['country_id']))}"> -->
+                          <a href="{:U('Dealer/detail', array('district_id'=>$district['country_id']))}">
+                            <!-- <if condition="$district.status eq '1'">
+                              <em>{$district.country_name}</em>
+                            <elseif condition="$district.status eq '2'" />
+                              {$district.country_name}
+                            <elseif condition="$district.status eq '3'" />
+                              <i>{$district.country_name}</i>
+                            <else />
+                              {$district.country_name}
+                            </if> -->
+                            {$district.country_name}
+                          </a> &nbsp;&nbsp;&nbsp;
+                        </foreach>
+                      </span>
+                    </dd>
+                  <elseif condition="$select eq 'district'" />
+                    <dd>
+                      <span class="sp">
+                        <foreach name="town_list" item="town">
+                          <a href="{:U('Dealer/detail', array('town_id'=>$town['town_id']))}">
+                            <!-- <if condition="$town.status eq '1'">
+                              <em>{$town.town_name}</em>
+                            <elseif condition="$town.status eq '2'" />
+                              {$town.town_name}
+                            <elseif condition="$town.status eq '3'" />
+                              <i>{$town.town_name}</i>
+                            <else />
+                              {$town.town_name}
+                            </if> -->
+                            {$town.town_name}
+                          </a> &nbsp;&nbsp;&nbsp;
+                        </foreach>
+                      </span>
+                    </dd>
+                  </if>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</body>
+</html>

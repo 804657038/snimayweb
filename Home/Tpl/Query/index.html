@@ -1,0 +1,169 @@
+<title>订单查询-诗尼曼全屋定制</title>
+<meta name='keywords' content=""/>
+<meta name='description' content=""/>
+<include file='Public:pageHeader'/>  
+<include file='Public:left'/>
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+	<style>
+	 #chaxun{
+	 text-align:center;
+	 margin:20 auto;
+		 width: 1100px;
+	 }
+	 #chaxun span{
+    font-family: '微软雅黑 Regular', '微软雅黑';
+    font-weight: 400;
+    font-size: 36px;}
+	#chaxun #getPhoneNmber{
+		margin:30px auto;
+		padding-right: 48px;
+	}
+	#chaxun #getPhoneNmber img{
+		position:absolute;
+		width:40px;
+		height:38px;
+		border:1px solid #999999;
+		border-left:none;
+		display: -webkit-inline-box;
+	}
+	#chaxun #getPhoneNmber p{
+		color: #FF0B00;
+		font-size: 14px;
+		margin:4px 70px 0px 0px;
+		padding-left: 10px;
+	}
+	#chaxun #getPhoneNmber input{
+		width: 420px;
+		height: 40px;
+		color: #999999;
+		border:1px solid #999999;
+		padding-left: 10px;
+	}
+	#chaxun #getPhoneNmber input:focus{
+		border:1px solid #799bd2;
+	}
+	
+	#maoshu{
+		text-align:center;
+		margin:0 auto;
+		width: 1100px;
+		height: 310px;
+	}
+	#maoshu ul {
+		margin:30PX auto;
+		
+	}
+	#maoshu ul li{
+		padding-top:10px;
+		background:rgba(0,0,0,0.1);
+		width: 254px;
+		height: 300px;
+		list-style:none;
+		float:left;
+		text-align:center;
+		line-height:20px;
+		margin:10px 10px 30px 10px;
+		text-align:center;
+	}
+	#maoshu ul li img{
+		width:70px;
+		height:70px;
+		padding-top: 10px;
+		padding-left: 0px;
+	}
+	#maoshu ul li p{
+		font-weight: 400;
+		font-size: 14px;
+		text-align: left;
+		color: #999999;
+		line-height: 30px;
+		padding: 0px 20px 0 20px;
+	}
+	#maoshu ul li span{
+		display: block;
+		font-size: 20px;
+		padding: 20px;
+	}
+	</style>
+	<script>
+	function getOrders() {
+		var phoneNmber = document.getElementById("phoneNmber").value;
+		$.ajax({
+		type: "POST",
+		url: "http://crm.snimay.com/snimaycrm/connector/customerOrders.jsp?phone="+phoneNmber,
+		dataType: 'jsonp',
+			success: function(msg){	
+				// console.log(msg);	
+				var ret = msg.ret.toString();
+				if(ret == '1'){
+	            	window.location.href="{:U('Query/OrderList')}?phoneNmber="+phoneNmber;
+	            }else {
+				   	alert("您的手机号码没有相关的订单信息");		
+				   	document.getElementById("phoneNmber").value = "";	
+				}
+			}
+		})
+	}
+	
+	function  callback(msg){
+		console.log(msg);
+		 var  ret2 = msg.ret.toString();
+						   if (ret2 == '1'){
+						   	 window.location.href="{:U('Query/OrderList')}?phoneNmber="+document.getElementById("phoneNmber").value;
+						   	}else {
+						   		alert("您的手机号码没有相关的订单信息");		
+						   	document.getElementById("phoneNmber").value = "";	}		
+		}           
+				
+	</script>
+
+	<div id="chaxun">
+		<span>订单查询</span>
+		<div id = 'getPhoneNmber'>
+		<input id="phoneNmber" type="text" placeholder="请输入您的手机号码(以门店预留手机号为准)" />
+		<a href="#" id="postPhoneNmber">
+		<img src = "__IMG__/u45.png" onclick="getOrders()">
+		</a>
+		<!-- <p>温馨提示：订单查询功能维护升级中，查询功能暂停开放</p> -->
+		</div>	
+	</div>
+	<div id = "maoshu">
+		<ul>
+			<li><img src="__IMG__/u31.png">
+			  <span>
+				正品保证
+			  </span>
+			   <p>
+			   在当地正规的诗尼曼专卖店购买；总部对订单管理，可以在总部（官网、官微）查询订单资料、客户资料等。
+			  </p>
+			</li>
+			<li><img src="__IMG__/u39.png">
+			  <span>
+				产品防伪特征
+			  </span>
+			  <p>
+			  诗尼曼产品在特定部位都印有诗尼曼“SNIMAY”钢印或激光防伪标签，具体可咨询当地门店。
+			  </p>
+			</li>
+			<li><img src="__IMG__/u41.png">
+			 <span>
+			   业主权益保障
+			 </span>
+			  <p>
+			  	感谢您选择诗尼曼家居产品，请妥善保管诗尼曼家居产品保修卡，以便为您提供产品终身维护。
+			  </p>
+			</li>
+			<li><img src="__IMG__/u43.png">
+			  <span>
+			  售后服务
+			   </span>
+			    <p>
+			  全国统一服务热线：<br>400-883-2239<br>
+              假冒诗尼曼产品举报电话：<br>
+              13925062507<br>
+              020-34756267
+			  </p>
+			</li>
+		</ul>
+		</div>
+<include file='Public:pageFooter'/>

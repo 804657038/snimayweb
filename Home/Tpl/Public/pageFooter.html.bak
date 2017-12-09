@@ -1,0 +1,212 @@
+<script type="text/javascript" src="/Public/Home/script/vali.js"></script>
+
+<script type="text/javascript">
+$(window).scroll(function(){
+	var h = 10;
+	//alert(h);
+	$(window).scrollTop()>h ? $("#topx").show():$("#topx").hide();
+})
+
+</script>
+<div class="footer">
+			<div class="footer-inner clearfix">	
+				<span class="fl">友情链接<em>Friendship link</em></span>
+				<ul class="clearfix fr">
+					<volist name="friendly_link" id="vo">
+					<li><a href="{$vo.link}" target="_blank">{$vo.name}</a></li>
+					<i>|</i>
+					</volist>
+					<a href="javascript:;" class="btn"></a>
+				</ul>
+			</div>
+		</div>
+		<div class="footer2">
+			<div class="footer2-inner clearfix">
+				<ul class="u1">
+					<li><a target="_blank" href="{:U('About/investment')}">招商加盟</a></li>
+					<li><a target="_blank" href="/join.html#tag1">品牌优势</a></li>
+					<li><a target="_blank" href="/join.html#tag2">加盟优势</a></li>
+					<li><a target="_blank" href="/join.html#tag3">加盟支持</a></li>
+					<li><a target="_blank" href="/join.html#tag4">经销商风采</a></li>
+					<li><a target="_blank" href="/join.html#tag5">加盟条件</a></li>
+					<li><a target="_blank" href="/join.html#tag6">加盟流程</a></li>
+				</ul>
+				<ul class="u2">
+					<li><a target="_blank" href="{:U('Product/index')}">产品体验</a></li>
+					<li><a target="_blank" href="/product_list?cat_id2=16">卧房</a></li>
+					<li><a target="_blank" href="/product_list?cat_id2=17">客厅</a></li>
+					<li><a target="_blank" href="/product_list?cat_id2=18">餐厅</a></li>
+					<li><a target="_blank" href="/product_list?cat_id2=19">书房</a></li>
+					<li><a target="_blank" href="/product_list?cat_id2=20">儿童房</a></li>
+				</ul>
+				<ul class="u3">
+					<li><a target="_blank" href="{:U('About/news')}">新闻中心</a></li>
+					<volist name="all_cats1" id="vo">
+					<li><a target="_blank" href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></li>
+					</volist>
+				</ul>
+				<ul class="u4">
+					<li><a target="_blank" href="{:U('About/index')}">关于诗尼曼</a></li>
+					<volist name="all_cats" id="vo">
+					<li><a target="_blank" href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></li>
+					</volist>
+				</ul>
+				<div class="line"></div>
+				<div class="f1 fl">
+					<a href="{:U('About/index',array('cat_id'=>14))}"><p>联系我们</p></a>
+					<dl class="clearfix">
+						<dt><img src="__IMG__/c10.png" alt="" /></dt>
+						<dd>{$site_info.tel_hot}</dd>
+						<dd>免费服务热线</dd>
+					</dl>
+					<dl class="clearfix">
+						<dt><img src="__IMG__/c11.png" alt="" /></dt>
+						<dd class="join_btn" style="cursor: pointer;">加盟留言</dd>
+						<dd>诚邀加盟 共创财富</dd>
+					</dl>
+				</div>
+				<div class="f2 fl">
+					<p>关注我们</p>
+					<div style="position:relative" id="er" style="cursor: pointer;"><i></i>关注官方微信
+						<div class="ew"> 
+							<div class="ew_box"><img src="__ROOT__/{$er.original_img}">{$er.description}</div>
+							<div class="ew_box"><img src="__ROOT__/{$er2.original_img}">{$er2.description}</div>
+						</div>
+					</div>
+					<div><i></i><a href="http://weibo.com/u/1763136224?topnav=1&wvr=6&topsug=1" style="color:#858585" target="_blank">关注新浪微博</a></div>
+				</div>
+			</div>
+		</div>
+		<style type="text/css">
+			#cmForm2 div{margin-bottom: 5px}
+			#cmForm div{margin-bottom: 5px}
+		</style>
+		<div class="footer3">
+			<ul>
+				<li><a target="_blank" href="{:U('About/investment')}">衣柜加盟 </a></li>
+				<span>|</span>
+				<li><a target="_blank" href="{:U('Product/index',array('cat_id'=>16))}">定制衣柜   </a></li>
+				<span>|</span>
+				<li><a target="_blank" href="{:U('Product/index',array('cat_id'=>17))}">全屋家具定制  </a></li>
+				<span>|</span>
+				<li><a target="_blank" href="http://113.107.7.78:8001/SyncFloDSWeb/Login.aspx">经销商登录   </a></li>
+				<span>|</span>
+				<li><a target="_blank" href="{:U('About/site')}">站点地图</a></li>
+			</ul>
+			<p>{$site_info.icp} Copyright © 2016 广州市诗尼曼家居有限公司 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259855927'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259855927%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></p>
+		</div>
+			<div class="popup popup3" style="display:none; z-index:9999999999999">
+			<div class="popup-inner clearfix">
+				<img src="__IMG__/mn.png" alt="" />
+				<div class="popup-right">
+					<p class="p1" style="background:url(__IMG__/cccc2.png)"></p>
+					<form id='cmForm2'>
+						<div class="di1 clearfix"><span>姓 名:</span><input type="text" name="name" value="" /></div>
+						<div class="di1 clearfix"><span>手 机:</span><input type="text" name="phone" value="" /></div>
+						<div class="di2 clearfix">
+							<span>区 域:</span>
+							<div class="re">
+								<select name="province" onchange="getRegion1(this.value,'city1')" id="province1">
+								<option value="">请选省份</option>
+								<volist name="province" id="vo">
+									<option value="{$vo.region_id}">{$vo.region_name}</option>
+								</volist>
+								</select>
+								<!-- <b></b> -->
+							</div>
+							<div class="re">
+								<select name="city" class="sl1" id="city1" onchange="getRegion1(this.value,'district1')">
+									<option value="">选择城市</option>
+								</select>
+								<!-- <b></b> -->
+							</div>
+						</div>
+						<div class="di3 clearfix">
+							<select name="district" class="" id="district1">
+								<option value="">选择区域</option>
+							</select>
+							<!-- <b></b> -->
+						</div>
+						<input type="hidden" name="type" value="1">
+						<input type="button" value="加盟申请" onclick="mySubmit('cmForm2','{:U('Info/addMessage')}','cmresult2')" style='background-color: #7a2b40; color: #fff; display: block; font-size: 16px;border:0; height: 46px;cursor: pointer; line-height: 36px; margin-left: 38px;margin-top: 18px; float:left; text-align: center; width: 190px; border-radius:5px'/> &nbsp;&nbsp;&nbsp;&nbsp;<font color='red' size='-1' id='cmresult2' style="position:absolute;bottom:10px;left:363px;text-align:left"></font>
+					</form>
+					<a href="###" class="closeBtn" id="closeB"></a>
+				</div>
+			</div>
+		</div>
+		<ul class="xf" id="topx" style="display:none">
+			<li><a href="javascript:;" class="join_btn"><span>加盟</span><span>留言</span></a></li>
+			<li><a href="http://p.qiao.baidu.com//im/index?siteid=2911356&ucid=6160127" target="_blank"><span>在线</span><span>咨询</span></a></li>
+			<li><a href="http://www.snimaycrm.com:8018/5order/CustomerInquiry_index.asp" target="_blank"><span>订单</span><span>查询</span></a></li>
+			<li><a href="http://www.snimay.com/activites/931.html" target="_blank"><span>预约</span><span>量尺</span></a></li>
+			
+			 <li id="xiao"><a href="javascript:;" class="topBtn"></a></li>
+		</ul>
+		<style type="text/css">
+			/*.xf li:hover{background: #802d42;}
+			.xf li:hover a{color: #fff}*/
+			.ew{left: -205px; position: absolute; top: -20px; width: 264px;display: none; background: #fff} 
+			.ew_box{width: 132px ;height: 155px; text-align: center; float: left; margin-top: 0!important}
+		</style>
+		
+		<script type="text/javascript">
+			$('#closeB').click(function(){
+				$('.popup3').hide();
+			})
+			$('.join_btn').click(function(){
+				$('.popup3').show();
+			})
+			$('#er').hover(function(){
+				$('.ew').toggle();
+			})
+			
+
+			function getRegion1(region_id, container){
+				var province1 = parseInt('[province]') || parseInt('Array');
+				var city1 = parseInt('[city]') || parseInt('');
+				var district1 = parseInt('[district]') || parseInt('');
+			    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+			    	$('#'+container+' option:gt(0)').remove();
+					$('#'+container).append(res);
+			        $('#'+container).show();
+			        if(container == 'province1' && province1>0){
+			            document.getElementById('province1').value = province1;
+			            getRegion1(province1, 'city1');
+			        }
+			        if(container == 'city1'  && city1>0){
+			            document.getElementById('city1').value = city1;
+			            getRegion1(city1, 'district1');
+			        }
+			        if(container == 'district1' && district1>0){
+			            document.getElementById('district1').value = district1;
+			        }
+
+			    },'html')
+			}
+			function getRegion2(region_id, container){
+				var province2 = parseInt('[province]') || parseInt('Array');
+				var city2 = parseInt('[city]') || parseInt('');
+				var district2 = parseInt('[district]') || parseInt('');
+			    $.get("/index.php/Control/getRegion",{'region_id':region_id},function(res){
+			    	$('#'+container+' option:gt(0)').remove();
+					$('#'+container).append(res);
+			        $('#'+container).show();
+			        if(container == 'province2' && province2>0){
+			            document.getElementById('province2').value = province2;
+			            getRegion2(province2, 'city2');
+			        }
+			        if(container == 'city2'  && city2>0){
+			            document.getElementById('city2').value = city2;
+			            getRegion2(city2, 'district2');
+			        }
+			        if(container == 'district2' && district2>0){
+			            document.getElementById('district2').value = district2;
+			        }
+
+			    },'html')
+			}
+		</script>
+		<script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F785f490a4f5d902e6f90ec489a8d71b0' type='text/javascript'%3E%3C/script%3E")) </script>
+		
+	</body>
+</html>

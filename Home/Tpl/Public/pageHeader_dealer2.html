@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="__START__/css/dealer.css" type="text/css" rel="stylesheet" />
+<link href="__START__/font/iconfont.css" type="text/css" rel="stylesheet" />
+<!--[if IE 8]>
+<script type="text/javascript" src="__START__/js/html5shiv.js"></script>
+<![endif]-->
+<title>{$site_title|strip_tags=###}</title>
+<script type="text/javascript" src="__START__/js/jquery.js"></script>
+<script type="text/javascript" src="__START__/js/ie6orie7.js"></script>
+<script type="text/javascript" src="__START__/js/js.js"></script>
+<script type="text/javascript" src="__START__/js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__START__/js/jquery.nav.js"></script>
+
+
+<script type="text/javascript">
+  $(function(){
+    jQuery(".yc").slide({trigger:"click"});
+    jQuery(".city").slide({mainCell:".bd ul",effect:"left",trigger:"click"});
+    
+    // jQuery(".axxxm").slide({mainCell:".bd ul",effect:"left",trigger:"click"});
+    $('.axxxm .bd ul li dl dd:last').css({'border-bottom':'none'})
+
+    
+    $('.listx1 ul li dl dd').each(function(){
+      var sbs = $(this).innerHeight()
+      $(this).children('.sp1').css({'height':sbs,'line-height':sbs+ 'px'})
+      $(this).children('.sp2').css({'height':sbs})
+    })
+  })
+</script>
+</head>
+
+<body>
+  <div class="snmBg" style="background: url(__START__/images/snm-bg.jpg) center center no-repeat; height: 949px">
+    <div class="smBox">
+      <h1>诗尼曼全国加盟信息查询</h1>
+      <form action="{:U('Visit/search')}" method="post">
+        <div class="mb">
+          <input type="text" name="keyword" name="text" placeholder="请输入省、市、区进行查询">
+          <input type="submit" name="submit" class="submit" value="">
+        </div>

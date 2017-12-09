@@ -1,0 +1,39 @@
+<include file='Public:pageHeader'/>
+<div class="xw-wrap">
+	<ul class="xw clearfix">
+		<li><a href="{:U('About/news',array('cat_id'=>16))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="hover" </if>>公司新闻</a></li>
+		<span></span>
+		<li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="hover" </if>>媒体报道</a></li>
+		<span></span>
+		<li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="hover" </if>>家居课堂</a></li>
+		<span></span>
+		<li><a href="{:U('About/news',array('cat_id'=>56))}" <if condition="$_GET['cat_id'] eq '56'"> class="hover" </if>>视频中心</a></li>
+		<span></span>
+		<li><a href="{:U('About/news',array('cat_id'=>28))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '28'"> class="hover" </if>>电子报刊</a></li>
+	</ul>
+</div>
+
+<div class="xw2" style="min-height:600px;margin-top:40px">
+	<if condition="$_GET['keyword']">
+		<div style="margin: 0 auto 20px auto; width: 1100px;">关于 <font color="#7c2a3e"><?php echo $_GET['keyword'];?></font> 的文章</div> </if>
+	<ul>
+		<volist name="article_list" id="vo" empty="暂无新闻，待更新！">
+			<li class="clearfix">
+				<span class="s1">
+					<a href="{:U('About/detail',array('id'=>$vo['article_id']))}"><img src="__ROOT__/{$vo.original_img}" alt="" width="402" height="250" /></a>
+				</span>
+				<dl>
+					<dt><a href="{:U('About/detail',array('id'=>$vo['article_id']))}" style="font-size:22px">{$vo.title}</a></dt>
+					<p><i>{$vo.f_time|date='Y-m-d',###}</i> <i>浏览量：{$vo.click_sum}</i> </p>
+					<dd>{$vo.short|mySubstr=###,100}</dd>
+					<span style="color:#7c2a3e">标签</span>：<i><volist name="vo.tip_list" id="vo2"><a href="{:U('About/news',array('keyword'=>$vo2))}">{$vo2}&nbsp;&nbsp;&nbsp;</a></volist></i>
+					<a href="{:U('About/detail',array('id'=>$vo['article_id']))}" class="re">READ MORE</a>
+				</dl>
+			</li>
+		</volist>
+	</ul>
+</div>
+<div class="page" id="m">
+	{$page->show()}
+</div>
+<include file='Public:pageFooter'/>

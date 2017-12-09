@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site_title|strip_tags=###}</title>
+<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+<meta name='description' content="{$site_description|strip_tags=###}"/>
+<meta name='author' content="定制家具加盟:http://www.snimay.com"/>
+<meta name="viewport" content="width=1920,initial-scale=1">
+<link rel="Shortcut Icon" href="/favicon.ico">
+<link rel="Bookmark" href="/favicon.ico">
+<link type="text/css" rel="stylesheet" href="__CSS__/style.css"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/js.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+</head>
+
+<body>
+<div class="head">
+    <div class="top clearfix">
+        <h1><a href="/"><img src="__ROOT__/{$logo.original_img}" alt='定制家具加盟' title='定制家具加盟'></a></h1>
+        <ul class="top-nav f12">
+            <li><a href="{$site_info.link1}"  target="_blank">京东官方商城</a></li>
+            <li><a href="{$site_info.link2}"  target="_blank">天猫官方商城</a></li>
+            <li><a href="{$site_info.link3}"  target="_blank">诗尼曼官方商城</a></li>
+            <li><a href="{$site_info.link4}"  target="_blank">诗尼曼门窗</a></li>
+        </ul>
+        <div class="tel fr">
+            <p>免费服务热线</p>
+            <p>{$site_info.tel_hot}</p>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="wrap clearfix" style="width:1100px">
+            <li><a href="/" <if condition="$nid eq 1">class='hover'</if>>首页 </a></li>
+            <li><a href="{:U('About/investment')}" <if condition="$hover eq 5">class='hover'</if>>招商加盟</a>
+                <div class="sec_nav">
+                    <span><a href="/join.html#tag1">品牌优势</a></span>
+                    <span><a href="/join.html#tag2">加盟优势</a></span>
+                    <span><a href="/join.html#tag3">加盟支持</a></span>
+                    <span><a href="/join.html#tag4">经销商风采</a></span>
+                    <span><a href="/join.html#tag5">加盟条件</a></span>
+                    <span><a href="/join.html#tag6">加盟流程</a></span>
+                </div>
+            </li>
+            <li><a href="{:U('Product/index')}" <if condition="$hover eq 6">class='hover'</if>>产品体验</a>
+                <div class="sec_nav">
+                    <span><a href="/product_list?cat_id2=16">卧房</a></span>
+                    <span><a href="/product_list?cat_id2=17">客厅</a></span>
+                    <span><a href="/product_list?cat_id2=18">餐厅</a></span>
+                    <span><a href="/product_list?cat_id2=19">书房</a></span>
+                    <span><a href="/product_list?cat_id2=20">儿童房</a></span>
+                
+                </div>
+            </li>
+            <li><a href="{:U('Sales/index')}" <if condition="$hover eq 4">class='hover'</if>>专题活动</a></li>
+            <li><a href="{:U('About/news')}" <if condition="$hover eq 3">class='hover'</if>>新闻中心 </a>
+                <div class="sec_nav">
+                <volist name="all_cats1" id="vo">
+                    <span><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+                </volist>
+                </div>
+            </li>
+            <li><a href="{:U('About/index')}" <if condition="$hover eq '2'">class='hover'</if>>关于诗尼曼</a>
+                <div class="sec_nav">
+                <volist name="all_cats" id="vo">
+                    <span><a href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+                </volist>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $('.nav ul li').hover(function(){
+            $(this).find('.sec_nav').stop(true,true).slideToggle();
+        })
+    </script> 
+    <div class="banner">
+        <ul class="bd">
+            <volist name="banner_list" id="vo">
+            <li style="background-image: url(__ROOT__/{$vo.original_img})" title='{$vo.description}'><a href="{$vo.link}" target="_blank" style="display:block;height:500px"></a></li>
+            </volist>
+        </ul>
+        <div class="hd">
+            <ul class="clearfix"></ul>
+        </div>
+        <script type="text/javascript">
+        $(function(){
+            jQuery(".banner").slide({mainCell:".bd",titCell:".hd ul",effect:"fold",autoPage:true,autoPlay:true,
+                startFun:function(){
+                    $(".banner .bd").css("width","100%");
+                    $(".banner .bd li").css("width","100%");
+                }
+            });
+        })
+        </script>
+    </div>
+</div>
+
+<!--主要内容-->
+        <div class="main">
+            <h3>全屋定制</h3>
+            <div class="a1 clearfix"><i></i><p>一站式整体家居空间解决方案</p><em></em></div>
+            <ul class="a2 clearfix">
+                <a href="/product_list?cat_id2=16"><li class="l1" data-l="16">卧房</li></a>
+                <a href="/product_list?cat_id2=17"><li class="l2" data-l="17">客厅</li></a>
+                <a href="/product_list?cat_id2=18"><li class="l3" data-l="18">餐厅</li></a>
+                <a href="/product_list?cat_id2=19"><li class="l4" data-l="19">书房</li></a>
+                <a href="/product_list?cat_id2=20"><li class="l5" data-l="20">儿童房</li></a>
+            </ul>
+            <volist name="index_pro" id="vo" key="k1">
+            <div class="a3 clearfix p_box" data="{$vo.cat_id}" data-id="" <if condition="$k1 eq 1"> style="display:block"</if>>
+                <div class="a3-1">
+                    <h4>{$vo.title}</h4>
+                    <p class="p1">定制分类 ：<volist name="vo.cat_name" id="vo2">{$vo2}&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</volist></p>
+                    <div class="a3-1-inner">
+                        <p class="p2">{$vo.short|mySubstr=###,70}</p>
+                        <dl class="clearfix">
+                            <dt>产品优势</dt>
+                            <a href="/activites/512.html"><dd class="t1">健康环保</dd></a>
+                            <i></i>
+                            <dd class="t2">个性化定制</dd>
+                            <i></i>
+                            <dd class="t3">高档五金件</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="a3-2">
+                    <dl class="clearfix">
+                    <volist name="vo.img_list" id="vo3" key="kk" offset="0" length='3'>
+                        <dt <if condition="$kk neq 1"> style="display:none"</if>><a href="{:U('Product/detail',array('id'=>$vo['goods_id']))}"><img src="__ROOT__/{$vo3['original_img']}" width="524" height="350" /></a></dt>
+                    </volist>
+                        <volist name="vo.img_list" id="vo3" key="k" offset="0" length='3'>
+                        <dd class="d{$k}">
+                            <a href="{:U('Product/detail',array('id'=>$vo['goods_id']))}"><img src="__ROOT__/{$vo3.original_img}" alt="" style="cursor: pointer; width:100%" /></a>
+                            <span></span>
+                        </dd>
+                        </volist>
+                    </dl>
+                </div>
+            </div>
+            </volist>
+            
+            <script type="text/javascript">
+                var len = $('.a3').length;
+                for (var j = 0; j<len; j++) {
+                    str = $(".a3").eq(j).attr('data');
+                    var strs= new Array(); //定义一数组
+                    strs=str.split(","); //字符分割
+                    var s1 = Math.min.apply(null,strs);
+                    $('.a3').eq(j).addClass('id'+s1);
+                }
+                window.onload=function(){
+                    $(".a2 li").eq(0).addClass('hover');
+                    $(".a3").hide();
+                    $(".id16").show();
+                    //$(".a2 li").eq(0).click();
+                }
+                
+                $(".a2 li").hover(function(){
+                    $(".a2 li").removeClass('hover');
+                    $(this).addClass('hover');
+                    var index =$(this).attr('data-l');
+                    $(".a3").hide();
+                    $(".id"+index).show();
+                })
+                $(".a3-2 dl dd").hover( function () { 
+                    var index  =  $(".a3-2 dl dd").index(this);
+                    $(this).siblings("dt").stop(true,true).hide();
+                    $(".a3-2 dt").stop(true,true).eq(index).fadeIn();
+                })
+                
+            </script>
+            <div class="a4">
+                <div class="a4-1">
+                    <a href="{:U('Product/index')}"><i></i><em>定制更多</em><i></i></a>
+                </div>
+            </div>
+            <h3>诚邀加盟</h3>
+            <div class="a1 clearfix"><i></i><p>加盟定制家具 共攀财富之巅</p><em></em></div>
+            
+            <div class="a5">
+                <div class="a5-inner clearfix">
+                    <volist name="ban_list1" id="vo" key="k">
+                    <div class="a5-1 a5-2">
+                        <dl>
+                            <dt><img src="__IMG__/bbb{$k}.png" alt="" /></dt>
+                            <dd>
+                                <p>{$vo.title}</p>
+                                <span>{$vo.en_title}</span>
+                            </dd>
+                            <dd class="d2">
+                                <em style="line-height:2">{$vo.description}</em>
+                            </dd>
+                            <dd>
+                                <a href="#">查看更多</a>
+                            </dd>
+                        </dl>
+                        <a href="{$vo.link}" target="_blank"><img src="__ROOT__/{$vo.original_img}" alt=""  class="i1"/></a>
+                    </div>
+                    </volist>
+                </div>
+                <div class="a5-3"></div>
+            </div>
+            <h3>新闻中心</h3>
+            <div class="a1 clearfix"><i></i><p>引领时尚家居 打造健康生活</p><em></em></div>
+            <div class="a6 clearfix">
+                <volist name="rec_articles" id="vo" key="k">
+                <a href="{:U('About/detail',array('cat_id'=>$vo['cat_id'],'id'=>$vo['article_id']))}" target="_blank">
+                <div>
+                    <dl>
+                    
+                        <dt><img src="__ROOT__/{$vo.original_img}" alt="" /></dt>
+                        <dd class="dd2"></dd>
+                        <dd>
+                            <div>
+                                    <H4>了解详情</H4>
+                            </div>
+                        </dd>
+
+                    </dl>
+                    <span><i></i>{$vo.add_time|date='Y-m-d',###}</span>
+                    <p>{$vo.title}</p>
+                    <!-- <p>全年大事记</p> -->
+                    <p>{$vo.short|mySubstr=###,40}</p>
+                </div>
+                <i <if condition="$k eq 3"> style="display:none"</if>></i>
+                </a>
+                </volist>
+            </div>
+        </div>
+<include file='Public:pageFooter'/>

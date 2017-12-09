@@ -1,0 +1,84 @@
+<include file='Public:pageHeader'/>
+<div class="Cmain" style="margin-top:20px">
+	<div class="ca1 clearfix">
+		<div class="ca11">
+			<a href="{$pro_ban.link}" target="_blank"><img src="__ROOT__/{$pro_ban.original_img}" alt="" /></a>
+			<!-- <div class="ca11-inner1"></div>
+			<div class="ca11-inner2"></div> -->
+		</div>
+		<div class="ca12">
+			<p><a href="{:U('Product/index')}" style="font-size:16px" class="cat_id">全部分类</a>
+                <if condition="$arr_cat_id2['title']">
+                    <a class="sub_cat" href="javascript:js_aup2('cat_id2',{$arr_cat_id2.cat_id});">
+                        {$arr_cat_id2.title}
+                        <span class="sub-dismiss"></span>
+                    </a>
+                </if>
+                <if condition="$arr_cat_id3['title']">
+                    <a class="sub_cat" href="javascript:js_aup3('cat_id3',{$arr_cat_id3.cat_id});">
+                        {$arr_cat_id3.title}
+                        <span class="sub-dismiss"></span>
+                    </a>
+                </if>
+
+                <if condition="$arr_cat_id4['title']">
+                    <a class="sub_cat" href="javascript:js_aup4('cat_id4',{$arr_cat_id4.cat_id});">
+                        {$arr_cat_id4.title}
+                        <span class="sub-dismiss"></span>
+                    </a>
+                </if>
+            </p>
+			<volist name="cat_list" id="vo">
+			<ul class="clearfix">
+				<li class="l1"  style="float:left"><span>{$vo.cat_name}:</span></li>
+				<ul  style="width:790px;float:left">
+					<volist name="vo.list" id="vo2" key="k">
+					<li>
+					<a href="javascript:js_aup<if condition="in_array($vo2['id'], $push_catid)">3</if>('cat_id{$vo2.cat_id}','{$vo2.id}');" val="{$vo2.id}" class="cat_id <if condition="in_array($vo2['id'], $push_catid)"> on </if>" >
+					{$vo2.title}
+					</a>
+					</li>
+					</volist>
+				</ul>
+			</ul>
+			</volist>
+		</div>
+		<script type="text/javascript">myFilters('on','cat_id')</script>
+	</div>
+</div>
+<div class="ca2">
+	<ul class="clearfix" style="min-height:500px">
+		<volist name="product_list" id="vo" empty='暂无该分类产品！'>
+		<li style="position:relative">
+			<a href="{:U('Product/detail',array('id'=>$vo['goods_id']))}">
+				<div style="width:370px;"><img src="__ROOT__/{$vo['goods_img']}" alt=""  /></div>
+				<span>{$vo.title}</span>
+				<i></i>
+				<em></em>
+			</a>
+		</li>
+		</volist>
+	</ul>
+</div>
+<div class="page">
+	<ul class="clearfix">
+		{$page->show()}
+	</ul>
+</div>
+<style type="text/css">
+	.ca2 ul li img{position: absolute;right: 0px;top: 0; }
+	.ca2 ul li a{display: block; height: 280px; width: 350px; overflow: hidden; float: left;}
+</style>
+<script type="text/javascript">
+	$(".ca2 ul li").hover(function(){
+	  $(this).find('img').stop(true,true).animate({right:"-20px"});
+	},function(){
+	  $(this).find('img').stop(true,true).animate({right:"0px"});
+	});
+
+	//关闭按钮
+	$(".sub-dismiss").on("click",function(){
+		$(this).parent().remove();
+	})
+</script>
+<include file='Public:pageFooter'/>

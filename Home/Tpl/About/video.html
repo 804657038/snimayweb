@@ -1,0 +1,94 @@
+<include file='Public:pageHeader2'/>
+<div class="ty">
+  <img src="__ROOT__/{$ban.original_img}" alt=""  />
+</div>
+<div class="xw-wrap">
+  <ul class="xw clearfix">
+    <li><a href="{:U('About/news',array('cat_id'=>16))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '16'"> class="hover" </if>>公司新闻</a></li>
+    <span></span>
+    <li><a href="{:U('About/news',array('cat_id'=>17))}" <if condition="$_GET['cat_id'] eq '17'"> class="hover" </if>>媒体报道</a></li>
+    <span></span>
+    <li><a href="{:U('About/news',array('cat_id'=>18))}" <if condition="$_GET['cat_id'] eq '18'"> class="hover" </if>>家居课堂</a></li>
+    <span></span>
+    <li><a href="{:U('About/news',array('cat_id'=>56))}" <if condition="($_GET['cat_id'] eq '56') or ($_GET['cat_id'] eq '58') or ($_GET['cat_id'] eq '59') or ($_GET['cat_id'] eq '60')"> class="hover" </if>>视频中心</a></li>
+    <span></span>
+    <li><a href="{:U('About/news',array('cat_id'=>28))}" <if condition="$_GET['cat_id'] eq '' || $_GET['cat_id'] eq '28'"> class="hover" </if>>电子报刊</a></li>
+  </ul>
+</div>
+<style>
+  .sub_nav { width: 1100px;margin: 0 auto;height: 60px;border-bottom: 1px solid #ccc; }
+  .sub_nav li { height: 50px;line-height: 50px;padding-top: 10px;float: left;cursor: pointer; }
+  .sub_nav li + li { margin-left: 50px; }
+  .sub_nav li.on,.sub_nav li:hover { border-bottom: 2px solid #8f1d43; }
+  .sub_nav li.on a,.sub_nav li:hover a { color: #8f1d43; }
+</style>
+<ul class="sub_nav">
+  <volist name="sub_nav" id="vo">
+    <li <if condition="$vo['cat_id'] eq $cat_id">class="on"</if>><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></li>
+  </volist>
+  <div class="clearfix"></div>
+</ul>
+
+<div class="video">
+  <ul class="list">
+    <volist name="article_list" id="vo" empty="暂无视频，待更新！">
+      <li>
+        <a href="javascript:;" data-id="{$vo.article_id}">
+          <div class="pic">
+            <img src="__ROOT__/{$vo.original_img}">
+          </div>
+          <h5>{$vo.title|mySubstr=###,17}</h5>
+          <p>{$vo.short|mySubstr=###,20}</p>
+          <i class="play"></i>
+        </a>
+      </li>
+    </volist>
+  </ul>
+  <div class="page">
+    {$page->show()}
+  </div>
+</div>
+<div class="fade"></div>
+<div class="showBox">
+  <div class="colse">
+    <img src="__START__/images/colsebb.png">
+  </div>
+  <div class="content">
+    视频加载中...
+  </div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    var num  = 2;
+    var dwd = $(window).width();
+    var dhd = $(window).height();
+
+    $('.list li').each(function(){
+      var index = $(this).index()
+      if(num == index ){
+        $('.list li').eq(num).css({'margin-right':0})
+        num+=3
+      }
+      $(this).children('a').click(function(){
+        var id = $(this).attr('data-id');
+        $.post('{:U("About/ajax_video")}', 'art_id='+id, function(data){
+          $('.showBox .content').empty();
+          $('.showBox .content').append(data);
+        }, 'json');
+
+        $('.showBox,.fade').fadeIn();
+        $('.showBox').css({
+          'top':(dhd-$('.showBox').height()) / 2,
+          // 'left':(dwd-$('.showBox').width()) / 2,
+        })
+        
+        return false
+      })
+    })
+    $('.showBox .colse img,.fade').click(function(){
+      $('.showBox,.fade').fadeOut();
+      $('.showBox .content').empty();
+    })
+  })
+</script>
+<include file='Public:pageFooter'/>

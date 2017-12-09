@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$site_title|strip_tags=###}</title>
+<meta name='keywords' content="{$site_keywords|strip_tags=###}"/>
+<meta name='description' content="{$site_description|strip_tags=###}"/>
+<meta name='author' content="定制家具加盟:http://www.snimay.com"/>
+<meta name="viewport" content="width=1920,initial-scale=1">
+<link rel="Shortcut Icon" href="/favicon.ico">
+<link rel="Bookmark" href="/favicon.ico">
+<link type="text/css" rel="stylesheet" href="__CSS__/style.css?v=12"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/reset.css"/>
+<script type="text/javascript" src="__START__/js/jquery.js"></script>
+<script type="text/javascript" src="__JS__/js.js"></script>
+<script type="text/javascript" src="__JS__/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="__JS__/myScript.js"></script>
+<link href="__START__/css/style.css" type="text/css" rel="stylesheet" />
+<link href="__START__/font/iconfont.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/layer.js"></script>
+<script src="__START__/jwplayer/jwplayer.js"></script>
+<!--[if IE 8]>
+<script type="text/javascript" src="__START__/js/html5shiv.js"></script>
+<![endif]-->
+<style>
+  img { display: inline-block; }
+</style>
+</head>
+
+<body>
+<div class="head">
+  <div class="top clearfix">
+    <h1><a href="/"><img src="__ROOT__/{$logo.original_img}" alt='定制家具加盟' title='定制家具加盟'></a></h1>
+    <ul class="top-nav f12">
+      <li><a href="{$site_info.link3}"  target="_blank" rel="nofollow" >诗尼曼官方商城</a></li>
+      <li><a href="{$site_info.link4}"  target="_blank" rel="nofollow" >诗尼曼门窗</a></li>
+      <li><a href="http://cg.snimay.com/"  target="_blank" rel="nofollow" >诗尼曼橱柜</a></li>      
+      <li><a href="{$site_info.link1}"  target="_blank" rel="nofollow" >京东官方商城</a></li>
+      <li><a href="{$site_info.link2}"  target="_blank" rel="nofollow" >天猫官方商城</a></li>
+    </ul>
+    <div class="tel fr">
+      <p>免费服务热线</p>
+      <p>{$site_info.tel_hot}</p>
+    </div>
+  </div>
+  <div class="nav">
+    <ul class="wrap clearfix" style="width:1100px">
+      <li><a href="/" <if condition="$nid eq 1">class='hover'</if>>首页 </a></li>
+      <li>
+        <a  <if condition="$hover eq 5">class='hover'</if>>招商加盟</a>
+        <div class="sec_nav">
+          <span><a href="/join.html">全屋定制加盟</a>
+          <span><a href="http://www.snimay.com/cgzs" target="_blank" >橱柜加盟</a>
+        </div>
+      </li>
+      <li>
+        <a href="{:U('Product/index')}" <if condition="$hover eq 6">class='hover'</if>>产品体验</a>
+        <div class="sec_nav">
+          <span><a href="/product_list?cat_id2=54">厨房</a></span>
+          <span><a href="/product_list?cat_id2=16">卧房</a></span>
+          <span><a href="/product_list?cat_id2=17">客厅</a></span>
+          <span><a href="/product_list?cat_id2=18">餐厅</a></span>
+          <span><a href="/product_list?cat_id2=19">书房</a></span>
+          <span><a href="/product_list?cat_id2=20">儿童房</a></span>
+        </div>
+      </li>
+
+      
+      <!-- <li>
+        <a href="{:U('Tips/index')}" <if condition="$hover eq 7">class='hover'</if>>3D云设计</a>
+      </li> -->
+      
+
+      <li>
+        <a  <if condition="$hover eq 4">class='hover'</if>>专题活动</a>
+        <div class="sec_nav">
+          <span><a href="/Sales">专题活动</a></span>
+          <span><a href="/Sales/zhibo" rel="nofollow" >诗尼曼直播</a></span>
+          <span><a href="/Sales/mxj" rel="nofollow" >明星季专题</a></span>
+        </div>
+      </li>
+      <li>
+        <a href="{:U('About/news',array('cat_id'=>16))}" <if condition="$hover eq 3">class='hover'</if>>新闻中心 </a>
+        <div class="sec_nav">
+          <volist name="all_cats1" id="vo">
+            <span><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+          </volist>
+        </div>
+      </li>
+      <li>
+        <a href="{:U('About/index',array('cat_id'=>2))}" <if condition="$hover eq '2'">class='hover'</if>>关于诗尼曼</a>
+        <div class="sec_nav">
+          <volist name="all_cats" id="vo">
+            <span><a href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></span>
+          </volist>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <style type="text/css">
+    .nav ul li{position: relative;}
+    .sec_nav { width: 130px; position: absolute;left: 0;top: 45px; background: #000; display: none; z-index: 999999999}
+    .sec_nav span{line-height: 45px;text-align: center; width: 130px; display: block; }
+    .sec_nav span a{color: #fff}
+  </style>
+  <script>
+    $('.nav ul li').hover(function(){
+      $(this).find('.sec_nav').stop(true,true).slideToggle();
+    })
+  </script>
+</div>

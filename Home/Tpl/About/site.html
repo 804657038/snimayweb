@@ -1,0 +1,51 @@
+<include file='Public:pageHeader'/>
+<div class="ty">
+    <img src="__ROOT__/{$bann.original_img}" alt="" />
+</div>
+<div class="xwx hh" style="margin:20px auto;width:1100px; height:450px">
+<div style="float:left; margin:20px 0">
+<ul class="u1">
+	<li class="titi"><a href="{:U('About/investment')}" style="font-size:18px">招商加盟</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag1">品牌优势</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag2">加盟优势</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag3">加盟支持</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag4">经销商风采</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag5">加盟条件</a></li>
+	<li><a href="http://www.snimay.com/join.html#tag6">加盟流程</a></li>
+</ul>
+<ul>
+	<li class="titi"><a href="{:U('About/investment')}" style="font-size:18px">产品体检</a></li>
+</ul>
+<volist name="cat_list" id="vo">
+<ul style="margin:0">
+	<ul style="margin:0">
+		<li class="l1"  style="float:left; font-weight:bold"><span>{$vo.cat_name}:</span></li>
+		<volist name="vo.list" id="vo2">
+		<li><a href="{:U('Product/index',array('cat_id'=>$vo2['id']))}" class="cat_id" >{$vo2.title}</a></li>
+		</volist>
+	</ul>
+</ul>
+</volist>
+<ul class="u3">
+	<li class="titi"><a href="{:U('About/news')}"  style="font-size:18px">新闻中心</a></li>
+	<volist name="all_cats1" id="vo">
+	<li><a href="{:U('About/news',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></li>
+	</volist>
+</ul>
+<ul class="u4">
+	<li class="titi"><a href="{:U('About/index')}"  style="font-size:18px">关于诗尼曼</a></li>
+	<volist name="all_cats" id="vo">
+	<li><a href="{:U('About/index',array('cat_id'=>$vo['cat_id']))}">{$vo.cat_name}</a></li>
+	</volist>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<style type="text/css">
+	.xwx ul{float: left; width: 1000px; margin: 10px 0}
+	.xwx ul li.l1 span{font-size: 14px!important; color: #000!important; width: auto; display: inline;}
+	.xwx ul li{float: left; margin-right: 20px; margin-bottom: 10px}
+	.xwx ul li.titi{font-size: 16px!important; width: 1000px; font-weight: bold;}
+	.xwx ul li a{}
+</style>
+<include file='Public:pageFooter'/>

@@ -1,0 +1,52 @@
+<include file='Public:pageHeader'/>
+<include file='Public:left'/>
+<div class="rl">
+	<h3>全屋定制</h3>
+	<div class="a1 clearfix"><i style="margin-left:75px"></i><p>机遇来了，你还在等什么 <!-- <span>jobs@snimay.com</span --></p><em></em></div>
+</div>
+<div class="rl2">
+	<p>职位列表</p>
+	<div class="d1">
+		<span>职位名称</span>
+		<i>工作类型</i>
+		<em>工作地点</em>
+		<b>发布时间</b>
+	</div>
+	<ul>
+		<volist name="recruit_list" id="vo" key="k">
+		<li <if condition="$k%2 eq '0'"> class="s" </if> >
+			<span class="z_title">{$vo.zw_name}</span>
+			<i>{$vo.job_type} </i>
+			<em>{$vo.location} </em>
+			<b>{$vo.add_time|date="Y 年 m 月 d 日", ###}</b>
+			<div class="zp_box" style="display:none">
+				{$vo.content}
+			</div>
+		</li>
+		</volist>
+	</ul>
+	<div class="page" id="m">
+		{$page->show()}
+	</div>
+</div>
+
+<div class="sharewrap"></div>
+<div class="share" style="z-index:888 ; top:65%">
+	<p class="tit"><b>&nbsp;</b><a href="javascript:" class="btn2"></a></p>
+	<div class="share-inner">
+		<span class="loca">工作地点：中国广州越秀区</span>
+		<div class="content_show" style="background-color:#f7f7f7; max-height:277px; overflow-y:auto">
+			
+		</div>
+	</div>
+	<form id="file_fom" action="{:U('Info/uploadSurvey')}" method="post" enctype="multipart/form-data">
+		<input type="file" name="jl" style="position:absolute;left:240px;bottom:80px"/>
+		<input type="hidden" name="email" value="" id="file_name">
+		<input type="submit" style="width:250px; text-align:center" class="btnx" value="投选简历" >	
+	</form>
+</div>
+<style type="text/css">
+	.share span{margin-bottom: 10px}
+	.content_show{font-size: 14px;color: #666;line-height: 2}
+</style>
+<include file='Public:pageFooter'/>
