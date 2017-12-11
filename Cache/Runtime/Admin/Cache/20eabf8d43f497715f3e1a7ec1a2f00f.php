@@ -65,6 +65,7 @@
 			<li><a href="<?php echo U('Dealer/index');?>" target="main" class="show_f">招商管理</a></li>
 			<li><a href="<?php echo U('Store/index',array('cat_id'=>2));?>" target="main" class="show_g">附近门店</a></li>
 			<!-- <li><a href="<?php echo U('Privilege/index');?>" target="main" class="show_z">管理员设置</a></li> -->
+            <li><a href="<?php echo U('Service/index');?>" target="main" class="show_s">品质服务</a></li>
 		</ul>
 	</div>
 	<div class="itemBar">
@@ -142,6 +143,11 @@
 
 		<li class="show_y"><a href="<?php echo U('Privilege/index');?>" target="main">管理员列表</a></li>
 		<li class="show_y"><a href="<?php echo U('Role/index');?>" target="main">角色管理</a></li>
+
+        <li class="show_s"><a href="<?php echo U('Service/index');?>" target="main">联系我们</a></li>
+        <li class="show_s"><a href="<?php echo U('Service/order');?>" target="main">定制管理</a></li>
+        <li class="show_s"><a href="<?php echo U('Service/feeback');?>" target="main">意见反馈管理</a></li>
+        <li class="show_s"><a href="<?php echo U('Service/complain');?>" target="main">投诉管理</a></li>
 	</ul>
 </div>
         <div class="ContainerMain autoHeight">

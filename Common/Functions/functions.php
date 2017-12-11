@@ -650,4 +650,38 @@ function smspost($mobile,$content)
     return json_decode($res,true);
 
 }
+
+function getRegionId($content){
+    $p = explode(' ',$content);
+    $province = $p[0];
+    $city = $p[1];
+    $area = $p[2];
+    $region = M('region');
+    $province=str_replace('省','',$province);
+    $city=str_replace(['市','自治区'],'',$city);
+    $map['region_name'] = array('like',"%{$province}%");
+    $prov=$region->where($map)->field('region_id,parent_id')->find();
+
+    $cap['region_name'] = array('like',"%{$city}%");
+    $cap['parent_id'] = array('eq',"{$prov['region_id']}");
+    $c=$region->where($cap)->field('region_id,parent_id')->find();
+
+    $ap['region_name'] = array('like',"%{$area}%");
+    $ap['parent_id'] = array('eq',"{$c['region_id']}");
+    $a=$region->where($ap)->field('region_id,parent_id')->find();
+    $data = [
+        'province'=>$prov['region_id'],
+        'city'=>$c['region_id'],
+        'area'=>$a['region_id'],
+    ];
+    return $data;
+}
+
+function openWindow($msg,$url=''){
+    $html='<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>';
+    $html .='<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>';
+    $html .='<script type="text/javascript">layer.msg(\''.$msg.'\',{time:1000},function(){window.location.href="'.$url.'"})</script>';
+    echo $html;
+}
+
 ?>

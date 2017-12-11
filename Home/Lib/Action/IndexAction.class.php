@@ -4,7 +4,7 @@ class IndexAction extends CommonAction {
 		parent::__construct();
 	}
 
-    public function index() {
+    public function index2() {
         //导航索引ID
         $this->nid = 1;
 
@@ -45,6 +45,10 @@ class IndexAction extends CommonAction {
         }
         $this->index_pro = $index_pro;
         
+        $this->display();
+    }
+
+    public function index() {
         $this->display();
     }
     
