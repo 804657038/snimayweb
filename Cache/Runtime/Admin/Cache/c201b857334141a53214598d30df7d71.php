@@ -29,7 +29,7 @@
 <div class="column_Box mainAutoHeight">
     <div class="tab">
         <ul>
-            <li class="current"><a href="javascript:">定制列表</a></li>
+            <li class="current"><a href="javascript:">投诉列表</a></li>
         </ul>
     </div>
     <div class="wrapBox mainAutoHeight">
@@ -37,7 +37,7 @@
 
         <!--招聘列表-->
         <div class="body User">
-            <form action="<?php echo U('Service/order');?>" id="header_form">
+            <form action="<?php echo U('Service/complain');?>" id="header_form">
                 <div class="item" style="height: 60px;">
                     <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_export"></span><i style="height: 24px;"><input type="button" value="导出数据" class="submitNoBg" onclick="$('#is_excel').val('1');$('#header_form').submit();"></i></a>
                     <div id="excel_name"></div>
@@ -70,7 +70,6 @@
                         <th>定制类型</th>
                         <th>联系时间</th>
                         <th>地址</th>
-                        <th>留言</th>
                         <th>添加时间</th>
                         <th>操作</th>
                     </tr>
@@ -83,10 +82,10 @@
                             <td><?php echo ($vo["type"]); ?></td>
                             <td><?php echo ($vo["contact_time"]); ?></td>
                             <td><?php echo ($vo["province"]); ?> <?php echo ($vo["city"]); ?> <?php echo ($vo["area"]); ?> <?php echo ($vo["addr"]); ?></td>
-                            <td><?php echo ($vo["content"]); ?></td>
                             <td><?php echo ($vo["add_time"]); ?></td>
                             <td>
 								<span>
+                                    <a title="查看详情" href="<?php echo U('Service/complainDetail');?>?id=<?php echo ($vo["id"]); ?>" ><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
                                     <a title="移除" onclick="del('<?php echo ($vo["id"]); ?>')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
 								</span>
                             </td>
@@ -120,9 +119,10 @@
     });
     function del(id){
         layer.confirm('确认要删除吗？',function(index){
-            window.location.href="<?php echo U('Service/del_order');?>?id="+id;
+            window.location.href="<?php echo U('Service/del_complain');?>?id="+id;
         });
     }
+
     $("#btnSubmit").on('click',function(){
         var chk_value =[];
         $('input[name="checkboxes[]"]:checked').each(function(){
@@ -133,7 +133,7 @@
             return;
         }
         layer.confirm('确认要删除这些留言吗？',function(index){
-            window.location.href="<?php echo U('Service/del_orderAll');?>?ids="+chk_value;
+            window.location.href="<?php echo U('Service/del_complainAll');?>?ids="+chk_value;
         });
     })
 </script>

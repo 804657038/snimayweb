@@ -68,6 +68,10 @@ $(function(){
                         <td><input class="input" name="tel_hot" type="text" size="40" value="<?php echo ($site["SITE_INFO"]["tel_hot"]); ?>" /></td>
                     </tr>
                     <tr>
+                        <th align='right'>加盟热线：</th>
+                        <td><input class="input" name="tel_join" type="text" size="40" value="<?php echo ($site["SITE_INFO"]["tel_join"]); ?>" /></td>
+                    </tr>
+                    <tr>
                         <th width="130" align='right'>公司名称：</th>
                         <td><input name="name" type="text" class="input" size="40" value="<?php echo ($site["SITE_INFO"]["name"]); ?>" /></td>
                     </tr>
@@ -119,6 +123,14 @@ $(function(){
                     <tr>
                         <th align='right'>诗尼曼门窗 ：</th>
                         <td><input class="input" name="link4" type="text" size="40" value="<?php echo ($site["SITE_INFO"]["link4"]); ?>" /></td>
+                    </tr>
+                    <tr>
+                        <th align='right'>商学院学习系统 ：</th>
+                        <td><input class="input" name="link5" type="text" size="40" value="<?php echo ($site["SITE_INFO"]["link5"]); ?>" /></td>
+                    </tr>
+                    <tr>
+                        <th align='right'>经销商登录 ：</th>
+                        <td><input class="input" name="link6" type="text" size="40" value="<?php echo ($site["SITE_INFO"]["link6"]); ?>" /></td>
                     </tr>
                     </tbody>
                     

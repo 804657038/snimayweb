@@ -60,11 +60,11 @@
                     </div>
                 </div>
             </form>
-            <form method="POST" action="<?php echo U('Service/batch');?>" name="listForm">
+            <!--<form method="POST" action="<?php echo U('Service/batch');?>" name="listForm">-->
                 <table border="0" cellpadding="0" cellspacing="0" class="center">
                     <thead>
                     <tr>
-                        <th style="width:70px;">编号</th>
+                        <th style="width:70px;"><input type="checkbox" name="checkBox_All" class="checkBox_All" /> 编号</th>
                         <th>姓名</th>
                         <th>手机号码</th>
                         <th>地址</th>
@@ -75,7 +75,7 @@
                     </thead>
                     <tbody>
                     <?php if(is_array($list)): foreach($list as $key=>$vo): ?><tr>
-                            <td><?php echo ($vo["id"]); ?></td>
+                            <td><input type="checkbox" name="checkboxes[]" class="checkBox_list" value="<?php echo ($vo["id"]); ?>" /> <?php echo ($vo["id"]); ?></td>
                             <td><?php echo ($vo["username"]); ?></td>
                             <td><?php echo ($vo["phone"]); ?></td>
                             <td><?php echo ($vo["addr"]); ?></td>
@@ -93,11 +93,18 @@
 
                 <div class="lineHeight" style="border-bottom:1px dashed #cccccc;"></div>
                 <div class="batchChange">
+                    <div class="f_l">
+                        <select onchange="changeAction()" id="selAction" name="type">
+                            <option value="">请选择...</option>
+                            <option value="button_remove">批量删除</option>
+                        </select>
+                        <input type="submit" class="button" name="btnSubmit" id="btnSubmit" value=" 确定 "/>
+                    </div>
                     <div class="f_r">
                         <div class="pagination"><?php echo ($page); ?></div>
                     </div>
                 </div>
-            </form>
+            <!--</form>-->
         </div>
     </div>
 </div>
@@ -112,4 +119,17 @@
             window.location.href="<?php echo U('Service/del_feeback');?>?id="+id;
         });
     }
+    $("#btnSubmit").on('click',function(){
+        var chk_value =[];
+        $('input[name="checkboxes[]"]:checked').each(function(){
+            chk_value.push($(this).val());
+        });
+        if(chk_value.length==0){
+            layer.msg('你还没有选择任何内容！');
+            return;
+        }
+        layer.confirm('确认要删除这些留言吗？',function(index){
+            window.location.href="<?php echo U('Service/del_feebackAll');?>?ids="+chk_value;
+        });
+    })
 </script>

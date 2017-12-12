@@ -65,7 +65,7 @@
 			<li><a href="<?php echo U('Dealer/index');?>" target="main" class="show_f">招商管理</a></li>
 			<li><a href="<?php echo U('Store/index',array('cat_id'=>2));?>" target="main" class="show_g">附近门店</a></li>
 			<!-- <li><a href="<?php echo U('Privilege/index');?>" target="main" class="show_z">管理员设置</a></li> -->
-            <li><a href="<?php echo U('Service/index');?>" target="main" class="show_s">品质服务</a></li>
+
 		</ul>
 	</div>
 	<div class="itemBar">
@@ -122,6 +122,7 @@
     	<li class="show_g" style="display:none;"><a href="<?php echo U('Ads/index',array('cat_id'=>21));?>" target="main">下期预告</a></li>
     	<li class="show_g" style="display:none;"><a href="<?php echo U('Ads/index',array('cat_id'=>22));?>" target="main">往期回顾</a></li>
     	<li class="show_g" style="display:none;"><a href="<?php echo U('Ads/index',array('cat_id'=>23));?>" target="main">统一活动</a></li>
+
 		<li class="show_h" style="display:none;"><a href="<?php echo U('Feedback/index',array('type'=>1));?>" target="main">加盟留言</a></li>
 		<li class="show_h" style="display:none;"><a href="<?php echo U('Feedback/index',array('type'=>4));?>" target="main">橱柜加盟</a></li>
 		<li class="show_h" style="display:none;"><a href="<?php echo U('Feedback/index',array('type'=>2));?>" target="main">促销列表</a></li>
@@ -132,6 +133,11 @@
 		<li class="show_i" style="display:none;"><a href="<?php echo U('Survey/index');?>" target="main">文件列表</a></li>
 		    	<li class="show_h" style="display:none;"><a href="<?php echo U('Feedback/index',array('type'=>7));?>" target="main">广点通加盟客户</a></li>
     	<li class="show_h" style="display:none;"><a href="<?php echo U('Feedback/post2');?>" target="main">广点通人数链接</a></li>
+
+        <li class="show_h"><a href="<?php echo U('Service/order');?>" target="main">定制留言</a></li>
+        <li class="show_h"><a href="<?php echo U('Service/feeback');?>" target="main">意见反馈留言</a></li>
+        <li class="show_h"><a href="<?php echo U('Service/complain');?>" target="main">投诉留言</a></li>
+
     <li class="show_j" style="display:none;"><a href="<?php echo U('User/index');?>" target="main">会员列表</a></li>
 
 		<li class="show_y" style="display:none;"><a href="<?php echo U('Webinfo/index');?>" target="main">站点配置</a></li>
@@ -144,10 +150,7 @@
 		<li class="show_y"><a href="<?php echo U('Privilege/index');?>" target="main">管理员列表</a></li>
 		<li class="show_y"><a href="<?php echo U('Role/index');?>" target="main">角色管理</a></li>
 
-        <li class="show_s"><a href="<?php echo U('Service/index');?>" target="main">联系我们</a></li>
-        <li class="show_s"><a href="<?php echo U('Service/order');?>" target="main">定制管理</a></li>
-        <li class="show_s"><a href="<?php echo U('Service/feeback');?>" target="main">意见反馈管理</a></li>
-        <li class="show_s"><a href="<?php echo U('Service/complain');?>" target="main">投诉管理</a></li>
+
 	</ul>
 </div>
         <div class="ContainerMain autoHeight">

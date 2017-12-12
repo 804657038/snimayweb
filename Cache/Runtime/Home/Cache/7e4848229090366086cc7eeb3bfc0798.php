@@ -10,7 +10,7 @@
 <body>
         <h1>投诉</h1>
 <div>
-    <form action="__ROOT__/index.php/Service/insert_complain" method="post" enctype="multipart/form-data">
+
         <div>
             类型：
             <input type="radio" name="type" value="1">大家居
@@ -37,22 +37,52 @@
         <div>
             问题描述：<textarea name="content"></textarea>
         </div>
-        <div>
-            上传附件：<input type="file" name="file">
+        <div class="layui-form-item">
+            <label class="layui-form-label">上传附件：</label>
+            <input type="hidden" name="file" id="logo" value="">
+            <div class="layui-input-block">
+                <div class="layui-upload">
+                    <button type="button" class="layui-btn layui-btn-primary" id="logoBtn">
+                        <i class="icon icon-upload3"></i>点击上传
+                    </button>
+                    <span id="cltLogo"></span>
+                </div>
+            </div>
         </div>
         <div>
             <!--<button onclick="add_order()">提交</button>-->
             <!--<button onclick="add_feeback()">提交</button>-->
-            <input type="submit" value="提交">
+            <button onclick="add_complain()">提交</button>
         </div>
-    </form>
+
+
+
 
 </div>
 </body>
 </html>
 <script type="text/javascript">
-    layui.use('layer', function() {
-        var layer = layui.layer;
+    layui.use(['form', 'layer','upload'], function () {
+        var form = layui.form,layer = layui.layer,upload = layui.upload,$ = layui.jquery;
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#logoBtn'
+            ,url: '__ROOT__/index.php/Service/uploadFile'
+            ,accept: 'file'
+            ,exts:'zip|rar|7z'
+            ,size: 20480
+            ,done: function(res){
+                //上传成功
+                if(res.code>0){
+                    $('#logo').attr('value',res.file);
+                    $('#cltLogo').html(res.name);
+                }else{
+                    //如果上传失败
+                    return layer.msg('上传失败');
+                }
+            }
+        });
+
     });
     var is_post = 0;
     function add_order() {
@@ -124,7 +154,7 @@
         data.contact_time = $("[name='contact_time']").val();
         data.addr = $("[name='addr']").val();
         data.content = $("[name='content']").val();
-        data.enclosure = $("[name='file']").val();
+        data.file = $("[name='file']").val();
         is_post++;
         layer.load(1);
         if (is_post == 1) {

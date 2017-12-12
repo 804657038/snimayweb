@@ -13,6 +13,8 @@
 	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
     <script src="__PUBLIC__/Admin/Js/jquery.ui.datepicker-zh-CN.js"></script>
     <script src="__PUBLIC__/Admin/Js/ui.js"></script>
+    <link href="__PUBLIC__/Layui/css/layui.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Layui/layui.js"></script>
     <!--[if lte IE 6]>    <script src="__PUBLIC__/Admin/Js/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script><script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
     <style>
         .calendar{
