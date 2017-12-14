@@ -59,7 +59,7 @@ function delAds(id) {
 						<thead>
 							<tr>
 								<th style="width:70px;">编号</th>
-								<!-- <th>广告图标题</th> -->
+								 <th>广告图标题</th>
 								<th>广告图描述</th>
 								<th>预览</th>
 								<?php if(($_GET['cat_id']) != "1"): ?><th>广告图链接</th><?php endif; ?>
@@ -72,7 +72,7 @@ function delAds(id) {
 						<tbody>
 							<?php if(is_array($adsList)): foreach($adsList as $key=>$vo): ?><tr>
 								<td><?php echo ($vo["ads_id"]); ?></td>
-								<!-- <td><font color='red'><?php echo ($vo["title"]); ?></font></td> -->
+								 <td><font color='red'><?php echo ($vo["title"]); ?></font></td>
 								<td><?php echo (nl2br($vo["description"])); ?></td>
 								<td><img src="__ROOT__/<?php echo ($vo["original_img"]); ?>" style='max-width:300px; max-height:200px;'/></td>
 								<?php if(($_GET['cat_id']) != "1"): ?><td><?php echo ($vo["link"]); ?></td><?php endif; ?>

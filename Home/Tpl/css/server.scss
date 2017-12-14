@@ -1,0 +1,562 @@
+$red:#a51e32;
+$black:#333333;
+#banner{
+    header{
+      position: absolute;  
+    }
+    >img{
+        width: 100%;
+    }
+}
+
+//服务
+#server{
+    width: 100%;
+    background-color: #EEEEEE;
+    .choice{
+        width: 580px;
+        margin: 0 auto;
+        padding: 80px 0px 60px;
+        ul li{
+            float: left;
+            width: 180px;
+            height: 60px;
+            margin-right: 20px;
+            position: relative;
+            background-color: white;
+            button{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 60px;                
+                color: #888888;
+                font-size: 18px;
+                background-color: transparent;
+                z-index: 5;
+                -moz-transition: color 0.5s;
+                -webkit-transition: color 0.5s;
+                -ms-transition: color 0.5s;
+                transition: color 0.5s;
+            }
+            .wbtn{
+                background-color: $red;
+                color: white;
+            }
+            button::after{
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 0;
+                width: 0%;
+                height: 100%;
+                background-color: $red;
+                z-index: -1;
+                -moz-transition: width 0.5s,left 0.5s;
+                -webkit-transition: width 0.5s,left 0.5s;
+                -ms-transition: width 0.5s,left 0.5s;
+                transition: width 0.5s,left 0.5s;
+            }
+            button:hover{
+                color: white;
+            }
+            button:hover::after{
+                width: 100%;
+                left: 0%;
+            }
+        }
+        ul li:last-child{
+            margin-right: 0;
+        }
+    }
+}
+.serverBox{
+    width: 1200px;
+    height: 750px;
+    margin: 0 auto;
+    background-color: white;
+    .sBLeft{
+        width: 700px;
+        .title{
+            font-size: 22px;
+            text-align: center;
+            color: #888888;
+            padding: 45px 0 25px;
+        }
+        .radioChoices{
+            width: 600px;
+            height: 60px;
+            position: relative;
+            margin: 0 auto;
+            
+        }
+        //单选
+        .radioBox{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 60px;
+            overflow: hidden;
+            border: 1px solid #c8c8c8;           
+            -moz-transition: height 0.5s;
+            -webkit-transition: height 0.5s;
+            -ms-transition: height 0.5s;
+            transition: height 0.5s;
+            z-index: 5;
+            margin-left: -1px;
+            background-color: white;
+            .pLeft{
+                width: 80px;
+                p{
+                    font-size: 16px;
+                    line-height: 60px;
+                    color: #888888;
+                    text-indent: 19px; 
+                    span{
+                        color: $red;
+                    }
+                }
+                
+            }
+            .rMiddle{
+                width: 476px;
+                padding-bottom: 12px;
+                .layui-input-block
+                {
+                    margin-left: 0;
+                }
+                .layui-form-radio {
+                    width: 92px;
+                    margin: 18px 0 0 0;
+                    padding-right: 0;
+                }
+            }
+            .rRight{
+                a{
+                    display: block;
+                    padding: 25px 10px;
+                    -moz-transition: transform 0.5s;
+                    -webkit-transition: transform 0.5s;
+                    -ms-transition: transform 0.5s;
+                    transition: transform 0.5s;
+                }
+            }
+        }
+        .twoInput{
+            width: 602px;
+            margin: 0 auto;
+            margin-top: 10px;
+            >div:nth-child(1){
+                margin-right: 10px;
+            }
+            .twoInputIn{
+                width: 295px;
+                height: 60px;
+                border: 1px solid #c8c8c8;
+                position: relative;               
+                p{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 90px;
+                    margin-left: 19px;
+                    line-height: 60px;
+                    color: #888888;
+                    span{
+                        color: $red;
+                    }
+                }
+                input{
+                    width: 180px;
+                    height: 58px;
+                    border: 0;
+                    margin-left: 95px;
+                    line-height: 58px;
+                    color: $black;
+                }
+            }
+        }
+        .oneInput{
+            width: 600px;
+            height: 60px;            
+            overflow: hidden;
+            border: 1px solid #c8c8c8;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            p{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 90px;
+                margin-left: 19px;
+                line-height: 60px;
+                color: #888888;
+                span {
+                    color: $red;
+                }
+            }
+            input {
+                width: 460px;
+                height: 58px;
+                border: 0;
+                margin-left: 95px;
+                margin-top: 1px;
+                line-height: 58px;
+                color: $black;
+            }
+        }
+        .textarea{
+            width: 600px;
+            height: 180px;            
+            overflow: hidden;
+            border: 1px solid #c8c8c8;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            p{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 90px;
+                margin-left: 19px;
+                line-height: 58px;
+                color: #888888;
+                span {
+                    color: $red;
+                }
+            }
+            textarea {
+                width: 467px;
+                height:140px;
+                border: 0;
+                margin-left: 95px;
+                margin-top: 17px;
+                line-height: 24px;
+                color: $black;
+            }
+        }  
+        .btnBox{
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        } 
+        .file{
+            width: 600px;
+            height: 60px;            
+            overflow: hidden;
+            border: 1px solid #c8c8c8;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            p{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 90px;
+                margin-left: 19px;
+                line-height: 58px;
+                color: #888888;
+                span {
+                    color: $red;
+                }
+            }
+            input{
+                position: absolute;
+                width: 460px;
+                height: 58px;
+                border: 0;
+                top: 0;
+                left: 95px;
+                line-height: 60px;
+                color: $black;
+                opacity: 0;
+            }
+            button{
+                width: 100px;
+                height: 38px;
+                position: absolute;
+                left: 95px;
+                top:11px;
+                background-color: #eeeeee;
+                border: 1px solid #c8c8c8;
+                color: #888888;
+            }
+            >span{
+                position: absolute;
+                top:0;
+                left: 205px;
+                line-height: 60px;
+                color: #888888;
+            }
+        }
+    }
+    .sBRight{
+        width: 500px;
+    }
+    
+}
+#contact{
+    width: 100%;
+    background-color: white;
+    .contact{
+        width: 1200px;
+        margin: 0 auto;
+        
+        .methods{
+            >.floatl{
+                width: 380px;
+                height: 380px;
+                margin-right: 30px;
+                overflow: hidden;
+                background-color: #eeeeee;
+            }
+            >.floatl:nth-child(3){
+                margin-right: 0px;
+            }
+            .ercode{
+                .code{
+                    display: block;
+                    width: 150px;
+                    height: 150px;
+                    overflow: hidden;
+                    margin: 0 auto;
+                    margin-top: 75px;
+                }
+                p{
+                    margin-top: 30px;
+                    text-align: center;
+                    color: $black;
+                    font-size: 18px;
+                    position: relative;
+                }
+                span{
+                    display: inline-block;
+                    width: 60px;
+                    height: 1px;
+                    border-bottom: 1.1px solid $red;
+                    margin-left: 146px;
+                    margin-top: 20px;
+                }
+            }
+            .apBox{
+                background-color: rgba(0,0,0,0.75);
+                ul{
+                    width: 225px;
+                    margin: 0 auto;
+                }
+                .pbBox,.abBox{
+                    margin-top: 99px;
+                }
+                .pT{
+                    font-size: 18px;
+                    color: white;
+                    margin-top: 30px;
+                }
+                span{
+                    display: inline-block;
+                    width: 60px;
+                    height: 1px;
+                    border-bottom: 1.1px solid $red;
+                    margin-top: 20px;
+                    margin-bottom: 13px;
+                }
+                .sT{
+                    font-size: 14px;
+                    color: #eeeeee;
+                    line-height: 30px;
+                }
+            }
+            .aBox{
+                background-color: #eeeeee;
+                .pT{
+                    color: $black;
+                }
+                .sT{
+                    color: #666666;
+                }
+                button{
+                    color: #666666;
+                    font-size: 14px;
+                    width: 90px;
+                    height: 30px;
+                    border: 1px solid #c8c8c8;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .company{
+            padding: 80px 0;
+            .map{
+                width: 750px;
+                height: 450px;
+                #companyMap{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .message{
+                width: 450px;
+                height: 450px;
+                ul{
+                    margin-left: 71px;
+                }
+                p{
+                    text-indent: 20px;
+                    font-size: 14px;
+                    color: $black;
+                    line-height: 40px;
+                    a{
+                        display: inline;
+                    }
+                    a:hover{
+                        color: $red;
+                    }
+                }
+                .mt{
+                    font-size: 18px;
+                    color: $black;
+                    font-weight: bold;
+                    margin-top: 50px;
+                    text-indent: 0;
+                    line-height: 18px;
+                }
+                .st{
+                    color: #888888;
+                    font-family: arial;
+                    font-size: 12px;
+                    line-height: 30px;
+                }
+                .redLine{
+                    width: 60px;
+                    border-bottom: 1.1px solid $red;
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                }
+                .huiLine{
+                    width: 304px;
+                    border-bottom: 1.1px solid #c8c8c8;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                .p1{
+                    background: url(../img/p1.png) no-repeat 2px 13px;
+                }
+                .p2{
+                    background: url(../img/p2.png) no-repeat 2px 14px;
+                }
+                .p3{
+                    background: url(../img/p3.png) no-repeat 2px 14px;
+                }
+                .p4{
+                    background: url(../img/p4.png) no-repeat 2px 14px;
+                }
+                .p5{
+                    background: url(../img/p5.png) no-repeat 2px 12px;
+                }
+                .p6{
+                    background: url(../img/p6.png) no-repeat 2px 14px;
+                }
+                .p7{
+                    background: url(../img/p6.png) no-repeat 2px 14px;
+                }
+            }
+        }
+        
+    }
+}
+
+#specialServer{
+    width: 100%;
+    background-color: white;
+    padding-bottom: 100px;
+    .stepBox{
+        width: 1200px;
+        margin: 0 auto;
+        .stepChild:hover{
+            box-shadow: 0 0 4px 4px rgba(231,231,231,0.2);
+            .stepContent{
+                background-color: white; 
+            }
+            .stepImg{
+                img{
+                    width: 105%;
+                }
+            }
+        }
+        .stepChild{
+            width: 598px;
+            height: 250px;
+            overflow: hidden;
+            margin-bottom: 4px;
+            .stepImg{
+                width: 260px;
+                height: 250px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    -moz-transition: width 0.5s,margin 0.5s;
+                    -webkit-transition: width 0.5s,margin 0.5s;
+                    -ms-transition: width 0.5s,margin 0.5s;
+                    transition: width 0.5s,margin 0.5s;
+                }
+            }
+            .stepContent{
+                width: 338px;
+                height: 250px;
+                background-color: #F6F6F6;
+                img{
+                    display: block;
+                    margin: 0 auto;
+                }
+                .iBox1{
+                    padding-top: 79px;
+                }
+                .iBox2{
+                    padding-top: 83px;
+                }
+                .iBox3{
+                    padding-top: 70px;
+                }
+                .iBox4{
+                    padding-top: 73px;
+                }
+                .iBox5{
+                    padding-top: 75px;
+                }
+                .iBox6{
+                    padding-top: 73px;
+                }
+                p{
+                    font-size: 16px;
+                    color: #666666;
+                    text-align: center;
+                    line-height: 70px;                   
+                }
+                span{
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    color: $red;
+                    font-size: 16px;
+                }
+            }
+        }
+        .stepActive{
+            box-shadow: 0 0 4px 4px rgba(231,231,231,0.2);
+            .stepContent{
+                background-color: white; 
+            }
+            .stepImg{
+                img{
+                    width: 105%;
+                }
+            }
+        }
+        .stepChild:nth-child(2n+1){
+            margin-right: 4px;
+        }
+    }
+}

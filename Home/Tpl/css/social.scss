@@ -1,0 +1,75 @@
+$red:#a51e32;
+$black:#333333;
+#banner{
+    header{
+        position: absolute;
+    }
+    img{
+         width: 100%;
+    }
+}
+
+header nav .navR ul li a{
+    color: $black;
+}
+//公益理念
+#idea{
+    width: 1200px;
+    margin: 0 auto;
+    .heartBox{
+        width: 600px;
+        height: 450px;
+        position: relative;
+        .hContent{
+            position: absolute;
+            top: 65px;
+            left: 520px;
+            width: 680px;
+            height: 320px;
+            background-color: white;
+            box-shadow: 0 0 1px 1px #EAEAEA;
+            p{
+                width: 520px;
+                line-height: 40px;
+                color: $black;
+                font-size: 14px;
+                margin: 0 auto;
+                margin-top: 60px;
+            }
+        }
+    }
+}
+//公益之路
+#road{
+    width: 1200px;
+    margin: 0 auto;
+    .loadBar{
+        .longR{
+            width: 1px;
+            height: 30px;
+            background-color: $red;
+            margin-right: 8px;
+        }
+        .shortR{
+            width: 1px;
+            height: 20px;
+            background-color: $red;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+        .longB{
+            width: 1px;
+            height: 30px;
+            background-color: $black;
+            margin-right: 8px;
+        }
+        .shortB{
+            width: 1px;
+            height: 20px;
+            background-color: $black;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+    }
+    
+}

@@ -1,0 +1,58 @@
+#banner header {
+  position: absolute; }
+#banner img {
+  width: 100%; }
+
+header nav .navR ul li a {
+  color: #333333; }
+
+#idea {
+  width: 1200px;
+  margin: 0 auto; }
+  #idea .heartBox {
+    width: 600px;
+    height: 450px;
+    position: relative; }
+    #idea .heartBox .hContent {
+      position: absolute;
+      top: 65px;
+      left: 520px;
+      width: 680px;
+      height: 320px;
+      background-color: white;
+      box-shadow: 0 0 1px 1px #EAEAEA; }
+      #idea .heartBox .hContent p {
+        width: 520px;
+        line-height: 40px;
+        color: #333333;
+        font-size: 14px;
+        margin: 0 auto;
+        margin-top: 60px; }
+
+#road {
+  width: 1200px;
+  margin: 0 auto; }
+  #road .loadBar .longR {
+    width: 1px;
+    height: 30px;
+    background-color: #a51e32;
+    margin-right: 8px; }
+  #road .loadBar .shortR {
+    width: 1px;
+    height: 20px;
+    background-color: #a51e32;
+    margin-right: 8px;
+    margin-top: 10px; }
+  #road .loadBar .longB {
+    width: 1px;
+    height: 30px;
+    background-color: #333333;
+    margin-right: 8px; }
+  #road .loadBar .shortB {
+    width: 1px;
+    height: 20px;
+    background-color: #333333;
+    margin-right: 8px;
+    margin-top: 10px; }
+
+/*# sourceMappingURL=social.css.map */

@@ -1,0 +1,411 @@
+$red:#a51e32;
+$black:#333333;
+//轮播图
+body{
+    background-color: white;
+}
+header{
+    position: absolute;
+}
+#banner{
+    width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    img{
+        width:100%;
+    }
+    .swiper-pagination-bullet{
+        width: auto;
+        height: auto;
+        padding: 18px 8px;
+        display: inline-block;
+        border-radius: 0%;
+        font-size: 12px;        
+        color: white;
+        background-color: rgba(0,0,0,0);
+        opacity: 0.8;
+        margin: 0;
+    }
+    .swiper-pagination-bullet-active{
+        border-bottom: 2px solid $red;
+    }
+    >div:nth-child(1){
+        width: 61.58%;
+    }
+    >div:nth-child(2){
+        
+        width: 38.42%;
+        height: 520px;
+        background-color: #eeeeee;
+        ul li:nth-child(1){
+            position: relative;
+            width: 100%;
+            margin-bottom: 41px;
+            >img{
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+            p{
+                position: absolute;
+                font-size: 22px;
+                line-height: 150px;
+                text-align: center;
+                color: white;
+                width: 100%;
+                top: 0;
+                left: 0;
+                font-weight: bold;
+            }
+        }
+        ul li{
+            position: relative;
+            width: 380px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            overflow: hidden;
+            >div{
+                position: absolute;
+                left: 12px;
+                top: 23px;
+                width:  12px;
+                height: 12px;  
+                overflow: hidden;             
+                img{
+                    width: auto;
+                    margin-left: -212px;
+                }
+            }
+            .phone{
+                width:  15px;
+                height: 15px;  
+                img{
+                    margin-left: -212px;
+                    margin-top: -48px;
+                }
+            }
+            .cityes{
+                width:  13px;
+                height: 13px;  
+                img{
+                    margin-top: -95px;
+                    margin-left: -210px;
+                }
+            }
+            .word{
+                margin-left: 0px;
+            }
+            input{
+                width: 378px;
+                height: 58px;
+                border: 1px solid #c8c8c8;
+                background-color: white;
+                color: #333333;
+                text-indent: 33px;
+            }
+            input::-ms-input-placeholder{
+                color: #888888;
+            }
+            input::-webkit-input-placeholder{
+                color: #888888;
+            }
+            input::-moz-placeholder{
+                color: #888888;
+            }
+            button{
+                position: absolute;
+                left: 0;
+                top: 0;
+                border: 1px solid #c8c8c8;
+                display: block;
+                width: 378px;
+                height: 58px;
+                font-size: 18px;
+                text-align: center;
+                line-height: 58px;
+                background-color: white;
+                z-index: 5;
+                -moz-transition: color 0.5s,border 0.5s;
+                -webkit-transition: color 0.5s,border 0.5s;
+                -ms-transition: color 0.5s,border 0.5s;
+                transition: color 0.5s,border 0.5s;
+            }
+            button:hover::before{
+                width: 100%;
+            }
+            button:hover{
+                color: white;
+                border: 1px solid $red;
+            }
+            button::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 0%;
+                height: 100%;
+                background-color: $red;
+                -moz-transition: width 0.5s;
+                -webkit-transition: width 0.5s;
+                -ms-transition: width 0.5s;
+                transition: width 0.5s;
+            }
+        }
+        ul li:nth-child(5){
+            width: 378px;
+            height: 58px;
+            position: relative;
+            margin-top: 19px;
+        }
+        ul li.city{
+            input{
+                background: url(../img/ms.png) no-repeat 340px center;
+                background-color: white;
+            }
+        }
+    }
+}
+header{
+    position: relative;
+}
+.shopShow{
+    margin: 0 auto;
+    width: 1200px;   
+    background-color: white;
+    .sNav{
+        padding: 80px 0 20px 0;
+        border-bottom: 1px solid #c8c8c8;
+        div:nth-child(1){
+            p{
+                font-size: 20px;
+                line-height: 30px;
+                color: #333333;
+                font-weight: bold;
+            }
+        }
+        div:nth-child(2){
+            ul li:last-child{
+                a{
+                    border-right: 1px solid transparent;
+                }
+            }
+            ul li{
+                padding: 9px 0px;
+                float: left;
+                a{
+                    padding: 0 20px;
+                    border-right: 1px solid #c8c8c8;
+                }
+            }
+            ul li:hover{
+                    background-color: #a51e32;
+                    color: white;
+                    a{
+                        border-right: 1px solid $red!important;
+                    }
+            }
+            ul li:nth-child(1):hover{
+                    background-color: #a51e32;
+                    color: white;
+                    a{
+                        border-right: 1px solid $red!important;
+                        border-left: 1px solid $red!important;
+                    }
+            }
+            ul{
+                .lsd{
+                    background-color: #a51e32;
+                    color: white;
+                    a{
+                        border-right: 1px solid $red!important;
+                    }
+                }
+                .lsdn{
+                    background-color: #a51e32;
+                    color: white;
+                    a{
+                        border-right: 1px solid $red!important;
+                    }
+                }
+                .lsdp{
+                    a{
+                        border-right: 1px solid transparent!important;
+                    }
+                }
+                .lsdpn{
+                    a{
+                        border-right: 1px solid transparent!important;
+                    }
+                }
+            }
+        }
+    }
+    .contentBox{
+        width: 100%;
+        padding-top: 40px;
+        .cLeft{
+            width: 499px;
+            overflow: hidden;
+            .cImgBox{
+                width: 100%;
+                height: 374px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                }
+            }
+            .cIntroBox{
+                width: 499px;
+                height: 166px;
+                border: 1px solid #eeeeee;
+                ul li.pFirst{
+                    text-align: center;
+                    font-size: 16px;
+                    color: #333333;
+                    width: 420px;
+                    margin: 0 auto; 
+                    line-height: 16px;
+                    margin-top: 40px; 
+                    margin-bottom: 20px;
+                }
+                ul li.pSecond{
+                    text-align: left;
+                    font-size: 12px;
+                    color: #888888;
+                    line-height: 30px;
+                    width: 420px;
+                    margin: 0 auto;  
+                }
+            }
+        }
+        .cRight{
+           width: 662px;
+           margin-left: 39px; 
+           .cRightList:hover{
+               box-shadow: 0 -2px 2px 2px rgba(51,51,51,0.1);
+               .cRLRight > ul > li.pRFirst{
+                   color: $red;
+               }
+               .cRLRight > ul > li > .btnRight a{
+                   transform: rotate(360deg);
+                   span{
+                       background-color: $red;            
+                   }
+               }
+           }
+           .cRightList:hover::after{
+               width: 100%;
+           }
+           .cRightList::after{
+               content: "";
+               position: absolute;
+               width: 0%;
+               left: 0;
+               bottom: -2px;
+               border-bottom:1px solid $red;
+               -moz-transition: width 0.5s;
+                -webkit-transition: width 0.5s;
+                -ms-transition: width 0.5s;
+                transition: width 0.5s;
+           }
+           .cRightList{
+               padding: 26px 0 25px;
+               border-bottom: 1px solid #eeeeee;
+               position: relative;
+               .cRLLeft{
+                   width: 170px;
+                   height: 128px;
+                   position: relative;
+                   >img{
+                       width: 100%;
+                   }
+                   .best{
+                            position: absolute;
+                            top: -1px;
+                            left: -5px;
+                            padding: 5px 10px 10px;
+                            background: url(../img/centers.png) no-repeat;
+                            background-position: -160px,-160px;                     
+                      p{
+                          color: white;
+                          font-size: 12px;
+                          line-height: 16px;
+                          padding-bottom: 3px;
+                      }
+                   }
+               }
+               .cRLRight{
+                   width: 445px;
+                   margin-left: 30px;
+                   >ul>li.pRFirst{
+                       color: $black;
+                       font-size: 16px;
+                       line-height: 16px;
+                       margin-bottom: 10px;
+                    }
+                    >ul>li.pRSecond{
+                        font-size: 12px;
+                        color: #888888;
+                        line-height: 30px;
+                    }
+                    >ul>li>.btnLeft{
+                       margin-top: 8px;
+                       >ul>li{
+                            position: relative;
+                            float: left;
+                            margin-right: 10px;
+                            button{
+                                display: block;
+                                padding: 8px 15px;
+                                color: #888888;
+                                border: 1px solid #EEEEEE;
+                                border-radius: 9px;
+                            }
+                            button:hover{
+                                background-color: $red;
+                                border: 1px solid $red;
+                                color: white;
+                            }
+                       }  
+                   }
+                   >ul>li>.btnRight{
+                       margin-top: 8px;
+                       a{
+                           display: block;
+                           width: 17px;
+                           height: 17px;
+                           position: relative;
+                           margin: 8px 12px;
+                           -moz-transition: transform 0.5s;
+                            -webkit-transition: transform 0.5s;
+                            -ms-transition: transform 0.5s;
+                            transition: transform 0.5s;
+                           span{
+                               position: absolute;
+                               background-color: #EEEEEE;
+                               display: block;
+                           }
+                           span:nth-child(1){                              
+                               left: 0px;
+                               top: 9px;
+                               height: 1.1px;
+                               width: 19px;
+                           }
+                           span:nth-child(2){
+                               left: 9px;
+                               top: 0px;
+                               height: 19px;
+                               width: 1.1px;
+                           }
+                       }
+                   }
+               }
+           }
+        }
+    }
+}
+.sRoom{
+    padding-bottom: 80px;
+}

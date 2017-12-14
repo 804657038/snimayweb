@@ -1,0 +1,497 @@
+$red:#a51e32;
+$black:#333333;
+#banner{
+    img{
+        width: 100%;
+    }
+}
+header{
+    position: absolute;
+}
+#join{
+    width: 1200px;
+    margin: 0 auto;
+    .moreChoice{
+        .short{
+            width: 210px;
+            height: 60px;
+            border: 1px solid #c8c8c8;
+            position: relative;
+            margin-right: 27px;
+            cursor: pointer;
+            cursor: -ms-pointer;
+            >img{
+                position: absolute;
+                top: 27px;
+                right: 25px;
+                transition: transform 0.5s;
+                -ms-transition: transform 0.5s;
+                -webkit-transition: transform 0.5s;
+                -moz-transition: transform 0.5s;
+            }
+            >p{
+                font-size: 16px;
+                color: $black;  
+                line-height: 60px; 
+                text-indent: 30px;
+            }
+            .profess{
+                overflow: hidden;
+                position: absolute;
+                top: 100%;
+                left: -1px;
+                display: none;
+                background-color: white;
+                z-index: 100;
+            }
+            ul{                
+                
+                width: 210px;
+                border: 1px solid #c8c8c8;
+                background-color: white;
+                padding: 10px 0;
+                transition: height 0.5;
+            }
+            ul li{
+                p{
+                    line-height: 35px;
+                    text-indent: 30px;
+                    font-size: 14px;
+                }
+                p:hover{
+                    cursor: pointer;
+                    cursor: -ms-pointer;
+                    background-color: $red;
+                    color: white;
+                }
+            }       
+        }
+        .long{
+            width: 620px;
+            height: 60px;
+            border: 1px solid #c8c8c8;
+            position: relative;
+            border-right: 0;
+            button{
+                width: 100px;
+                height: 62px;
+                position: absolute;
+                top: -1px;
+                right: -100px;
+                border: 1px solid $black;
+                background-color: $black;
+                color: white;
+            }
+            input{
+                width: 580px;
+                height: 100%;
+                border: 0;
+                color: $black;
+                font-size: 16px;
+                margin-left: 30px;
+            }
+            input::-webkit-input-placeholder{
+                color: #888888;
+            }
+            input::-moz-placeholder{
+                color: #888888;
+            }
+            input::-ms-input-placeholder{
+                color: #888888;
+            }
+        }
+    }
+    .jobBox{
+        width: 100%;
+        padding-top: 60px;
+        .job:hover{
+            box-shadow: 0 0 4px 4px rgba(234,234,234,0.2);
+            border-color: white;
+        }
+        .job:hover::after{
+            width: 100%;
+        }
+        .job:hover .rc{
+            display: block;
+        }
+        .job{
+            width: 578px;
+            height: 198px;
+            border: 1px solid #eeeeee;
+            position: relative;
+            .rc{
+                position: absolute;
+                top: 30px;
+                right: 40px;
+                transition: transform 0.5s;
+                -ms-transition: transform 0.5s;
+                -webkit-transition: transform 0.5s;
+                -moz-transition: transform 0.5s;
+                display: none;
+            }
+            .rc:hover{
+                transform: rotate(180deg);
+            }
+            ul{
+                width: 500px;
+                margin: 0 auto;
+            }
+        }
+        .job:nth-child(2n+1){
+            margin-right: 40px;
+            margin-bottom: 50px;
+        }
+        .job::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            border-bottom: 1px solid $red;
+            transition: width 0.5s;
+            -ms-transition: width 0.5s;
+            -webkit-transition: width 0.5s;
+            -moz-transition: width 0.5s;
+        }
+    }
+    .jobDetails{
+        .return{
+            width: 100%;
+            margin: 65px 0 15px; 
+            height: 36px;
+            position: relative;
+            .rBtn{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 101px;
+                height: 36px;                            
+            }
+            
+            button{
+                width: 100px;
+                height: 36px;
+                border: 1px solid #eeeeee;
+                background-color: white;
+                color: #888888;
+                font-size: 12px;
+                position: relative;
+                transition: color 0.2s,border 0.2s;
+                -ms-transition: color 0.2s,border 0.2s;
+                -webkit-transition: width 0.2s,border 0.2s;
+                -moz-transition: width 0.2s,border 0.2s;
+                z-index:5;
+            }
+            
+            button::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: $red;
+                color: white;
+                transition: width 0.2s;
+                -ms-transition: width 0.2s;
+                -webkit-transition: width 0.2s;
+                -moz-transition: width 0.2s;
+                z-index: -1;
+            }
+            button:hover{
+                color: white;
+                border-color: $red;
+            }
+            button:hover::after{
+                width: 100%;
+            }
+        }
+        .details{
+            border-top: 1px solid #c8c8c8;
+            .topDetails{
+                width: 1120px;
+                margin: 0 auto;
+                position: relative;
+                .tdBtn{
+                    width: 180px;
+                    height: 60px;
+                    position: absolute;
+                    top: 15px;
+                    right: 0px;
+                    button{                      
+                        width: 178px;
+                        height: 58px;
+                        border: 1px solid #c8c8c8;
+                        background-color: transparent;
+                        color: $red;
+                        font-size: 18px;
+                        position: relative;
+                        transition: color 0.2s,border 0.2s;
+                        -ms-transition: color 0.2s,border 0.2s;
+                        -webkit-transition: color 0.2s,border 0.2s;
+                        -moz-transition: color 0.2s,border 0.2s;
+                    }
+                    button::after{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0%;
+                        height: 100%;
+                        background-color: $red;
+                        transition: width 0.2s;
+                        -ms-transition: width 0.2s;
+                        -webkit-transition: width 0.2s;
+                        -moz-transition: width 0.2s;
+                        z-index: -1;
+                    }
+                    button:hover::after{
+                        width: 100%;
+                    }
+                    button:hover{
+                        color: white;
+                        border-color: $red;
+                    }
+                }
+                
+                .jobMoreM{
+                    padding-bottom: 60px;
+                    p{
+                        padding: 0 30px 0 20px;
+                        font-size: 14px;
+                        color: $black;
+                    }
+                    >div:nth-child(1){
+                        p{
+                            background: url(../img/person.png) no-repeat left center;
+                        }
+                    }
+                    >div:nth-child(2){
+                        p{
+                            background: url(../img/p1.png) no-repeat left center;
+                        }
+                    }
+                    >div:nth-child(3){
+                        p{
+                            background: url(../img/time.png) no-repeat left center;
+                        }
+                    }
+                }
+            }
+            .bottomDetails{
+                width: 1120px;
+                margin: 0 auto;
+                margin-bottom: 40px;
+                >p{
+                    font-size: 18px;
+                    color: $black;
+                    margin-bottom: 15px;
+                }
+                ul li p{
+                    font-size: 14px;
+                    color: #888888;
+                    line-height: 40px;
+                }
+            }
+        }
+    }
+    .page{
+        margin-bottom: 80px;
+        ul li{
+            display: inline-block;
+            font-size: 14px;
+            a{
+                display: block;
+                width: 28px;
+                height: 30px;
+                border: 1px solid #c8c8c8;
+                text-align: center;
+                line-height: 32px;
+                color: #888888;
+            }
+            .nextPage{
+                width: 68px;
+                color: #666666;
+            }
+            .lastPage{
+                width: 68px;
+                color: #666666;
+            }
+            a:hover{
+                background-color: #eeeeee;
+                color: $red;
+                border-color: #EEEEEE;
+            }
+            .pActive{
+                background-color: #eeeeee;
+                color: $red;
+                border-color: #EEEEEE;
+            }
+        }
+        ul li{
+            margin-right: 5px;
+        }
+        ul li:last-child{
+            margin-right: 0px;
+        }
+    }
+}
+.rLine{
+    width: 60px;
+    height: 1px;
+    display: block;
+    border-bottom: 1.1px solid $red;
+    margin: 10px 0;
+}
+.jobNameM {
+    color: $black;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.jobNameS {
+    color: #888888;
+    font-size: 12px;
+    font-family: arial;
+    line-height: 24px;
+}
+
+.jobD {
+    color: #888888;
+    font-size: 12px;
+    line-height: 30px;
+}
+#pop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    .pop{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 487.5px;
+        height: 600px;
+        margin: -300px 0 0 -243.25px;
+        margin-top: -300px;
+        background: url(../img/popBack.jpg) no-repeat center center;
+        background-size: cover;
+        position: relative;
+        .close{
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            transform: rotate(45deg);
+            transition: transform 0.5s;
+            -ms-transition: transform 0.5s;
+            -webkit-transition: transform 0.5s;
+            -moz-transition: transform 0.5s;
+        }
+        .close:hover{            
+            transform: rotate(135deg);
+        }
+        .popBox{
+            .bigTitle {
+                    padding: 48px 0 28px
+                }
+            .form{
+                width: 340px;
+                margin: 0 auto;
+                
+                input{
+                    width: 338px;
+                    padding-left: 50px;
+                    padding-right: 10px;
+                    border: 1px solid #c8c8c8;
+                    height: 58px;
+                    color: $black;
+                    font-size: 16px;
+                }
+                input::-moz-placeholder{
+                    color: #888888;
+                }
+                input::-webkit-input-placeholder{
+                    color: #888888;
+                }
+                input::-ms-input-placeholder{
+                    color: #888888;
+                }
+                ul li:nth-child(1) input{
+                    background: url(../img/jobperson.png) no-repeat 18px center;
+                }
+                ul li:nth-child(2) input{
+                    background: url(../img/jobphone.png) no-repeat 18px center;
+                }
+                ul li{
+                    margin-bottom: 10px;
+                }
+                ul li:nth-child(3){
+                    width: 296px;
+                    border: 1px solid #c8c8c8;
+                    padding: 20px 20px 16px 20px;
+                }
+                .upLoad{
+                    position: relative;
+                    .upBtnBox{
+                        position: absolute;
+                        top: 14px;
+                        left: 70px;
+                        button{
+                            width: 84px;
+                            height: 32px;
+                            border: 1px solid #c8c8c8;
+                            background-color: #eeeeee;
+                            color: $black;
+                            font-size: 16px;
+                        }
+                        input{
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                        }
+                    }
+                    p{
+                        font-size: 16px;
+                        color: #888888;
+                        line-height: 60px;
+                    }
+                    span{
+                        position: absolute;
+                        top: 0px;
+                        left: 160px;
+                        font-size: 16px;
+                        color: #888888;
+                        line-height: 60px;
+                    }
+                }
+                textarea{
+                    height: 90px;
+                    color: $black;
+                    width: 100%;
+                    font-size: 16px;
+                    overflow: hidden;
+                    resize: none;
+                    line-height: 24px;
+                    border: 0px;
+                    background-color: transparent;
+                }
+                textarea::-moz-placeholder{
+                    color: #888888;
+                }
+                textarea::-webkit-input-placeholder{
+                    color: #888888;
+                }
+                textarea::-ms-input-placeholder{
+                    color: #888888;
+                }
+            }
+        }
+    }
+    
+}

@@ -7,8 +7,36 @@ class ServiceAction extends CommonAction
         parent::__construct();
     }
 
+    public function index(){
+        //网站logo
+
+        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1['original_img'] = __ROOT__.'/'.$logo1['original_img'];
+        $this->assign('logo',$logo1);
+        //微信
+        $wx = M('ads')->where('ads_id=30')->find();
+        $wx['original_img'] = __ROOT__.'/'.$wx['original_img'];
+        $this->assign('wx',$wx);
+        //定制分类
+        $goodscat = M('goodscat')->order('sort_order asc')->select();
+        $this->assign('goodscat',$goodscat);
+        $goodImg = M('ads')->where('cat_id=27')->order('sort_order asc')->limit(1)->select();
+        $this->assign('goodImg',$goodImg);
+        //联系我们
+        $goodImgArr = M('ads')->where('cat_id=31')->order('sort_order asc')->limit(6)->select();
+        foreach($goodImgArr as $key=>$val){
+            $goodImgArr['k'.$key] = $val;
+        }
+        $this->assign('goodImgArr',$goodImgArr);
+        //banner
+        $fuwu = M('ads')->where('ads_id=163')->find();
+        $this->assign('fuwu',$fuwu);
+        $this->assign('catid',66);
+        $this->display(':server');
+    }
+
     public function insert_order(){
-        $data['type']		= $this->_post("type","intval",1);
+        $data['type']		= $this->_post("type");
         $data['username']		= $this->_post("username");
         $data['phone']		= $this->_post("phone");
         $data['J_Address']		= $this->_post("J_Address");
@@ -78,7 +106,7 @@ class ServiceAction extends CommonAction
     }
 
     public function insert_complain(){
-        $data['type']		= $this->_post("type","intval",1);
+        $data['type']		= $this->_post("type");
         $data['username']		= $this->_post("username");
         $data['phone']		= $this->_post("phone");
         $data['J_Address']		= $this->_post("J_Address");

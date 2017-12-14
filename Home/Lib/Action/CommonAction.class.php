@@ -26,7 +26,7 @@ class CommonAction extends Action {
         $this->province = M('region')->where('parent_id=1')->order('region_id asc')->select();
         //网站logo
         $this->pro_ban=M('ads')->where('ads_id=17')->find();
-		
+
         //分页设置
         $this->pageTheme = "%upPage% %first% %linkPage% %downPage% %end%";
 
@@ -58,8 +58,47 @@ class CommonAction extends Action {
         
         //年
         $this->Year     = date('Y', time());
+        //-------------------------------------------------------------------------
+        //网站信息
+        $arr = [
+            'title'=>$this->site_info['title'],
+            'keyword'=>$this->site_info['keyword'],
+            'description'=>$this->site_info['description'],
+            'link1'=>$this->site_info['link1'],
+            'link2'=>$this->site_info['link2'],
+            'link5'=>$this->site_info['link5'],
+            'link6'=>$this->site_info['link6'],
+            'tel_hot'=>$this->site_info['tel_hot'],
+            'tel_join'=>$this->site_info['tel_join'],
+            'icp'=>$this->site_info['icp'],
+            'tel_time'=>$this->site_info['tel_time'],
+            'name'=>$this->site_info['name'],
+            'address'=>$this->site_info['address'],
+            'tel'=>$this->site_info['tel'],
+            'fax'=>$this->site_info['fax'],
+            'gf'=>$this->site_info['gf'],
+            'sj'=>$this->site_info['sj'],
+            'c_email'=>$this->site_info['c_email'],
+            'f_email'=>$this->site_info['f_email'],
+        ];
+        $this->assign('arr',$arr);
+        //网站logo
+        $logo1 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo',$logo1);
+        $this->assign('logo1',json_encode($logo1));
+        $logo2 = M('ads')->where('ads_id=161')->find();
+        $this->assign('logo2',json_encode($logo2));
+        //导航
+        $art = M('articlecat')->where('parent_id=0')->order('sort_order asc')->limit(7)->select();
+        $this->assign('art',$art);
+        //次级导航
+        $acat = M('articlecat')->where('parent_id=65')->order('sort_order asc')->select();
+        $this->assign('acat',$acat);
+        //服务号和订阅号
+        $weixin = M('ads')->where('ads_id=162')->find();
+        $this->assign('weixin',$weixin);
+
     }
-	
 	
     public function _empty(){
         //header("Location:404.htm",true,301);

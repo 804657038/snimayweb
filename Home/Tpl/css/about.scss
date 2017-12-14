@@ -1,0 +1,227 @@
+$red:#a51e32;
+$black:#333333;
+#banner{
+    header{
+      position: absolute;  
+    }
+    >img{
+        width: 100%;
+    }
+}
+//四个部门
+#fourPart{
+    width: 100%;
+    background-color: white;
+    .net{
+        width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        .map{
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .map:hover{
+            cursor: pointer;
+            cursor: -ms-pointer;
+        }
+        .netNavs{
+            padding-top: 60px;
+            ul li{
+                float: left;
+                margin-right: 13px;
+                button{
+                    width: 290px;
+                    height: 58px;
+                    border: 1px solid #eeeeee;
+                    font-size: 18px;
+                    color: #888888;
+                    position: relative;
+                    -moz-transition: color 0.2s,border 0.2s;
+                    -webkit-transition: color 0.2s,border 0.2s;
+                    -ms-transition: color 0.2s,border 0.2s;
+                    transition: color 0.2s,border 0.2s;
+                }
+                button::after{
+                    content: "";
+                    position: absolute;
+                    top: -1px;
+                    left: -2px;
+                    width: 0px;
+                    border-bottom: 1.1px solid $red;
+                    -moz-transition: width 0.2s;
+                    -webkit-transition: width 0.2s;
+                    -ms-transition: width 0.2s;
+                    transition: width 0.2s;
+                }
+                .btnActive{
+                    border: 1px solid white;
+                    box-shadow: 0 0 2px 2px rgba(231,231,231,0.4);
+                    color: $red;
+                }
+                button:hover{
+                    border: 1px solid white;
+                    box-shadow: 0 0 2px 2px rgba(231,231,231,0.4);
+                    color: $red;
+                }
+                .btnActive::after{
+                    width: 292px;
+                }
+                button:hover::after{
+                    width: 292px;
+                }
+            }
+            ul li:last-child{
+                margin-right: 0px;
+            }
+        }
+        .moreChoice {
+            .short {
+                width: 378px;
+                height: 60px;
+                border: 1px solid #c8c8c8;
+                position: relative;
+                margin-right: 10px;
+                cursor: pointer;
+                cursor: -ms-pointer;
+                >img {
+                    position: absolute;
+                    top: 27px;
+                    right: 25px;
+                    transition: transform 0.5s;
+                    -ms-transition: transform 0.5s;
+                    -webkit-transition: transform 0.5s;
+                    -moz-transition: transform 0.5s;
+                }
+                >p {
+                    font-size: 16px;
+                    color: $black;
+                    line-height: 60px;
+                    text-indent: 30px;
+                }
+                .profess {
+                    overflow: hidden;
+                    position: absolute;
+                    top: 100%;
+                    left: -1px;
+                    display: none;
+                    background-color: white;
+                    z-index: 100;
+                }
+                ul {
+                    width: 378px;
+                    border: 1px solid #c8c8c8;
+                    background-color: white;
+                    padding: 10px 0;
+                    transition: height 0.5;
+                }
+                ul li {
+                    p {
+                        line-height: 35px;
+                        text-indent: 30px;
+                        font-size: 14px;
+                    }
+                    p:hover {
+                        cursor: pointer;
+                        cursor: -ms-pointer;
+                        background-color: $red;
+                        color: white;
+                    }
+                }
+            }
+            .long {
+                width: 345px;
+                height: 60px;
+                border: 1px solid #c8c8c8;
+                position: relative;
+                border-right: 0;
+                button {
+                    width: 80px;
+                    height: 60px;
+                    position: absolute;
+                    top: -1px;
+                    right: -80px;
+                    border: 1px solid $black;
+                    background: url(../img/searchStore.png) no-repeat center center;
+                    background-color: $black;
+                    color: white;
+                    
+                }
+                input {
+                    width: 300px;
+                    height: 100%;
+                    border: 0;
+                    color: $black;
+                    font-size: 16px;
+                    margin-left: 30px;
+                }
+                input::-webkit-input-placeholder {
+                    color: #888888;
+                }
+                input::-moz-placeholder {
+                    color: #888888;
+                }
+                input::-ms-input-placeholder {
+                    color: #888888;
+                }
+            }
+        }
+        .storeList{
+            padding: 40px 0 80px;
+            .more{
+                tr:hover{
+                    color: white;
+                    background-color: $red;
+                    border-color: $red;
+                }   
+                tr:nth-child(1):hover{
+                    background-color: $black;
+                    color: white;
+                    border-color: $black;
+                }
+            }
+            table{
+                width: 100%;   
+                tr:nth-child(1){
+                    background-color: $black;
+                    color: white;
+                    border-color: $black;
+                }  
+                       
+                tr{
+                    width: 100%;
+                    height: 60px;
+                    border: 1px solid #eeeeee;
+                    td{
+                        width: 33.3333333%;
+                        text-align: center;
+                        line-height: 60px;
+                    }
+                }
+            }
+            .nomore{
+                tr:nth-child(2){
+                    td{
+                        width: 100%;
+                        padding: 120px 0 160px;
+                        .nomore{
+                            width: 200px;
+                            height: 200px;
+                            overflow: hidden;
+                            margin: 0 auto;
+                            img{
+                                margin-top: -160px;
+                                margin-left: -220px ;
+                            }
+                        }
+                        p{
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: $black;
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}

@@ -80,7 +80,7 @@
                             <td><?php echo ($vo["phone"]); ?></td>
                             <td><?php echo ($vo["addr"]); ?></td>
                             <td><?php echo ($vo["content"]); ?></td>
-                            <td><?php echo (date('Y-m-d H:i:s',$vo["add_time"])); ?></td>
+                            <td><?php echo (date('Y-m-d',$vo["add_time"])); ?></td>
                             <td>
 								<span>
                                     <a title="移除" onclick="del('<?php echo ($vo["id"]); ?>')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>

@@ -8,6 +8,9 @@ $config_arr2 = array(
     '__CSS__'    => __ROOT__.'/Public/Home/style',
     '__CG__'     => __ROOT__.'/Public/Cg',
     '__START__'  => __ROOT__.'/Public/Home/start',
+
+    '__HOME__'   => __ROOT__.'/Home/Tpl',
+    '__PIC__'   => __ROOT__.'',
   ),
   'OUTPUT_ENCODE'   => true,
   'URL_HTML_SUFFIX' => 'html',
@@ -32,7 +35,14 @@ $config_arr2 = array(
     'product_list'  => 'Product/index',
     'cgzs'          => 'Cg/index',
     'zscx'          => 'Dealer/index',
-  ), 
+//--------------------------------------------------------------------------
+    'index'         => 'Index/index',
+    'service'       => 'Service/index',
+    'insert_order'       => 'Service/insert_order',
+      'uploadFile'=>'Service/uploadFile',
+      'insert_complain'       => 'Service/insert_complain',
+      'insert_feeback'       => 'Service/insert_feeback',
+  ),
   'LUYOU'           => array(
     'join.html'     => 'About/investment',
     //'activites_list.html' => 'Sales/index',
@@ -52,5 +62,6 @@ $config_arr2 = array(
     'zscx'          => 'Dealer/index',
   ),
 );
+
 return array_merge($config_arr1, $config_arr2);
 ?>

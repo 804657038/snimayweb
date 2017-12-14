@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'id', 1 => 'title', 2 => 'cat_id', 3 => 'chi_id', 4 => 'parent_id', 5 => 'cat_name', 6 => 'sort_order', '_autoinc' => true, '_pk' => 'id', '_type' => array ( 'id' => 'int(11)', 'title' => 'varchar(30)', 'cat_id' => 'int(11)', 'chi_id' => 'tinyint(1)', 'parent_id' => 'int(11)', 'cat_name' => 'varchar(50)', 'sort_order' => 'int(11)', ), );?>

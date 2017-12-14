@@ -30,17 +30,6 @@ class ServiceAction extends CommonAction
             $recruitmentList[$k]['province'] = M('region')->where('region_id='.$v['province'])->getField('region_name');
             $recruitmentList[$k]['city']     = M('region')->where('region_id='.$v['city'])->getField('region_name');
             $recruitmentList[$k]['area']     = M('region')->where('region_id='.$v['area'])->getField('region_name');
-            if($v['type'] == 1){
-                $recruitmentList[$k]['type'] = '大家居';
-            }elseif($v['type'] == 2){
-                $recruitmentList[$k]['type'] = '衣柜';
-            }elseif($v['type'] == 3){
-                $recruitmentList[$k]['type'] = '橱柜';
-            }elseif($v['type'] == 4){
-                $recruitmentList[$k]['type'] = '门窗';
-            }elseif($v['type'] == 5){
-                $recruitmentList[$k]['type'] = '沙发';
-            }
         }
         if($_GET['is_excel']) {
             $title = "定制列表.csv";
@@ -171,17 +160,6 @@ class ServiceAction extends CommonAction
             $recruitmentList[$k]['province'] = M('region')->where('region_id='.$v['province'])->getField('region_name');
             $recruitmentList[$k]['city']     = M('region')->where('region_id='.$v['city'])->getField('region_name');
             $recruitmentList[$k]['area']     = M('region')->where('region_id='.$v['area'])->getField('region_name');
-            if($v['type'] == 1){
-                $recruitmentList[$k]['type'] = '大家居';
-            }elseif($v['type'] == 2){
-                $recruitmentList[$k]['type'] = '衣柜';
-            }elseif($v['type'] == 3){
-                $recruitmentList[$k]['type'] = '橱柜';
-            }elseif($v['type'] == 4){
-                $recruitmentList[$k]['type'] = '门窗';
-            }elseif($v['type'] == 5){
-                $recruitmentList[$k]['type'] = '沙发';
-            }
         }
         if($_GET['is_excel']) {
             $title = "投诉列表.csv";
@@ -218,26 +196,6 @@ class ServiceAction extends CommonAction
         $list['province'] = M('region')->where('region_id='.$list['province'])->getField('region_name');
         $list['city']     = M('region')->where('region_id='.$list['city'])->getField('region_name');
         $list['area']     = M('region')->where('region_id='.$list['area'])->getField('region_name');
-        switch($list['type']){
-            case 1:
-                $list['type'] = '大家居';
-                break;
-            case 2:
-                $list['type'] = '衣柜';
-                break;
-            case 3:
-                $list['type'] = '橱柜';
-                break;
-            case 4:
-                $list['type'] = '门窗';
-                break;
-            case 5:
-                $list['type'] = '沙发';
-                break;
-            case 0:
-                $list['type'] = '';
-                break;
-        }
         $this->assign("info", $list);
         $this->display();
     }

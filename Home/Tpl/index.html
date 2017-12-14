@@ -1,0 +1,356 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="__HOME__/css/index.css" />
+
+		<!--轮播图-->
+			<div class="swiper-container swiper-container-index">
+			    <div class="swiper-wrapper">
+                    <foreach name="ads" item="vo">
+			        <div class="swiper-slide">
+			        	<a href="{$vo.link}"><img src="{$vo.original_img}" alt="{$vo.title}" class="img-responsive"/></a>
+			        </div>
+                    </foreach>
+
+			    </div>
+			    <div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<!--业务中心-->
+		<div id="businessCenter">
+			<div class="floatl">
+				<p>业务中心</p>
+				<p>Business Center</p>
+			</div>
+            <foreach name="acat" item="v1">
+			<div class="floatl">
+				<a href="###">
+					<div>
+						<div>
+							<img src="__HOME__/img/centers.png" />
+						</div>
+					</div>
+					<p>{$v1.cat_name}</p>
+				</a>
+			</div>
+            </foreach>
+			<div class="clearl"></div>
+		</div>
+		<!--诗尼曼介绍-->
+		<div id="introduce">
+			<div class="introBox">
+				<div class="floatl imgBox">
+					<div class="moreFun">
+						<img alt="{$soreArr['k0']['title']}" src="{$soreArr['k0']['original_img']}" />
+						<a href="{$soreArr['k0']['link']}">
+							<div class="joiningBox">
+								<img src="__HOME__/img/centers.png" />
+							</div>
+							<p>{$soreArr['k0']['title']}</p>
+						</a>
+					</div>
+				</div>
+				<div class="floatl imgAndContent">
+					<div class="icTop">
+						<ul>
+							<li>
+								<p>加入诗尼曼</p>
+							</li>
+							<li>
+								<p>Join The Poet Neiman</p>
+							</li>
+							<li>
+								<p></p>
+							</li>
+							<li>
+								<p>{$soreArr['k0']['description']}</p>
+							</li>
+						</ul>
+					</div>
+					<div class="icBottom">
+						<div class="floatl">
+							<div class="moreFun">
+								<img alt="{$soreArr['k1']['title']}" src="{$soreArr['k1']['original_img']}" />
+								<a href="{$soreArr['k1']['link']}">
+									<div class="businessBox">
+										<img src="__HOME__/img/centers.png" />
+									</div>		
+									<p>{$soreArr['k1']['title']}</p>
+								</a>
+							</div>
+						</div>
+						<div class="floatl">
+							<div class="moreFun">
+								<img alt="{$soreArr['k2']['title']}" src="{$soreArr['k2']['original_img']}" />
+								<a href="{$soreArr['k2']['link']}">
+									<div class="findBox businessBox">
+										<img src="__HOME__/img/centers.png" />
+									</div>
+									<p>{$soreArr['k2']['title']}</p>
+								</a>
+							</div>
+						</div>
+						<div class="clearl"></div>
+					</div>
+				</div>
+				<div class="clearl"></div>
+			</div>
+			<div class="introBox introBox1">
+				<div class="floatl imgAndContent">
+					<div class="icTop">
+						<ul>
+							<li>
+								<p>{$soreArr['k5']['title']}</p>
+							</li>
+							<li>
+								<p>{$soreArr['k5']['en_title']}</p>
+							</li>
+							<li>
+								<p></p>
+							</li>
+							<li>
+								<p>{$soreArr['k5']['description']}</p>
+							</li>
+						</ul>
+					</div>
+					<div class="icBottom">
+						<div class="floatl">
+							<div class="moreFun">
+								<img alt="{$soreArr['k3']['title']}" src="{$soreArr['k3']['original_img']}" />
+								<div class="imgPop">
+									<div class="orderBox">
+										<img src="__HOME__/img/centers.png" />
+									</div>
+									<p>{$soreArr['k3']['title']}</p>
+									<div align="center">
+										<ul class="od">
+											<li>
+												<a href="###">入户空间</a>
+											</li>
+											<li>
+												<a href="###">多功能房</a>
+											</li>
+											<li>
+												<a href="###">餐厅</a>
+											</li>
+											<li>
+												<a href="###">卧房</a>
+											</li>
+										</ul>
+										<ul class="od">
+											<li>
+												<a href="###">阳台空间</a>
+											</li>
+											<li>
+												<a href="###">儿 童 房</a>
+											</li>
+											<li>
+												<a href="###">客厅</a>
+											</li>
+											<li>
+												<a href="###">厨房</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="floatl">
+							<div class="moreFun">
+								<img alt="{$soreArr['k4']['title']}" src="{$soreArr['k4']['original_img']}" />
+								<a href="{$soreArr['k4']['link']}">
+									<div class="serverBox businessBox">
+										<img src="__HOME__/img/centers.png" />
+									</div>
+									<p>{$soreArr['k4']['title']}</p>
+								</a>
+							</div>
+						</div>
+						<div class="clearl"></div>
+					</div>
+				</div>
+				<div class="floatl imgBox">
+					<div class="moreFun">
+						<img alt="{$soreArr['k5']['title']}" src="{$soreArr['k5']['original_img']}" />
+						<a href="{$soreArr['k5']['link']}">
+							<div class="loveOrderBox">
+								<img src="__HOME__/img/centers.png" />
+							</div>
+							<p>{$soreArr['k5']['title']}</p>
+						</a>
+					</div>
+				</div>
+				<div class="clearl"></div>
+			</div>
+		</div>
+		<!--咨询中心-->
+		<div id="consultCenter">
+			<div class="ccTitle">
+				<ul>
+					<li>
+						<p>资讯中心</p>
+					</li>
+					<li>
+						<p>Information center</p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+				</ul>
+			</div>
+			<div class="ccBox">
+				<div class="floatl">
+					<div class="ccImg01 ccImg">
+						<img src="{$zxArr['k0']['original_img']}" />
+						<div class="ccOn">
+							<ul>
+								<li>
+									<p>{$zxArr['k0']['title']}</p>
+								</li>
+								<li>
+									<p>{$zxArr['k0']['en_title']}</p>
+								</li>
+								<li>
+									<p></p>
+								</li>
+								<li>
+                                    <php>$content = mb_substr($zxArr['k0']['description'],0,30,'utf-8').'...';</php>
+									<p>{$content}</p>
+								</li>
+								<li>
+									<a href="{$zxArr['k0']['link']}"><img src='__HOME__/img/readMore.png'></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="ccImg02">
+						<div class="floatl ccImg">
+							<img src="{$zxArr['k1']['original_img']}" />
+							<div class="ccOn">
+								<ul>
+									<li>
+										<p>{$zxArr['k1']['title']}</p>
+									</li>
+									<li>
+										<p>{$zxArr['k1']['en_title']}</p>
+									</li>
+									<li>
+										<p></p>
+									</li>
+									<li>
+                                        <php>$content = mb_substr($zxArr['k1']['description'],0,10,'utf-8').'...';</php>
+										<p>{$content}</p>
+										<p>2017-06-04</p>
+									</li>
+									<li>
+										<a href="{$zxArr['k1']['link']}"><img src='__HOME__/img/readMore.png'></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="floatl ccImg">
+							<img src="{$zxArr['k2']['original_img']}" />
+							<div class="ccOn">
+								<ul>
+									<li>
+										<p>{$zxArr['k2']['title']}</p>
+									</li>
+									<li>
+										<p>{$zxArr['k2']['en_title']}</p>
+									</li>
+									<li>
+										<p></p>
+									</li>
+									<li>
+                                        <php>$content = mb_substr($zxArr['k2']['description'],0,10,'utf-8').'...';</php>
+										<p>{$content}</p>
+										<p>2017-06-04</p>
+									</li>
+									<li>
+										<a href="{$zxArr['k2']['link']}"><img src='__HOME__/img/readMore.png'></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="clearl"></div>
+					</div>
+				</div>
+				<div class="floatl">
+					<div class="ccImg03 ccImg">
+						<img src="{$zxArr['k3']['original_img']}" />
+						<div class="ccOn">
+							<ul>
+								<li>
+									<p>{$zxArr['k3']['title']}</p>
+								</li>
+								<li>
+									<p>{$zxArr['k3']['en_title']}</p>
+								</li>
+								<li>
+									<p></p>
+								</li>
+								<li>
+									<p>{$zxArr['k3']['description']}</p>
+								</li>
+								<li>
+									<a href="{$zxArr['k3']['link']}"><img src='__HOME__/img/readMore.png'></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="floatl">
+					<div class="ccImg04 ccImg">
+						<img src="{$zxArr['k4']['original_img']}" />
+						<div class="ccOn">
+							<ul>
+								<li>
+									<p>{$zxArr['k4']['title']}</p>
+								</li>
+								<li>
+									<p>{$zxArr['k4']['en_title']}</p>
+								</li>
+								<li>
+									<p></p>
+								</li>
+								<li>
+                                    <php>$content = mb_substr($zxArr['k4']['description'],0,30,'utf-8').'...';</php>
+									<p>{$content}</p>
+								</li>
+								<li>
+									<a href="{$zxArr['k4']['link']}"><img src='__HOME__/img/readMore.png'></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="ccImg04 ccImg">
+						<img src="{$zxArr['k5']['original_img']}" />
+						<div class="ccOn">
+							<ul>
+								<li>
+									<p>{$zxArr['k5']['title']}</p>
+								</li>
+								<li>
+									<p>{$zxArr['k5']['en_title']}</p>
+								</li>
+								<li>
+									<p></p>
+								</li>
+								<li>
+                                    <php>$content = mb_substr($zxArr['k5']['description'],0,30,'utf-8').'...';</php>
+									<p>{$content}</p>
+								</li>
+								<li>
+									<a href="{$zxArr['k5']['link']}"><img src='__HOME__/img/readMore.png'></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="clearl"></div>
+			</div>
+
+		</div>
+<include file="Public:footer" />
+
+
+
