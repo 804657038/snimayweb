@@ -438,4 +438,138 @@
     #specialServer .stepBox .stepChild:nth-child(2n+1) {
       margin-right: 4px; }
 
+#tenServer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff; }
+  #tenServer .tenVideoOut {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background-color: white; }
+  #tenServer .tenVideo {
+    width: 1200px;
+    height: 500px;
+    background-color: white;
+    margin-top: -80px;
+    box-shadow: 0px 10px 4px 0px rgba(231, 231, 231, 0.5); }
+    #tenServer .tenVideo .videoBox {
+      width: 600px;
+      height: 400px;
+      margin: 50px 0px 0px 50px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      cursor: -ms-pointer; }
+      #tenServer .tenVideo .videoBox video {
+        width: 600px;
+        height: 400px;
+        border: 0; }
+      #tenServer .tenVideo .videoBox .vImg, #tenServer .tenVideo .videoBox .playVideo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 0;
+        z-index: 1;
+        overflow: hidden;
+        -moz-transition: top 0.5s;
+        -webkit-transition: top 0.5s;
+        -ms-transition: top 0.5s;
+        transition: top 0.5s; }
+      #tenServer .tenVideo .videoBox .vImg img {
+        width: 100%; }
+      #tenServer .tenVideo .videoBox .playVideo {
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 100%; }
+        #tenServer .tenVideo .videoBox .playVideo img {
+          margin-left: 268px;
+          margin-top: 168px; }
+    #tenServer .tenVideo .videoBox:hover .playVideo {
+      top: 0%; }
+    #tenServer .tenVideo .videoContent {
+      width: 410px;
+      margin: 50px 70px 0; }
+      #tenServer .tenVideo .videoContent .jobNameM {
+        margin-top: 70px; }
+        #tenServer .tenVideo .videoContent .jobNameM span {
+          color: #a51e32; }
+      #tenServer .tenVideo .videoContent .rLine {
+        margin-bottom: 20px; }
+  #tenServer .tenServers {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-bottom: 80px; }
+    #tenServer .tenServers .tenServerOut {
+      width: 598px;
+      height: 250px;
+      margin-right: 4px;
+      margin-bottom: 4px; }
+      #tenServer .tenServers .tenServerOut .tsImg {
+        width: 260px;
+        height: 250px;
+        background: url(../img/icon.png) no-repeat;
+        background-position-y: 0px;
+        background-color: #EEEEEE;
+        transition: background-position 0.5s;
+        -webkit-transition: background-position 0.5s;
+        -ms-transition: background-position 0.5s;
+        -moz-transition: background-position 0.5s; }
+      #tenServer .tenServers .tenServerOut .tsTitle {
+        width: 336px;
+        height: 250px;
+        border: 1px solid #eeeeee; }
+        #tenServer .tenServers .tenServerOut .tsTitle ul {
+          margin-left: 105px; }
+          #tenServer .tenServers .tenServerOut .tsTitle ul .jobNameM {
+            margin-top: 90px;
+            font-weight: bold; }
+    #tenServer .tenServers .tenServerOut:hover {
+      box-shadow: 0 0 2px 2px #EAEAEA; }
+      #tenServer .tenServers .tenServerOut:hover .tsTitle {
+        border: 0; }
+    #tenServer .tenServers .ti1 .tsImg {
+      background-position-y: 0px; }
+    #tenServer .tenServers .ti1:hover .tsImg {
+      background-position-y: -250px; }
+    #tenServer .tenServers .ti2 .tsImg {
+      background-position-y: -500px; }
+    #tenServer .tenServers .ti2:hover .tsImg {
+      background-position-y: -750px; }
+    #tenServer .tenServers .ti3 .tsImg {
+      background-position-y: -1000px; }
+    #tenServer .tenServers .ti3:hover .tsImg {
+      background-position-y: -1250px; }
+    #tenServer .tenServers .ti4 .tsImg {
+      background-position-y: -1500px; }
+    #tenServer .tenServers .ti4:hover .tsImg {
+      background-position-y: -1750px; }
+    #tenServer .tenServers .ti5 .tsImg {
+      background-position-y: -2000px; }
+    #tenServer .tenServers .ti5:hover .tsImg {
+      background-position-y: -2250px; }
+    #tenServer .tenServers .ti6 .tsImg {
+      background-position-y: -2500px; }
+    #tenServer .tenServers .ti6:hover .tsImg {
+      background-position-y: -2750px; }
+    #tenServer .tenServers .ti7 .tsImg {
+      background-position-y: -3000px; }
+    #tenServer .tenServers .ti7:hover .tsImg {
+      background-position-y: -3250px; }
+    #tenServer .tenServers .ti8 .tsImg {
+      background-position-y: -3500px; }
+    #tenServer .tenServers .ti8:hover .tsImg {
+      background-position-y: -3750px; }
+    #tenServer .tenServers .ti9 .tsImg {
+      background-position-y: -4000px; }
+    #tenServer .tenServers .ti9:hover .tsImg {
+      background-position-y: -4250px; }
+    #tenServer .tenServers .ti10 .tsImg {
+      background-position-y: -4500px; }
+    #tenServer .tenServers .ti10:hover .tsImg {
+      background-position-y: -4750px; }
+    #tenServer .tenServers .tenServerOut:nth-child(2n) {
+      margin-right: 0px; }
+
 /*# sourceMappingURL=server.css.map */

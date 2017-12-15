@@ -165,6 +165,14 @@ $(function(){
 			}
 		}, 1000);
 	});
+	//弹窗
+//	popWindow("信息提醒","Information to remind","您的反馈意见已经发送成功。",'感谢您对诗尼曼的支持！');
+	//播放视频
+	$('.playv').click(function(){
+		$('.playVideo').hide();
+		$('.vImg').hide();
+		$('#tVideo')[0].play();
+	});
 });
 var map = new AMap.Map('companyMap', {
     resizeEnable: true,

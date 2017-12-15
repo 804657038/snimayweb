@@ -186,7 +186,7 @@
 			
 		</div>
 		<!--服务-->
-		<div id="server" >
+		<div id="server">
 			<div class="choice">
 				<ul>
 					<li>
@@ -372,7 +372,7 @@
 			<div class="bigTitle">
 				<ul>
 					<li>
-						<p class="bt">联系我们</p>
+						<p class="bt">服务流程</p>
 					</li>
 					<li>
 						<p class="st">Contact us</p>
@@ -501,6 +501,225 @@
 			</div>
 		</div>
 
+		<!--10环-->
+		<div id="tenServer">
+			<div class="tenVideoOut">
+				<div class="tenVideo">
+					<div class="videoBox floatl">
+						<video preload="auto" id="tVideo">
+							<source></source>
+						</video>
+						<div class="vImg">
+							<img src="__HOME__/img/ten.jpg"/>
+						</div>
+						<div class="playVideo">
+							<img src="__HOME__/img/play.png" class="playv" />
+						</div>
+					</div>
+					<div class="videoContent floatl">
+						<ul>
+							<li>
+								<p class="jobNameM p1"><span>10</span>环服务</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">Ten ring service</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+							<li>
+								<p class="jobD">诗尼曼品牌创立于2003年，公司总部位于广东省广州市番禺区，是中国领军定制品牌之一，旗下拥有“诗尼曼全屋定制”、“诗尼曼门窗”、“诗尼曼橱柜”三大定制核心体系，涵盖衣柜、橱柜、门窗、沙发、餐桌椅、床等全品类家居产品，形成多元化、全方位的大家居生态格局。其品牌形象代言人为中国著名女演员、联合国妇女署亲善大使海清，是国内极具竞争力的一站式家装定制服务品牌。</p>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+			</div>
+			<div class="tenServers">
+				<div class="tenServerOut floatl ti1">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">理念</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋高端，绿色环保</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti2">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">设计</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋方案，快速设计</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti3">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">制造</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋产品，智能制造</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti4">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">产品 </p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋高端，绿色环保</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti5">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">查询</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋订单，一键查询</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti6">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">物流</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全球物流，使命必达</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti7">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">安装</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全屋安装，专业信赖</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti8">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">服务</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">4S管理，标准服务</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti9">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">售后</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全球售后，随时随地</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="tenServerOut floatl ti10">
+					<div class="floatl tsImg">	
+					</div>
+					<div class="floatl tsTitle">
+						<ul>
+							<li>
+								<p class="jobNameM p1">体验</p>
+							</li>
+							<li>
+								<p class="jobNameS p1">全心全意，尊崇体验</p>
+							</li>
+							<li>
+								<span class="rLine"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clearl"></div>
+				</div>
+				<div class="clearl"></div>
+			</div>
+		</div>
+
 <!--侧边导航-->
 <div id="rightNav">
     <div class="rNavChild">
@@ -593,24 +812,10 @@
                     <li>
                         <p>品质服务</p>
                     </li>
-                    <li>
-                        <a href="###">定制服务流程</a>
-                    </li>
-                    <li>
-                        <a href="###">10环服务</a>
-                    </li>
-                    <li>
-                        <a href="###">问题反馈</a>
-                    </li>
-                    <li>
-                        <a href="###">联系我们</a>
-                    </li>
-                    <li>
-                        <a href="###">店面查询</a>
-                    </li>
-                    <li>
-                        <a href="###">防伪查询</a>
-                    </li>
+                    <?php if(is_array($pzcat)): foreach($pzcat as $key=>$vp): ?><li>
+                        <a href="<?php echo ($vp["link"]); ?>"><?php echo ($vp["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
             <div class="allServer">
@@ -618,34 +823,20 @@
                     <li>
                         <p>加入诗尼曼</p>
                     </li>
-                    <li>
-                        <a href="###">橱柜招商</a>
-                    </li>
-                    <li>
-                        <a href="###">全屋招商</a>
-                    </li>
-                    <li>
-                        <a href="###">门窗招商</a>
-                    </li>
-                    <li>
-                        <a href="###">可加盟查询</a>
-                    </li>
-                    <li>
-                        <a href="###">公司招聘</a>
-                    </li>
+                    <?php if(is_array($zpcat)): foreach($zpcat as $key=>$zp): ?><li>
+                        <a href="<?php echo ($zp["link"]); ?>"><?php echo ($zp["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
                 </ul>
             </div>
             <div class="allServer">
                 <ul>
                     <li>
-                        <p>社会关系</p>
+                        <p>社会责任</p>
                     </li>
-                    <li>
-                        <a href="###">公益理念</a>
-                    </li>
-                    <li>
-                        <a href="###">慈善活动</a>
-                    </li>
+                    <?php if(is_array($gyhd)): foreach($gyhd as $key=>$gy): ?><li>
+                        <a href="<?php echo ($gy["link"]); ?>"><?php echo ($gy["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                     <li>
                         <p>新闻中心</p>
                     </li>
@@ -729,7 +920,7 @@
                         <a href="###" class="wechat">
                             <div class="zhanwei"></div>
                             <div class="wtBox">
-                                <img src="<?php echo ($weixin["original_img"]); ?>" />
+                                <img src="__PIC__/<?php echo ($weixin["original_img"]); ?>" />
                                 <div class="floatl">
                                     <p>诗尼曼服务号</p>
                                 </div>
@@ -752,10 +943,8 @@
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/js/public.js" ></script>
-<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>
 </body>
 </html>
-
 <script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.flexible.js" ></script>

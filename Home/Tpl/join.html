@@ -1,69 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta content="yes" name="apple-mobile-web-app-capable"/>
-	    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	    <meta content="telephone=no" name="format-detection"/>
-	    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
-	    <link rel="stylesheet" href="css/reset.min.css" />
-	    <link rel="stylesheet" href="css/public.css" />
-	    <link rel="stylesheet" href="css/join.css" />
-	    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	    <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
-		<title>加入诗尼曼</title>
-	</head>
-	<body>
-		<div id="banner">
-			<!--导航-->
-			<header>
-				<nav>
-					<div class="floatl logoL">
-						<a href="index.html">
-							<img src="img/logobb.png" />
-						</a>
-					</div>
-					<div class="floatr navR">
-						<ul>
-							<li>
-								<a href="index.html">首页</a>
-							</li>
-							<li>
-								<a href="###">业务中心</a>
-							</li>
-							<li>
-								<a href="server.html">品质服务</a>
-							</li>
-							<li class="nActive">
-								<a href="join.html">加入诗尼曼</a>
-							</li>
-							<li>
-								<a href="###">社会责任</a>
-							</li>
-							<li>
-								<a href="###">投资者关系</a>
-							</li>
-							<li>
-								<a href="center.html">资讯中心</a>
-							</li>
-							<li>
-								<a href="about.html">关于诗尼曼</a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/more.png"/></a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/search.png"/></a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearBoth"></div>
-				</nav>
-			</header>
+<include file="Public:header" />
+<link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
+<link rel="stylesheet" href="__HOME__/css/join.css" />
+<script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
+
 		<!--轮播图-->
-			<img src="img/JoinBanner.jpg" />
+			<img src="__PIC__/{$jiaru.original_img}" />
 		</div>
 		<div id="join">
 			<div class="bigTitle">
@@ -81,145 +22,73 @@
 			</div>
 			<div class="moreChoice">
 				<div class="floatl short">
-					<img src="img/ms.png" />
-					<p isOpen='false'>选择地区</p>					
+					<img src="__HOME__/img/ms.png" />
+					<p isOpen='false' id="addr">{$addr}</p>
 					<div class="profess">
 						<ul>
+                            <foreach name="location" item="vzp">
 							<li>
-								<p class="p1">地区1</p>
+								<p class="p1">{$vzp.location}</p>
 							</li>
-							<li>
-								<p class="p1">地区2</p>
-							</li>
-							<li>
-								<p class="p1">地区3</p>
-							</li>
-							<li>
-								<p class="p1">地区4</p>
-							</li>
+                            </foreach>
+
 						</ul>
 					</div>					
 				</div>
 				<div class="floatl short">
-					<img src="img/ms.png" />
-					<p isOpen='false'>职业分类</p>					
+					<img src="__HOME__/img/ms.png" />
+					<p isOpen='false' id="type">{$type}</p>
 					<div class="profess">
 						<ul>
+                            <foreach name="fl" item="fl">
 							<li>
-								<p class="p1">职业分类1</p>
+								<p class="p1">{$fl.job_type}</p>
 							</li>
-							<li>
-								<p class="p1">职业分类2</p>
-							</li>
-							<li>
-								<p class="p1">职业分类3</p>
-							</li>
-							<li>
-								<p class="p1">职业分类4</p>
-							</li>
+                            </foreach>
 						</ul>
 					</div>
 				</div>
 				<div class="floatl long">
-					<input type="search" placeholder="职位关键词" />
-					<button>提交</button>
+					<input type="search" id="seh" value="{$title}" placeholder="职位关键词" />
+					<button onclick="searchs()">提交</button>
 				</div>
 				<div class="clearl"></div>
+                <script type="text/javascript">
+                    function searchs(){
+                        var title = $("#seh").val();
+                        var addr = $("#addr").text();
+                        var type = $("#type").text();
+                        window.location.href="__ROOT__/index.php/Join/index?title="+title+"&addr="+addr+"&type="+type;
+                    }
+                </script>
 			</div>
 			<div class="jobBox" >
+                <foreach name="zp" item="xp">
 				<div class="job floatl">
-					<a href="###" class="rc"><img src="img/redCrocss.png"/></a>
+					<a href="javascript:;" onclick="details('{$xp.article_id}')" class="rc"><img src="__HOME__/img/redCrocss.png"/></a>
 					<ul>
 						<li>
-							<p class="jobNameM p1">平面设计师</p>
+							<p class="jobNameM p1">{$xp.zw_name}</p>
 						</li>
 						<li>
-							<p class="jobNameS p1">Graphic designer</p>
+							<p class="jobNameS p1">{$xp.en_title}</p>
 						</li>
 						<li>
 							<span class="rLine"></span>
 						</li>
 						<li>
-							<p class="jobD p2">工作积极主动，有持续的热情和责任心，对设计品质有势头追求，善于团队合作，具备良好的沟通协调能力</p>
+                            <if condition="$xp.description eq ''">
+                                <p class="jobD p2">暂无描述</p>
+                            </if>
+							<p class="jobD p2">{$xp.description}</p>
 						</li>
 					</ul>
 				</div>
-				<div class="job floatl">
-					<a href="###" class="rc"><img src="img/redCrocss.png"/></a>
-					<ul>
-						<li>
-							<p class="jobNameM p1">平面设计师</p>
-						</li>
-						<li>
-							<p class="jobNameS p1">Graphic designer</p>
-						</li>
-						<li>
-							<span class="rLine"></span>
-						</li>
-						<li>
-							<p class="jobD p2">工作积极主动，有持续的热情和责任心，对设计品质有势头追求，善于团队合作，具备良好的沟通协调能力</p>
-						</li>
-					</ul>
-				</div>
-				<div class="job floatl">
-					<a href="###" class="rc"><img src="img/redCrocss.png"/></a>
-					<ul>
-						<li>
-							<p class="jobNameM p1">平面设计师</p>
-						</li>
-						<li>
-							<p class="jobNameS p1">Graphic designer</p>
-						</li>
-						<li>
-							<span class="rLine"></span>
-						</li>
-						<li>
-							<p class="jobD p2">工作积极主动，有持续的热情和责任心，对设计品质有势头追求，善于团队合作，具备良好的沟通协调能力</p>
-						</li>
-					</ul>
-				</div>
-				<div class="job floatl">
-					<a href="###" class="rc"><img src="img/redCrocss.png" alt="查看详情" title="点击查看详情"/></a>
-					<ul>
-						<li>
-							<p class="jobNameM p1">平面设计师</p>
-						</li>
-						<li>
-							<p class="jobNameS p1">Graphic designer</p>
-						</li>
-						<li>
-							<span class="rLine"></span>
-						</li>
-						<li>
-							<p class="jobD p2">工作积极主动，有持续的热情和责任心，对设计品质有势头追求，善于团队合作，具备良好的沟通协调能力</p>
-						</li>
-					</ul>
-				</div>
+                </foreach>
+
 				<div class="clearl"></div>
 				<div class="page" align="center">
-					<ul>
-						<li>
-							<a href="###" class="pActive">1</a>
-						</li>
-						<li>
-							<a href="###">2</a>
-						</li>
-						<li>
-							<a href="###">3</a>
-						</li>
-						<li>
-							<a href="###">4</a>
-						</li>
-						<li>
-							<a href="###">5</a>
-						</li>
-						<li>
-							<a href="###" class="nextPage">下一页</a>
-						</li>
-						<li>
-							<a href="###" class="lastPage">最后一页</a>
-						</li>
-					</ul>
+                        {$page}
 				</div>
 			</div>
 			<div class="jobDetails" style="display: none;">
@@ -235,10 +104,10 @@
 						</div>					
 						<ul>
 							<li>
-								<p class="jobNameM p1">平面设计师</p>
+								<p class="jobNameM p1" id="t_name"></p>
 							</li>
 							<li>
-								<p class="jobNameS p1">Graphic designer</p>
+								<p class="jobNameS p1" id="e_name"></p>
 							</li>
 							<li>
 								<span class="rLine"></span>
@@ -246,13 +115,13 @@
 							<li>
 								<div class="jobMoreM">
 									<div class="floatl">
-										<p>1人</p>
+										<p style="background: none;"></p>
 									</div>
 									<div class="floatl">
-										<p>广州市番禺区</p>
+										<p id="adr"></p>
 									</div>
 									<div class="floatl">
-										<p>2017-11-25</p>
+										<p id="time"></p>
 									</div>
 									<div class="clearl"></div>
 								</div>
@@ -261,45 +130,14 @@
 					</div>
 					<div class="bottomDetails">
 						<p>职位描述</p>
-						<ul>
-							<li>
-								<p>1、负责品牌的视觉形象设计，VI手册的设计制定，产品包装设计、文化形象设计;</p>
-							</li>
-							<li>
-								<p>2、负责品牌终端活动及产品宣传推广应用的各种物料设计、制作、物料下单及收取工作;</p>
-							</li>
-							<li>
-								<p>3、负责品牌网络传播渠道(微信、网站)所需画面形象设计工作;</p>
-							</li>
-							<li>
-								<p>4、负责终端经销商专卖店、广告画面等设计需求;</p>
-							</li>
-							<li>
-								<p>5、负责对接外协支持部门，指导平面视觉符合品牌规范;</p>
-							</li>
-							<li>
-								<p>6 、配合经理及其他部门完成各项设计工作;</p>
-							</li>
+						<ul id="ms">
+
 						</ul>
 					</div>
 					<div class="bottomDetails">
 						<p>任职要求</p>
-						<ul>
-							<li>
-								<p>1、大专以上学历，设计相关专业;</p>
-							</li>
-							<li>
-								<p>2、三年以上相关工作经验;</p>
-							</li>
-							<li>
-								<p>3、熟悉使用CDR、AI、PS等相关设计软件;</p>
-							</li>
-							<li>
-								<p>4、了解印刷工艺、有相关案例(画册、户外、POP促销)等;</p>
-							</li>
-							<li>
-								<p>5、知名广告设计公司或知名家居建材企业工作经验;</p>
-							</li>
+						<ul id="yq">
+
 						</ul>
 					</div>
 				</div>
@@ -325,296 +163,107 @@
 					<div class="form">
 						<ul>
 							<li>
-								<input type="search" placeholder="姓名"/>
+								<input type="search" id="uname" placeholder="姓名"/>
 							</li>
 							<li>
-								<input type="search" placeholder="手机号码"/>
+								<input type="search" id="phone" placeholder="手机号码"/>
 							</li>
 							<li>
-								<textarea placeholder="自我描述"></textarea>
+								<textarea placeholder="自我描述" id="content"></textarea>
 							</li>
 							<li class="upLoad">
 								<p>上传简历</p>
-								<div class="upBtnBox">									
-									<button>选择文件</button>
-									<input type="file" />
+                                <input type="hidden" name="file" id="logo" value="">
+								<div class="upBtnBox">
+									<button id="logoBtn">选择文件</button>
+									<!--<input type="file" />-->
 								</div>
-								<span class="p1"></span>
+								<span class="p1" id="cltLogo"></span>
+                                <div style="margin-top: -9px;margin-left: 2px;font-size: 12px;color: #888888;">请上传20兆之内的压缩文件</div>
 							</li>
 							<li>
-								<button class="btn">确认提交</button>
+								<button class="btn" onclick="addJL()">确认提交</button>
 							</li>
 						</ul>
 					</div>
 					<div class="close">
-						<a href="###"><img src="img/redCrocss.png"/></a>
+						<a href="###"><img src="__HOME__/img/redCrocss.png"/></a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--侧边导航-->
-		<div id="rightNav">
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>最新消息</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>在线咨询</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>预约量尺</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>加盟留言</p>
-					</li>
-				</ul>
-			</div>
-		</div>
+<include file="Public:footer" />
+<script type="text/javascript" src="__HOME__/js/join.js" ></script>
+<script type="text/javascript">
+    function details(id){
+        $.ajax({
+            url:img_path+"/index.php/join_detail/id/"+id,
+            type:"get",
+            success:function(re){
+                var re = JSON.parse(re);
+                $("#t_name").html(re.zw_name);
+                $("#e_name").html(re.en_title);
+                $("#adr").html(re.location);
+                $("#time").html(re.add_time);
+                $("#ms").html(re.description);
+                $("#yq").html(re.content);
 
-		<!--回到顶部-->
-		<div id="goToTop">
-			<a href="###"><img src="img/centers.png"/></a>
-		</div>
-		<!--尾部-->
-		<footer id="foot">
-			<!--尾部上部-->
-			<div class="fTop" align="center">
-				<ul>
-					<li>
-						<a href="https://shiniman.tmall.com/?spm=a220o.1000855.1997427721.d4918089.3a19f35bISW0HK">诗尼曼天猫旗舰店</a>
-					</li>
-					<li>
-						<a href="https://mall.jd.com/index-180815.html">诗尼曼京东旗舰店</a>
-					</li>
-					<li>
-						<a href="###">商学院学习系统</a>
-					</li>
-					<li>
-						<a href="###">经销商登录</a>
-					</li>
-					<li>
-						<a href="###">站点地图</a>
-					</li>
-					<li>
-						<a href="###">企业营业执照</a>
-					</li>
-				</ul>
-			</div>
-			<!--尾部中部-->
-			<div class="fMiddle">
-				<div class="fMLeft floatl">
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>业务中心</p>
-							</li>
-							<li>
-								<a href="###">大家居</a>
-							</li>
-							<li>
-								<a href="###">衣柜</a>
-							</li>
-							<li>
-								<a href="###">橱柜</a>
-							</li>
-							<li>
-								<a href="###">配套产品</a>
-							</li>
-							<li>
-								<a href="###">工程案例</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>品质服务</p>
-							</li>
-							<li>
-								<a href="###">定制服务流程</a>
-							</li>
-							<li>
-								<a href="###">10环服务</a>
-							</li>
-							<li>
-								<a href="###">问题反馈</a>
-							</li>
-							<li>
-								<a href="###">联系我们</a>
-							</li>
-							<li>
-								<a href="###">店面查询</a>
-							</li>
-							<li>
-								<a href="###">防伪查询</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">橱柜招商</a>
-							</li>
-							<li>
-								<a href="###">全屋招商</a>
-							</li>
-							<li>
-								<a href="###">门窗招商</a>
-							</li>
-							<li>
-								<a href="###">可加盟查询</a>
-							</li>
-							<li>
-								<a href="###">公司招聘</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>社会关系</p>
-							</li>
-							<li>
-								<a href="###">公益理念</a>
-							</li>
-							<li>
-								<a href="###">慈善活动</a>
-							</li>
-							<li>
-								<p>新闻中心</p>
-							</li>
-							<li>
-								<a href="###">公司新闻</a>
-							</li>
-							<li>
-								<a href="###">媒体报道</a>
-							</li>
-							<li>
-								<a href="###">家居常识</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>投资者关系</p>
-							</li>
-							<li>
-								<a href="###">最新公告</a>
-							</li>
-							<li>
-								<a href="###">战略投资价值</a>
-							</li>
-							<li>
-								<a href="###">投资者服务</a>
-							</li>
-							<li>
-								<a href="###">年报下载</a>
-							</li>
-							<li>
-								<a href="###">实时股价</a>
-							</li>
-							<li>
-								<a href="###">股东大会通知</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>关于诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">公司简介</a>
-							</li>
-							<li>
-								<a href="###">品牌历程</a>
-							</li>
-							<li>
-								<a href="###">品牌荣誉</a>
-							</li>
-							<li>
-								<a href="###">营销网络</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearl"></div>
-				</div>
-				
-				<div class="fMRight floatl">
-					<ul>
-						<li>
-							<p>全国加盟热线</p>
-						</li>
-						<li>
-							<p>400-840-0210</p>
-						</li>
-						<li>
-							<p>全国服务热线</p>
-						</li>
-						<li>
-							<p>400-605-4168</p>
-						</li>
-						<li>
-							<div class="floatl">
-								<a href="http://weibo.com/u/1763136224?topnav=1&wvr=6&topsug=1"></a>
-							</div>
-							<div class="floatl">
-								<a href="###" class="wechat">
-									<div class="zhanwei"></div>
-									<div class="wtBox">
-										<img src="img/snimayServer.jpg" />
-										<div class="floatl">
-											<p>诗尼曼服务号</p>
-										</div>
-										<div class="floatl">
-											<p>诗尼曼订阅号</p>
-										</div>
-										<div class="clearl"></div>
-									</div>
-								</a>
-							</div>
-							<div class="clearl"></div>
-						</li>
-					</ul>
-				</div>
-				<div class="clearl"></div>
-			</div>
-			<!--尾部底部-->
-			<div class="fBottom">
-				<p>Copyright&copy;2017粤ICP备14016448号</p>
-			</div>
-		</footer>
-		<script type="text/javascript" src="js/public.js" ></script>	
-		<script type="text/javascript" src="js/join.js" ></script>
-	</body>
-</html>
+            }
+        });
+    }
+    layui.use(['form', 'layer','upload'], function () {
+        var form = layui.form,layer = layui.layer,upload = layui.upload,$ = layui.jquery;
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#logoBtn'
+            ,url: img_path+'index.php/uploadFile_zp'
+            ,accept: 'file'
+            ,exts:'zip|rar|7z'
+            ,size: 20480
+            ,done: function(res){
+                //上传成功
+                if(res.code>0){
+                    $('#logo').attr('value',res.file);
+                    $('#cltLogo').html(res.name);
+                }else{
+                    //如果上传失败
+                    return layer.msg('上传失败');
+                }
+            }
+        });
+
+    });
+    var is_post = 0;
+    function addJL(){
+        var url =img_path+'index.php/addJL';
+        var data = {};
+        data.username = $("#uname").val();
+        data.phone = $("#phone").val();
+        data.content = $("#content").val();
+        data.file = $("#logo").val();
+        data.file_name = $("#cltLogo").text();
+        data.name = $("#t_name").text();
+        is_post++;
+        layer.load(1);
+        if (is_post == 1) {
+            $.post(url, data, function(res) {
+                layer.closeAll();
+                if (res.status == 1) {
+                    layer.msg(res.info);
+                    $('#pop').hide();
+                    $('.pop').removeClass('animated bounceInDown');
+                } else {
+                    layer.msg(res.info,{time: 3000});
+                    is_post = 0;
+                }
+            }, 'json');
+        } else {
+            layer.msg("请不要重复提交", {
+                icon: 5,
+                time: 1000
+            });
+            layer.closeAll();
+        }
+    }
+</script>
+

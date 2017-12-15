@@ -22,10 +22,11 @@ $(function(){
 		}else if( '' == $.trim($('#txtPassword').val())){
 			$('#result').html('密码不能为空！').show();
 			return false;
-		}else if( '' == $.trim($('#verify').val())){
-			$('#result').html('验证码不能为空！').show();
-			return false;
 		}
+//        else if( '' == $.trim($('#verify').val())){
+//            $('#result').html('验证码不能为空！').show();
+//            return false;
+//        }
 	}
 	function complete(data){
 		$('#result').html(data.info).show();
@@ -76,17 +77,17 @@ $(function(){
                         <input name="password" type="password" id="txtPassword" class="keyboardInput text" />
                     </td>
                 </tr>
-                <tr>
-                    <td align="right" valign="baseline">
-                        验证码：
-                    </td>
-                    <td valign="top">
-                        <input name="verify" type="text" id="verify" maxlength="8" style="width: 93px;" class="text"/>
-						<img src="__ROOT__/index.php/Base/verify_code/w/50/h/25" title="看不清？单击此处刷新" onclick="this.src+='?rand='+Math.random();"  style="cursor: pointer; vertical-align: middle;margin-top:-5px;" align="absmiddle"/>
-                        <span id="rfvCode" style="color:Red;visibility:hidden;">(*不能为空)</span>
-						<input type="hidden" name="ajax" value="1">
-                    </td>
-                </tr>
+                <!--<tr>-->
+                    <!--<td align="right" valign="baseline">-->
+                        <!--验证码：-->
+                    <!--</td>-->
+                    <!--<td valign="top">-->
+                        <!--<input name="verify" type="text" id="verify" maxlength="8" style="width: 93px;" class="text"/>-->
+						<!--<img src="__ROOT__/index.php/Base/verify_code/w/50/h/25" title="看不清？单击此处刷新" onclick="this.src+='?rand='+Math.random();"  style="cursor: pointer; vertical-align: middle;margin-top:-5px;" align="absmiddle"/>-->
+                        <!--<span id="rfvCode" style="color:Red;visibility:hidden;">(*不能为空)</span>-->
+						<!--<input type="hidden" name="ajax" value="1">-->
+                    <!--</td>-->
+                <!--</tr>-->
 				
 				<tr>
                     <td align="right" valign="baseline">

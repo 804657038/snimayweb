@@ -9,9 +9,9 @@ class PublicModel extends Model {
      */
 	public function auth($datas){
 		$datas = $_POST;
-		if ($_SESSION['verify'] != md5(strtoupper($_POST['verify']))) {
-            die(json_encode(array('status' => 0, 'info' => '验证码错误啦，再输入吧！')));
-        }
+//		if ($_SESSION['verify'] != md5(strtoupper($_POST['verify']))) {
+//            die(json_encode(array('status' => 0, 'info' => '验证码错误啦，再输入吧！')));
+//        }
 		$M = M("admin_user");
 		if ( $M->where("`user_name`='" . $datas['username'] . "'")->count()>=1) {
 			$info = $M->where("`user_name`='" . $datas["username"] . "'")->find();		

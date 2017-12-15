@@ -35,14 +35,14 @@ $(function(){
 		$('.jobBox').addClass('animated bounceInUp');
 	});
 	//选择文件
-	$('.upBtnBox input').change(function(){
-		if($(this).val()=="")
-		{
-			$(this).parent('.upBtnBox').siblings('span').text("未选择文件");
-		}else{
-			$(this).parent('.upBtnBox').siblings('span').text($(this).val());
-		}
-	});
+	//$('.upBtnBox input').change(function(){
+	//	if($(this).val()=="")
+	//	{
+	//		$(this).parent('.upBtnBox').siblings('span').text("未选择文件");
+	//	}else{
+	//		$(this).parent('.upBtnBox').siblings('span').text($(this).val());
+	//	}
+	//});
 	//关闭
 	$('.close a').click(function(){
 		$('#pop').hide();
@@ -52,4 +52,7 @@ $(function(){
 		$('#pop').show();
 		$('.pop').addClass('animated bounceInDown');
 	});
+
+
+
 });

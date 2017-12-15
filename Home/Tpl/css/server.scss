@@ -560,3 +560,187 @@ $black:#333333;
         }
     }
 }
+//10环服务
+#tenServer{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    .tenVideoOut{
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        background-color: white;
+    }
+    .tenVideo{
+        width: 1200px;
+        height: 500px;
+        background-color: white;
+        margin-top: -80px;
+        box-shadow: 0px 10px 4px 0px rgba(231,231,231,0.5);
+        .videoBox{
+            width: 600px;
+            height: 400px;
+            margin: 50px 0px 0px 50px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            cursor: -ms-pointer;
+            video{
+                width: 600px;
+                height: 400px;
+                border: 0;
+                
+            }
+            .vImg,.playVideo{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0%;
+                left: 0;
+                z-index: 1;
+                overflow: hidden;
+                -moz-transition: top 0.5s;
+                -webkit-transition: top 0.5s;
+                -ms-transition: top 0.5s;
+                transition: top 0.5s;
+            }
+            .vImg img{
+                width: 100%;
+            }
+            .playVideo{
+                background-color: rgba(0,0,0,0.5);
+                top: 100%;
+               img{
+                    margin-left: 268px;
+                    margin-top: 168px;
+                } 
+            } 
+        }
+        .videoBox:hover{
+            .playVideo{
+                top: 0%;
+            }
+        }
+        .videoContent{
+            width: 410px;
+            margin: 50px 70px 0;
+            .jobNameM{
+                margin-top: 70px;
+                span{
+                    color: $red;
+                }
+            }
+            .rLine{
+                margin-bottom: 20px;
+            }
+        }
+        
+    }
+    .tenServers{
+        width: 1200px;
+        margin: 0 auto;
+        margin-top: 40px;
+        padding-bottom: 80px;
+        .tenServerOut {
+            width: 598px;
+            height: 250px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            .tsImg{
+                width: 260px;
+                height: 250px;              
+                background: url(../img/icon.png) no-repeat;
+                background-position-y:0px ;
+                background-color: #EEEEEE;
+                transition: background-position 0.5s;
+                -webkit-transition: background-position 0.5s;
+                -ms-transition: background-position 0.5s;
+                -moz-transition: background-position 0.5s;              
+            }
+            .tsTitle {
+                width: 336px;
+                height: 250px;
+                border: 1px solid #eeeeee;
+                ul{
+                    margin-left: 105px;
+                    .jobNameM{
+                        margin-top: 90px;
+                        font-weight: bold;
+                    }
+                }
+            }
+            
+        }
+        .tenServerOut:hover{
+            box-shadow: 0 0 2px 2px #EAEAEA;
+            .tsTitle{
+                border: 0;
+            }
+        }
+        .ti1 .tsImg{
+            background-position-y:-0px ;
+        }
+        .ti1:hover .tsImg{
+            background-position-y:-250px ;
+        }
+        .ti2 .tsImg{
+            background-position-y:-500px ;
+        }
+        .ti2:hover .tsImg{
+            background-position-y:-750px ;
+        }
+        .ti3 .tsImg{
+            background-position-y:-1000px ;
+        }
+        .ti3:hover .tsImg{
+            background-position-y:-1250px ;
+        }
+        .ti4 .tsImg{
+            background-position-y:-1500px ;
+        }
+        .ti4:hover .tsImg{
+            background-position-y:-1750px ;
+        }
+        .ti5 .tsImg{
+            background-position-y:-2000px ;
+        }
+        .ti5:hover .tsImg{
+            background-position-y:-2250px ;
+        }
+        .ti6 .tsImg{
+            background-position-y:-2500px ;
+        }
+        .ti6:hover .tsImg{
+            background-position-y:-2750px ;
+        }
+        .ti7 .tsImg{
+            background-position-y:-3000px ;
+        }
+        .ti7:hover .tsImg{
+            background-position-y:-3250px ;
+        }
+        .ti8 .tsImg{
+            background-position-y:-3500px ;
+        }
+        .ti8:hover .tsImg{
+            background-position-y:-3750px ;
+        }
+        .ti9 .tsImg{
+            background-position-y:-4000px ;
+        }
+        .ti9:hover .tsImg{
+            background-position-y:-4250px ;
+        }
+        .ti10 .tsImg{
+            background-position-y:-4500px ;
+        }
+        .ti10:hover .tsImg{
+            background-position-y:-4750px ;
+        }
+        .tenServerOut:nth-child(2n)
+        {
+            margin-right: 0px;
+        }
+    }
+    
+}

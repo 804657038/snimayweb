@@ -92,24 +92,12 @@
                     <li>
                         <p>品质服务</p>
                     </li>
+                    <foreach name="pzcat" item="vp">
                     <li>
-                        <a href="###">定制服务流程</a>
+                        <a href="{$vp.link}">{$vp.cat_name}</a>
                     </li>
-                    <li>
-                        <a href="###">10环服务</a>
-                    </li>
-                    <li>
-                        <a href="###">问题反馈</a>
-                    </li>
-                    <li>
-                        <a href="###">联系我们</a>
-                    </li>
-                    <li>
-                        <a href="###">店面查询</a>
-                    </li>
-                    <li>
-                        <a href="###">防伪查询</a>
-                    </li>
+                    </foreach>
+
                 </ul>
             </div>
             <div class="allServer">
@@ -117,34 +105,24 @@
                     <li>
                         <p>加入诗尼曼</p>
                     </li>
+                    <foreach name="zpcat" item="zp">
                     <li>
-                        <a href="###">橱柜招商</a>
+                        <a href="{$zp.link}">{$zp.cat_name}</a>
                     </li>
-                    <li>
-                        <a href="###">全屋招商</a>
-                    </li>
-                    <li>
-                        <a href="###">门窗招商</a>
-                    </li>
-                    <li>
-                        <a href="###">可加盟查询</a>
-                    </li>
-                    <li>
-                        <a href="###">公司招聘</a>
-                    </li>
+                    </foreach>
                 </ul>
             </div>
             <div class="allServer">
                 <ul>
                     <li>
-                        <p>社会关系</p>
+                        <p>社会责任</p>
                     </li>
+                    <foreach name="gyhd" item="gy">
                     <li>
-                        <a href="###">公益理念</a>
+                        <a href="{$gy.link}">{$gy.cat_name}</a>
                     </li>
-                    <li>
-                        <a href="###">慈善活动</a>
-                    </li>
+                    </foreach>
+
                     <li>
                         <p>新闻中心</p>
                     </li>
@@ -228,7 +206,7 @@
                         <a href="###" class="wechat">
                             <div class="zhanwei"></div>
                             <div class="wtBox">
-                                <img src="{$weixin.original_img}" />
+                                <img src="__PIC__/{$weixin.original_img}" />
                                 <div class="floatl">
                                     <p>诗尼曼服务号</p>
                                 </div>
@@ -251,6 +229,5 @@
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/js/public.js" ></script>
-<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>
 </body>
 </html>

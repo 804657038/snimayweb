@@ -31,6 +31,7 @@
         protected $coolPages   ;
         // 分页显示定制
         protected $config  =    array('header'=>'条记录','prev'=>'上一页','next'=>'下一页','first'=>'第一页','last'=>'<span id="lastspan">最后一页</span>','theme'=>'<ul><li><span> %totalRow% %header% %nowPage%/%totalPage% 页</span></li> %upPage% %downPage% %first%  %prePage%  %linkPage%  %nextPage% %end%</ul>');
+        //protected $config  =    array('prev'=>'上一页','next'=>'下一页','theme'=>'<ul><li><span> %nowPage%/%totalPage% 页</span></li><li><span> %upPage% %linkPage% %downPage% </ul>');
         // 默认分页变量名
         protected $varPage;
         /**
@@ -49,7 +50,9 @@
             }
             $this->totalPages   =   ceil($this->totalRows/$this->listRows);     //总页数
             $this->coolPages    =   ceil($this->totalPages/$this->rollPage);
+//            $this->nowPage      =   !empty($_GET[$this->varPage])?intval($_GET[$this->varPage]):1;
             $this->nowPage      =   !empty($_GET[$this->varPage])?intval($_GET[$this->varPage]):1;
+
             if($this->nowPage<1){
                 $this->nowPage  =   1;
             }elseif(!empty($this->totalPages) && $this->nowPage>$this->totalPages) {
@@ -72,6 +75,7 @@
             $p              =   $this->varPage;
             $nowCoolPage    =   ceil($this->nowPage/$this->rollPage);
             // 分析分页参数
+
             if($this->url){
                 $depr       =   C('URL_PATHINFO_DEPR');
                 $url        =   rtrim(U('/'.$this->url,'',false),$depr).$depr.'__PAGE__';
@@ -96,12 +100,13 @@
             $upRow          =   $this->nowPage-1;
             $downRow        =   $this->nowPage+1;
             if ($upRow>0){
-                $upPage     =    "<li><a href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a></li>";
+                $upPage     =    "<li><a class='nextPage' href='".str_replace('__PAGE__',$upRow,$url)."'>".$this->config['prev']."</a></li>";
             }else{
                 $upPage     =    '';
             }
+
             if ($downRow <= $this->totalPages){
-                $downPage   =   "<li><a href='".str_replace('__PAGE__',$downRow,$url)."'>".$this->config['next']."</a></li>";
+                $downPage   =   "<li><a class='nextPage' href='".str_replace('__PAGE__',$downRow,$url)."'>".$this->config['next']."</a></li>";
             }else{
                 $downPage   =   '';
             }
@@ -140,8 +145,12 @@
                 }
             }
             $pageStr     =   str_replace(
-                array('%header%','%nowPage%','%totalRow%','%totalPage%','%upPage%','%downPage%','%first%','%prePage%','%linkPage%','%nextPage%','%end%'),
+                  array('%header%','%nowPage%','%totalRow%','%totalPage%','%upPage%','%downPage%','%first%','%prePage%','%linkPage%','%nextPage%','%end%'),
                 array($this->config['header'],$this->nowPage,$this->totalRows,$this->totalPages,$upPage,$downPage,$theFirst,$prePage,$linkPage,$nextPage,$theEnd),$this->config['theme']);
+
+//            $pageStr     =   str_replace(
+//                array('%nowPage%','%totalPage%','%upPage%','%linkPage%','%downPage%'),
+//                array($this->nowPage,$this->totalPages,$upPage,$linkPage,$downPage),$this->config['theme']);
             return $pageStr;
         }
     }

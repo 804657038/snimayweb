@@ -492,24 +492,10 @@
                     <li>
                         <p>品质服务</p>
                     </li>
-                    <li>
-                        <a href="###">定制服务流程</a>
-                    </li>
-                    <li>
-                        <a href="###">10环服务</a>
-                    </li>
-                    <li>
-                        <a href="###">问题反馈</a>
-                    </li>
-                    <li>
-                        <a href="###">联系我们</a>
-                    </li>
-                    <li>
-                        <a href="###">店面查询</a>
-                    </li>
-                    <li>
-                        <a href="###">防伪查询</a>
-                    </li>
+                    <?php if(is_array($pzcat)): foreach($pzcat as $key=>$vp): ?><li>
+                        <a href="<?php echo ($vp["link"]); ?>"><?php echo ($vp["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
             <div class="allServer">
@@ -517,34 +503,20 @@
                     <li>
                         <p>加入诗尼曼</p>
                     </li>
-                    <li>
-                        <a href="###">橱柜招商</a>
-                    </li>
-                    <li>
-                        <a href="###">全屋招商</a>
-                    </li>
-                    <li>
-                        <a href="###">门窗招商</a>
-                    </li>
-                    <li>
-                        <a href="###">可加盟查询</a>
-                    </li>
-                    <li>
-                        <a href="###">公司招聘</a>
-                    </li>
+                    <?php if(is_array($zpcat)): foreach($zpcat as $key=>$zp): ?><li>
+                        <a href="<?php echo ($zp["link"]); ?>"><?php echo ($zp["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
                 </ul>
             </div>
             <div class="allServer">
                 <ul>
                     <li>
-                        <p>社会关系</p>
+                        <p>社会责任</p>
                     </li>
-                    <li>
-                        <a href="###">公益理念</a>
-                    </li>
-                    <li>
-                        <a href="###">慈善活动</a>
-                    </li>
+                    <?php if(is_array($gyhd)): foreach($gyhd as $key=>$gy): ?><li>
+                        <a href="<?php echo ($gy["link"]); ?>"><?php echo ($gy["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                     <li>
                         <p>新闻中心</p>
                     </li>
@@ -628,7 +600,7 @@
                         <a href="###" class="wechat">
                             <div class="zhanwei"></div>
                             <div class="wtBox">
-                                <img src="<?php echo ($weixin["original_img"]); ?>" />
+                                <img src="__PIC__/<?php echo ($weixin["original_img"]); ?>" />
                                 <div class="floatl">
                                     <p>诗尼曼服务号</p>
                                 </div>
@@ -651,6 +623,6 @@
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/js/public.js" ></script>
-<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>
 </body>
 </html>
+<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>

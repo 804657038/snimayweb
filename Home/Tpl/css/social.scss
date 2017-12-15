@@ -44,32 +44,215 @@ header nav .navR ul li a{
     width: 1200px;
     margin: 0 auto;
     .loadBar{
+        margin: 0 auto;
+        padding-top: 50px;
         .longR{
             width: 1px;
             height: 30px;
             background-color: $red;
-            margin-right: 8px;
+            margin-right: 9px;
+            position: relative;
+            .year{
+                background-image: url(../img/circleRed.png);
+                p{
+                    color: white;
+                }
+            }
         }
         .shortR{
             width: 1px;
             height: 20px;
             background-color: $red;
-            margin-right: 8px;
+            margin-right: 9px;
             margin-top: 10px;
         }
         .longB{
             width: 1px;
             height: 30px;
-            background-color: $black;
-            margin-right: 8px;
+            background-color: #888888;
+            margin-right: 9px;
+            position: relative;
         }
+        .year{
+            position: absolute;
+            bottom: 38px;
+            left: -24px;
+            cursor: pointer;
+            cursor: -ms-pointer;
+            width: 48px;
+            height: 60px;
+            background: url(../img/circleBlack.png) no-repeat center center;
+            transition: background-image 0.5s;
+            -ms-transition: background-image 0.5s;
+            -moz-transition: background-image 0.5s;
+            -webkit-transition: background-image 0.5s;
+            p{
+                color: #c8c8c8;
+                font-size: 14px;
+                line-height: 50px;
+                text-align: center;
+                transition: color 0.5s;
+                -ms-transition: color 0.5s;
+                -moz-transition: color 0.5s;
+                -webkit-transition: color 0.5s;
+            }
+        }
+        .year:hover{
+                background-image: url(../img/circleRed.png)!important;
+                p{
+                    color: white!important;
+                }
+            }
         .shortB{
             width: 1px;
             height: 20px;
-            background-color: $black;
-            margin-right: 8px;
+            background-color: #888888;
+            margin-right: 9px;
             margin-top: 10px;
         }
     }
-    
+    .loveBox{
+        width: 100%;
+        margin-top: 60px;
+        .loveLeft{
+            width: 600px;
+            height: 450px;
+        }
+        .loveRight{
+            width: 598px;
+            height: 448px;
+            border: 1px solid #EEEEEE;
+            ul{
+                width: 450px;
+                margin: 0 auto;
+                margin-top: 85px;
+                line-height: 40px;
+                font-size: 12px;
+                color: $black;
+                li{
+                    position: relative;
+                }
+                .lTitle{
+                    font-size: 18px;
+                    font-weight: bold;
+                    position: relative;
+                    
+                }
+                .line{
+                        position: absolute;
+                        left: -90px;
+                        top: 20px;
+                        width: 70px;
+                        border-bottom: 1px solid #c8c8c8;
+                        display: block;
+                    }
+                .date{
+                    color: #888888;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+//公益活动
+#activity{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    .activityChild{
+        width: 378px;
+        height: 448px;
+        margin-bottom: 60px;
+        border: 1px solid #eeeeee;
+        position: relative;
+        transition: border-color 0.5s;
+        -ms-transition: border-color 0.5s;
+        -moz-transition: border-color 0.5s;
+        -webkit-transition: border-color 0.5s;
+        .aImg{
+            width: 340px;
+            height: 260px;
+            margin: 19px;
+            position: relative;
+            p{
+                
+                width: 140px;
+                height: 30px;
+                line-height: 30px;
+                background-color: $red;
+                color: white;
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                margin-left: -70px;
+                text-align: center;
+                color: #ffffff;
+                font-size: 16px;
+                opacity: 0;
+                transition: bottom 0.5s,opacity 0.5s;
+                -ms-transition: bottom 0.5s,opacity 0.5s;
+                -moz-transition: bottom 0.5s,opacity 0.5s;
+                -webkit-transition: bottom 0.5s,opacity 0.5s;
+            }
+        }
+        p{
+            line-height: 30px;
+        }
+        .aTitle{
+            transition: color 0.5s;
+            -ms-transition: color 0.5s;
+            -moz-transition: color 0.5s;
+            -webkit-transition: color 0.5s;
+            width: 340px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: $black;
+            margin-bottom: 5px;
+            padding-top: 20px;
+        }
+        .aContent{   
+            width: 320px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #888888;
+        }
+    }
+    .activityChild{
+        margin-right: 30px;
+    }
+    .activityChild:nth-child(3n){
+        margin-right: 0px;
+    }
+    .activityChild::after{
+        content: "";
+        width: 0%;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        border-bottom: 1px solid $red;
+        transition: width 0.5s;
+        -ms-transition: width 0.5s;
+        -moz-transition: width 0.5s;
+        -webkit-transition: width 0.5s;
+    }
+    .activityChild:hover{
+        cursor: pointer;
+        cursor: -ms-pointer;   
+        border-color:white;
+        box-shadow: 0 0 2px 2px #EAEAEA;
+        .aTitle{
+            color: $red;
+        }
+        .aImg{
+            p{
+                opacity: 1;
+                bottom: -15px;
+            }
+        }
+    }
+    .activityChild:hover::after{
+        width: 100%;
+    }
 }

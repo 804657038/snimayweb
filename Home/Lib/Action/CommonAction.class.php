@@ -94,6 +94,12 @@ class CommonAction extends Action {
         //次级导航
         $acat = M('articlecat')->where('parent_id=65')->order('sort_order asc')->select();
         $this->assign('acat',$acat);
+        $pzcat = M('articlecat')->where('parent_id=66')->order('sort_order asc')->select();
+        $this->assign('pzcat',$pzcat);
+        $zpcat = M('articlecat')->where('parent_id=67')->order('sort_order asc')->select();
+        $this->assign('zpcat',$zpcat);
+        $gyhd = M('articlecat')->where('parent_id=62')->order('sort_order asc')->select();
+        $this->assign('gyhd',$gyhd);
         //服务号和订阅号
         $weixin = M('ads')->where('ads_id=162')->find();
         $this->assign('weixin',$weixin);

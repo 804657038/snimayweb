@@ -1,0 +1,292 @@
+$red:#a51e32;
+$black:#333333;
+#order{
+    width: 100%;
+    background-color: white;
+    .order{
+        width: 1200px;
+        margin: 0 auto;
+        .sbox{
+            width: 610px;
+            margin: 0 auto;
+            height: 60px;
+            margin-bottom: 80px;
+            .input{                
+                input{
+                    width: 528px;
+                    height: 60px;
+                    border: 1px solid #c8c8c8;
+                    padding: 0 29px;
+                    font-size: 16px;
+                    color: $black;
+                }
+                input::-webkit-input-placeholder{
+                    color: #888888;
+                }
+                input::-ms-input-placeholder{
+                    color: #888888;
+                }
+                input::-moz-placeholder{
+                    color: #888888;
+                }
+            }
+            .sbtn{
+                button{
+                    width: 80px;
+                    height: 60px;
+                    background: url(../img/searchStore.png) no-repeat center center;
+                    background-color: $black;
+                }
+            }
+        }
+        .obox{
+            width: 1200px;
+            padding-bottom: 60px;
+            .oChild{
+                width: 278px;
+                height: 318px;
+                border: 1px solid #eeeeee;
+                margin-right: 27px;
+                position: relative;
+                transition: border 0.5s;
+                -ms-transition: border 0.5s;
+                -webkit-transition: border 0.5s;
+                -moz-transition: border 0.5s;
+                .circleBox{
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    margin-top: 40px;
+                    background: url(../img/order1.png) no-repeat center center;
+                    img{
+                        transition: transform 0.5s;
+                        -ms-transition: transform 0.5s;
+                        -webkit-transition: transform 0.5s;
+                        -moz-transition: transform 0.5s;
+                    }
+                    
+                }
+                .ot{
+                    font-size: 18px;
+                    text-align: center;
+                    color: $black;
+                    line-height: 56px;
+                }
+                span{
+                    width: 60px;
+                    display: block;
+                    margin: 0 auto;
+                    border-bottom: 1px solid $red;
+                }
+                .stp{
+                    padding-top: 15px;
+                    width: 195px;
+                    margin: 0 auto;
+                }
+            }
+            .oChild::after{
+                width: 0%;
+                content: "";
+                border-bottom: 1px solid $red;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                transition: width 0.5s;
+                -ms-transition: width 0.5s;
+                -webkit-transition: width 0.5s;
+                -moz-transition: width 0.5s;
+            }
+            .oChild:hover::after{
+                width: 100%;
+            }
+            .oChild:hover{
+                border-color: white;
+                box-shadow: 0 0 2px 2px #EAEAEA;
+                .circleBox{
+                    img{
+                        transform: rotate(360deg);
+                    }
+                    
+                }
+            }
+            .o2{
+                .circleBox{
+                    background-image: url(../img/order2.png);
+                }
+            }
+            .o3{
+                margin-right: 26px;
+                .circleBox{
+                    background-image: url(../img/order3.png);                    
+                }
+            }
+            .o4{
+                margin-right: 0px;
+                .circleBox{
+                    background-image: url(../img/order4.png);                   
+                }
+            }
+        }
+    }
+}
+.result{
+    width: 100%;
+    background-color: white;
+    .resultTitle{
+        width:1200px;
+        margin: 0 auto;
+        position: relative;
+        .return{
+            width: 100%;
+            height: 36px;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            .rBtn{
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 101px;
+                height: 36px;                            
+            }
+            
+            button{
+                width: 100px;
+                height: 36px;
+                border: 1px solid #eeeeee;
+                background-color: white;
+                color: #888888;
+                font-size: 12px;
+                position: relative;
+                transition: color 0.2s,border 0.2s;
+                -ms-transition: color 0.2s,border 0.2s;
+                -webkit-transition: width 0.2s,border 0.2s;
+                -moz-transition: width 0.2s,border 0.2s;
+                z-index:5;
+            }
+            
+            button::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: $red;
+                color: white;
+                transition: width 0.2s;
+                -ms-transition: width 0.2s;
+                -webkit-transition: width 0.2s;
+                -moz-transition: width 0.2s;
+                z-index: -1;
+            }
+            button:hover{
+                color: white;
+                border-color: $red;
+            }
+            button:hover::after{
+                width: 100%;
+            }
+        }
+    }
+    .resultBox{
+        width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 80px;
+        table{
+            width: 100%;
+            tr{
+                height: 60px;
+                border: 1px solid #eeeeee;
+                border-top: 0px;
+                
+                td{
+                    width: 25%;
+                    text-align: center;
+                    font-size: 14px;
+                    color: $black;
+                    button{
+                        width: 98px;
+                        height: 36px;
+                        border: 1px solid #c8c8c8;
+                    }
+                }
+            }
+            tr:nth-child(1){
+                border: 0;
+                td{
+                    color: white;
+                }
+                background-color: $black;
+                
+            }
+            tr:nth-child(1):hover{
+                background-color: $black;
+                td{
+                    color: white;
+                }
+            }
+            tr:hover{
+                background-color: $red;
+                border-color: $red;
+                td{
+                    color: white;
+                    button{
+                        color: white;  
+                    }
+                }
+            }
+        }
+        .nomore {
+            tr:nth-child(2) {
+                td {
+                    width: 100%;
+                    padding: 120px 0 160px;
+                    .nomored{
+                        width: 200px;
+                        height: 200px;
+                        overflow: hidden;
+                        margin: 0 auto;
+                        img {
+                            margin-top: -160px;
+                            margin-left: -220px;
+                        }
+                    }
+                    p {
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: $black;
+                    }
+                }
+            }
+            tr:nth-child(2):hover{
+                background-color: white;
+                border-color: #EEEEEE;
+            }
+        }
+    }
+    .resultDetails{
+        width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 80px;
+        table{
+            width: 100%;
+            tr{
+                height: 60px;
+                border-bottom: 1px solid #eeeeee;
+                td{
+                    width: 33.333333333%;
+                }
+                td:nth-child(2){
+                    text-align: center;
+                }
+                td:nth-child(3){
+                    text-align: right;
+                }
+            }
+            tr:nth-child(1){
+                border-top: 1px solid #eeeeee;
+            }
+        }
+    }
+}

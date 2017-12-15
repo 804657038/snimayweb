@@ -18,7 +18,7 @@ $config_arr2 = array(
   'URL_MODEL'       => 2,
   'URL_ROUTER_ON'   => true,
   'URL_ROUTE_RULES' => array( //定义路由规则
-    'join'          => 'About/investment',
+//    'join'          => 'About/investment',
     //'activites_list' => 'Sales/index',
     'activites/:id' => 'Sales/detail',
     'news'          => 'About/news?cat_id=16',
@@ -42,6 +42,13 @@ $config_arr2 = array(
       'uploadFile'=>'Service/uploadFile',
       'insert_complain'       => 'Service/insert_complain',
       'insert_feeback'       => 'Service/insert_feeback',
+//      'join'       => 'Join/index',
+      'join_detail'     => 'Join/join_detail',
+      'addJL'        => 'Join/add',
+      'uploadFile_zp'=>'Join/uploadFile',
+      'getCity'=>'About/getCity',
+      'getShop'=>'About/getShop',
+      'add_order'=>'Center/add_order',
   ),
   'LUYOU'           => array(
     'join.html'     => 'About/investment',
@@ -60,6 +67,7 @@ $config_arr2 = array(
     'product/:id'   => 'Product/detail',
     'product_list'  => 'Product/index',
     'zscx'          => 'Dealer/index',
+
   ),
 );
 

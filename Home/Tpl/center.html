@@ -1,79 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta content="yes" name="apple-mobile-web-app-capable"/>
-	    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	    <meta content="telephone=no" name="format-detection"/>
-	    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
-	    <link rel="stylesheet" href="css/demo.css" />
-	    <link rel="stylesheet" href="css/ydui.css" />
-	    <link rel="stylesheet" href="css/reset.min.css" />
-	    <link rel="stylesheet" href="css/public.css" />
-	    <link rel="stylesheet" href="css/center.css" />	   
-	    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	    <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
-		<title>咨询中心</title>
-	</head>
-	<body>
-		<!--导航-->
-		<header>
-			<nav>
-				<div class="floatl logoL">
-					<a href="index.html">
-						<img src="img/logo.png" />
-					</a>
-				</div>
-				<div class="floatr navR">
-					<ul>
-						<li>
-							<a href="index.html">首页</a>
-						</li>
-						<li>
-							<a href="###">业务中心</a>
-						</li>
-						<li>
-							<a href="server.html">品质服务</a>
-						</li>
-						<li>
-							<a href="join.html">加入诗尼曼</a>
-						</li>
-						<li>
-							<a href="###">社会责任</a>
-						</li>
-						<li>
-							<a href="###">投资者关系</a>
-						</li>
-						<li class="nActive">
-							<a href="center.html">资讯中心</a>
-						</li>
-						<li>
-							<a href="about.html">关于诗尼曼</a>
-						</li>
-						<li>
-							<a href="###" class="imgBtn"><img src="img/more.png" /></a>
-						</li>
-						<li>
-							<a href="###" class="imgBtn"><img src="img/search.png" /></a>
-						</li>
-					</ul>
-				</div>
-				<div class="clearBoth"></div>
-			</nav>
-		</header>
+<include file="Public:header" />
+<link rel="stylesheet" href="__HOME__/css/demo.css" />
+<link rel="stylesheet" href="__HOME__/css/ydui.css" />
+<link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
+<link rel="stylesheet" href="__HOME__/css/center.css" />
+<script type="text/javascript">
+    var logoo = {$logoo};
+</script>
 		<div id="banner">	
 		<!--轮播图-->
 			<div class="floatl">
 				<div class="swiper-container swiper-container-index">
 				    <div class="swiper-wrapper">
-				        <div class="swiper-slide">
-				        	<img src="img/centerBanner.jpg" alt="诗尼曼" class="img-responsive"/>
-				        </div>
-				        <div class="swiper-slide">
-				        	<img src="img/centerBanner.jpg" alt="诗尼曼" class="img-responsive"/>
-				        </div>
+                        <foreach name="dz" item="dd">
+                            <div class="swiper-slide">
+                                <img src="__PIC__/{$dd.original_img}" alt="{$dd.title}" class="img-responsive"/>
+                            </div>
+                        </foreach>
 				    </div>
 				    <div class="swiper-pagination"></div>
 				</div>
@@ -81,30 +23,30 @@
 			<div class="floatl">
 				<ul>
 					<li>
-						<img src="img/leaveWord.jpg"  class="word" />
+						<img src="__HOME__/img/leaveWord.jpg"  class="word" />
 						<p>定制留言</p>
 					</li>
 					<li>						
 						<div>
-							<img src="img/centers.png"/>
+							<img src="__HOME__/img/centers.png"/>
 						</div>
 						
-						<input type="" name="" id="" value="" placeholder="您的姓名"/>
+						<input type="search" name="" id="name" value="" placeholder="您的姓名"/>
 					</li>
 					<li>
 						<div class="phone">
-							<img src="img/centers.png"/>
+							<img src="__HOME__/img/centers.png"/>
 						</div>
-						<input type="" name="" id="" value="" placeholder="您的电话"/>
+						<input type="search" name="" id="phone" value="" placeholder="您的电话"/>
 					</li>
 					<li class="city">
 						<div class="cityes">
-							<img src="img/centers.png" />
+							<img src="__HOME__/img/centers.png" />
 						</div>
-						<input type="" name="" id="city" value="" placeholder="您的地址"/>
+						<input type="search" name="" id="city" value="" placeholder="您的地址"/>
 					</li>
 					<li>
-						<button>提交</button>
+						<button onclick="addOrder()">提交</button>
 					</li>
 				</ul>
 			</div>
@@ -118,30 +60,13 @@
 				</div>
 				<div class="floatr">
 					<ul class="childSelect">
-						<li class="lsdpn">
-							<a href="###">入户空间</a>
+                        <foreach name="qw" item="q">
+						<li <if condition="$caid eq $q['cat_id']"> class="lsdn" </if>  >
+							<a href="{:U('Center/index')}?qid={$q.cat_id}">{$q.cat_name}</a>
 						</li>
-						<li class="lsdn">
-							<a href="###">厨房空间</a>
-						</li>
-						<li>
-							<a href="###">餐厅空间</a>
-						</li>
-						<li>
-							<a href="###">客厅空间</a>
-						</li>
-						<li>
-							<a href="###">阳台空间</a>
-						</li>
-						<li>
-							<a href="###">卧室空间</a>
-						</li>
-						<li>
-							<a href="###">儿童空间</a>
-						</li>
-						<li>
-							<a href="###">多功能空间</a>
-						</li>
+                        </foreach>
+
+
 					</ul>
 				</div>
 				<div class="clearBoth"></div>
@@ -149,7 +74,7 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="img/cImgLeft.jpg" />
+						<img src="__HOME__/img/cImgLeft.jpg" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
@@ -166,7 +91,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -209,7 +134,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -252,7 +177,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -335,7 +260,7 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="img/cImgLeft.jpg" />
+						<img src="__HOME__/img/cImgLeft.jpg" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
@@ -352,7 +277,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -395,7 +320,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -438,7 +363,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -512,7 +437,7 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="img/cImgLeft.jpg" />
+						<img src="__HOME__/img/cImgLeft.jpg" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
@@ -529,7 +454,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -572,7 +497,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -615,7 +540,7 @@
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="img/cImgRight.jpg" />
+								<img src="__HOME__/img/cImgRight.jpg" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -659,271 +584,10 @@
 				<div class="clearl"></div>
 			</div>
 		</div>
-		<!--侧边导航-->
-		<div id="rightNav">
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>最新消息</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>在线咨询</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>预约量尺</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>加盟留言</p>
-					</li>
-				</ul>
-			</div>
-		</div>
+<include file="Public:footer" />
+<script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
+<script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
+<script type="text/javascript" src="__HOME__/js/ydui.flexible.js" ></script>
+<script type="text/javascript" src="__HOME__/js/ydui.js" ></script>
+<script type="text/javascript" src="__HOME__/js/center.js" ></script>
 
-		<!--回到顶部-->
-		<div id="goToTop">
-			<a href="###"><img src="img/centers.png"/></a>
-		</div>
-		<!--尾部-->
-		<footer id="foot">
-			<!--尾部上部-->
-			<div class="fTop" align="center">
-				<ul>
-					<li>
-						<a href="https://shiniman.tmall.com/?spm=a220o.1000855.1997427721.d4918089.3a19f35bISW0HK">诗尼曼天猫旗舰店</a>
-					</li>
-					<li>
-						<a href="https://mall.jd.com/index-180815.html">诗尼曼京东旗舰店</a>
-					</li>
-					<li>
-						<a href="###">商学院学习系统</a>
-					</li>
-					<li>
-						<a href="###">经销商登录</a>
-					</li>
-					<li>
-						<a href="###">站点地图</a>
-					</li>
-					<li>
-						<a href="###">企业营业执照</a>
-					</li>
-				</ul>
-			</div>
-			<!--尾部中部-->
-			<div class="fMiddle">
-				<div class="fMLeft floatl">
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>业务中心</p>
-							</li>
-							<li>
-								<a href="###">大家居</a>
-							</li>
-							<li>
-								<a href="###">衣柜</a>
-							</li>
-							<li>
-								<a href="###">橱柜</a>
-							</li>
-							<li>
-								<a href="###">配套产品</a>
-							</li>
-							<li>
-								<a href="###">工程案例</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>品质服务</p>
-							</li>
-							<li>
-								<a href="###">定制服务流程</a>
-							</li>
-							<li>
-								<a href="###">10环服务</a>
-							</li>
-							<li>
-								<a href="###">问题反馈</a>
-							</li>
-							<li>
-								<a href="###">联系我们</a>
-							</li>
-							<li>
-								<a href="###">店面查询</a>
-							</li>
-							<li>
-								<a href="###">防伪查询</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">橱柜招商</a>
-							</li>
-							<li>
-								<a href="###">全屋招商</a>
-							</li>
-							<li>
-								<a href="###">门窗招商</a>
-							</li>
-							<li>
-								<a href="###">可加盟查询</a>
-							</li>
-							<li>
-								<a href="###">公司招聘</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>社会关系</p>
-							</li>
-							<li>
-								<a href="###">公益理念</a>
-							</li>
-							<li>
-								<a href="###">慈善活动</a>
-							</li>
-							<li>
-								<p>新闻中心</p>
-							</li>
-							<li>
-								<a href="###">公司新闻</a>
-							</li>
-							<li>
-								<a href="###">媒体报道</a>
-							</li>
-							<li>
-								<a href="###">家居常识</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>投资者关系</p>
-							</li>
-							<li>
-								<a href="###">最新公告</a>
-							</li>
-							<li>
-								<a href="###">战略投资价值</a>
-							</li>
-							<li>
-								<a href="###">投资者服务</a>
-							</li>
-							<li>
-								<a href="###">年报下载</a>
-							</li>
-							<li>
-								<a href="###">实时股价</a>
-							</li>
-							<li>
-								<a href="###">股东大会通知</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>关于诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">公司简介</a>
-							</li>
-							<li>
-								<a href="###">品牌历程</a>
-							</li>
-							<li>
-								<a href="###">品牌荣誉</a>
-							</li>
-							<li>
-								<a href="###">营销网络</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearl"></div>
-				</div>				
-				<div class="fMRight floatl">
-					<ul>
-						<li>
-							<p>全国加盟热线</p>
-						</li>
-						<li>
-							<p>400-840-0210</p>
-						</li>
-						<li>
-							<p>全国服务热线</p>
-						</li>
-						<li>
-							<p>400-605-4168</p>
-						</li>
-						<li>
-							<div class="floatl">
-								<a href="http://weibo.com/u/1763136224?topnav=1&wvr=6&topsug=1"></a>
-							</div>
-							<div class="floatl">
-								<a href="###" class="wechat">
-									<div class="zhanwei"></div>
-									<div class="wtBox">
-										<img src="img/snimayServer.jpg" />
-										<div class="floatl">
-											<p>诗尼曼服务号</p>
-										</div>
-										<div class="floatl">
-											<p>诗尼曼订阅号</p>
-										</div>
-										<div class="clearl"></div>
-									</div>
-								</a>
-							</div>
-							<div class="clearl"></div>
-						</li>
-					</ul>
-				</div>
-				<div class="clearl"></div>
-			</div>
-			<!--尾部底部-->
-			<div class="fBottom">
-				<p>Copyright&copy;2017粤ICP备14016448号</p>
-			</div>
-		</footer>
-		<script type="text/javascript" src="js/ydui.citys.js" ></script>
-		<script type="text/javascript" src="js/ydui.flexible.js" ></script>
-		<script type="text/javascript" src="js/ydui.js" ></script>
-		<script type="text/javascript" src="js/public.js" ></script>
-		<script type="text/javascript" src="js/center.js" ></script>
-	</body>
-</html>

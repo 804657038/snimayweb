@@ -228,6 +228,7 @@ class ArticleAction extends CommonAction {
 		
 		$data = M('article')->create();
 
+
 		$data['content']    = stripslashes(htmlspecialchars_decode($_POST['content']));
 		$_POST['add_time']? $data['add_time'] = strtotime($_POST['add_time']) : '';
 		$_POST['f_time']  ? $data['f_time'] = strtotime($_POST['f_time']) : '';

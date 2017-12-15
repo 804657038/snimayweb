@@ -19,6 +19,52 @@
     margin: 0 auto;
     padding-top: 8px; }
 
+#popNormal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  z-index: 9999; }
+  #popNormal .popIn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 490px;
+    height: 600px;
+    margin: -300px 0 0 -243.25px;
+    margin-top: -300px;
+    background: url(../img/popBack.jpg) no-repeat center center;
+    background-size: cover; }
+    #popNormal .popIn .poPclose {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      transform: rotate(45deg);
+      transition: transform 0.5s;
+      -ms-transition: transform 0.5s;
+      -webkit-transition: transform 0.5s;
+      -moz-transition: transform 0.5s; }
+      #popNormal .popIn .poPclose img {
+        display: block; }
+    #popNormal .popIn .poPclose:hover {
+      transform: rotate(135deg); }
+    #popNormal .popIn .popBox .bigTitle {
+      padding: 80px 0 100px; }
+    #popNormal .popIn .popBox .popTitle {
+      width: 380px;
+      margin: 0 auto; }
+      #popNormal .popIn .popBox .popTitle p {
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px; }
+    #popNormal .popIn .popBox .popTips {
+      text-align: center;
+      font-size: 14px;
+      color: #a51e32;
+      margin-top: 120px; }
+
 .p1 {
   word-break: break-all;
   text-overflow: ellipsis;
@@ -54,6 +100,29 @@
   /** 显示的行数 **/
   overflow: hidden;
   /** 隐藏超出的内容 **/ }
+
+.jobNameM {
+  color: #333333;
+  font-size: 18px;
+  margin-top: 40px; }
+
+.jobNameS {
+  color: #888888;
+  font-size: 12px;
+  font-family: arial;
+  line-height: 24px; }
+
+.jobD {
+  color: #888888;
+  font-size: 12px;
+  line-height: 30px; }
+
+.rLine {
+  width: 60px;
+  height: 1px;
+  display: block;
+  border-bottom: 1.1px solid #a51e32;
+  margin: 10px 0; }
 
 header {
   height: 80px;
@@ -292,6 +361,11 @@ footer {
   background-color: #a51e32;
   color: white;
   font-size: 18px; }
+
+.stp {
+  font-size: 12px;
+  line-height: 30px;
+  color: #888888; }
 
 @media (max-width: 1200px) {
   header nav {

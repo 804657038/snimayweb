@@ -1,0 +1,219 @@
+#order {
+  width: 100%;
+  background-color: white; }
+  #order .order {
+    width: 1200px;
+    margin: 0 auto; }
+    #order .order .sbox {
+      width: 610px;
+      margin: 0 auto;
+      height: 60px;
+      margin-bottom: 80px; }
+      #order .order .sbox .input input {
+        width: 528px;
+        height: 60px;
+        border: 1px solid #c8c8c8;
+        padding: 0 29px;
+        font-size: 16px;
+        color: #333333; }
+      #order .order .sbox .input input::-webkit-input-placeholder {
+        color: #888888; }
+      #order .order .sbox .input input::-ms-input-placeholder {
+        color: #888888; }
+      #order .order .sbox .input input::-moz-placeholder {
+        color: #888888; }
+      #order .order .sbox .sbtn button {
+        width: 80px;
+        height: 60px;
+        background: url(../img/searchStore.png) no-repeat center center;
+        background-color: #333333; }
+    #order .order .obox {
+      width: 1200px;
+      padding-bottom: 60px; }
+      #order .order .obox .oChild {
+        width: 278px;
+        height: 318px;
+        border: 1px solid #eeeeee;
+        margin-right: 27px;
+        position: relative;
+        transition: border 0.5s;
+        -ms-transition: border 0.5s;
+        -webkit-transition: border 0.5s;
+        -moz-transition: border 0.5s; }
+        #order .order .obox .oChild .circleBox {
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          margin-top: 40px;
+          background: url(../img/order1.png) no-repeat center center; }
+          #order .order .obox .oChild .circleBox img {
+            transition: transform 0.5s;
+            -ms-transition: transform 0.5s;
+            -webkit-transition: transform 0.5s;
+            -moz-transition: transform 0.5s; }
+        #order .order .obox .oChild .ot {
+          font-size: 18px;
+          text-align: center;
+          color: #333333;
+          line-height: 56px; }
+        #order .order .obox .oChild span {
+          width: 60px;
+          display: block;
+          margin: 0 auto;
+          border-bottom: 1px solid #a51e32; }
+        #order .order .obox .oChild .stp {
+          padding-top: 15px;
+          width: 195px;
+          margin: 0 auto; }
+      #order .order .obox .oChild::after {
+        width: 0%;
+        content: "";
+        border-bottom: 1px solid #a51e32;
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        transition: width 0.5s;
+        -ms-transition: width 0.5s;
+        -webkit-transition: width 0.5s;
+        -moz-transition: width 0.5s; }
+      #order .order .obox .oChild:hover::after {
+        width: 100%; }
+      #order .order .obox .oChild:hover {
+        border-color: white;
+        box-shadow: 0 0 2px 2px #EAEAEA; }
+        #order .order .obox .oChild:hover .circleBox img {
+          transform: rotate(360deg); }
+      #order .order .obox .o2 .circleBox {
+        background-image: url(../img/order2.png); }
+      #order .order .obox .o3 {
+        margin-right: 26px; }
+        #order .order .obox .o3 .circleBox {
+          background-image: url(../img/order3.png); }
+      #order .order .obox .o4 {
+        margin-right: 0px; }
+        #order .order .obox .o4 .circleBox {
+          background-image: url(../img/order4.png); }
+
+.result {
+  width: 100%;
+  background-color: white; }
+  .result .resultTitle {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative; }
+    .result .resultTitle .return {
+      width: 100%;
+      height: 36px;
+      position: absolute;
+      right: 0;
+      top: 40px; }
+      .result .resultTitle .return .rBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 101px;
+        height: 36px; }
+      .result .resultTitle .return button {
+        width: 100px;
+        height: 36px;
+        border: 1px solid #eeeeee;
+        background-color: white;
+        color: #888888;
+        font-size: 12px;
+        position: relative;
+        transition: color 0.2s,border 0.2s;
+        -ms-transition: color 0.2s,border 0.2s;
+        -webkit-transition: width 0.2s,border 0.2s;
+        -moz-transition: width 0.2s,border 0.2s;
+        z-index: 5; }
+      .result .resultTitle .return button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #a51e32;
+        color: white;
+        transition: width 0.2s;
+        -ms-transition: width 0.2s;
+        -webkit-transition: width 0.2s;
+        -moz-transition: width 0.2s;
+        z-index: -1; }
+      .result .resultTitle .return button:hover {
+        color: white;
+        border-color: #a51e32; }
+      .result .resultTitle .return button:hover::after {
+        width: 100%; }
+  .result .resultBox {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px; }
+    .result .resultBox table {
+      width: 100%; }
+      .result .resultBox table tr {
+        height: 60px;
+        border: 1px solid #eeeeee;
+        border-top: 0px; }
+        .result .resultBox table tr td {
+          width: 25%;
+          text-align: center;
+          font-size: 14px;
+          color: #333333; }
+          .result .resultBox table tr td button {
+            width: 98px;
+            height: 36px;
+            border: 1px solid #c8c8c8; }
+      .result .resultBox table tr:nth-child(1) {
+        border: 0;
+        background-color: #333333; }
+        .result .resultBox table tr:nth-child(1) td {
+          color: white; }
+      .result .resultBox table tr:nth-child(1):hover {
+        background-color: #333333; }
+        .result .resultBox table tr:nth-child(1):hover td {
+          color: white; }
+      .result .resultBox table tr:hover {
+        background-color: #a51e32;
+        border-color: #a51e32; }
+        .result .resultBox table tr:hover td {
+          color: white; }
+          .result .resultBox table tr:hover td button {
+            color: white; }
+    .result .resultBox .nomore tr:nth-child(2) td {
+      width: 100%;
+      padding: 120px 0 160px; }
+      .result .resultBox .nomore tr:nth-child(2) td .nomored {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 0 auto; }
+        .result .resultBox .nomore tr:nth-child(2) td .nomored img {
+          margin-top: -160px;
+          margin-left: -220px; }
+      .result .resultBox .nomore tr:nth-child(2) td p {
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333; }
+    .result .resultBox .nomore tr:nth-child(2):hover {
+      background-color: white;
+      border-color: #EEEEEE; }
+  .result .resultDetails {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px; }
+    .result .resultDetails table {
+      width: 100%; }
+      .result .resultDetails table tr {
+        height: 60px;
+        border-bottom: 1px solid #eeeeee; }
+        .result .resultDetails table tr td {
+          width: 33.333333333%; }
+        .result .resultDetails table tr td:nth-child(2) {
+          text-align: center; }
+        .result .resultDetails table tr td:nth-child(3) {
+          text-align: right; }
+      .result .resultDetails table tr:nth-child(1) {
+        border-top: 1px solid #eeeeee; }
+
+/*# sourceMappingURL=order.css.map */

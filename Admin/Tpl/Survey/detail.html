@@ -1,0 +1,60 @@
+<include file="Index:pageHeader" />
+<script type="text/javascript">
+    $(function(){
+        autoHeight(jQuery('.autoHeight'));
+        jQuery(".column_Box").each(function () {
+            var t = jQuery(this);
+            if (t.length < 1) return;
+            Tab_click(t.find('.tab ul li'), t.find(".wrapBox .body"));
+        });
+    });
+</script>
+
+<div class="column_Box mainAutoHeight">
+    <div class="tab">
+        <ul>
+            <li class="current"><a href="javascript:">简历详情</a></li>
+        </ul>
+    </div>
+    <div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <td style="text-align:right;">姓名：</td>
+                    <td style="text-align:left;">{$info['user_name']}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;">联系电话：</td>
+                    <td style="text-align:left;">{$info['phone']}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;">自我介绍：</td>
+                    <td style="text-align:left;">{$info['content']}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;">应聘职位：</td>
+                    <td style="text-align:left;">{$info['email']}</td>
+                </tr>
+                <if condition="$info['file_url'] neq ''">
+                    <tr>
+                        <td style="text-align:right;">简历附件：</td>
+                        <td style="text-align:left;"><a href="__ROOT__/{$info.file_url}">点击下载</a></td>
+                    </tr>
+                </if>
+                </tbody>
+            </table>
+            <div style="margin-top: 10px;margin-bottom: 10px">
+                <button style="width: 50px;height: 30px;" onclick="goback()">返回</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    function goback(){
+        window.history.go(-1);
+    }
+</script>

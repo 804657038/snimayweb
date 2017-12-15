@@ -23,6 +23,63 @@ $black:#333333;
         padding-top: 8px;
     }
 }
+#popNormal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    .popIn{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 490px;
+        height: 600px;
+        margin: -300px 0 0 -243.25px;
+        margin-top: -300px;
+        background: url(../img/popBack.jpg) no-repeat center center;
+        background-size: cover;
+        .poPclose{
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            transform: rotate(45deg);
+            transition: transform 0.5s;
+            -ms-transition: transform 0.5s;
+            -webkit-transition: transform 0.5s;
+            -moz-transition: transform 0.5s;
+            img{
+                display: block;
+            }
+        }
+        .poPclose:hover{            
+            transform: rotate(135deg);
+        }
+        .popBox{
+            .bigTitle {
+                    padding: 80px 0 100px
+            }
+            .popTitle{
+                width: 380px;
+                margin: 0 auto;
+                p{
+                    line-height: 30px;
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+            .popTips{
+                text-align: center;
+                font-size: 14px;
+                color: $red;
+                margin-top: 120px;
+            }
+        }
+    }
+    
+}
 .p1{
     word-break: break-all;
     text-overflow: ellipsis;
@@ -46,6 +103,31 @@ $black:#333333;
     -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
     -webkit-line-clamp: 3; /** 显示的行数 **/
     overflow: hidden;  /** 隐藏超出的内容 **/
+}
+.jobNameM {
+    color: $black;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.jobNameS {
+    color: #888888;
+    font-size: 12px;
+    font-family: arial;
+    line-height: 24px;
+}
+
+.jobD {
+    color: #888888;
+    font-size: 12px;
+    line-height: 30px;
+}
+.rLine{
+    width: 60px;
+    height: 1px;
+    display: block;
+    border-bottom: 1.1px solid $red;
+    margin: 10px 0;
 }
 //导航
 header{
@@ -358,6 +440,11 @@ footer{
     background-color: $red;
     color: white;
     font-size: 18px;
+}
+.stp{
+    font-size: 12px;
+    line-height: 30px;
+    color: #888888;
 }
 //最大1200px
 @media(max-width:1200px){

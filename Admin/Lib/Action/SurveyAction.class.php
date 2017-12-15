@@ -26,6 +26,14 @@ class SurveyAction extends CommonAction {
 		$this->display();
 	}
 
+	public function detail(){
+		$id = $_REQUEST['id'];
+		$list = M('survey')->where("id=$id")->find();
+		$list['add_time'] = date("Y-m-d",$list['add_time']);
+		$this->assign("info", $list);
+		$this->display();
+	}
+
 	/**
 	 * [del description]
 	 * @param  [type] $id [description]
