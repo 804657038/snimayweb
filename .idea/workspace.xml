@@ -1,73 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bc2a70d-8545-49d7-863e-785134f0c334" name="默认的" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/00d6ff392810d75df042961cd2fe9e43.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/0999550f06e67d17fe43689cac8671d7.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/17f47868b67eae1652804aee2641fcb6.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/20eabf8d43f497715f3e1a7ec1a2f00f.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/557e51f3947b5c26191706aaf7155ef9.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/5dca2beef753968651cf136365dd025b.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/690092d7b5f0390cec94fde939a6d4de.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/827641ff8d9acbd6e854d36c5030e7bb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/b4cb060d57e77582044c68323e530b4a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/c201b857334141a53214598d30df7d71.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/e98cab53ea025cb6393fae0a579d0f80.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Cache/fb6b3aae07e58719bb4aa97d8ea4810a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Cache/Runtime/Admin/Logs/17_12_14.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/BaseAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/CgAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/ControlAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/DealerAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/EmptyAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/InfoAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/ProductAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/PublicAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/QueryAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/SalesAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/TipsAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/UserAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/VisitAction.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Home/Lib/Action/VisitAction.class.php.bak" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/Lib/Action/ArticleAction.class.php" afterPath="$PROJECT_DIR$/Admin/Lib/Action/ArticleAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/Lib/Action/SurveyAction.class.php" afterPath="$PROJECT_DIR$/Admin/Lib/Action/SurveyAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/Lib/Model/PublicModel.class.php" afterPath="$PROJECT_DIR$/Admin/Lib/Model/PublicModel.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/Tpl/Common/login.html" afterPath="$PROJECT_DIR$/Admin/Tpl/Common/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin/Tpl/Survey/index.html" afterPath="$PROJECT_DIR$/Admin/Tpl/Survey/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cache/Runtime/Home/Cache/762139c8517780ee068cd6ccea35e456.php" afterPath="$PROJECT_DIR$/Cache/Runtime/Home/Cache/762139c8517780ee068cd6ccea35e456.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cache/Runtime/Home/Cache/bc619a0f18cb500af5e0ec8bb43dd127.php" afterPath="$PROJECT_DIR$/Cache/Runtime/Home/Cache/bc619a0f18cb500af5e0ec8bb43dd127.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Conf/config.php" afterPath="$PROJECT_DIR$/Home/Conf/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Lib/Action/AboutAction.class.php" afterPath="$PROJECT_DIR$/Home/Lib/Action/AboutAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Lib/Action/CommonAction.class.php" afterPath="$PROJECT_DIR$/Home/Lib/Action/CommonAction.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/Public/footer.html" afterPath="$PROJECT_DIR$/Home/Tpl/Public/footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/about.html" afterPath="$PROJECT_DIR$/Home/Tpl/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/center.html" afterPath="$PROJECT_DIR$/Home/Tpl/center.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/about.css" afterPath="$PROJECT_DIR$/Home/Tpl/css/about.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/about.css.map" afterPath="$PROJECT_DIR$/Home/Tpl/css/about.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/about.scss" afterPath="$PROJECT_DIR$/Home/Tpl/css/about.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/join.css" afterPath="$PROJECT_DIR$/Home/Tpl/css/join.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/public.css" afterPath="$PROJECT_DIR$/Home/Tpl/css/public.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/public.css.map" afterPath="$PROJECT_DIR$/Home/Tpl/css/public.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/public.scss" afterPath="$PROJECT_DIR$/Home/Tpl/css/public.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/server.css" afterPath="$PROJECT_DIR$/Home/Tpl/css/server.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/server.css.map" afterPath="$PROJECT_DIR$/Home/Tpl/css/server.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/server.scss" afterPath="$PROJECT_DIR$/Home/Tpl/css/server.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/social.css" afterPath="$PROJECT_DIR$/Home/Tpl/css/social.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/social.css.map" afterPath="$PROJECT_DIR$/Home/Tpl/css/social.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/css/social.scss" afterPath="$PROJECT_DIR$/Home/Tpl/css/social.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/index.html" afterPath="$PROJECT_DIR$/Home/Tpl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/join.html" afterPath="$PROJECT_DIR$/Home/Tpl/join.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/about.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/about.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/center.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/center.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/join.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/join.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/public.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/public.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/server.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/js/social.js" afterPath="$PROJECT_DIR$/Home/Tpl/js/social.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/server.html" afterPath="$PROJECT_DIR$/Home/Tpl/server.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Home/Tpl/social.html" afterPath="$PROJECT_DIR$/Home/Tpl/social.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ThinkPHP/Extend/Library/ORG/Util/Page.class.php" afterPath="$PROJECT_DIR$/ThinkPHP/Extend/Library/ORG/Util/Page.class.php" />
-    </list>
+    <list default="true" id="0bc2a70d-8545-49d7-863e-785134f0c334" name="默认的" comment="" />
     <ignored path="snimayweb.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -389,7 +323,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="1" width="1911" height="1039" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13087071" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
