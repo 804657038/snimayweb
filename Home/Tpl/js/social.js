@@ -1,10 +1,10 @@
 $(function(){	
 	/////////////////////////////////////////////时间会给我答案/////////////////////////////////////////////
 	//时间轴
-	var n = 6;//年数
+	var n = count;//年数
 	var m ;//刻度
-	var y = [2017,2016,2015,2013,2009,2007];//具体年
-	var activeYear = 2;
+	var y = year;//具体年
+	var activeYear = 0;
 	var openClick = true;
 	var seconds = 20;//毫秒
 	m = parseInt(1152/((n-1)*10));
@@ -89,6 +89,16 @@ $(function(){
 			}
 			
 		}
+
+        var y = $(this).find('p').text();
+        var url=img_path+"/index.php/getGy?y="+y;
+        $.get(url,function(res){
+            var data = JSON.parse(res);
+            $("#gyPic").attr('src',img_path+data.original_img);
+            $("#gyT").html(data.title);
+            $("#gyD").html(data.description);
+            $("#gyS").html(data.short);
+        });
 	});
 	/////////////////////////////////////////////时间会给我答案/////////////////////////////////////////////
 });

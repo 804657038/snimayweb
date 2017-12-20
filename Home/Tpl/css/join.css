@@ -150,7 +150,7 @@ header {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
+      left: -0.5px;
       width: 0%;
       height: 100%;
       background-color: #a51e32;
@@ -164,7 +164,7 @@ header {
       color: white;
       border-color: #a51e32; }
     #join .jobDetails .return button:hover::after {
-      width: 100%; }
+      width: 100px; }
   #join .jobDetails .details {
     border-top: 1px solid #c8c8c8; }
     #join .jobDetails .details .topDetails {
@@ -255,9 +255,15 @@ header {
         color: #a51e32;
         border-color: #EEEEEE; }
       #join .page ul li .current {
-        background-color: #eeeeee;
-        color: #a51e32;
-        border-color: #EEEEEE; }
+        display: block;
+        width: 28px;
+        height: 30px;
+        border: 1px solid #a51e32;
+        text-align: center;
+        line-height: 32px;
+        background-color: #a51e32;
+        color: #eeeeee;
+        border-color: #a51e32; }
     #join .page ul li {
       margin-right: 5px; }
     #join .page ul li:last-child {

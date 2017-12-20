@@ -35,7 +35,7 @@
 
             <div class="floatr navR">
                 <ul>
-                    <li <?php if($catid == 1): ?>class="nActive"<?php endif; ?> >
+                    <li <?php if($catid == 0): ?>class="nActive"<?php endif; ?> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
@@ -111,37 +111,39 @@
 					<p>全屋定制攻略</p>
 				</div>
 				<div class="floatr">
+
 					<ul class="childSelect">
                         <?php if(is_array($qw)): foreach($qw as $key=>$q): ?><li <?php if($caid == $q['cat_id']): ?>class="lsdn"<?php endif; ?>  >
 							<a href="<?php echo U('Center/index');?>?qid=<?php echo ($q["cat_id"]); ?>"><?php echo ($q["cat_name"]); ?></a>
 						</li><?php endforeach; endif; ?>
-
-
 					</ul>
+
 				</div>
 				<div class="clearBoth"></div>
 			</div>
+
 			<div class="contentBox">
+
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__HOME__/img/cImgLeft.jpg" />
+						<img src="__PIC__/<?php echo ($quan1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+								<p class="p1"><?php echo ($quan1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越多......</p>
+								<p class="p2"><?php echo ($quan1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="cRight floatl">
+                <?php if(is_array($quan)): foreach($quan as $key=>$qu): ?><div class="cRight floatl">
 					<div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
+								<img src="__PIC__/<?php echo ($qu["original_img"]); ?>" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -149,23 +151,19 @@
 							<div class="cRLRight floatl">
 								<ul>
 									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+										<p class="p1"><?php echo ($qu["title"]); ?></p>
 									</li>
 									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
+										<p class="p2"><?php echo ($qu["short"]); ?></p>
 									</li>
 									<li>
 										<div class="btnLeft floatl">
+                                            <?php if(strstr($qu['tip'],",") != ''){ $tips = explode(',',$qu['tip']); }else{ $tips[] = $qu['tip']; } ?>
 											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
+                                                <?php if(is_array($tips)): foreach($tips as $key=>$t): ?><li>
+													<button><?php echo ($t); ?></button>
+												</li><?php endforeach; endif; ?>
+
 											</ul>
 										</div>
 										<div class="btnRight floatr">
@@ -181,92 +179,10 @@
 							<div class="clearl"></div>
 						</div>
 					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
+                    </div><?php endforeach; endif; ?>
+
+
+
 				</div>
 				<div class="clearl"></div>
 			</div>
@@ -279,30 +195,11 @@
 				</div>
 				<div class="floatr">
 					<ul class="childSelect">
-						<li class="lsdpn">
-							<a href="###">入户空间</a>
-						</li>
-						<li class="lsdn">
-							<a href="###">厨房空间</a>
-						</li>
-						<li>
-							<a href="###">餐厅空间</a>
-						</li>
-						<li>
-							<a href="###">客厅空间</a>
-						</li>
-						<li>
-							<a href="###">阳台空间</a>
-						</li>
-						<li>
-							<a href="###">卧室空间</a>
-						</li>
-						<li>
-							<a href="###">儿童空间</a>
-						</li>
-						<li>
-							<a href="###">多功能空间</a>
-						</li>
+
+                        <?php if(is_array($xhx)): foreach($xhx as $key=>$x): ?><li <?php if($xcaid == $x['cat_id']): ?>class="lsdn"<?php endif; ?>  >
+                            <a href="<?php echo U('Center/index');?>?xid=<?php echo ($x["cat_id"]); ?>"><?php echo ($x["cat_name"]); ?></a>
+                            </li><?php endforeach; endif; ?>
+
 					</ul>
 				</div>
 				<div class="clearBoth"></div>
@@ -310,24 +207,25 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__HOME__/img/cImgLeft.jpg" />
+						<img src="__PIC__/<?php echo ($xhux1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+								<p class="p1"><?php echo ($xhux1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越多......</p>
+								<p class="p2"><?php echo ($xhux1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="cRight floatl">
-					<div class="cRightList">
+
+                    <?php if(is_array($xhux)): foreach($xhux as $key=>$xh): ?><div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
+								<img src="__PIC__/<?php echo ($xh["original_img"]); ?>" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -335,23 +233,19 @@
 							<div class="cRLRight floatl">
 								<ul>
 									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+										<p class="p1"><?php echo ($xh["title"]); ?></p>
 									</li>
 									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
+										<p class="p2"><?php echo ($xh["short"]); ?></p>
 									</li>
 									<li>
 										<div class="btnLeft floatl">
+                                            <?php if(strstr($xh['tip'],",") != ''){ $xtips = explode(',',$xh['tip']); }else{ $xtips[] = $xh['tip']; } ?>
 											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
+                                                <?php if(is_array($xtips)): foreach($xtips as $key=>$xt): ?><li>
+													<button><?php echo ($xt); ?></button>
+												</li><?php endforeach; endif; ?>
+
 											</ul>
 										</div>
 										<div class="btnRight floatr">
@@ -366,93 +260,7 @@
 							</div>
 							<div class="clearl"></div>
 						</div>
-					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
+					</div><?php endforeach; endif; ?>
 				</div>
 				<div class="clearl"></div>
 			</div>
@@ -465,21 +273,12 @@
 				</div>
 				<div class="floatr">
 					<ul class="childSelect">
-						<li class="lsdpn">
-							<a href="###">转角空间</a>
-						</li>
-						<li class="lsdn">
-							<a href="###">梁柱空间</a>
-						</li>
-						<li>
-							<a href="###">凹凸空间</a>
-						</li>
-						<li>
-							<a href="###">狭长空间</a>
-						</li>
-						<li>
-							<a href="###">畸形空间</a>
-						</li>
+
+                        <?php if(is_array($qp)): foreach($qp as $key=>$pa): ?><li <?php if($pid == $pa['cat_id']): ?>class="lsdn"<?php endif; ?>  >
+                            <a href="<?php echo U('Center/index');?>?pid=<?php echo ($pa["cat_id"]); ?>"><?php echo ($pa["cat_name"]); ?></a>
+                            </li><?php endforeach; endif; ?>
+
+
 					</ul>
 				</div>
 				<div class="clearBoth"></div>
@@ -487,24 +286,25 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__HOME__/img/cImgLeft.jpg" />
+						<img src="__PIC__/<?php echo ($qipa1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+								<p class="p1"><?php echo ($qipa1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越多......</p>
+								<p class="p2"><?php echo ($qipa1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="cRight floatl">
-					<div class="cRightList">
+
+                    <?php if(is_array($qipa)): foreach($qipa as $key=>$qi): ?><div class="cRightList">
 						<div class="cRLBox">
 							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
+								<img src="__PIC__/<?php echo ($qi["original_img"]); ?>" />
 								<div class="best">
 									<p>推荐</p>
 								</div>
@@ -512,24 +312,20 @@
 							<div class="cRLRight floatl">
 								<ul>
 									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
+										<p class="p1"><?php echo ($qi["title"]); ?></p>
 									</li>
 									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
+										<p class="p2"><?php echo ($qi["short"]); ?></p>
 									</li>
 									<li>
 										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
+                                            <?php if(strstr($qi['tip'],",") != ''){ $qtips = explode(',',$qi['tip']); }else{ $qtips[] = $qi['tip']; } ?>
+                                            <ul>
+                                                <?php if(is_array($qtips)): foreach($qtips as $key=>$qt): ?><li>
+                                                        <button><?php echo ($qt); ?></button>
+                                                    </li><?php endforeach; endif; ?>
+
+                                            </ul>
 										</div>
 										<div class="btnRight floatr">
 											<a href="###">
@@ -543,93 +339,8 @@
 							</div>
 							<div class="clearl"></div>
 						</div>
-					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
-					<div class="cRightList">
-						<div class="cRLBox">
-							<div class="cRLLeft floatl">
-								<img src="__HOME__/img/cImgRight.jpg" />
-								<div class="best">
-									<p>推荐</p>
-								</div>
-							</div>
-							<div class="cRLRight floatl">
-								<ul>
-									<li class="pRFirst">
-										<p class="p1">客餐厅隔断这样设计，创意十足，美到嗨起来！</p>
-									</li>
-									<li class="pRSecond">
-										<p class="p2">隔断的用途不仅可以将客厅和餐厅进行分区，还起到遮挡的作用。随着时代的演变，隔断的种类越来越多，功能也越来越......</p>
-									</li>
-									<li>
-										<div class="btnLeft floatl">
-											<ul>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-												<li>
-													<button>整体衣柜</button>
-												</li>
-											</ul>
-										</div>
-										<div class="btnRight floatr">
-											<a href="###">
-												<span></span>
-												<span></span>
-											</a>
-										</div>
-										<div class="clearBoth"></div>
-									</li>
-								</ul>
-							</div>
-							<div class="clearl"></div>
-						</div>
-					</div>
+					</div><?php endforeach; endif; ?>
+
 				</div>
 				<div class="clearl"></div>
 			</div>

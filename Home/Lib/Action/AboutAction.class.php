@@ -16,6 +16,37 @@ class AboutAction extends CommonAction {
       //省份
       $province = M('region')->where('parent_id=1')->select();
       $this->assign('province', $province);
+      //公司简介
+      $gs = M('article')->where('cat_id=2')->where('article_id=1')->find();
+      $this->assign('gs',$gs);
+      $gsImg = M('ads')->where('cat_id=35')->order('sort_order asc')->limit(6)->select();
+      foreach($gsImg as $key=>$val){
+          $gsImg['k'.$key] = $val;
+      }
+      $this->assign('gsImg',$gsImg);
+      //品牌使命
+      $pinpai = M('article')->where('cat_id=2')->where('article_id=3')->find();
+      $this->assign('pinpai',$pinpai);
+      $pinpaiImg = M('ads')->where('cat_id=36')->order('sort_order asc')->limit(6)->select();
+      foreach($pinpaiImg as $k=>$v){
+          $pinpaiImg['k'.$k] = $v;
+      }
+      $this->assign('pinpaiImg',$pinpaiImg);
+      //品牌愿景
+      $yuanj = M('article')->where('cat_id=2')->where('article_id=4')->find();
+      $this->assign('yuanj',$yuanj);
+      $yuanImg = M('ads')->where('cat_id=37')->order('sort_order asc')->limit(3)->select();
+      foreach($yuanImg as $k1=>$v1){
+          $yuanImg['k'.$k1] = $v1;
+      }
+      $this->assign('yuanImg',$yuanImg);
+      //品牌荣誉
+      $rongy = M('article')->where('cat_id=2')->where('article_id=2')->find();
+      $this->assign('rongy',$rongy);
+
+
+
+
       $this->assign('catid', 1);
       $this->display(':about');
   }

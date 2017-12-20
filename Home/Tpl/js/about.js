@@ -81,13 +81,6 @@ $(function(){
         })
     },300);
 
-	// 初始化区域
-	var c = Raphael("map_container", 600, 600);
-	// 初始化地图
-	var map = InitializeMap(c, "0.2", "#C9E9F7");
-	// 绘制地图
-	DrawMap(c, map);
-
     var mapExist = false;
     //选择
     $('.netNavs ul li button').click(function(){

@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,7 +36,7 @@
 
             <div class="floatr navR">
                 <ul>
-                    <li <?php if($catid == 1): ?>class="nActive"<?php endif; ?> >
+                    <li <?php if($catid == 0): ?>class="nActive"<?php endif; ?> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
@@ -57,10 +58,12 @@
 <link rel="stylesheet" href="__HOME__/css/ydui.css" />
 <link rel="stylesheet" href="__HOME__/css/server.css" />
 <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
+<link rel="stylesheet" href="__HOME__/css/video-js.css" />
 <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
 <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
 <script src="http://webapi.amap.com/maps?v=1.3&key=5433dcc2bc76f4bfae5b9b20179efac5"></script>
 <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+
 		<!--轮播图-->
 			<img src="__PIC__/<?php echo ($fuwu["original_img"]); ?>" />
 		</div>
@@ -506,12 +509,9 @@
 			<div class="tenVideoOut">
 				<div class="tenVideo">
 					<div class="videoBox floatl">
-						<video preload="auto" id="tVideo">
-							<source></source>
+						<video id="my-video1" class="video-js" controls preload="auto" width="600" height="400" poster="__PIC__/<?php echo ($ten["original_img"]); ?>" data-setup="{}">
+							<source src="<?php echo ($ten["video"]); ?>" type="video/mp4"></source>
 						</video>
-						<div class="vImg">
-							<img src="__HOME__/img/ten.jpg"/>
-						</div>
 						<div class="playVideo">
 							<img src="__HOME__/img/play.png" class="playv" />
 						</div>
@@ -519,16 +519,16 @@
 					<div class="videoContent floatl">
 						<ul>
 							<li>
-								<p class="jobNameM p1"><span>10</span>环服务</p>
+								<p class="jobNameM p1"><?php echo ($ten["title"]); ?></p>
 							</li>
 							<li>
-								<p class="jobNameS p1">Ten ring service</p>
+								<p class="jobNameS p1"><?php echo ($ten["en_title"]); ?></p>
 							</li>
 							<li>
 								<span class="rLine"></span>
 							</li>
 							<li>
-								<p class="jobD">诗尼曼品牌创立于2003年，公司总部位于广东省广州市番禺区，是中国领军定制品牌之一，旗下拥有“诗尼曼全屋定制”、“诗尼曼门窗”、“诗尼曼橱柜”三大定制核心体系，涵盖衣柜、橱柜、门窗、沙发、餐桌椅、床等全品类家居产品，形成多元化、全方位的大家居生态格局。其品牌形象代言人为中国著名女演员、联合国妇女署亲善大使海清，是国内极具竞争力的一站式家装定制服务品牌。</p>
+								<p class="jobD"><?php echo ($ten["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
@@ -950,3 +950,4 @@
 <script type="text/javascript" src="__HOME__/js/ydui.flexible.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/server.js?v=1" ></script>
+<script type="text/javascript" src="__HOME__/js/video.min.js" ></script>

@@ -24,8 +24,49 @@ class CenterAction extends CommonAction
         $qp = M('articlecat')->where('parent_id=89')->order('sort_order asc')->select();
         $this->assign('qp',$qp);
         //全屋定制
-//        $quan = M('article')->where()->where()->order('sort_order asc')->limit(4)->select();
-        $this->assign('caid', 90);
+        $qid = $_GET['qid'];
+        $where = array();
+        if($qid){
+            $where['cat_id'] = array('eq',$qid);
+        }else{
+            $where['cat_id'] = array('eq',90);
+        }
+        $quan = M('article')->where($where)->order('sort_order asc')->limit(4)->select();
+        $quan1 = $quan[0];
+        unset($quan[0]);
+        $this->assign('quan1',$quan1);
+        $this->assign('quan',$quan);
+        $this->assign('caid', $qid?$qid:90);
+        //小户型拓展
+        $xid = $_GET['xid'];
+        $where1 = array();
+        if($xid){
+            $where1['cat_id'] = array('eq',$xid);
+        }else{
+            $where1['cat_id'] = array('eq',98);
+        }
+        $xhux = M('article')->where($where1)->order('sort_order asc')->limit(4)->select();
+        $xhux1 = $xhux[0];
+        unset($xhux[0]);
+        $this->assign('xhux1',$xhux1);
+        $this->assign('xhux',$xhux);
+        $this->assign('xcaid', $xid?$xid:98);
+        //奇葩空间利用
+        $pid = $_GET['pid'];
+        $where2 = array();
+        if($pid){
+            $where2['cat_id'] = array('eq',$pid);
+        }else{
+            $where2['cat_id'] = array('eq',106);
+        }
+        $qipa = M('article')->where($where2)->order('sort_order asc')->limit(4)->select();
+        $qipa1 = $qipa[0];
+        unset($qipa[0]);
+        $this->assign('qipa1',$qipa1);
+        $this->assign('qipa',$qipa);
+        $this->assign('pid', $pid?$pid:106);
+
+
         $this->assign('catid', 15);
         $this->display(':center');
     }
@@ -53,6 +94,141 @@ class CenterAction extends CommonAction
         }else{
             $this->error('网络错误！');
         }
+    }
+
+    public function center_four(){
+        //网站logo
+        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
+        $this->assign('logo', $logo1);
+        //banner
+        $cen = M('ads')->where('cat_id=38')->where('ads_id=204')->order('sort_order asc')->find();
+        $this->assign('cen',$cen);
+
+        import("ORG.Util.Page");       //载入分页类
+        //公司新闻
+        $article = M('article');
+        $count1 		= $article->where('cat_id=16')->count();
+        $page1 		= new Page($count1,10);
+        $showPage1 	= $page1->show();
+        $xinwen = $article->where('cat_id=16')->order('article_id desc')->limit($page1->firstRow.','.$page1->listRows)->select();
+        $this->assign("page1", $showPage1);
+        $this->assign("xinwen", $xinwen);
+        //媒体报道
+        $count2 		= $article->where('cat_id=17')->count();
+        $page2 		= new Page($count2,10);
+        $showPage2 	= $page2->show();
+        $meiti = $article->where('cat_id=17')->order('article_id desc')->limit($page2->firstRow.','.$page2->listRows)->select();
+        $this->assign("page2", $showPage2);
+        $this->assign("meiti", $meiti);
+        //视频中心
+        $cats = $this->subCat(56);
+        foreach($cats as $k=>$v){
+            $cid[] = $v['cat_id'];
+        }
+        $map['cat_id']  = array('in',$cid);
+        $video = $article->where($map)->order('article_id desc')->select();
+        foreach($video as $k=>$v){
+            $video[$k]['short'] = mb_substr($v['short'],0,30,'utf-8').'...';
+            $vo = strstr($v['video'],"src=");
+            $vv =  explode(' ',$vo);
+            $video[$k]['video'] = $vv[0];
+        }
+        $this->assign("video", $video);
+        //电子报刊
+        $baokan = $article->where('cat_id=28')->order('article_id desc')->select();
+        $this->assign("baokan", $baokan);
+
+        $this->assign('catid', 15);
+        $this->display(':center-four');
+    }
+//公司新闻
+    public function getDetails(){
+        $id = $_GET['id'];
+        $article = M('article');
+        $enart = $article->field('title,en_title,add_time,content,cat_id,article_id,sort_order,click_sum,tip')->where('is_open=1 and article_id='.$id)->find();
+        $map['article_id'] = array('lt',$enart['article_id']);
+        $map1['article_id'] = array('gt',$enart['article_id']);
+        $prev=$article
+            ->where("is_open=1 AND cat_id=16")
+            ->where($map)
+            ->order('article_id desc')
+            ->field('title,article_id,cat_id')
+            ->limit(1)
+            ->find();
+        $next=$article
+            ->where('is_open=1 AND cat_id=16')
+            ->where($map1)
+            ->order('article_id asc')
+            ->field('title,article_id,cat_id')
+            ->limit(1)
+            ->find();
+        $enart['add_time'] = date("Y-m-d",$enart['add_time']);
+        if(strstr($enart['tip'],",") != ''){
+            $tips = explode(',',$enart['tip']);
+        }else{
+            $tips[] = $enart['tip'];
+        }
+
+        /*更新文章点击数*/
+        $article->where("article_id=$id")->setInc('click_sum');
+        $data = [
+            'list'=>  $enart,
+            'prev'=>$prev,
+            'nextN'=>$next,
+            'tips'=>$tips
+        ];
+        echo json_encode($data);
+    }
+//媒体报道
+    public function getDetailmeiti(){
+        $id = $_GET['id'];
+        $article = M('article');
+        $enart = $article->field('title,en_title,add_time,content,cat_id,article_id,sort_order,click_sum,tip')->where('is_open=1 and article_id='.$id)->find();
+        $map['article_id'] = array('lt',$enart['article_id']);
+        $map1['article_id'] = array('gt',$enart['article_id']);
+        $prev=$article
+            ->where("is_open=1 AND cat_id=17")
+            ->where($map)
+            ->order('article_id desc')
+            ->field('title,article_id,cat_id')
+            ->limit(1)
+            ->find();
+        $next=$article
+            ->where('is_open=1 AND cat_id=17')
+            ->where($map1)
+            ->order('article_id asc')
+            ->field('title,article_id,cat_id')
+            ->limit(1)
+            ->find();
+        $enart['add_time'] = date("Y-m-d",$enart['add_time']);
+        if(strstr($enart['tip'],",") != ''){
+            $tips = explode(',',$enart['tip']);
+        }else{
+            $tips[] = $enart['tip'];
+        }
+
+        /*更新文章点击数*/
+        $article->where("article_id=$id")->setInc('click_sum');
+        $data = [
+            'list'=>  $enart,
+            'prev'=>$prev,
+            'nextN'=>$next,
+            'tips'=>$tips
+        ];
+        echo json_encode($data);
+    }
+
+    //电子报刊
+    public function getDetailBaokan(){
+        $id = $_GET['id'];
+        $article = M('article');
+        $enart = $article->where('is_open=1 and article_id='.$id)->find();
+        $enart['add_time'] = date("Y-m-d",$enart['add_time']);
+        if($enart['original_img'])  $enart['original_img']=unserialize($enart['original_img']);
+        /*更新文章点击数*/
+        $article->where("article_id=$id")->setInc('click_sum');
+        echo json_encode($enart);
     }
 
 

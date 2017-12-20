@@ -168,10 +168,15 @@ $(function(){
 	//弹窗
 //	popWindow("信息提醒","Information to remind","您的反馈意见已经发送成功。",'感谢您对诗尼曼的支持！');
 	//播放视频
-	$('.playv').click(function(){
-		$('.playVideo').hide();
-		$('.vImg').hide();
-		$('#tVideo')[0].play();
+	
+	//播放视频
+	var myPlayer1 = videojs('my-video1');
+	videojs("my-video1").ready(function(){
+		var myPlayer = this;
+		$('.playv').click(function(){
+			myPlayer.play();
+			$('.playVideo').hide();
+		});
 	});
 });
 var map = new AMap.Map('companyMap', {
@@ -257,7 +262,8 @@ function add_order() {
 		$.post(url, data, function(res) {
 			layer.closeAll();
 			if (res.status == 1) {
-				layer.msg(res.info);
+				//layer.msg(res.info);
+				popWindow("信息提醒","Information to remind","您的订单已经提交成功。",'感谢您对诗尼曼的支持！');
 				window.location.reload();
 			} else {
                 layer.msg(res.info,{time: 3000});
@@ -290,7 +296,8 @@ function add_complain(){
         $.post(url, data, function(res) {
             layer.closeAll();
             if (res.status == 1) {
-                layer.msg(res.info,{time: 3000});
+                //layer.msg(res.info,{time: 3000});
+				popWindow("信息提醒","Information to remind","您的投诉已经发送成功。",'感谢您对诗尼曼的支持！');
                 window.location.reload();
             } else {
                 layer.msg(res.info);
@@ -320,7 +327,8 @@ function add_feeback(){
         $.post(url, data, function(res) {
             layer.closeAll();
             if (res.status == 1) {
-                layer.msg(res.info,{time: 3000});
+                //layer.msg(res.info,{time: 3000});
+				popWindow("信息提醒","Information to remind","您的反馈意见已经发送成功。",'感谢您对诗尼曼的支持！');
                 window.location.reload();
             } else {
                 layer.msg(res.info);

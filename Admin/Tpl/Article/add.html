@@ -84,14 +84,8 @@ KindEditor.ready(function(K) {
                 <input type="radio" name="is_top" value="0" checked/>否
               </td>
             </tr>
-            <!-- <tr>
-              <td style="text-align:right;">是否显示：</td>
-              <td style="text-align:left;">
-                  <input type="radio" name="is_open" value="1" checked="checked"/>是&nbsp;&nbsp;
-                  <input type="radio" name="is_open" value="0"/>否
-              </td>
-            </tr>-->
-            <if condition="$cat_id eq 16 || $cat_id eq 17 || $cat_id eq 18">
+
+            <if condition="$cat_id eq 16 || $cat_id eq 17 || $cat_id eq 18 || $cat_id gt 89 && $cat_id lt 111">
             <tr>
               <td style="text-align:right;">新闻标签：</td>
               <td style="text-align:left;">
@@ -239,7 +233,7 @@ KindEditor.ready(function(K) {
                   <td style="text-align:left;"><include file='VideoUp:sliceup'/><input type="hidden" name="video" id="video" value=""></td>
                 </tr>
               </if>
-              <if condition="($cat_id eq 56) or ($cat_id eq 58) or ($cat_id eq 59) or ($cat_id eq 60)">
+              <if condition="($cat_id eq 56) or ($cat_id eq 58) or ($cat_id eq 59) or ($cat_id eq 60) or ($cat_id eq 75)">
                 <tr>
                   <td style="text-align:right;">视频上传：</td>
                   <td style="text-align:left;"><include file='VideoUp:sliceup'/></td>

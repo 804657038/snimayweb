@@ -35,7 +35,7 @@
 
             <div class="floatr navR">
                 <ul>
-                    <li <?php if($catid == 1): ?>class="nActive"<?php endif; ?> >
+                    <li <?php if($catid == 0): ?>class="nActive"<?php endif; ?> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
@@ -58,6 +58,23 @@
 <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
 <link rel="stylesheet" href="__HOME__/css/about.css" />
 <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+<style>
+	.pBottom ~ div p{
+		line-height: 30px;
+		color: #888888;
+		font-size: 12px;
+	}
+    .pinpai ~ p span{
+        line-height: 30px;
+        color: #888888;
+        font-size: 12px;
+    }
+    .pyuan + p>span{
+        line-height: 30px;
+        color: #888888;
+        font-size: 12px;
+    }
+</style>
 
 		<!--轮播图-->
 			<img src="__PIC__/<?php echo ($guanyu["original_img"]); ?>" />
@@ -142,7 +159,7 @@
 						</tr>
 						<tr>
 							<td colspan="3">
-								<div class="nomore">
+								<div class="nomored">
 									<img src="__HOME__/img/centers.png" />
 								</div>
 								<p>很抱歉，该地区暂时没有门店！</p>
@@ -156,16 +173,16 @@
 				<div class="proBox">
 					<div class="proImg floatl">
 						<div class="floatl">
-							<img src="__HOME__/img/pro1.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k0']['original_img']); ?>" />
 						</div>
 						<div class="floatl">
-							<img src="__HOME__/img/pro2.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k1']['original_img']); ?>" />
 						</div>
 					</div>
 					<div class="proContent floatl">
 						<ul>
 							<li>
-								<p class="jobNameM p1">公司简介</p>
+								<p class="jobNameM p1"><?php echo ($gs["title"]); ?></p>
 							</li>
 							<li>
 								<p class="jobNameS p1">Company profile</p>
@@ -174,26 +191,26 @@
 								<span class="rLine"></span>
 							</li>
 							<li>
-								<p class="pTop">诗尼曼品牌创立于2003年，公司总部位于广东省广州市番禺区，是中国领军定制品牌之一，旗下拥有“诗尼曼全屋定制”、“诗尼曼门窗”、“诗尼曼橱柜”三大定制核心体系，涵盖衣柜、橱柜、门窗、沙发、餐桌椅、床等全品类家居产品，形成多元化、全方位的大家居生态格局。其品牌形象代言人为中国著名女演员、联合国妇女署亲善大使海清，是国内极具竞争力的一站式家装定制服务品牌。</p>
+								<p class="pTop"><?php echo ($gs["short"]); ?></p>
 							</li>
 							<li>
-								<p class="pBottom">诗尼曼引进德国豪迈生产线，并在广东广州和湖北荆门布局千余亩智能生产基地，产能接轨国际。与此同时，全国品牌专卖店超千家，覆盖30余省、市、自治区，连续十余年保持超70%的盈利增长，创造行业黄金增长法则，2017年以42.58亿品牌价值入榜中国500最具价值品牌。</p>
+								<p class="pBottom"><?php echo ($gs["content"]); ?></p>
 							</li>
 						</ul>
 					</div>
 					<div class="clearl"></div>
 					<div class="imgSmallBox">
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro3.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k2']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro4.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k3']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro5.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k4']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro6.jpg" />
+							<img src="__PIC__/<?php echo ($gsImg['k5']['original_img']); ?>" />
 						</div>
 						<div class="clearl"></div>
 					</div>
@@ -202,7 +219,7 @@
 					<div class="proContent floatl">
 						<ul>
 							<li>
-								<p class="jobNameM p1">品牌使命</p>
+								<p class="jobNameM p1"><?php echo ($pinpai["title"]); ?></p>
 							</li>
 							<li>
 								<p class="jobNameS p1">Corporate Mission</p>
@@ -211,34 +228,34 @@
 								<span class="rLine"></span>
 							</li>
 							<li>
-								<p class="pTop">诗尼曼家居始终肩负着为现代家庭创造国际化、年轻化、时尚化、个性化的绿色定制生活为使命，秉承“人无我有、人有我变”的创新原理，推出满分空间定制原则，从八大空间系统与八大生活方式的多维视角，打破冰冷的为屋而定制，用科学的方法把空间交给消费者，让消费者享受国际化的家居体验。</p>
+								<p class="pTop"><?php echo ($pinpai["short"]); ?></p>
 							</li>
 							<li>
-								<p class="pBottom">诗尼曼优选大自然农作物秸秆为原材料的禾香板，关爱家有老人、小孩、孕妇、新婚夫妇的“四类家庭”，引领时尚家居，打造健康生活。</p>
+								<p class="pBottom pinpai"><?php echo ($pinpai["content"]); ?></p>
 							</li>
 						</ul>
 					</div>
 					<div class="proImg floatl">
 						<div class="floatl">
-							<img src="__HOME__/img/pro7.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k0']['original_img']); ?>" />
 						</div>
 						<div class="floatl">
-							<img src="__HOME__/img/pro8.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k1']['original_img']); ?>" />
 						</div>
 					</div>
 					<div class="clearl"></div>
 					<div class="imgSmallBox">
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro9.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k2']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro10.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k3']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro11.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k4']['original_img']); ?>" />
 						</div>
 						<div class="imgSmall floatl">
-							<img src="__HOME__/img/pro12.jpg" />
+							<img src="__PIC__/<?php echo ($pinpaiImg['k5']['original_img']); ?>" />
 						</div>
 						<div class="clearl"></div>
 					</div>
@@ -247,7 +264,7 @@
 					<div class="bigTitle">
 						<ul>
 							<li>
-								<p class="bt">品牌愿景</p>
+								<p class="bt"><?php echo ($yuanj["title"]); ?></p>
 							</li>
 							<li>
 								<p class="st">Brand Vision</p>
@@ -259,26 +276,26 @@
 					</div>
 					<div class="hopeBox">
 						<div class="hopeTitle">
-							<p>“选择正确的方向，路才越走越宽”，在“大家居·大电商”发展战略的指导下，诗尼曼高速发展，并先后获得红塔创新、红星美凯龙、居然之家资本大鳄的战略投资，强强联手共同推进中国大家居事业的发展蓝图，为消费者提供真正的一站式、一体化、个性化的“绿色高端定制”服务，致力成为“中国绿色家居模范品牌”。</p>
+							<p class="pyuan"><?php echo ($yuanj["content"]); ?></p>
 						</div>
 						<div class="hBox">
 							<div class="hImg floatl">
 								<div class="hImgBox">
-									<img src="__HOME__/img/hope1.jpg" />
+									<img src="__PIC__/<?php echo ($yuanImg['k0']['original_img']); ?>" />
 								</div>
-								<p class="p1">红塔创新与诗尼曼家具战略合作签约仪式</p>
+								<p class="p1"><?php echo ($yuanImg['k0']['title']); ?></p>
 							</div>
 							<div class="hImg floatl">
 								<div class="hImgBox">
-									<img src="__HOME__/img/hope2.jpg" />
+									<img src="__PIC__/<?php echo ($yuanImg['k1']['original_img']); ?>" />
 								</div>
-								<p class="p1">红塔创新与诗尼曼家具战略合作签约仪式</p>
+								<p class="p1"><?php echo ($yuanImg['k1']['title']); ?></p>
 							</div>
 							<div class="hImg floatl">
 								<div class="hImgBox">
-									<img src="__HOME__/img/hope3.jpg" />
+									<img src="__PIC__/<?php echo ($yuanImg['k2']['original_img']); ?>" />
 								</div>
-								<p class="p1">居然之家与诗尼曼家具战略合作签约仪式</p>
+								<p class="p1"><?php echo ($yuanImg['k2']['title']); ?></p>
 							</div>
 							<div class="clearl"></div>
 						</div>
@@ -291,10 +308,10 @@
 					<div class="hTBox">
 						<ul>
 							<li>
-								<p class="jobNameM p1">公司简介</p>
+								<p class="jobNameM p1"><?php echo ($rongy["title"]); ?></p>
 							</li>
 							<li>
-								<p class="jobNameS p1">Company profile</p>
+								<p class="jobNameS p1">Brand honor</p>
 							</li>
 							<li>
 								<span class="rLine"></span>
@@ -302,10 +319,10 @@
 						</ul>
 					</div>
 					<div class="honorIntro">
-						<p>荣誉源自实力，用心铸就辉煌，诗尼曼深耕定制14年，深受市场肯定，先后荣获“全国工商联定制家居专委会执行会长单位”、“大雁奖之中国定制家居领军品牌”、“中国门窗行业金奖”、“定制家居领军品牌+低碳环保示范品牌”、“高新技术企业”、“企业信用评价AAA级信用企业”、“广东省著名商标”、“广州市著名商标”、“番禺高成长企业三十强”、“番禺区先进制造业五十强企业”等多项荣誉。</p>
+						<p><?php echo ($rongy["short"]); ?></p>
 					</div>
 					<div class="honorImg">
-						<img src="__HOME__/img/certificate.png" />
+						<img src="__PIC__/<?php echo ($rongy["original_img"]); ?>" />
 					</div>
 				</div>
 			</div>

@@ -38,7 +38,7 @@ function popWindow(titleCH,titleE,text1,text2){
 	html += '<p class="bt">'+titleCH+'</p></li><li><p class="st">'+titleE+'</p></li><li><span></span>';
 	html += '</li></ul></div><div class="popTitle"><ul><li><p>'+text1+'。</p><p>'+text2+'</p></li>';
 	html += '<li><p class="popTips">弹窗将在<span>3</span>秒钟后自动关闭</p></li>'
-	html += '</ul></div><div class="poPclose"><a href="###"><img src="img/redCrocss.png"/></a></div></div></div></div>';
+	html += '</ul></div><div class="poPclose"><a href="###"><img src="'+imgLink+'img/redCrocss.png"/></a></div></div></div></div>';
 
 	$('body').append(html);
 	var time = 2;

@@ -28,6 +28,9 @@ class ServiceAction extends CommonAction
             $goodImgArr['k'.$key] = $val;
         }
         $this->assign('goodImgArr',$goodImgArr);
+        //10环
+        $ten = M('article')->where('cat_id=75')->find();
+        $this->assign('ten',$ten);
         //banner
         $fuwu = M('ads')->where('ads_id=163')->find();
         $this->assign('fuwu',$fuwu);

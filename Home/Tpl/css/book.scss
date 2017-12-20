@@ -1,0 +1,165 @@
+$red:#a51e32;
+$black:#333333;
+header{
+    position: absolute;
+}
+header nav .navR ul li a{
+    color: $black;
+}
+body{
+    background-color: white;
+}
+#banner{
+    width: 100%;
+    position: relative;
+    img{
+        width: 100%;
+    }
+    .step{
+        width: 1200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -150px;
+        margin-left: -600px;
+        .stepBox{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 330px;
+            
+            .stepChild{
+                height: 100px;
+                margin-bottom: 10px;
+                background-color: white;
+                -moz-transition: background-color 0.5s;
+                -webkit-transition: background-color 0.5s;
+                -ms-transition: background-color 0.5s;
+                transition: background-color 0.5s;
+                position: relative;
+                .spl{
+                    width: 66px;
+                    height: 66px;
+                    position: absolute;
+                    left: 24px;
+                    top: 17px;
+                    background: url(../img/imgs.png) no-repeat;
+                    background-color: #eeeeee;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    -moz-transition: background 0.5s;
+                    -webkit-transition: background 0.5s;
+                    -ms-transition: background 0.5s;
+                    transition: background 0.5s;
+                }
+                .spm{
+                    position: absolute;
+                    width: 200px;
+                    height: 64px;
+                    left: 103px;
+                    top:17px;
+                    z-index: 2;
+                    .spm2{
+                        font-size: 12px;
+                        color: #888888;
+                        line-height: 24px;
+                        -moz-transition: color 0.5s;
+                        -webkit-transition: color 0.5s;
+                        -ms-transition: color 0.5s;
+                        transition: color 0.5s;
+                    }
+                    .spm1{
+                        font-size: 14px;
+                        color: $black;
+                        line-height: 24px;
+                        margin-top: 8px;
+                        -moz-transition: color 0.5s;
+                        -webkit-transition: color 0.5s;
+                        -ms-transition: color 0.5s;
+                        transition: color 0.5s;
+                    }
+                }
+                .spr{
+                    position: absolute;
+                    top: 17px;
+                    line-height: 66px;
+                    right: 29px;
+                    font-family: arial;
+                    font-size: 66px;
+                    font-weight: bold;
+                    color: #F8F8F8;
+                    -moz-transition: color 0.5s;
+                    -webkit-transition: color 0.5s;
+                    -ms-transition: color 0.5s;
+                    transition: color 0.5s;
+                }
+            }
+            .scActive{
+                background-color: $red;
+                .spl{
+                    background-color: white;
+                }
+                .spm{
+                    .spm1{
+                    color: white;
+                    }
+                    .spm2{
+                        color: white;
+                    }
+                }
+                .spr{
+                    color: #aa3444;
+                }
+            }
+            .scActive2{
+                .spl{
+                    background-position-y:-132px;
+                }    
+            }
+            .scActive3{
+                .spl{
+                    background-position-y:-264px;
+                }
+            }
+        }
+    }
+}
+#book{
+    width: 1200px;
+    padding: 80px 0 40px;
+    margin: 0 auto;
+    background: url(../img/map.png) no-repeat;
+    background-size: 100%;
+    .bookTop{
+        width: 100%;
+        .btBox{
+            width: 196px;
+            height: 180px;
+            border: 1px solid #EEEEEE;
+            margin-right: 2px;
+            .btImg{
+                
+                width: 52px;
+                height: 50px;
+                margin: 0 auto;
+                margin-top: 38px;
+                background: url(../img/sv1.png) no-repeat center center;
+            }
+            .bpt1{
+                color: #888888;
+                font-size: 14px;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .bpt2{
+                color: $red;
+                font-size: 12px;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+        .btBox:last-child{
+            margin-right: 0px;
+        }
+    }
+}

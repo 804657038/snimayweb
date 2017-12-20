@@ -49,6 +49,13 @@ $config_arr2 = array(
       'getCity'=>'About/getCity',
       'getShop'=>'About/getShop',
       'add_order'=>'Center/add_order',
+      'getDetails'=>'Center/getDetails',
+      'getDetailmeiti'=>'Center/getDetailmeiti',
+      'getDetailBaokan'=>'Center/getDetailBaokan',
+      'getGy'=>'Social/getGy',
+
+
+
   ),
   'LUYOU'           => array(
     'join.html'     => 'About/investment',

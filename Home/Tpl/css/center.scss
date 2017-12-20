@@ -1,6 +1,5 @@
 $red:#a51e32;
 $black:#333333;
-//轮播图
 body{
     background-color: white;
 }
@@ -174,68 +173,69 @@ header{
     margin: 0 auto;
     width: 1200px;   
     background-color: white;
-    .sNav{
+    .sNav {
         padding: 80px 0 20px 0;
         border-bottom: 1px solid #c8c8c8;
-        div:nth-child(1){
-            p{
+        div:nth-child(1) {
+            p {
                 font-size: 20px;
                 line-height: 30px;
-                color: #333333;
+                color: $black;
                 font-weight: bold;
             }
         }
-        div:nth-child(2){
-            ul li:last-child{
-                a{
+        div:nth-child(2) {
+            ul li:last-child {
+                a {
                     border-right: 1px solid transparent;
                 }
             }
-            ul li{
+            ul li {
                 padding: 9px 0px;
                 float: left;
-                a{
+                a {
                     padding: 0 20px;
                     border-right: 1px solid #c8c8c8;
+                    color: $black;
                 }
             }
-            ul li:hover{
-                    background-color: #a51e32;
+            ul li:hover {
+                background-color: #a51e32;
+                a {
+                    border-right: 1px solid $red!important;
                     color: white;
-                    a{
-                        border-right: 1px solid $red!important;
-                    }
+                }
             }
-            ul li:nth-child(1):hover{
-                    background-color: #a51e32;
+            ul li:nth-child(1):hover {
+                background-color: #a51e32;
+                a {
+                    border-right: 1px solid $red!important;
+                    border-left: 1px solid $red!important;
                     color: white;
-                    a{
-                        border-right: 1px solid $red!important;
-                        border-left: 1px solid $red!important;
-                    }
+                }
             }
-            ul{
-                .lsd{
+            ul {
+                .lsd {
                     background-color: #a51e32;
-                    color: white;
-                    a{
+                    a {
                         border-right: 1px solid $red!important;
+                        color: white;
                     }
                 }
-                .lsdn{
+                .lsdn {
                     background-color: #a51e32;
-                    color: white;
-                    a{
+                    a {
                         border-right: 1px solid $red!important;
+                        color: white;
                     }
                 }
-                .lsdp{
-                    a{
+                .lsdp {
+                    a {
                         border-right: 1px solid transparent!important;
                     }
                 }
-                .lsdpn{
-                    a{
+                .lsdpn {
+                    a {
                         border-right: 1px solid transparent!important;
                     }
                 }
@@ -390,14 +390,14 @@ header{
                            span:nth-child(1){                              
                                left: 0px;
                                top: 9px;
-                               height: 1.1px;
+                               height: 1px;
                                width: 19px;
                            }
                            span:nth-child(2){
                                left: 9px;
                                top: 0px;
                                height: 19px;
-                               width: 1.1px;
+                               width: 1px;
                            }
                        }
                    }

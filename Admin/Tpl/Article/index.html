@@ -80,7 +80,7 @@ function delArticle(id) {
 								<td>{$vo.sort_order}</td>
 								<!-- <td><if condition="$vo['is_open']==1"><img src="__PUBLIC__/Admin/Img/yes.gif"/><else/><img src="__PUBLIC__/Admin/Img/no.gif"/></if></td> -->
 								<td><if condition="$vo['is_recommend']==1"><img src="__PUBLIC__/Admin/Img/yes.gif"/><else/><img src="__PUBLIC__/Admin/Img/no.gif"/></if></td>
-								<td>{$vo.add_time|date='Y-m-d H:i:s',###}</td>
+								<td>{$vo.add_time|date='Y-m-d',###}</td>
 								<td>
 									<span>
                                         <php>

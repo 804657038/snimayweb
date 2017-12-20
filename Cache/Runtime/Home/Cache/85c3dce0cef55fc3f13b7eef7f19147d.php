@@ -35,7 +35,7 @@
 
             <div class="floatr navR">
                 <ul>
-                    <li <?php if($catid == 1): ?>class="nActive"<?php endif; ?> >
+                    <li <?php if($catid == 0): ?>class="nActive"<?php endif; ?> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >

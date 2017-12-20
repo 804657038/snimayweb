@@ -169,7 +169,7 @@ $black:#333333;
                 content: "";
                 position: absolute;
                 top: 0;
-                left: 0;
+                left: -0.5px;
                 width: 0%;
                 height: 100%;
                 background-color: $red;
@@ -185,7 +185,7 @@ $black:#333333;
                 border-color: $red;
             }
             button:hover::after{
-                width: 100%;
+                width: 100px;
             }
         }
     }

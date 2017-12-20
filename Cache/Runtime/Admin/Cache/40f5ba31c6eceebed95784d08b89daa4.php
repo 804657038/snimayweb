@@ -1,0 +1,198 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>内容管理=>报刊管理</title>
+    <link href="__PUBLIC__/Admin/Css/Style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/Admin/lhgdialog/skins/default.css" rel="stylesheet" />
+    <script src="__PUBLIC__/Admin/Js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jquery.treeview.js"></script>
+    <script src="__PUBLIC__/Admin/lhgdialog/lhgdialog.min.js"></script>
+    <script src="__PUBLIC__/Admin/Js/jQueryPlugin.js"></script>
+    <script src="__PUBLIC__/Admin/Js/JavaScript.js"></script>
+	<script src="__PUBLIC__/Admin/kindeditor/kindeditor.js"></script>
+	<script src="__PUBLIC__/Admin/Js/My97DatePicker/WdatePicker.js"></script>
+
+</head>
+<body>
+<div class="column_Box mainAutoHeight">
+	<div class="tab">
+		<ul>
+			<li class="current"><a href="javascript:">文章属性</a></li>
+		</ul>
+	</div>
+	<div class="column_Box mainAutoHeight wrapBox">
+        <div class="body">
+			<form method="post" action="<?php echo U('Article/update_press');?>" id="submitForm" enctype="multipart/form-data">
+			<input type="hidden" name="article_id" value="<?php echo ($press['article_id']); ?>">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="text-align:right;">报刊名称：</td>
+							<td style="text-align:left;"><input type="text" class="txt" name="title" value="<?php echo ($press['title']); ?>" size='60' /><em>*</em></td>
+						</tr>
+					
+						<tr>
+							<td style="text-align:right;">文章分类：</td>
+							<td style="text-align:left;">
+								<select name="cat_id" onchange="checkcat(this);">
+									<option value="0">请选择...</option>
+									<?php echo ($cat_select); ?>
+								</select>
+							<em>*</em>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right;">排序：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="<?php echo ($press['sort_order']); ?>" name="sort_order"  /><em>*</em> </td>
+						</tr>
+						<!-- <tr>
+							<td style="text-align:right;">是否显示：</td>
+							<td style="text-align:left;">
+						      <input type="radio" name="is_open" value="1" checked="checked"/>是&nbsp;&nbsp;
+						      <input type="radio" name="is_open" value="0"/>否
+							</td>
+						</tr>-->
+						<tr>
+								<td style="text-align:right;">添加时间：</td>
+								<td style="text-align:left;">
+									<input type="text" name='add_time' value="<?php echo (date('Y-m-d',$press['add_time'])); ?>" onclick="WdatePicker();">&nbsp;<font color='red'>留空为当前时间</font>
+								</td>
+						</tr>
+							<tr>
+								<td style="text-align:right;">封面预览：</td>
+								<td style="text-align:left;">
+								<img id="thumb_img" src="__ROOT__/<?php echo ($press["original_img1"]); ?>" class="thumb" width="200">
+								<input type="hidden" name="firstimg" value="<?php echo ($press["original_img1"]); ?>">
+								<input type="file" name="tmp" id="firstimg" value="" style="display:none;" />
+								<font color='red'>*封面图片尺寸推荐：320x200 </font></br>
+								<font color='red'>*点击图片进行修改</font>
+								</td>
+							</tr>
+							
+							<tr>
+								<td style="text-align:right;">报刊图片：</td>
+								<td style="text-align:left;">
+								<a href="javascript:;" id="add_img"><input type="button" value="添加"></a>
+									<div id="press_img">
+										<?php $num=count($press_img); $i=$num; $kk=0; ?>	
+										<?php if(is_array($press_img)): foreach($press_img as $k=>$val): ?><div class='img_<?php echo ($kk); ?>'>
+											<input type="hidden" name="hidden[]" value="<?php echo ($val); ?>">
+												<img src="__ROOT__/<?php echo ($val["url"]); ?>" class="thumb_<?php echo ($kk); ?>"  width="100" onclick="add_imgs(<?php echo ($kk); ?>)">
+												<span>排序(数字小的在前面)：</span>
+												<input type="number" name="press[<?php echo ($kk); ?>][yeshu]" value="<?php echo ($val["yeshu"]); ?>">
+												&nbsp;&nbsp;
+												<span>日期(不选默认为添加日期)：</span>
+												<input type="text" name="press[<?php echo ($kk); ?>][addtime]" value="<?php echo ($val["addtime"]); ?>" onclick="WdatePicker();" placeholder="请选择时间...">
+												<input type="hidden" name="press[<?php echo ($kk); ?>][url]" value="<?php echo ($val["url"]); ?>">
+												<input type='file' name='photo' date-id='<?php echo ($kk); ?>' class='photo' id="photo_<?php echo ($kk); ?>" style="display:none;" >
+												<a href='JavaScript:;' onclick='del(<?php echo ($kk); ?>)'>移除</a>
+											</div>
+											<?php $kk++; endforeach; endif; ?>
+									</div>
+								</td>
+							</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td style="text-align:left;">
+								<input type="submit" name="submit" value="提交">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+        </div>
+    </div>
+</div>
+ <script src="__PUBLIC__/Admin/Js/upload.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		var i=<?php echo ($i); ?>;
+		$('#add_img').click(function(){
+			var res="<div class='img_"+i+"'>";
+			res +='<img src="__PUBLIC__/Admin/Img/add_img.png" class="thumb_'+i+'"width="100" onclick="add_imgs('+i+')">';
+			res +="<input type='file' name='photo' date-id='"+i+"' class='photo' id='photo_"+i+"' style='display:none;'>";
+			res +="<span>排序(数字小的在前面)：</span> ";
+			res +="<input type='number' name='press["+i+"][yeshu]' value='0'>";
+			res +="<span>日期(不选默认为添加日期)：</span>";
+			res +="<span></span>";
+			res +="<input type='text' name='press["+i+"][addtime]' value='<?php echo (date('Y-m-d',$press['add_time'])); ?>' onclick='WdatePicker();' placeholder='请选择时间...'>";
+			res +="<input type='hidden' name='press["+i+"][url]' />"
+			res +="<a href='JavaScript:;' onclick='del("+i+")'>移除</a>";
+			res +="</div>";
+			$('#press_img').append(res);
+			i++;
+		})
+
+		$('.thumb').on('click',function(){
+			$('#firstimg').click();
+		})	
+
+		$('#firstimg').on('change',function(){
+			ajaxFileUpload('firstimg','firstimg');
+		
+		})
+
+		$('body').on('change','.photo',function(){
+				var ids=$(this).attr('date-id');
+				ajaxFileUpload('photo_'+ids,'press['+ids+'][url]');
+
+			
+		})
+
+
+	})
+	  function ajaxFileUpload(obj,clas){
+            var elementid = obj;
+            $.ajaxFileUpload({
+                url:"<?php echo U('Article/upload_img');?>",
+                secureuri:false,
+                fileElementId:elementid,
+                dataType: 'JSON',
+                success: function(data){
+				var start = data.indexOf(">");  
+			             if(start != -1) {  
+			               var end = data.indexOf("<", start + 1);  
+			               if(end != -1) {  
+			                 data = data.substring(start + 1, end);  
+			                }  
+			             }  
+					data=data.replace(/\"/g, "").replace(/[\\]/g,'');
+                    if(data){
+                        var timestamp = new Date().getTime();
+                        $("[name='"+clas+"']").val(data);
+                        $('#'+elementid).parent().find("img").attr("src",'__ROOT__/'+data);
+
+                    }
+					$('#'+obj).change(function(){
+                        ajaxFileUpload(obj,clas);
+                    });
+                },
+				error: function(data,status,e){
+                    //这里
+                    alert(e);
+                    $('#'+obj).change(function(){
+                        ajaxFileUpload(obj,clas);
+                    });
+                }
+       
+            });
+
+            return false;
+        }
+		function add_imgs(ids){
+			$('#photo_'+ids).click();
+		}
+		
+		function del(i){
+			$('.img_'+i).remove();
+		}
+
+	$(".del_img").on("click",function(e){
+		e.preventDefault();
+		$(this).parent().remove();
+	})
+</script>
+</body>
+</html>

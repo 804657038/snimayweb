@@ -80,6 +80,8 @@ class ArticleAction extends CommonAction {
 			//名师答疑
 			$this->display('student_add');exit;
 		}*/
+        $catids = [90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110];
+        $this->assign('catids', $catids);
         $cat_en_name = M('articlecat')->where("cat_id=".$cat_id)->getField('cat_en_name');
         if($cat_en_name=="press"){
             $tpm="add_press";
@@ -165,9 +167,12 @@ class ArticleAction extends CommonAction {
     }
 
 		if($_FILES['article_img']['error']===0){
-			$originalPath='Uploads/article/original_img/'.time().'.'.pathinfo($_FILES['article_img']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['article_img']['tmp_name'], $originalPath);
-			$data['original_img']  = $originalPath;
+            $originalPath='Uploads/Article/';
+            $upfile = upload(array('jpg', 'gif', 'png', 'jpeg'),$originalPath,'time',false);
+            $url  = $upfile[0]['savepath'].$upfile[0]['savename'];
+//			$originalPath='Uploads/article/original_img/'.time().'.'.pathinfo($_FILES['article_img']['name'],PATHINFO_EXTENSION);
+//			move_uploaded_file($_FILES['article_img']['tmp_name'], $originalPath);
+			$data['original_img']  = $url;
 		}
 
 		if($_FILES['article_img1']['error']===0){
@@ -250,9 +255,12 @@ class ArticleAction extends CommonAction {
 		if(!empty($_FILES['article_img']['tmp_name'])){
 			@unlink($oldRow['thumb_img']);
 			@unlink($oldRow['original_img']);
-			$originalPath='Uploads/article/original_img/'.time().'.'.pathinfo($_FILES['article_img']['name'],PATHINFO_EXTENSION);
-			move_uploaded_file($_FILES['article_img']['tmp_name'], $originalPath);
-			$data['original_img']  = $originalPath;
+            $originalPath='Uploads/Article/';
+            $upfile = upload(array('jpg', 'gif', 'png', 'jpeg'),$originalPath,'time',false);
+            $url  = $upfile[0]['savepath'].$upfile[0]['savename'];
+//			$originalPath='Uploads/article/original_img/'.time().'.'.pathinfo($_FILES['article_img']['name'],PATHINFO_EXTENSION);
+//			move_uploaded_file($_FILES['article_img']['tmp_name'], $originalPath);
+			$data['original_img']  = $url;
 		}
 
 		if(!empty($_FILES['article_img1']['tmp_name'])){

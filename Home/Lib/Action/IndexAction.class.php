@@ -19,7 +19,7 @@ class IndexAction extends CommonAction {
             $zxArr['k'.$k] = $v;
         }
         $this->assign('zxArr',$zxArr);
-        $this->assign('catid',1);
+        $this->assign('catid',0);
         $this->display(':index');
     }
     

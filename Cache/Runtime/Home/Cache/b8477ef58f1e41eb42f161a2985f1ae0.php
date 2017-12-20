@@ -35,7 +35,7 @@
 
             <div class="floatr navR">
                 <ul>
-                    <li <?php if($catid == 1): ?>class="nActive"<?php endif; ?> >
+                    <li <?php if($catid == 0): ?>class="nActive"<?php endif; ?> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
@@ -54,7 +54,10 @@
         </nav>
     </header>
 <link rel="stylesheet" href="__HOME__/css/social.css" />
-
+<script type="text/javascript">
+    var year = <?php echo ($year); ?>;
+    var count = <?php echo ($count); ?>;
+</script>
 		<!--轮播图-->
 			<img src="__PIC__/<?php echo ($guanyu["original_img"]); ?>"/>
 		</div>
@@ -100,19 +103,19 @@
 			</div>
 			<div class="loveBox">
 				<div class="loveLeft floatl">
-					<img src="__HOME__/img/child.jpg" />
+					<img id="gyPic" src="__PIC__/<?php echo ($gongyi["original_img"]); ?>" style="width: 600px;height: 450px;"/>
 				</div>
 				<div class="loveRight floatl">
 					<ul>
 						<li>
-							<p class="lTitle">助力“小水滴新生”，积小爱成大善</p>
+							<p class="lTitle" id="gyT"><?php echo ($gongyi["title"]); ?></p>
 						</li>
 						<li>
-							<p class="date">2016-2017</p>
+							<p class="date" id="gyD"><?php echo ($gongyi["description"]); ?></p>
 							<div class="line"></div>
 						</li>
 						<li>
-							<p>小水滴新生专项基金” 是由China Little Flower发起，在中国华侨公益基金会注册的专项基金，专为患病的孤儿及贫困家庭患儿提供医疗救助、专业护理、术后寄养、监护人住宿及回访的全面服务。作为社会的爱心主体之一，诗尼曼与品牌形象代言人海清、媒体、公益机构携手，于2016年-2017年连续两年资助小水滴项目，让更多的患病孤儿及贫困家庭的患儿们得到更好的医疗救助。</p>
+							<p id="gyS"><?php echo ($gongyi["short"]); ?></p>
 						</li>
 					</ul>
 				</div>
@@ -134,102 +137,24 @@
 				</ul>
 			</div>
 			<div class="activityBox">
-				<div class="activityChild floatl">
+                <?php if(is_array($cishan)): foreach($cishan as $key=>$vc): ?><div class="activityChild floatl">
 					<ul>
 						<li>
 							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
+								<img src="__PIC__/<?php echo ($vc["original_img"]); ?>" style="width: 340px;height: 260px;" />
+								<p><?php echo ($vc["description"]); ?></p>
 							</div>
 						</li>
 						<li>
-							<p class="aTitle p1">助力“小水滴新生”，积小爱成大善</p>
+							<p class="aTitle p1"><?php echo ($vc["title"]); ?></p>
 						</li>
 						<li>
-							<p class="aContent p2">“小水滴新生专项基金” 是由China Little Flower发起，在中国华侨公益基金会注册......</p>
+                            <?php $content = mb_substr($vc['short'],0,60,'utf-8').'...'; ?>
+							<p class="aContent p2"><?php echo ($content); ?></p>
 						</li>
 					</ul>
-				</div>
-				<div class="activityChild floatl">
-					<ul>
-						<li>
-							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
-							</div>
-						</li>
-						<li>
-							<p class="aTitle p1">关爱贫困人口 助力脱贫攻坚</p>
-						</li>
-						<li>
-							<p class="aContent p2">作为广东省标杆企业，诗尼曼有责任和义务积极投身广东新时期脱贫攻坚事业......</p>
-						</li>
-					</ul>
-				</div>
-				<div class="activityChild floatl">
-					<ul>
-						<li>
-							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
-							</div>
-						</li>
-						<li>
-							<p class="aTitle p1">“国民媳妇衣柜日”,给孩子一个健康的家</p>
-						</li>
-						<li>
-							<p class="aContent p2">“国民媳妇日”是诗尼曼首创健康居家的代言日，活动秉承“相知相伴诗尼曼......</p>
-						</li>
-					</ul>
-				</div>
-				<div class="activityChild floatl">
-					<ul>
-						<li>
-							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
-							</div>
-						</li>
-						<li>
-							<p class="aTitle p1">dream爱梦想，成立梦想读书站</p>
-						</li>
-						<li>
-							<p class="aContent p2">为让每个爱读书、有理想的孩子有书可读，广东衣柜行业协会联合狮子会启动......</p>
-						</li>
-					</ul>
-				</div>
-				<div class="activityChild floatl">
-					<ul>
-						<li>
-							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
-							</div>
-						</li>
-						<li>
-							<p class="aTitle p1">“阳光天使，点燃梦想”慈善拍卖</p>
-						</li>
-						<li>
-							<p class="aContent p2">2013年8月19日广东狮子会阳光天使服务队在广州珠江新城四季酒店举办以......</p>
-						</li>
-					</ul>
-				</div>
-				<div class="activityChild floatl">
-					<ul>
-						<li>
-							<div class="aImg">
-								<img src="__HOME__/img/activityImg.jpg" />
-								<p>2016-2017</p>
-							</div>
-						</li>
-						<li>
-							<p class="aTitle p1">光头行动，用爱照亮明天</p>
-						</li>
-						<li>
-							<p class="aContent p2">白血病是多少人的噩梦，它不仅摧残患者的身体，更使人在精神上承受无尽......</p>
-						</li>
-					</ul>
-				</div>
+				</div><?php endforeach; endif; ?>
+
 				<div class="clearl"></div>
 			</div>
 		</section>

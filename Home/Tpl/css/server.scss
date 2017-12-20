@@ -8,8 +8,6 @@ $black:#333333;
         width: 100%;
     }
 }
-
-//服务
 #server{
     width: 100%;
     background-color: #EEEEEE;
@@ -90,7 +88,6 @@ $black:#333333;
             margin: 0 auto;
             
         }
-        //单选
         .radioBox{
             position: absolute;
             top: 0;
@@ -560,7 +557,7 @@ $black:#333333;
         }
     }
 }
-//10环服务
+
 #tenServer{
     width: 100%;
     margin: 0 auto;
@@ -586,8 +583,8 @@ $black:#333333;
             cursor: pointer;
             cursor: -ms-pointer;
             video{
-                width: 600px;
-                height: 400px;
+                width: 100%;
+                height: 100%;
                 border: 0;
                 
             }
@@ -743,4 +740,15 @@ $black:#333333;
         }
     }
     
+}
+.video-js .vjs-big-play-button{
+    display: none!important;   
+}
+.vjs-poster{
+    left: auto;
+}
+.video-js.vjs-fullscreen {
+    width: 100%!important;
+    height: 90%!important;
+    padding-top: 0!important;
 }
