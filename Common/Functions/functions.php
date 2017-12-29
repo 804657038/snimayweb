@@ -684,4 +684,5 @@ function openWindow($msg,$url=''){
     echo $html;
 }
 
+
 ?>

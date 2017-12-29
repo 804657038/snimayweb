@@ -1,0 +1,253 @@
+header {
+  position: absolute; }
+
+#banner {
+  min-width: 1200px; }
+  #banner img {
+    width: 100%; }
+
+#choiceBox {
+  width: 1200px;
+  margin: 0 auto; }
+  #choiceBox .cType {
+    width: 1200px;
+    margin-top: 3px; }
+    #choiceBox .cType .typeBox {
+      width: 1200px;
+      position: relative;
+      border-bottom: 1px solid transparent; }
+      #choiceBox .cType .typeBox .tTitle {
+        position: absolute;
+        width: 140px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #eeeeee;
+        color: #333333; }
+        #choiceBox .cType .typeBox .tTitle p {
+          text-align: center;
+          width: 100%;
+          font-size: 16px;
+          line-height: 16px;
+          position: absolute;
+          top: 50%;
+          margin-top: -8px; }
+      #choiceBox .cType .typeBox .tBox {
+        min-height: 44px;
+        width: 1050px;
+        margin-left: 150px;
+        padding-top: 7px; }
+        #choiceBox .cType .typeBox .tBox .hasChoice {
+          float: left;
+          padding: 0 20px;
+          height: 34px;
+          margin: 0px 7px 7px 7px;
+          border: 1px solid #a51e32;
+          position: relative; }
+          #choiceBox .cType .typeBox .tBox .hasChoice p {
+            line-height: 34px;
+            color: #333333;
+            font-size: 14px; }
+          #choiceBox .cType .typeBox .tBox .hasChoice a {
+            overflow: hidden;
+            display: block;
+            width: 13px;
+            height: 13px;
+            background: url(../img/closeRed.png) no-repeat center center;
+            background-size: 100% 100%;
+            position: absolute;
+            top: -6.5px;
+            right: -6.5px; }
+        #choiceBox .cType .typeBox .tBox .clBox {
+          border-bottom: 1px solid #EEEEEE; }
+        #choiceBox .cType .typeBox .tBox .clActive {
+          background-color: #a51e32 !important;
+          color: white !important; }
+        #choiceBox .cType .typeBox .tBox .choiceList {
+          display: block;
+          float: left;
+          width: 140px;
+          line-height: 36px;
+          height: 36px;
+          margin: 0px 18px 6px 17px;
+          text-align: center;
+          color: #333333;
+          font-size: 14px;
+          position: relative;
+          cursor: pointer;
+          cursor: -ms-pointer; }
+          #choiceBox .cType .typeBox .tBox .choiceList span {
+            position: absolute;
+            top: 50%;
+            margin-top: -7.5px;
+            display: inline-block;
+            height: 15px;
+            width: 1px;
+            background-color: #eeeeee;
+            right: -17px; }
+        #choiceBox .cType .typeBox .tBox .choiceList:nth-last-child(2) span {
+          display: none; }
+        #choiceBox .cType .typeBox .tBox .choiceList:hover {
+          background-color: #a51e32;
+          color: white; }
+
+#results {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 80px; }
+  #results .resultBox {
+    width: 1200px; }
+    #results .resultBox .result {
+      width: 360px;
+      height: 390px;
+      margin-bottom: 50px;
+      margin-right: 60px; }
+      #results .resultBox .result .rImg {
+        width: 360px;
+        height: 280px;
+        overflow: hidden; }
+        #results .resultBox .result .rImg img {
+          width: 100%;
+          transition: width 0.5s;
+          -moz-transition: width 0.5s;
+          -webkit-transition: width 0.5s;
+          -ms-transition: width 0.5s; }
+      #results .resultBox .result .rContent {
+        width: 360px;
+        height: 100px;
+        position: relative;
+        border-bottom: 1px solid #eeeeee;
+        transition: height 0.5s,margin-top 0.5s,background-color 0.5s;
+        -moz-transition: height 0.5s,margin-top 0.5s,background-color 0.5s;
+        -webkit-transition: height 0.5s,margin-top 0.5s,background-color 0.5s;
+        -ms-transition: height 0.5s,margin-top 0.5s,background-color 0.5s;
+        background-color: white; }
+        #results .resultBox .result .rContent .rp {
+          width: 280px;
+          color: #333333;
+          text-align: center;
+          font-size: 18px;
+          line-height: 18px;
+          margin: 41px 0;
+          transition: margin-top 0.5s,font 0.5s;
+          -moz-transition: margin-top 0.5s,font 0.5s;
+          -webkit-transition: margin-top 0.5s,font 0.5s;
+          -ms-transition: margin-top 0.5s,font 0.5s; }
+          #results .resultBox .result .rContent .rp p {
+            position: relative; }
+            #results .resultBox .result .rContent .rp p span {
+              position: absolute;
+              top: 0;
+              right: -1px;
+              display: block;
+              width: 1px;
+              height: 20px;
+              background: #c8c8c8; }
+        #results .resultBox .result .rContent .rm {
+          width: 80px;
+          transition: margin-top 0.5s;
+          -moz-transition: margin-top 0.5s;
+          -webkit-transition: margin-top 0.5s;
+          -ms-transition: margin-top 0.5s;
+          margin: 38px auto; }
+          #results .resultBox .result .rContent .rm a {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto;
+            background: url(../img/rightY.png) no-repeat center center;
+            background-size: auto 10px; }
+            #results .resultBox .result .rContent .rm a img {
+              width: 100%;
+              transition: transform 0.5s;
+              -moz-transition: transform 0.5s;
+              -webkit-transition: transform 0.5s;
+              -ms-transition: transform 0.5s; }
+          #results .resultBox .result .rContent .rm a:hover img {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            transform: rotate(360deg); }
+      #results .resultBox .result .rContent::after {
+        transition: width 0.5s;
+        -moz-transition: width 0.5s;
+        -webkit-transition: width 0.5s;
+        -ms-transition: width 0.5s;
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 0%;
+        bottom: -1px;
+        border-bottom: 1px solid #a51e32; }
+    #results .resultBox .result:nth-child(3n) {
+      margin-right: 0px; }
+    #results .resultBox .result:hover .rImg img {
+      width: 110%; }
+    #results .resultBox .result:hover .rContent {
+      margin-top: -10px;
+      height: 120px;
+      background-color: #eeeeee; }
+      #results .resultBox .result:hover .rContent .rp {
+        margin-top: 51px;
+        font-weight: bold; }
+      #results .resultBox .result:hover .rContent .rm {
+        margin-top: 48px; }
+    #results .resultBox .result:hover .rContent::after {
+      width: 100%; }
+
+.page {
+  margin-bottom: 60px; }
+  .page ul li {
+    display: inline-block;
+    font-size: 14px; }
+    .page ul li a {
+      display: block;
+      width: 28px;
+      height: 30px;
+      border: 1px solid #c8c8c8;
+      text-align: center;
+      line-height: 32px;
+      color: #888888; }
+    .page ul li .nextPage {
+      width: 68px;
+      color: #666666; }
+    .page ul li .lastPage {
+      width: 68px;
+      color: #666666; }
+    .page ul li a:hover {
+      background-color: #a51e32;
+      color: white;
+      border-color: #a51e32; }
+    .page ul li .current {
+      display: block;
+      width: 28px;
+      height: 30px;
+      border: 1px solid #a51e32;
+      text-align: center;
+      line-height: 32px;
+      background-color: #a51e32;
+      color: #eeeeee;
+      border-color: #a51e32; }
+  .page ul li {
+    margin-right: 5px; }
+  .page ul li:last-child {
+    margin-right: 0px; }
+
+#threeD {
+  position: fixed;
+  display: block;
+  bottom: 50%;
+  left: 20px;
+  z-index: 1000;
+  transition: transform 1s;
+  -ms-transition: transform 1s;
+  -moz-transition: transform 1s;
+  -webkit-transition: transform 1s; }
+
+#threeD:hover {
+  transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg); }
+
+/*# sourceMappingURL=business.css.map */

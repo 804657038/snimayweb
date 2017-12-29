@@ -94,6 +94,7 @@
 		<li class="show_c" style="display:none;"><a href="<?php echo U('Goodscolor/index');?>" target="main">产品颜色</a></li>
 
 		<li class="show_c" style="display:none;"><a href="<?php echo U('Goodsmesa/index');?>" target="main">橱柜台面</a></li>
+		<li class="show_c" style="display:none;"><a href="<?php echo U('Goodstype/index');?>" target="main">产品类型</a></li>
 
         <li class="show_e" style="display:none;"><a href="<?php echo U('Ads/index');?>" target="main">广告图管理</a></li>
         <li class="show_e" style="display:none;"><a href="<?php echo U('Ads/add');?>" target="main">添加广告图</a></li>

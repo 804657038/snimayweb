@@ -10,6 +10,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
     <link rel="stylesheet" href="__HOME__/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="__HOME__/css/reset.min.css" />
     <link rel="stylesheet" href="__HOME__/css/public.css" />
@@ -40,7 +41,9 @@
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
-                        <a href="<?php echo ($vv["link"]); ?>"><?php echo ($vv["cat_name"]); ?></a>
+                        <?php if($vv['cat_id'] == 63): ?><a href="javascript:;" onclick="touzizhe()"><?php echo ($vv["cat_name"]); ?></a>
+                            <?php else: ?>
+                        <a href="<?php echo ($vv["link"]); ?>"><?php echo ($vv["cat_name"]); ?></a><?php endif; ?>
                     </li><?php endforeach; endif; ?>
 
                     <li>
@@ -63,7 +66,6 @@
 <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
 <script src="http://webapi.amap.com/maps?v=1.3&key=5433dcc2bc76f4bfae5b9b20179efac5"></script>
 <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
-
 		<!--轮播图-->
 			<img src="__PIC__/<?php echo ($fuwu["original_img"]); ?>" />
 		</div>
@@ -221,14 +223,15 @@
 											<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
 											<div class="layui-form-item">
 												<div class="layui-input-block dingzhi">
-                                                    <?php if(is_array($goodscat)): foreach($goodscat as $k=>$g): ?><input type="radio" name="types" value="<?php echo ($g["cat_name"]); ?>" title="<?php echo ($g["cat_name"]); ?>"<?php if($k == 0): ?>checked="checked"<?php endif; ?> ><?php endforeach; endif; ?>
+                                                    <?php if(is_array($goodscat)): foreach($goodscat as $k=>$g): ?><input type="radio" name="types" value="<?php echo ($g["type_name"]); ?>" title="<?php echo ($g["type_name"]); ?>"<?php if($k == 0): ?>checked="checked"<?php endif; ?> ><?php endforeach; endif; ?>
 
 												</div>
 											</div>
 										</div>		
 									</div>
 									<div class="rRight floatl">
-										<a href="###" isOpen='false'><img src="__HOME__/img/ms.png" /></a>
+                                        <?php $count = count($goodscat); ?>
+                                        <?php if($count > 5): ?><a href="###" isOpen='false'><img src="__HOME__/img/ms.png" /></a><?php endif; ?>
 									</div>
 									<div class="clearl"></div>
 								</div>
@@ -282,13 +285,14 @@
 											<!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
 											<div class="layui-form-item">
 												<div class="layui-input-block tousu">
-                                                    <?php if(is_array($goodscat)): foreach($goodscat as $k1=>$gg): ?><input type="radio" name="type" value="<?php echo ($gg["cat_name"]); ?>" title="<?php echo ($gg["cat_name"]); ?>"<?php if($k1 == 0): ?>checked="checked"<?php endif; ?> ><?php endforeach; endif; ?>
+                                                    <?php if(is_array($goodscat)): foreach($goodscat as $k1=>$gg): ?><input type="radio" name="type" value="<?php echo ($gg["type_name"]); ?>" title="<?php echo ($gg["type_name"]); ?>"<?php if($k1 == 0): ?>checked="checked"<?php endif; ?> ><?php endforeach; endif; ?>
 												</div>
 											</div>
 										</div>		
 									</div>
 									<div class="rRight floatl">
-										<a href="###" isOpen='false'><img src="__HOME__/img/ms.png" /></a>
+                                        <?php $count = count($goodscat); ?>
+                                        <?php if($count > 5): ?><a href="###" isOpen='false'><img src="__HOME__/img/ms.png" /></a><?php endif; ?>
 									</div>
 									<div class="clearl"></div>
 								</div>
@@ -747,7 +751,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('Book/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>预约量尺</p>
             </li>
             <li>
@@ -758,7 +762,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('JoinMessage/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>加盟留言</p>
             </li>
         </ul>
@@ -841,13 +845,13 @@
                         <p>新闻中心</p>
                     </li>
                     <li>
-                        <a href="###">公司新闻</a>
+                        <a href="<?php echo U('Center/center_four');?>">公司新闻</a>
                     </li>
                     <li>
-                        <a href="###">媒体报道</a>
+                        <a href="<?php echo U('Center/center_four');?>">媒体报道</a>
                     </li>
                     <li>
-                        <a href="###">家居常识</a>
+                        <a href="<?php echo U('Center/center_four');?>">家居常识</a>
                     </li>
                 </ul>
             </div>
@@ -857,22 +861,22 @@
                         <p>投资者关系</p>
                     </li>
                     <li>
-                        <a href="###">最新公告</a>
+                        <a href="javascript:;" onclick="touzizhe()">最新公告</a>
                     </li>
                     <li>
-                        <a href="###">战略投资价值</a>
+                        <a href="javascript:;" onclick="touzizhe()">战略投资价值</a>
                     </li>
                     <li>
-                        <a href="###">投资者服务</a>
+                        <a href="javascript:;" onclick="touzizhe()">投资者服务</a>
                     </li>
                     <li>
-                        <a href="###">年报下载</a>
+                        <a href="javascript:;" onclick="touzizhe()">年报下载</a>
                     </li>
                     <li>
-                        <a href="###">实时股价</a>
+                        <a href="javascript:;" onclick="touzizhe()">实时股价</a>
                     </li>
                     <li>
-                        <a href="###">股东大会通知</a>
+                        <a href="javascript:;" onclick="touzizhe()">股东大会通知</a>
                     </li>
                 </ul>
             </div>
@@ -881,18 +885,10 @@
                     <li>
                         <p>关于诗尼曼</p>
                     </li>
-                    <li>
-                        <a href="###">公司简介</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌历程</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌荣誉</a>
-                    </li>
-                    <li>
-                        <a href="###">营销网络</a>
-                    </li>
+                    <?php if(is_array($join)): foreach($join as $key=>$j): ?><li>
+                        <a href="<?php echo ($j["link"]); ?>"><?php echo ($j["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
             <div class="clearl"></div>
@@ -942,9 +938,18 @@
         <p>Copyright&copy;2017<?php echo ($arr["icp"]); ?></p>
     </div>
 </footer>
+<script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/public.js" ></script>
 </body>
 </html>
+<script type="text/javascript">
+    layui.use('layer', function(){
+        var layer = layui.layer;
+    });
+    function touzizhe(){
+        layer.msg('该功能暂未开放');
+    }
+</script>
 <script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.flexible.js" ></script>

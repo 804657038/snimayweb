@@ -84,8 +84,7 @@ function addOrder(){
         $.post(url, data, function(res) {
             layer.closeAll();
             if (res.status == 1) {
-                layer.msg(res.info);
-                window.location.reload();
+				popWindow("信息提醒","Information to remind","您的定制留言已经提交成功",'感谢您对诗尼曼的支持！');
             } else {
                 layer.msg(res.info,{time: 3000});
                 is_post = 0;
@@ -98,4 +97,97 @@ function addOrder(){
         });
         layer.closeAll();
     }
+}
+
+function getQuanwu(id){
+    var url = img_path+"/index.php/getQuanwu?id="+id;
+    $.get(url,function(res){
+        var data = JSON.parse(res);
+        $("#q_img").attr('src',img_path+data.quan1.original_img);
+        $("#q_title").html(data.quan1.title);
+        $("#q_short").html(data.quan1.short);
+        var html="";
+        var quans = data.quan;
+        var tip = data.tips;
+        for(item in quans){
+            html +='<div class="cRight floatl"><div class="cRightList"><div class="cRLBox"><div class="cRLLeft floatl">';
+            html +='<img src="'+img_path+quans[item].original_img+'" />';
+            html +='<div class="best"><p>推荐</p></div></div><div class="cRLRight floatl"><ul><li class="pRFirst">';
+            html +='<p class="p1">'+quans[item].title+'</p>';
+            html +='</li><li class="pRSecond">';
+            html +='<p class="p2">'+quans[item].short+'</p>';
+            html +='</li><li><div class="btnLeft floatl"><ul>';
+            for(items in tip){
+                html +='<li>';
+                html +='<button>'+tip[items]+'</button>';
+                html +='</li>';
+            }
+            html +='</ul></div><div class="btnRight floatr"><a href="###"><span></span><span></span></a></div>';
+            html +='<div class="clearBoth"></div></li></ul></div><div class="clearl"></div></div></div></div>';
+        }
+        $('#quan').html(html);
+
+    })
+}
+
+function getXiaohu(id){
+    var url = img_path+"/index.php/getQuanwu?id="+id;
+    $.get(url,function(res){
+        var data = JSON.parse(res);
+        $("#x_img").attr('src',img_path+data.quan1.original_img);
+        $("#x_title").html(data.quan1.title);
+        $("#x_short").html(data.quan1.short);
+        var html="";
+        var quans = data.quan;
+        var tip = data.tips;
+        for(item in quans){
+            html +='<div class="cRightList"><div class="cRLBox"><div class="cRLLeft floatl">';
+            html +='<img src="'+img_path+quans[item].original_img+'" />';
+            html +='<div class="best"><p>推荐</p></div></div><div class="cRLRight floatl"><ul><li class="pRFirst">';
+            html +='<p class="p1">'+quans[item].title+'</p>';
+            html +='</li><li class="pRSecond">';
+            html +='<p class="p2">'+quans[item].short+'</p>';
+            html +='</li><li><div class="btnLeft floatl"><ul>';
+            for(items in tip){
+                html +='<li>';
+                html +='<button>'+tip[items]+'</button>';
+                html +='</li>';
+            }
+            html +='</ul></div><div class="btnRight floatr"><a href="###"><span></span><span></span></a></div>';
+            html +='<div class="clearBoth"></div></li></ul></div><div class="clearl"></div></div></div></div>';
+        }
+        $('#xiao').html(html);
+
+    })
+}
+
+function getQiqa(id){
+    var url = img_path+"/index.php/getQuanwu?id="+id;
+    $.get(url,function(res){
+        var data = JSON.parse(res);
+        $("#qi_img").attr('src',img_path+data.quan1.original_img);
+        $("#qi_title").html(data.quan1.title);
+        $("#qi_short").html(data.quan1.short);
+        var html="";
+        var quans = data.quan;
+        var tip = data.tips;
+        for(item in quans){
+            html +='<div class="cRightList"><div class="cRLBox"><div class="cRLLeft floatl">';
+            html +='<img src="'+img_path+quans[item].original_img+'" />';
+            html +='<div class="best"><p>推荐</p></div></div><div class="cRLRight floatl"><ul><li class="pRFirst">';
+            html +='<p class="p1">'+quans[item].title+'</p>';
+            html +='</li><li class="pRSecond">';
+            html +='<p class="p2">'+quans[item].short+'</p>';
+            html +='</li><li><div class="btnLeft floatl"><ul>';
+            for(items in tip){
+                html +='<li>';
+                html +='<button>'+tip[items]+'</button>';
+                html +='</li>';
+            }
+            html +='</ul></div><div class="btnRight floatr"><a href="###"><span></span><span></span></a></div>';
+            html +='<div class="clearBoth"></div></li></ul></div><div class="clearl"></div></div></div></div>';
+        }
+        $('#qipa').html(html);
+
+    })
 }

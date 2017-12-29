@@ -9,7 +9,6 @@ class ServiceAction extends CommonAction
 
     public function index(){
         //网站logo
-
         $logo1 = M('ads')->where('ads_id=164')->find();
         $logo1['original_img'] = __ROOT__.'/'.$logo1['original_img'];
         $this->assign('logo',$logo1);
@@ -18,7 +17,7 @@ class ServiceAction extends CommonAction
         $wx['original_img'] = __ROOT__.'/'.$wx['original_img'];
         $this->assign('wx',$wx);
         //定制分类
-        $goodscat = M('goodscat')->order('sort_order asc')->select();
+        $goodscat = M('goodstype')->select();
         $this->assign('goodscat',$goodscat);
         $goodImg = M('ads')->where('cat_id=27')->order('sort_order asc')->limit(1)->select();
         $this->assign('goodImg',$goodImg);
@@ -66,9 +65,9 @@ class ServiceAction extends CommonAction
         $order = M('order');
         $re = $order->add($data);
         if($re){
-            $this->success('您的订单已提交，请耐心等待工作人员联系！');
+            echo json_encode(['code'=>1,'msg'=>'您的留言已经提交成功']);
         }else{
-            $this->error('网络错误！');
+            echo json_encode(['code'=>0,'msg'=>'网络错误！']);
         }
     }
 
@@ -89,9 +88,9 @@ class ServiceAction extends CommonAction
         $feeback = M('feeback');
         $re = $feeback->add($data);
         if($re){
-            $this->success('提交成功，感谢您的反馈！');
+            echo json_encode(['code'=>1,'msg'=>'提交成功，感谢您的反馈！']);
         }else{
-            $this->error('网络错误！');
+            echo json_encode(['code'=>0,'msg'=>'网络错误！']);
         }
     }
 
@@ -137,9 +136,9 @@ class ServiceAction extends CommonAction
         $order = M('complain');
         $re = $order->add($data);
         if($re){
-            $this->success('您的投诉已提交，请耐心等待工作人员联系！');
+            echo json_encode(['code'=>1,'msg'=>'您的投诉已提交，请耐心等待工作人员联系！']);
         }else{
-            $this->error('网络错误！');
+            echo json_encode(['code'=>0,'msg'=>'网络错误！']);
         }
 
     }

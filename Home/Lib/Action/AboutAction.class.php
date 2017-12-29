@@ -43,8 +43,22 @@ class AboutAction extends CommonAction {
       //品牌荣誉
       $rongy = M('article')->where('cat_id=2')->where('article_id=2')->find();
       $this->assign('rongy',$rongy);
-
-
+      //品牌历程
+      $catId = $this->sub_cat_ids(3,'articlecat');
+      $catId = explode(',',$catId);
+      unset($catId[0]);
+      sort($catId) ;
+      foreach($catId as $k2=>$v2){
+          $lc[$k2] = M('article')->where('cat_id='.$v2)->order('sort_order asc')->select();
+          foreach($lc[$k2] as $k3=>$v3){
+              $title[] = str_replace("年"," ",$v3['title']);
+              $short[] = $v3['short'];
+              $content[] = $v3['content'];
+          }
+      }
+      $this->assign('lc_title',json_encode($title));
+      $this->assign('lc_short',json_encode($short));
+      $this->assign('lc_content',json_encode($content));
 
 
       $this->assign('catid', 1);

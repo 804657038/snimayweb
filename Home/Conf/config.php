@@ -52,7 +52,11 @@ $config_arr2 = array(
       'getDetails'=>'Center/getDetails',
       'getDetailmeiti'=>'Center/getDetailmeiti',
       'getDetailBaokan'=>'Center/getDetailBaokan',
+      'getQuanwu'=>'Center/getQuanwu',
       'getGy'=>'Social/getGy',
+      'book_order'=>'Book/book_order',
+      'jm_order'=>'JoinMessage/jm_order',
+      'getGoodsDetail'=>'Business/getGoodsDetail',
 
 
 

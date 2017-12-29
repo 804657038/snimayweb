@@ -100,11 +100,14 @@ class CommonAction extends Action {
         $this->assign('zpcat',$zpcat);
         $gyhd = M('articlecat')->where('parent_id=62')->order('sort_order asc')->select();
         $this->assign('gyhd',$gyhd);
+        $join = M('articlecat')->where('parent_id=1')->order('sort_order asc')->limit(4)->select();
+        $this->assign('join',$join);
         //服务号和订阅号
         $weixin = M('ads')->where('ads_id=162')->find();
         $this->assign('weixin',$weixin);
 
     }
+
 	
     public function _empty(){
         //header("Location:404.htm",true,301);

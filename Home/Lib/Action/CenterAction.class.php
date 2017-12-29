@@ -24,51 +24,56 @@ class CenterAction extends CommonAction
         $qp = M('articlecat')->where('parent_id=89')->order('sort_order asc')->select();
         $this->assign('qp',$qp);
         //全屋定制
-        $qid = $_GET['qid'];
-        $where = array();
-        if($qid){
-            $where['cat_id'] = array('eq',$qid);
-        }else{
-            $where['cat_id'] = array('eq',90);
-        }
-        $quan = M('article')->where($where)->order('sort_order asc')->limit(4)->select();
+        $quan = M('article')->where('cat_id=90')->order('sort_order asc')->limit(4)->select();
         $quan1 = $quan[0];
         unset($quan[0]);
         $this->assign('quan1',$quan1);
         $this->assign('quan',$quan);
-        $this->assign('caid', $qid?$qid:90);
+        $this->assign('caid', 90);
         //小户型拓展
-        $xid = $_GET['xid'];
-        $where1 = array();
-        if($xid){
-            $where1['cat_id'] = array('eq',$xid);
-        }else{
-            $where1['cat_id'] = array('eq',98);
-        }
-        $xhux = M('article')->where($where1)->order('sort_order asc')->limit(4)->select();
+        $xhux = M('article')->where('cat_id=98')->order('sort_order asc')->limit(4)->select();
         $xhux1 = $xhux[0];
         unset($xhux[0]);
         $this->assign('xhux1',$xhux1);
         $this->assign('xhux',$xhux);
-        $this->assign('xcaid', $xid?$xid:98);
+        $this->assign('xcaid', 98);
         //奇葩空间利用
-        $pid = $_GET['pid'];
-        $where2 = array();
-        if($pid){
-            $where2['cat_id'] = array('eq',$pid);
-        }else{
-            $where2['cat_id'] = array('eq',106);
-        }
-        $qipa = M('article')->where($where2)->order('sort_order asc')->limit(4)->select();
+        $qipa = M('article')->where('cat_id=106')->order('sort_order asc')->limit(4)->select();
         $qipa1 = $qipa[0];
         unset($qipa[0]);
         $this->assign('qipa1',$qipa1);
         $this->assign('qipa',$qipa);
-        $this->assign('pid', $pid?$pid:106);
+        $this->assign('pid', 106);
 
 
         $this->assign('catid', 15);
         $this->display(':center');
+    }
+
+    //全屋定制
+    public function getQuanwu(){
+        $id = $_GET['id'];
+        $where['cat_id'] = array('eq',$id);
+        $data = $this->getList($where);
+        echo json_encode($data);
+    }
+    public function getList($where){
+        $quan = M('article')->where($where)->order('sort_order asc')->limit(4)->select();
+        $quan1 = $quan[0];
+        unset($quan[0]);
+        foreach($quan as $k=>$v){
+            if(strstr($v['tip'],",") != ''){
+                $tips = explode(',',$v['tip']);
+            }else{
+                $tips[] = $v['tip'];
+            }
+        }
+        $data = [
+            'quan1'=>$quan1,
+            'quan'=>$quan,
+            'tips'=>$tips
+        ];
+        return $data;
     }
 
     public function add_order(){
@@ -90,9 +95,9 @@ class CenterAction extends CommonAction
         $order = M('order');
         $re = $order->add($data);
         if($re){
-            $this->success('您的订单已提交，请耐心等待工作人员联系！');
+            echo json_encode(['code'=>1,'msg'=>'您的订制留言已经提交成功']);
         }else{
-            $this->error('网络错误！');
+            echo json_encode(['code'=>0,'msg'=>'网络错误！']);
         }
     }
 

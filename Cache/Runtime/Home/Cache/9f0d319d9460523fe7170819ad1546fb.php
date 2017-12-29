@@ -9,6 +9,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
     <link rel="stylesheet" href="__HOME__/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="__HOME__/css/reset.min.css" />
     <link rel="stylesheet" href="__HOME__/css/public.css" />
@@ -39,7 +40,9 @@
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
                     <?php if(is_array($art)): foreach($art as $key=>$vv): ?><li <?php if($catid == $vv['cat_id']): ?>class="nActive"<?php endif; ?> >
-                        <a href="<?php echo ($vv["link"]); ?>"><?php echo ($vv["cat_name"]); ?></a>
+                        <?php if($vv['cat_id'] == 63): ?><a href="javascript:;" onclick="touzizhe()"><?php echo ($vv["cat_name"]); ?></a>
+                            <?php else: ?>
+                        <a href="<?php echo ($vv["link"]); ?>"><?php echo ($vv["cat_name"]); ?></a><?php endif; ?>
                     </li><?php endforeach; endif; ?>
 
                     <li>
@@ -114,7 +117,7 @@
 
 					<ul class="childSelect">
                         <?php if(is_array($qw)): foreach($qw as $key=>$q): ?><li <?php if($caid == $q['cat_id']): ?>class="lsdn"<?php endif; ?>  >
-							<a href="<?php echo U('Center/index');?>?qid=<?php echo ($q["cat_id"]); ?>"><?php echo ($q["cat_name"]); ?></a>
+							<a href="javascript:;" onclick="getQuanwu('<?php echo ($q["cat_id"]); ?>')"><?php echo ($q["cat_name"]); ?></a>
 						</li><?php endforeach; endif; ?>
 					</ul>
 
@@ -122,23 +125,24 @@
 				<div class="clearBoth"></div>
 			</div>
 
-			<div class="contentBox">
+			<div class="contentBox" >
 
-				<div class="cLeft floatl">
+				<div class="cLeft floatl" >
 					<div class="cImgBox">
-						<img src="__PIC__/<?php echo ($quan1["original_img"]); ?>" />
+						<img id="q_img" src="__PIC__/<?php echo ($quan1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1"><?php echo ($quan1["title"]); ?></p>
+								<p class="p1" id="q_title"><?php echo ($quan1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2"><?php echo ($quan1["short"]); ?></p>
+								<p class="p2" id="q_short"><?php echo ($quan1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
+				<span id="quan">
                 <?php if(is_array($quan)): foreach($quan as $key=>$qu): ?><div class="cRight floatl">
 					<div class="cRightList">
 						<div class="cRLBox">
@@ -180,7 +184,7 @@
 						</div>
 					</div>
                     </div><?php endforeach; endif; ?>
-
+                    </span>
 
 
 				</div>
@@ -197,7 +201,7 @@
 					<ul class="childSelect">
 
                         <?php if(is_array($xhx)): foreach($xhx as $key=>$x): ?><li <?php if($xcaid == $x['cat_id']): ?>class="lsdn"<?php endif; ?>  >
-                            <a href="<?php echo U('Center/index');?>?xid=<?php echo ($x["cat_id"]); ?>"><?php echo ($x["cat_name"]); ?></a>
+                                <a href="javascript:;" onclick="getXiaohu('<?php echo ($x["cat_id"]); ?>')"><?php echo ($x["cat_name"]); ?></a>
                             </li><?php endforeach; endif; ?>
 
 					</ul>
@@ -207,20 +211,20 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__PIC__/<?php echo ($xhux1["original_img"]); ?>" />
+						<img id="x_img" src="__PIC__/<?php echo ($xhux1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1"><?php echo ($xhux1["title"]); ?></p>
+								<p class="p1" id="x_title"><?php echo ($xhux1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2"><?php echo ($xhux1["short"]); ?></p>
+								<p class="p2" id="x_short"><?php echo ($xhux1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="cRight floatl">
+				<div class="cRight floatl" id="xiao">
 
                     <?php if(is_array($xhux)): foreach($xhux as $key=>$xh): ?><div class="cRightList">
 						<div class="cRLBox">
@@ -275,7 +279,7 @@
 					<ul class="childSelect">
 
                         <?php if(is_array($qp)): foreach($qp as $key=>$pa): ?><li <?php if($pid == $pa['cat_id']): ?>class="lsdn"<?php endif; ?>  >
-                            <a href="<?php echo U('Center/index');?>?pid=<?php echo ($pa["cat_id"]); ?>"><?php echo ($pa["cat_name"]); ?></a>
+                            <a href="javascript:;" onclick="getQiqa('<?php echo ($pa["cat_id"]); ?>')"><?php echo ($pa["cat_name"]); ?></a>
                             </li><?php endforeach; endif; ?>
 
 
@@ -286,20 +290,20 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__PIC__/<?php echo ($qipa1["original_img"]); ?>" />
+						<img id="qi_img" src="__PIC__/<?php echo ($qipa1["original_img"]); ?>" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1"><?php echo ($qipa1["title"]); ?></p>
+								<p class="p1" id="qi_title"><?php echo ($qipa1["title"]); ?></p>
 							</li>
 							<li class="pSecond">
-								<p class="p2"><?php echo ($qipa1["short"]); ?></p>
+								<p class="p2" id="qi_short"><?php echo ($qipa1["short"]); ?></p>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="cRight floatl">
+				<div class="cRight floatl" id="qipa">
 
                     <?php if(is_array($qipa)): foreach($qipa as $key=>$qi): ?><div class="cRightList">
 						<div class="cRLBox">
@@ -372,7 +376,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('Book/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>预约量尺</p>
             </li>
             <li>
@@ -383,7 +387,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('JoinMessage/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>加盟留言</p>
             </li>
         </ul>
@@ -466,13 +470,13 @@
                         <p>新闻中心</p>
                     </li>
                     <li>
-                        <a href="###">公司新闻</a>
+                        <a href="<?php echo U('Center/center_four');?>">公司新闻</a>
                     </li>
                     <li>
-                        <a href="###">媒体报道</a>
+                        <a href="<?php echo U('Center/center_four');?>">媒体报道</a>
                     </li>
                     <li>
-                        <a href="###">家居常识</a>
+                        <a href="<?php echo U('Center/center_four');?>">家居常识</a>
                     </li>
                 </ul>
             </div>
@@ -482,22 +486,22 @@
                         <p>投资者关系</p>
                     </li>
                     <li>
-                        <a href="###">最新公告</a>
+                        <a href="javascript:;" onclick="touzizhe()">最新公告</a>
                     </li>
                     <li>
-                        <a href="###">战略投资价值</a>
+                        <a href="javascript:;" onclick="touzizhe()">战略投资价值</a>
                     </li>
                     <li>
-                        <a href="###">投资者服务</a>
+                        <a href="javascript:;" onclick="touzizhe()">投资者服务</a>
                     </li>
                     <li>
-                        <a href="###">年报下载</a>
+                        <a href="javascript:;" onclick="touzizhe()">年报下载</a>
                     </li>
                     <li>
-                        <a href="###">实时股价</a>
+                        <a href="javascript:;" onclick="touzizhe()">实时股价</a>
                     </li>
                     <li>
-                        <a href="###">股东大会通知</a>
+                        <a href="javascript:;" onclick="touzizhe()">股东大会通知</a>
                     </li>
                 </ul>
             </div>
@@ -506,18 +510,10 @@
                     <li>
                         <p>关于诗尼曼</p>
                     </li>
-                    <li>
-                        <a href="###">公司简介</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌历程</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌荣誉</a>
-                    </li>
-                    <li>
-                        <a href="###">营销网络</a>
-                    </li>
+                    <?php if(is_array($join)): foreach($join as $key=>$j): ?><li>
+                        <a href="<?php echo ($j["link"]); ?>"><?php echo ($j["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
             <div class="clearl"></div>
@@ -567,9 +563,18 @@
         <p>Copyright&copy;2017<?php echo ($arr["icp"]); ?></p>
     </div>
 </footer>
+<script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/public.js" ></script>
 </body>
 </html>
+<script type="text/javascript">
+    layui.use('layer', function(){
+        var layer = layui.layer;
+    });
+    function touzizhe(){
+        layer.msg('该功能暂未开放');
+    }
+</script>
 <script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
 <script type="text/javascript" src="__HOME__/js/ydui.flexible.js" ></script>

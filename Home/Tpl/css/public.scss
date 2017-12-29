@@ -3,7 +3,7 @@ $black:#333333;
 .bigTitle{
     padding: 80px 0 60px;
     .bt{
-        font-size: 30px;
+        font-size: 18px;
         color: $black;
         text-align: center;
         font-weight: bold;
@@ -13,14 +13,123 @@ $black:#333333;
         text-align: center;
         color: #888888;
         font-family: arial;
-        line-height: 20px;
+        line-height: 32px;
     }
     span{
         display: block;
         width: 60px;
         border-bottom: 1px solid $red;
         margin: 0 auto;
-        padding-top: 8px;
+        padding-top: 10px;
+    }
+}
+header>nav>.navR ul>li:hover>.secondBox{
+    height: 258px;
+}
+.secondBox{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: 0px;
+    height: 0px;
+    background-color: white;
+    overflow: hidden;
+    transition: height 0.25s linear;
+    -moz-transition:height 0.25s linear;
+    -webkit-transition:height 0.25s linear;
+    -ms-transition:height 0.25s linear;
+    img{
+        transition: width 1.0s,transform 0.5s;
+        -moz-transition:width 1.0s,transform 0.5s;
+        -webkit-transition:width 1.0s,transform 0.5s;
+        -ms-transition:width 1.0s,transform 0.5s;
+    }
+    .swiper-container{
+        width: 1200px;
+        margin: 0 auto;
+        padding: 50px 0 50px;
+        position: relative;
+        .prevLeft{
+            position: absolute;
+            height: 20px!important;
+            width: 12px!important;
+            top: 50%;
+            left: 10px;
+            margin-top: -10px;
+            height: 12px;
+            z-index: 5;
+        }
+        .nextRight{
+            position: absolute;
+            height: 20px!important;
+            top: 50%;
+            width: 12px!important;
+            right: 10px;
+            margin-top: -10px;
+            height: 12px;
+            z-index: 5;
+        }
+    }
+    .imgContent{
+        width: 200px;
+        margin: 0 auto;
+        .navImg{
+            width: 200px;
+            height: 110px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .imgContent:hover{
+        .navImg{
+            box-shadow: 0 0 2px 2px rgba(51,51,51,0.2);
+            img{
+                width: 120%!important;
+            }
+        }
+        .navContent{
+            p{
+                color: $red;
+            }
+
+        }
+    }
+    .navContent{
+        position: relative;
+        margin-top: 16px;
+        p{
+            line-height: 16px;
+            font-size: 16px;
+            text-indent: 10px;
+        }
+        a{
+            position: absolute;
+            top: -2px;
+            right: 20px;
+           display: block;
+           width: 24px;
+           height: 24px;
+           padding: 0;
+           background: url(../img/rightY.png) no-repeat center center;
+           background-size: auto 10px;
+           img{
+               width: 100%;
+           }
+        }
+        a:hover{
+            img{
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+header:hover{
+    background-color: rgba(0,0,0,0.6)!important;
+    box-shadow: 0 0 2px 4px rgba(51,51,51,0.2)!important;
+    nav>.navR>ul>li>a{
+        color: white!important;
     }
 }
 #popNormal{
@@ -83,26 +192,26 @@ $black:#333333;
 .p1{
     word-break: break-all;
     text-overflow: ellipsis;
-    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
-    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
-    -webkit-line-clamp: 1; /** 显示的行数 **/
-    overflow: hidden;  /** 隐藏超出的内容 **/
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 1;
+    overflow: hidden; 
 }
 .p2{
     word-break: break-all;
     text-overflow: ellipsis;
-    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
-    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
-    -webkit-line-clamp: 2; /** 显示的行数 **/
-    overflow: hidden;  /** 隐藏超出的内容 **/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    overflow: hidden;  
 }
 .p3{
     word-break: break-all;
     text-overflow: ellipsis;
-    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
-    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
-    -webkit-line-clamp: 3; /** 显示的行数 **/
-    overflow: hidden;  /** 隐藏超出的内容 **/
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 3; 
+    overflow: hidden; 
 }
 .jobNameM {
     color: $black;
@@ -129,9 +238,7 @@ $black:#333333;
     border-bottom: 1.1px solid $red;
     margin: 10px 0;
 }
-//导航
 header{
-    //可能修改的
     height: 80px;
     position: fixed;
     top: 0;
@@ -155,25 +262,124 @@ header{
                 a{
                     font-size: 14px;
                     color: #ffffff;
-                    padding: 30px 20px 24px;
-                    line-height: 26px;
-                    height: 26px;
+                    padding: 30px 20px 30px;
+                    line-height: 20px;
+                    height: 20px;  
+                    position: relative;   
+                    z-index: 5;             
+                }
+                >a:before{
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 100%;
+                    top: 0;
+                    left: 50%;
+                    background-color: $red;
+                    transition: left 0.25s,width 0.25s;
+                    -webkit-transition: left 0.25s,width 0.25s;
+                    -moz-transition: left 0.25s,width 0.25s;
+                    -ms-transition: left 0.25s,width 0.25s;
+                    z-index: -1;
+                }
+                >a:hover{
+                    color: white!important;
+                }
+                >a:hover:before{
+                    left: 0%;
+                    width: 100%;
                 }
                 .imgBtn{
                     padding: 24px 5px;
                 }
+                .imgBtn:before{
+                    content: none;
+                }
             }
             ul li.nActive a{
-                color: $red;
-            }
-            ul li:hover a{
                 color: $red!important;
+            }
+            ul li:hover>a{
+                color: white!important;
             }
         }
         
     }
 }
-//侧边导航
+.searchBtn{
+    transition: margin-left 0.5s;
+    -webkit-transition: margin-left 0.5s;
+    -moz-transition: margin-left 0.5s;
+    -ms-transition: margin-left 0.5s;
+}
+
+.sBox{
+    position: relative;
+}
+.sBox:hover .searchBtn{
+   margin-left: 120px;
+}
+.sBox:hover .swordBox{
+    width: 120px;
+}
+.sword{      
+    height: 32px;
+    width: 108px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: transparent;
+    text-indent: 15px;
+    color: white;
+    
+}
+.swordBox{
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    -moz-transition: width 0.5s;
+    -ms-transition: width 0.5s;
+    position: absolute;
+    top: 23px;
+    left: 0;
+    height: 34px;
+    width: 0px;
+    overflow: hidden;
+}
+.linkBoxs:hover .linkBox{
+    height: 380px;
+}
+.linkBoxs{
+    position: relative;
+    .linkBox{
+        position: absolute;
+        overflow: hidden;
+        top: 80px;
+        right: -38px;
+        width: 160px;
+        height: 0px;
+        background-color: white;
+        transition: height 0.5s;
+        -webkit-transition: height 0.5s;
+        -moz-transition: height 0.5s;
+        -ms-transition: height 0.5s;
+        box-shadow: 0 0 2px 2px rgba(231,231,231,0.2);
+        ul li:nth-child(1){
+            margin-top: 10px;
+        }
+        ul li{
+            float: none;
+            a{
+                padding: 10px 0;
+                text-align: center;
+                color: $black!important;
+            }
+            a:before{
+                left: 0%;
+            }
+        }
+    }
+}
 #rightNav{
     position: fixed;
     top: 50%;
@@ -240,11 +446,9 @@ header{
         background-position: -152px -312px;
     }
 }
-//尾部
 footer{
     width: 100%;
     background-color: #f2f2f2;
-    //顶部
     .fTop{
         width: 1200px;
         margin: 0 auto;
@@ -268,7 +472,6 @@ footer{
             }
         }
     }
-    //中部
     .fMiddle{
         width: 1200px;
         margin: 0 auto;
@@ -402,7 +605,6 @@ footer{
             }
         }
     }
-    //底部
     .fBottom{
         width: 100%;
         height: 80px;
@@ -415,7 +617,6 @@ footer{
         }
     }
 }
-//回到顶部
 #goToTop{
     position: fixed;
     right: 40px;
@@ -433,7 +634,7 @@ footer{
         }
     }
 }
-//按钮
+
 .btn{
     width: 100%;
     height: 60px;
@@ -445,12 +646,4 @@ footer{
     font-size: 12px;
     line-height: 30px;
     color: #888888;
-}
-//最大1200px
-@media(max-width:1200px){
-    header{
-        nav{
-            width: 1080px;
-        }
-    }
 }

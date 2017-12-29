@@ -1,0 +1,56 @@
+<include file="Index:pageHeader" />
+<link rel="stylesheet" type="text/css" href="//minishiningride.mizone.cc/resources/admin/ui.css"/>
+
+<div class="column_Box mainAutoHeight">
+    <div class="tab">
+        <ul>
+            <li class="current"><a href="javascript:">产品类型</a></li>
+        </ul>
+    </div>
+    <div class="wrapBox mainAutoHeight">
+
+
+        <!--招聘列表-->
+        <div class="body User">
+            <div class="item">
+                <a href="javascript:void(0);" class="dot_Item"><span class="Icon_item icon_xingjian"></span><i><input type="button" value="添加类型" class="submitNoBg" onclick="window.location.href='{:U('Goodstype/add')}'"/></i></a>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0" class="center">
+                <thead>
+                <tr>
+                    <th style="width:70px;">编号</th>
+                    <th>类型名称</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="list" item="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.type_name}</td>
+                        <td>
+								<span>
+                                    <a title="编辑" href="{:U('Goodstype/edit',array('id'=>$vo['id']))}"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_edit.gif"></a>&nbsp;
+                                    <a title="移除" onclick="del('{$vo.id}')" href="javascript:;"><img width="16" height="16" border="0" src="__PUBLIC__/Admin/Img/icon_drop.gif"></a>
+								</span>
+                        </td>
+                    </tr>
+                </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    layui.use(['layer'], function(){
+        var layer = layui.layer;
+    });
+    function del(id){
+        layer.confirm('确认要删除吗？',function(index){
+            window.location.href="{:U('Goodstype/del')}?id="+id;
+        });
+    }
+
+</script>

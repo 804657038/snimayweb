@@ -261,10 +261,8 @@ function add_order() {
 	if (is_post == 1) {
 		$.post(url, data, function(res) {
 			layer.closeAll();
-			if (res.status == 1) {
-				//layer.msg(res.info);
+			if (res.code == 1) {
 				popWindow("信息提醒","Information to remind","您的订单已经提交成功。",'感谢您对诗尼曼的支持！');
-				window.location.reload();
 			} else {
                 layer.msg(res.info,{time: 3000});
 				is_post = 0;
@@ -295,10 +293,8 @@ function add_complain(){
     if (is_post == 1) {
         $.post(url, data, function(res) {
             layer.closeAll();
-            if (res.status == 1) {
-                //layer.msg(res.info,{time: 3000});
+            if (res.code == 1) {
 				popWindow("信息提醒","Information to remind","您的投诉已经发送成功。",'感谢您对诗尼曼的支持！');
-                window.location.reload();
             } else {
                 layer.msg(res.info);
                 is_post = 0;
@@ -326,10 +322,8 @@ function add_feeback(){
     if (is_post == 1) {
         $.post(url, data, function(res) {
             layer.closeAll();
-            if (res.status == 1) {
-                //layer.msg(res.info,{time: 3000});
+            if (res.code == 1) {
 				popWindow("信息提醒","Information to remind","您的反馈意见已经发送成功。",'感谢您对诗尼曼的支持！');
-                window.location.reload();
             } else {
                 layer.msg(res.info);
                 is_post = 0;

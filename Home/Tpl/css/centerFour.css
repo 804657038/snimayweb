@@ -10,7 +10,7 @@ body {
   width: 1200px;
   margin: 0 auto; }
   #news .newsList {
-    width: 1200%;
+    width: 1200px;
     margin-top: 40px; }
     #news .newsList .newsBox {
       position: relative;

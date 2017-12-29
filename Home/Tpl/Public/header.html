@@ -9,6 +9,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
     <link rel="stylesheet" href="__HOME__/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="__HOME__/css/reset.min.css" />
     <link rel="stylesheet" href="__HOME__/css/public.css" />
@@ -40,7 +41,11 @@
                     </li>
                     <foreach name="art" item="vv">
                     <li <if condition="$catid eq $vv['cat_id']"> class="nActive" </if> >
+                        <if condition="$vv['cat_id'] eq 63">
+                            <a href="javascript:;" onclick="touzizhe()">{$vv.cat_name}</a>
+                            <else/>
                         <a href="{$vv.link}">{$vv.cat_name}</a>
+                            </if>
                     </li>
                     </foreach>
 

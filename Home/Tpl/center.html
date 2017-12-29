@@ -63,7 +63,7 @@
 					<ul class="childSelect">
                         <foreach name="qw" item="q">
 						<li <if condition="$caid eq $q['cat_id']"> class="lsdn" </if>  >
-							<a href="{:U('Center/index')}?qid={$q.cat_id}">{$q.cat_name}</a>
+							<a href="javascript:;" onclick="getQuanwu('{$q.cat_id}')">{$q.cat_name}</a>
 						</li>
                         </foreach>
 					</ul>
@@ -72,23 +72,24 @@
 				<div class="clearBoth"></div>
 			</div>
 
-			<div class="contentBox">
+			<div class="contentBox" >
 
-				<div class="cLeft floatl">
+				<div class="cLeft floatl" >
 					<div class="cImgBox">
-						<img src="__PIC__/{$quan1.original_img}" />
+						<img id="q_img" src="__PIC__/{$quan1.original_img}" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">{$quan1.title}</p>
+								<p class="p1" id="q_title">{$quan1.title}</p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">{$quan1.short}</p>
+								<p class="p2" id="q_short">{$quan1.short}</p>
 							</li>
 						</ul>
 					</div>
 				</div>
+				<span id="quan">
                 <foreach name="quan" item="qu">
 				<div class="cRight floatl">
 					<div class="cRightList">
@@ -140,7 +141,7 @@
 					</div>
                     </div>
                     </foreach>
-
+                    </span>
 
 
 				</div>
@@ -158,7 +159,7 @@
 
                         <foreach name="xhx" item="x">
                             <li <if condition="$xcaid eq $x['cat_id']"> class="lsdn" </if>  >
-                            <a href="{:U('Center/index')}?xid={$x.cat_id}">{$x.cat_name}</a>
+                                <a href="javascript:;" onclick="getXiaohu('{$x.cat_id}')">{$x.cat_name}</a>
                             </li>
                         </foreach>
 
@@ -169,20 +170,20 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__PIC__/{$xhux1.original_img}" />
+						<img id="x_img" src="__PIC__/{$xhux1.original_img}" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">{$xhux1.title}</p>
+								<p class="p1" id="x_title">{$xhux1.title}</p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">{$xhux1.short}</p>
+								<p class="p2" id="x_short">{$xhux1.short}</p>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="cRight floatl">
+				<div class="cRight floatl" id="xiao">
 
                     <foreach name="xhux" item="xh">
 					<div class="cRightList">
@@ -248,7 +249,7 @@
 
                         <foreach name="qp" item="pa">
                             <li <if condition="$pid eq $pa['cat_id']"> class="lsdn" </if>  >
-                            <a href="{:U('Center/index')}?pid={$pa.cat_id}">{$pa.cat_name}</a>
+                            <a href="javascript:;" onclick="getQiqa('{$pa.cat_id}')">{$pa.cat_name}</a>
                             </li>
                         </foreach>
 
@@ -260,20 +261,20 @@
 			<div class="contentBox">
 				<div class="cLeft floatl">
 					<div class="cImgBox">
-						<img src="__PIC__/{$qipa1.original_img}" />
+						<img id="qi_img" src="__PIC__/{$qipa1.original_img}" />
 					</div>
 					<div class="cIntroBox">
 						<ul>
 							<li class="pFirst">
-								<p class="p1">{$qipa1.title}</p>
+								<p class="p1" id="qi_title">{$qipa1.title}</p>
 							</li>
 							<li class="pSecond">
-								<p class="p2">{$qipa1.short}</p>
+								<p class="p2" id="qi_short">{$qipa1.short}</p>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="cRight floatl">
+				<div class="cRight floatl" id="qipa">
 
                     <foreach name="qipa" item="qi">
 					<div class="cRightList">

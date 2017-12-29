@@ -1,2 +1,417 @@
-#banner header{position:absolute}#banner>img{width:100%}#fourPart{width:100%;background-color:white}#fourPart .netNavs{width:1200px;margin:0 auto;padding-top:60px}#fourPart .netNavs ul li{float:left;margin-right:13px}#fourPart .netNavs ul li button{width:290px;height:58px;border:1px solid #eeeeee;font-size:18px;color:#888888;position:relative;-moz-transition:color 0.2s, border 0.2s;-webkit-transition:color 0.2s, border 0.2s;-ms-transition:color 0.2s, border 0.2s;transition:color 0.2s, border 0.2s}#fourPart .netNavs ul li button::after{content:"";position:absolute;top:-1px;left:-2px;width:0px;border-bottom:1.1px solid #a51e32;-moz-transition:width 0.2s;-webkit-transition:width 0.2s;-ms-transition:width 0.2s;transition:width 0.2s}#fourPart .netNavs ul li .btnActive{border:1px solid white;box-shadow:0 0 2px 2px rgba(231,231,231,0.4);color:#a51e32}#fourPart .netNavs ul li button:hover{border:1px solid white;box-shadow:0 0 2px 2px rgba(231,231,231,0.4);color:#a51e32}#fourPart .netNavs ul li .btnActive::after{width:292px}#fourPart .netNavs ul li button:hover::after{width:292px}#fourPart .netNavs ul li:last-child{margin-right:0px}#fourPart .net{width:1200px;margin:0 auto;overflow:hidden}#fourPart .net .map{width:800px;height:600px;margin:0 auto}#fourPart .net .map:hover{cursor:pointer;cursor:-ms-pointer}#fourPart .net .moreChoice .short{width:378px;height:60px;border:1px solid #c8c8c8;position:relative;margin-right:10px;cursor:pointer;cursor:-ms-pointer}#fourPart .net .moreChoice .short>img{position:absolute;top:27px;right:25px;transition:transform 0.5s;-ms-transition:transform 0.5s;-webkit-transition:transform 0.5s;-moz-transition:transform 0.5s}#fourPart .net .moreChoice .short>p{font-size:16px;color:#333;line-height:60px;text-indent:30px}#fourPart .net .moreChoice .short .profess{overflow:hidden;position:absolute;top:100%;left:-1px;display:none;background-color:white;z-index:100}#fourPart .net .moreChoice .short ul{width:378px;border:1px solid #c8c8c8;background-color:white;padding:10px 0;transition:height 0.5}#fourPart .net .moreChoice .short ul li p{line-height:35px;text-indent:30px;font-size:14px}#fourPart .net .moreChoice .short ul li p:hover{cursor:pointer;cursor:-ms-pointer;background-color:#a51e32;color:white}#fourPart .net .moreChoice .long{width:345px;height:60px;border:1px solid #c8c8c8;position:relative;border-right:0}#fourPart .net .moreChoice .long button{width:80px;height:60px;position:absolute;top:-1px;right:-80px;border:1px solid #333;background:url(../img/searchStore.png) no-repeat center center;background-color:#333;color:white}#fourPart .net .moreChoice .long input{width:300px;height:100%;border:0;color:#333;font-size:16px;margin-left:30px}#fourPart .net .moreChoice .long input::-webkit-input-placeholder{color:#888888}#fourPart .net .moreChoice .long input::-moz-placeholder{color:#888888}#fourPart .net .moreChoice .long input::-ms-input-placeholder{color:#888888}#fourPart .net .storeList{padding:40px 0 80px}#fourPart .net .storeList .more tr:hover{color:white;background-color:#a51e32;border-color:#a51e32}#fourPart .net .storeList .more tr:nth-child(1):hover{background-color:#333;color:white;border-color:#333}#fourPart .net .storeList table{width:100%}#fourPart .net .storeList table tr:nth-child(1){background-color:#333;color:white;border-color:#333}#fourPart .net .storeList table tr{width:100%;height:60px;border:1px solid #eeeeee}#fourPart .net .storeList table tr td{width:33.3333333%;text-align:center;line-height:60px}#fourPart .net .storeList .nomore tr:nth-child(2) td{width:100%;padding:120px 0 160px}#fourPart .net .storeList .nomore tr:nth-child(2) td .nomored{width:200px;height:200px;overflow:hidden;margin:0 auto}#fourPart .net .storeList .nomore tr:nth-child(2) td .nomored img{margin-top:-160px;margin-left:-220px}#fourPart .net .storeList .nomore tr:nth-child(2) td p{font-size:16px;line-height:24px;color:#333}#fourPart .profile{width:1200px;margin:0 auto;padding-top:80px;padding-bottom:80px}#fourPart .profile img{transition:width 0.5s, margin 0.5s;-ms-transition:width 0.5s, margin 0.5s;-webkit-transition:width 0.5s, margin 0.5s;-moz-transition:width 0.5s, margin 0.5s}#fourPart .profile .proBox{width:100%;padding-bottom:80px}#fourPart .profile .proBox .proImg{width:600px;height:450px}#fourPart .profile .proBox .proImg .floatl{width:299px;height:450px;overflow:hidden}#fourPart .profile .proBox .proImg .floatl img{width:100%}#fourPart .profile .proBox .proImg .floatl img:hover{width:105%}#fourPart .profile .proBox .proImg .floatl:nth-child(1){margin-right:2px}#fourPart .profile .proBox .proContent{width:600px;height:450px}#fourPart .profile .proBox .proContent ul{width:500px;margin:0 auto}#fourPart .profile .proBox .proContent ul .pTop,#fourPart .profile .proBox .proContent ul .pBottom{line-height:30px;color:#888888;font-size:12px}#fourPart .profile .proBox .proContent ul .pTop{margin-top:20px}#fourPart .profile .proBox .proContent ul .pBottom{margin-top:40px}#fourPart .profile .proBox .imgSmallBox{width:1200px;margin-top:2px}#fourPart .profile .proBox .imgSmallBox .imgSmall{width:299px;height:240px;overflow:hidden;margin-right:1px}#fourPart .profile .proBox .imgSmallBox .imgSmall img{width:100%}#fourPart .profile .proBox .imgSmallBox .imgSmall img:hover{width:105%}#fourPart .profile .proBox .imgSmallBox .imgSmall:nth-child(1){margin-right:2px}#fourPart .profile .proBox .imgSmallBox .imgSmall:nth-child(4){margin-right:0px}#fourPart .profile .hope{width:1180px;border:10px solid #eeeeee;position:relative}#fourPart .profile .hope .bigTitle{width:160px;background-color:white;padding:0;position:absolute;top:-39px;left:50%;margin-left:-80px}#fourPart .profile .hope .bigTitle .st{color:#999999}#fourPart .profile .hope .bigTitle .bt{font-size:18.15px;font-weight:normal}#fourPart .profile .hope .hopeBox .hopeTitle{width:1110px;margin:0 auto}#fourPart .profile .hope .hopeBox .hopeTitle p{font-size:12px;color:#888888;line-height:30px;margin:50px 0 30px}#fourPart .profile .hope .hopeBox .hBox{width:1129px;margin:0 auto}#fourPart .profile .hope .hopeBox .hBox .hImg{width:375px;margin-right:2px}#fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox{width:100%;height:295px;overflow:hidden;box-shadow:0 0 4px 4px rgba(234,234,234,0.4)}#fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox img{width:100%}#fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox img:hover{width:110%;margin:-5% 0% 0% -5%}#fourPart .profile .hope .hopeBox .hBox .hImg p{text-align:center;line-height:40px;font-size:12px;color:#888888;margin-bottom:10px}#fourPart .profile .hope .hopeBox .hBox .hImg:nth-child(3n){margin-right:0px}#fourPart .honor{margin:0 auto;width:1200px;padding:80px 0}#fourPart .honor .honorBox{width:1130px;border:10px solid #EEEEEE;margin-left:10px;height:520px;position:relative}#fourPart .honor .honorBox .hTBox{position:absolute;top:50px;left:-20px;background-color:white}#fourPart .honor .honorBox .hTBox .jobNameM{margin-top:20px}#fourPart .honor .honorBox .hTBox .rLine{margin-bottom:20px}#fourPart .honor .honorBox .honorIntro{line-height:30px;color:#888888;font-size:12px}#fourPart .honor .honorBox .honorIntro p{margin:150px 0 0 42px;width:270px}#fourPart .honor .honorBox .honorImg{position:absolute;top:35px;right:-65px;width:815px;height:432px;overflow:hidden;background-color:white;box-shadow:0 0 4px 4px #EAEAEA}#fourPart .honor .honorBox .honorImg img{width:100%}#fourPart .profile .brand .imgSmallBox .imgSmall:nth-child(1){margin-right:1px}#fourPart .profile .brand .imgSmallBox .imgSmall:nth-child(3){margin-right:2px}#fourPart .profile .brand .proContent p{text-align:right}#fourPart .profile .brand .proContent .rLine{margin-left:440px}
+#banner header {
+  position: absolute; }
+#banner > img {
+  width: 100%; }
+
+#fourPart {
+  width: 100%;
+  background-color: white; }
+  #fourPart .netNavs {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 60px; }
+    #fourPart .netNavs ul li {
+      float: left;
+      margin-right: 13px; }
+      #fourPart .netNavs ul li button {
+        width: 290px;
+        height: 58px;
+        border: 1px solid #eeeeee;
+        font-size: 18px;
+        color: #888888;
+        position: relative;
+        -moz-transition: color 0.2s, border 0.2s;
+        -webkit-transition: color 0.2s, border 0.2s;
+        -ms-transition: color 0.2s, border 0.2s;
+        transition: color 0.2s, border 0.2s; }
+      #fourPart .netNavs ul li button::after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -2px;
+        width: 0px;
+        border-bottom: 1.1px solid #a51e32;
+        -moz-transition: width 0.2s;
+        -webkit-transition: width 0.2s;
+        -ms-transition: width 0.2s;
+        transition: width 0.2s; }
+      #fourPart .netNavs ul li .btnActive {
+        border: 1px solid white;
+        box-shadow: 0 0 2px 2px rgba(231, 231, 231, 0.4);
+        color: #a51e32; }
+      #fourPart .netNavs ul li button:hover {
+        border: 1px solid white;
+        box-shadow: 0 0 2px 2px rgba(231, 231, 231, 0.4);
+        color: #a51e32; }
+      #fourPart .netNavs ul li .btnActive::after {
+        width: 292px; }
+      #fourPart .netNavs ul li button:hover::after {
+        width: 292px; }
+    #fourPart .netNavs ul li:last-child {
+      margin-right: 0px; }
+  #fourPart .net {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; }
+    #fourPart .net .map {
+      width: 800px;
+      height: 600px;
+      margin: 0 auto; }
+    #fourPart .net .map:hover {
+      cursor: pointer;
+      cursor: -ms-pointer; }
+    #fourPart .net .moreChoice .short {
+      width: 378px;
+      height: 60px;
+      border: 1px solid #c8c8c8;
+      position: relative;
+      margin-right: 10px;
+      cursor: pointer;
+      cursor: -ms-pointer; }
+      #fourPart .net .moreChoice .short > img {
+        position: absolute;
+        top: 27px;
+        right: 25px;
+        transition: transform 0.5s;
+        -ms-transition: transform 0.5s;
+        -webkit-transition: transform 0.5s;
+        -moz-transition: transform 0.5s; }
+      #fourPart .net .moreChoice .short > p {
+        font-size: 16px;
+        color: #333333;
+        line-height: 60px;
+        text-indent: 30px; }
+      #fourPart .net .moreChoice .short .profess {
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: -1px;
+        display: none;
+        background-color: white;
+        z-index: 100; }
+      #fourPart .net .moreChoice .short ul {
+        width: 378px;
+        border: 1px solid #c8c8c8;
+        background-color: white;
+        padding: 10px 0;
+        transition: height 0.5; }
+      #fourPart .net .moreChoice .short ul li p {
+        line-height: 35px;
+        text-indent: 30px;
+        font-size: 14px; }
+      #fourPart .net .moreChoice .short ul li p:hover {
+        cursor: pointer;
+        cursor: -ms-pointer;
+        background-color: #a51e32;
+        color: white; }
+    #fourPart .net .moreChoice .long {
+      width: 345px;
+      height: 60px;
+      border: 1px solid #c8c8c8;
+      position: relative;
+      border-right: 0; }
+      #fourPart .net .moreChoice .long button {
+        width: 80px;
+        height: 60px;
+        position: absolute;
+        top: -1px;
+        right: -80px;
+        border: 1px solid #333333;
+        background: url(../img/searchStore.png) no-repeat center center;
+        background-color: #333333;
+        color: white; }
+      #fourPart .net .moreChoice .long input {
+        width: 300px;
+        height: 100%;
+        border: 0;
+        color: #333333;
+        font-size: 16px;
+        margin-left: 30px; }
+      #fourPart .net .moreChoice .long input::-webkit-input-placeholder {
+        color: #888888; }
+      #fourPart .net .moreChoice .long input::-moz-placeholder {
+        color: #888888; }
+      #fourPart .net .moreChoice .long input::-ms-input-placeholder {
+        color: #888888; }
+    #fourPart .net .storeList {
+      padding: 40px 0 80px; }
+      #fourPart .net .storeList .more tr:hover {
+        color: white;
+        background-color: #a51e32;
+        border-color: #a51e32; }
+      #fourPart .net .storeList .more tr:nth-child(1):hover {
+        background-color: #333333;
+        color: white;
+        border-color: #333333; }
+      #fourPart .net .storeList table {
+        width: 100%; }
+        #fourPart .net .storeList table tr:nth-child(1) {
+          background-color: #333333;
+          color: white;
+          border-color: #333333; }
+        #fourPart .net .storeList table tr {
+          width: 100%;
+          height: 60px;
+          border: 1px solid #eeeeee; }
+          #fourPart .net .storeList table tr td {
+            width: 33.3333333%;
+            text-align: center;
+            line-height: 60px; }
+      #fourPart .net .storeList .nomore tr:nth-child(2) td {
+        width: 100%;
+        padding: 120px 0 160px; }
+        #fourPart .net .storeList .nomore tr:nth-child(2) td .nomored {
+          width: 200px;
+          height: 200px;
+          overflow: hidden;
+          margin: 0 auto; }
+          #fourPart .net .storeList .nomore tr:nth-child(2) td .nomored img {
+            margin-top: -160px;
+            margin-left: -220px; }
+        #fourPart .net .storeList .nomore tr:nth-child(2) td p {
+          font-size: 16px;
+          line-height: 24px;
+          color: #333333; }
+  #fourPart .profile {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 80px; }
+    #fourPart .profile img {
+      transition: width 0.5s, margin 0.5s;
+      -ms-transition: width 0.5s, margin 0.5s;
+      -webkit-transition: width 0.5s, margin 0.5s;
+      -moz-transition: width 0.5s, margin 0.5s; }
+    #fourPart .profile .proBox {
+      width: 100%;
+      padding-bottom: 80px; }
+      #fourPart .profile .proBox .proImg {
+        width: 600px;
+        height: 450px; }
+        #fourPart .profile .proBox .proImg .floatl {
+          width: 299px;
+          height: 450px;
+          overflow: hidden; }
+          #fourPart .profile .proBox .proImg .floatl img {
+            width: 100%; }
+          #fourPart .profile .proBox .proImg .floatl img:hover {
+            width: 105%; }
+        #fourPart .profile .proBox .proImg .floatl:nth-child(1) {
+          margin-right: 2px; }
+      #fourPart .profile .proBox .proContent {
+        width: 600px;
+        height: 450px; }
+        #fourPart .profile .proBox .proContent ul {
+          width: 500px;
+          margin: 0 auto; }
+          #fourPart .profile .proBox .proContent ul .pTop, #fourPart .profile .proBox .proContent ul .pBottom {
+            line-height: 30px;
+            color: #888888;
+            font-size: 12px; }
+          #fourPart .profile .proBox .proContent ul .pTop {
+            margin-top: 20px; }
+          #fourPart .profile .proBox .proContent ul .pBottom {
+            margin-top: 40px; }
+      #fourPart .profile .proBox .imgSmallBox {
+        width: 1200px;
+        margin-top: 2px; }
+        #fourPart .profile .proBox .imgSmallBox .imgSmall {
+          width: 299px;
+          height: 240px;
+          overflow: hidden;
+          margin-right: 1px; }
+          #fourPart .profile .proBox .imgSmallBox .imgSmall img {
+            width: 100%; }
+          #fourPart .profile .proBox .imgSmallBox .imgSmall img:hover {
+            width: 105%; }
+        #fourPart .profile .proBox .imgSmallBox .imgSmall:nth-child(1) {
+          margin-right: 2px; }
+        #fourPart .profile .proBox .imgSmallBox .imgSmall:nth-child(4) {
+          margin-right: 0px; }
+    #fourPart .profile .hope {
+      width: 1180px;
+      border: 10px solid #eeeeee;
+      position: relative; }
+      #fourPart .profile .hope .bigTitle {
+        width: 160px;
+        background-color: white;
+        padding: 0;
+        position: absolute;
+        top: -39px;
+        left: 50%;
+        margin-left: -80px; }
+        #fourPart .profile .hope .bigTitle .st {
+          color: #999999; }
+      #fourPart .profile .hope .bigTitle .bt {
+        font-size: 18.15px;
+        font-weight: normal; }
+      #fourPart .profile .hope .hopeBox .hopeTitle {
+        width: 1110px;
+        margin: 0 auto; }
+        #fourPart .profile .hope .hopeBox .hopeTitle p {
+          font-size: 12px;
+          color: #888888;
+          line-height: 30px;
+          margin: 50px 0 30px; }
+      #fourPart .profile .hope .hopeBox .hBox {
+        width: 1129px;
+        margin: 0 auto; }
+        #fourPart .profile .hope .hopeBox .hBox .hImg {
+          width: 375px;
+          margin-right: 2px; }
+          #fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox {
+            width: 100%;
+            height: 295px;
+            overflow: hidden;
+            box-shadow: 0 0 4px 4px rgba(234, 234, 234, 0.4); }
+            #fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox img {
+              width: 100%; }
+            #fourPart .profile .hope .hopeBox .hBox .hImg .hImgBox img:hover {
+              width: 110%;
+              margin: -5% 0% 0% -5%; }
+          #fourPart .profile .hope .hopeBox .hBox .hImg p {
+            text-align: center;
+            line-height: 40px;
+            font-size: 12px;
+            color: #888888;
+            margin-bottom: 10px; }
+        #fourPart .profile .hope .hopeBox .hBox .hImg:nth-child(3n) {
+          margin-right: 0px; }
+  #fourPart .honor {
+    margin: 0 auto;
+    width: 1200px;
+    padding: 80px 0; }
+    #fourPart .honor .honorBox {
+      width: 1130px;
+      border: 10px solid #EEEEEE;
+      margin-left: 10px;
+      height: 520px;
+      position: relative; }
+      #fourPart .honor .honorBox .hTBox {
+        position: absolute;
+        top: 50px;
+        left: -20px;
+        background-color: white; }
+        #fourPart .honor .honorBox .hTBox .jobNameM {
+          margin-top: 20px; }
+        #fourPart .honor .honorBox .hTBox .rLine {
+          margin-bottom: 20px; }
+      #fourPart .honor .honorBox .honorIntro {
+        line-height: 30px;
+        color: #888888;
+        font-size: 12px; }
+        #fourPart .honor .honorBox .honorIntro p {
+          margin: 150px 0 0 42px;
+          width: 270px; }
+      #fourPart .honor .honorBox .honorImg {
+        position: absolute;
+        top: 35px;
+        right: -65px;
+        width: 815px;
+        height: 432px;
+        overflow: hidden;
+        background-color: white;
+        box-shadow: 0 0 4px 4px #EAEAEA; }
+        #fourPart .honor .honorBox .honorImg img {
+          width: 100%; }
+  #fourPart .moreYear {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px; }
+    #fourPart .moreYear .mBox {
+      position: relative;
+      height: 186px;
+      width: 100%; }
+      #fourPart .moreYear .mBox .mLeft {
+        width: 564px;
+        height: 186px;
+        background: url(../img/mleft.png) no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        left: -599px; }
+        #fourPart .moreYear .mBox .mLeft p {
+          width: 440px;
+          margin: 0 auto;
+          color: #888888; }
+        #fourPart .moreYear .mBox .mLeft .mTitle {
+          font-size: 18px;
+          line-height: 40px;
+          padding-top: 60px; }
+        #fourPart .moreYear .mBox .mLeft .mContent {
+          font-size: 14px;
+          line-height: 30px; }
+      #fourPart .moreYear .mBox .mMiddle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 24px;
+        width: 24px;
+        margin-left: -11px;
+        margin-top: -11px;
+        border: 1px solid #cdcdcd;
+        border-radius: 50%;
+        background-color: white;
+        transition: width 0.5s,height 0.5s,margin 0.5s,border 0.5s;
+        -moz-transition: width 0.5s,height 0.5s,margin 0.5s,border 0.5s;
+        -webkit-transition: width 0.5s,height 0.5s,margin 0.5s,border 0.5s;
+        -ms-transition: width 0.5s,height 0.5s,margin 0.5s,border 0.5s; }
+        #fourPart .moreYear .mBox .mMiddle > div {
+          width: 10px;
+          height: 10px;
+          background-color: #888888;
+          border-radius: 50%;
+          margin: 6px;
+          margin-top: 6px;
+          transition: background-color 0.5s;
+          -moz-transition: background-color 0.5s;
+          -webkit-transition: background-color 0.5s;
+          -ms-transition: background-color 0.5s; }
+      #fourPart .moreYear .mBox .mright {
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        margin-top: -17px;
+        font-size: 34px;
+        color: #888888; }
+        #fourPart .moreYear .mBox .mright p {
+          transition: color 0.5s,transform 0.5s;
+          -moz-transition: color 0.5s,transform 0.5s;
+          -webkit-transition: color 0.5s,transform 0.5s;
+          -ms-transition: color 0.5s,transform 0.5s; }
+    #fourPart .moreYear .mBox:hover .mLeft p {
+      color: #a51e32; }
+    #fourPart .moreYear .mBox:hover .mMiddle {
+      border-color: #a51e32; }
+      #fourPart .moreYear .mBox:hover .mMiddle > div {
+        background-color: #a51e32; }
+    #fourPart .moreYear .mBox:hover .mright p {
+      color: #a51e32;
+      transform: rotateX(360deg); }
+    #fourPart .moreYear .rBox .mLeft {
+      left: 36px;
+      background-image: url(../img/mright.png); }
+    #fourPart .moreYear .rBox .mright {
+      left: auto;
+      right: 66px; }
+    #fourPart .moreYear .dashed {
+      width: 1px;
+      margin: 0 auto;
+      border-right: 1px #8f8f8f dashed; }
+    #fourPart .moreYear .mbox {
+      height: 12px;
+      width: 100%; }
+
+#fourPart .profile .brand .imgSmallBox .imgSmall:nth-child(1) {
+  margin-right: 1px; }
+
+#fourPart .profile .brand .imgSmallBox .imgSmall:nth-child(3) {
+  margin-right: 2px; }
+
+#fourPart .profile .brand .proContent p {
+  text-align: right; }
+
+#fourPart .profile .brand .proContent .rLine {
+  margin-left: 440px; }
+
 /*# sourceMappingURL=about.css.map */

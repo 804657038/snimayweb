@@ -322,7 +322,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('Book/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>预约量尺</p>
             </li>
             <li>
@@ -333,7 +333,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="<?php echo U('JoinMessage/index');?>"><img src="__HOME__/img/circle.png" /></a>
                 <p>加盟留言</p>
             </li>
         </ul>
@@ -416,13 +416,13 @@
                         <p>新闻中心</p>
                     </li>
                     <li>
-                        <a href="###">公司新闻</a>
+                        <a href="<?php echo U('Center/center_four');?>">公司新闻</a>
                     </li>
                     <li>
-                        <a href="###">媒体报道</a>
+                        <a href="<?php echo U('Center/center_four');?>">媒体报道</a>
                     </li>
                     <li>
-                        <a href="###">家居常识</a>
+                        <a href="<?php echo U('Center/center_four');?>">家居常识</a>
                     </li>
                 </ul>
             </div>
@@ -456,18 +456,10 @@
                     <li>
                         <p>关于诗尼曼</p>
                     </li>
-                    <li>
-                        <a href="###">公司简介</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌历程</a>
-                    </li>
-                    <li>
-                        <a href="###">品牌荣誉</a>
-                    </li>
-                    <li>
-                        <a href="###">营销网络</a>
-                    </li>
+                    <?php if(is_array($join)): foreach($join as $key=>$j): ?><li>
+                        <a href="<?php echo ($j["link"]); ?>"><?php echo ($j["cat_name"]); ?></a>
+                    </li><?php endforeach; endif; ?>
+
                 </ul>
             </div>
             <div class="clearl"></div>

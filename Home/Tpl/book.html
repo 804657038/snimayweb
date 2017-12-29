@@ -1,67 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta content="yes" name="apple-mobile-web-app-capable"/>
-	    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	    <meta content="telephone=no" name="format-detection"/>
-	    <link rel="stylesheet" href="css/reset.min.css" />
-	    <link rel="stylesheet" href="css/public.css" />
-	    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-	    <link rel="stylesheet" href="css/book.css" />
-	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<title>首页</title>
-	</head>
-	<body>
-		<div id="banner">
-			<!--导航-->
-			<header>
-				<nav>
-					<div class="floatl logoL">
-						<a href="index.html">
-							<img src="img/logobb.png" style="display: block;"/>
-						</a>
-					</div>
-					<div class="floatr navR">
-						<ul>
-							<li>
-								<a href="index.html"  >首页</a>
-							</li>
-							<li>
-								<a href="###">业务中心</a>
-							</li>
-							<li>
-								<a href="server.html">品质服务</a>
-							</li>
-							<li>
-								<a href="###">加入诗尼曼</a>
-							</li>
-							<li>
-								<a href="social.html" >社会责任</a>
-							</li>
-							<li>
-								<a href="###">投资者关系</a>
-							</li>
-							<li>
-								<a href="center.html">资讯中心</a>
-							</li>
-							<li>
-								<a href="about.html">关于诗尼曼</a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/moreB.png"/></a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/searchB.png"/></a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearBoth"></div>
-				</nav>
-			</header>
+<include file="Public:header" />
+<!--<link rel="stylesheet" href="__HOME__/lib/css/layui.css" />-->
+<link rel="stylesheet" href="__HOME__/css/book.css" />
 		<!--轮播图-->
-			<img src="img/bookBanner.jpg"/>
+            <img src="__PIC__/{$guanyu.original_img}" />
 			<div class="step">
 				<div class="stepBox">
 					<div class="stepChild scActive1">
@@ -107,7 +48,7 @@
 		<!--预约-->
 		<div id="book">
 			<div class="bookTop">
-				<div class="btBox floatl">
+				<div class="btBox floatl btb1">
 					<ul>
 						<li>
 							<div class="btImg"></div>
@@ -120,7 +61,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="btBox floatl">
+				<div class="btBox floatl btb2">
 					<ul>
 						<li>
 							<div class="btImg"></div>
@@ -133,52 +74,52 @@
 						</li>
 					</ul>
 				</div>
-				<div class="btBox floatl">
+				<div class="btBox floatl btb3">
 					<ul>
 						<li>
 							<div class="btImg"></div>
 						</li>
 						<li>
-							<p class="bpt1">网上预约时间</p>
+							<p class="bpt1">免费设计方案</p>
 						</li>
 						<li>
 							<p class="bpt2">03</p>
 						</li>
 					</ul>
 				</div>
-				<div class="btBox floatl">
+				<div class="btBox floatl btb4">
 					<ul>
 						<li>
 							<div class="btImg"></div>
 						</li>
 						<li>
-							<p class="bpt1">网上预约时间</p>
+							<p class="bpt1">签约合同</p>
 						</li>
 						<li>
 							<p class="bpt2">04</p>
 						</li>
 					</ul>
 				</div>
-				<div class="btBox floatl">
+				<div class="btBox floatl btb5">
 					<ul>
 						<li>
 							<div class="btImg"></div>
 						</li>
 						<li>
-							<p class="bpt1">网上预约时间</p>
+							<p class="bpt1">免费送货上门</p>
 						</li>
 						<li>
 							<p class="bpt2">05</p>
 						</li>
 					</ul>
 				</div>
-				<div class="btBox floatl">
+				<div class="btBox floatl btb6">
 					<ul>
 						<li>
 							<div class="btImg"></div>
 						</li>
 						<li>
-							<p class="bpt1">网上预约时间</p>
+							<p class="bpt1">终身维护</p>
 						</li>
 						<li>
 							<p class="bpt2">06</p>
@@ -187,269 +128,72 @@
 				</div>
 				<div class="clearl"></div>
 			</div>
-		</div>
-		<!--侧边导航-->
-		<div id="rightNav">
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>最新消息</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>在线咨询</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>预约量尺</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>加盟留言</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!--回到顶部-->
-		<div id="goToTop">
-			<a href="###"><img src="img/centers.png"/></a>
-		</div>
-		<!--尾部-->
-		<footer id="foot">
-			<!--尾部上部-->
-			<div class="fTop" align="center">
-				<ul>
-					<li>
-						<a href="https://shiniman.tmall.com/?spm=a220o.1000855.1997427721.d4918089.3a19f35bISW0HK">诗尼曼天猫旗舰店</a>
-					</li>
-					<li>
-						<a href="https://mall.jd.com/index-180815.html">诗尼曼京东旗舰店</a>
-					</li>
-					<li>
-						<a href="###">商学院学习系统</a>
-					</li>
-					<li>
-						<a href="###">经销商登录</a>
-					</li>
-					<li>
-						<a href="###">站点地图</a>
-					</li>
-					<li>
-						<a href="###">企业营业执照</a>
-					</li>
-				</ul>
-			</div>
-			<!--尾部中部-->
-			<div class="fMiddle">
-				<div class="fMLeft floatl">
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>业务中心</p>
-							</li>
-							<li>
-								<a href="###">大家居</a>
-							</li>
-							<li>
-								<a href="###">衣柜</a>
-							</li>
-							<li>
-								<a href="###">橱柜</a>
-							</li>
-							<li>
-								<a href="###">配套产品</a>
-							</li>
-							<li>
-								<a href="###">工程案例</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>品质服务</p>
-							</li>
-							<li>
-								<a href="###">定制服务流程</a>
-							</li>
-							<li>
-								<a href="###">10环服务</a>
-							</li>
-							<li>
-								<a href="###">问题反馈</a>
-							</li>
-							<li>
-								<a href="###">联系我们</a>
-							</li>
-							<li>
-								<a href="###">店面查询</a>
-							</li>
-							<li>
-								<a href="###">防伪查询</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">橱柜招商</a>
-							</li>
-							<li>
-								<a href="###">全屋招商</a>
-							</li>
-							<li>
-								<a href="###">门窗招商</a>
-							</li>
-							<li>
-								<a href="###">可加盟查询</a>
-							</li>
-							<li>
-								<a href="###">公司招聘</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>社会关系</p>
-							</li>
-							<li>
-								<a href="###">公益理念</a>
-							</li>
-							<li>
-								<a href="###">慈善活动</a>
-							</li>
-							<li>
-								<p>新闻中心</p>
-							</li>
-							<li>
-								<a href="###">公司新闻</a>
-							</li>
-							<li>
-								<a href="###">媒体报道</a>
-							</li>
-							<li>
-								<a href="###">家居常识</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>投资者关系</p>
-							</li>
-							<li>
-								<a href="###">最新公告</a>
-							</li>
-							<li>
-								<a href="###">战略投资价值</a>
-							</li>
-							<li>
-								<a href="###">投资者服务</a>
-							</li>
-							<li>
-								<a href="###">年报下载</a>
-							</li>
-							<li>
-								<a href="###">实时股价</a>
-							</li>
-							<li>
-								<a href="###">股东大会通知</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>关于诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">公司简介</a>
-							</li>
-							<li>
-								<a href="###">品牌历程</a>
-							</li>
-							<li>
-								<a href="###">品牌荣誉</a>
-							</li>
-							<li>
-								<a href="###">营销网络</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearl"></div>
-				</div>
-				
-				<div class="fMRight floatl">
+			<div class="bookTitle">
+				<div class="bigTitle">
 					<ul>
 						<li>
-							<p>全国加盟热线</p>
+							<p class="bt">预约量尺</p>
 						</li>
 						<li>
-							<p>400-840-0210</p>
+							<p class="st">Book you free home measuring service</p>
 						</li>
 						<li>
-							<p>全国服务热线</p>
-						</li>
-						<li>
-							<p>400-605-4168</p>
-						</li>
-						<li>
-							<div class="floatl">
-								<a href="http://weibo.com/u/1763136224?topnav=1&wvr=6&topsug=1"></a>
-							</div>
-							<div class="floatl">
-								<a href="###" class="wechat">
-									<div class="zhanwei"></div>
-									<div class="wtBox">
-										<img src="img/snimayServer.jpg" />
-										<div class="floatl">
-											<p>诗尼曼服务号</p>
-										</div>
-										<div class="floatl">
-											<p>诗尼曼订阅号</p>
-										</div>
-										<div class="clearl"></div>
-									</div>
-								</a>
-							</div>
-							<div class="clearl"></div>
+							<span></span>
 						</li>
 					</ul>
 				</div>
-				<div class="clearl"></div>
 			</div>
-			<!--尾部底部-->
-			<div class="fBottom">
-				<p>Copyright&copy;2017粤ICP备14016448号</p>
+			<div class="bookForm">
+				<ul>
+					<li class="type">
+						<div class="typeBox">
+							<div class="typeList">
+                                <foreach name="goodscat" item="gg" key="k1">
+								<div class="floatl types">
+									<button <if condition="$k1 eq 0">class="btnActive"</if>>{$gg.type_name}</button>
+								</div>
+                                </foreach>
+
+								<div class="clearl"></div>
+							</div>
+							<p>品类选择</p>
+                            <php>$count = count($goodscat);</php>
+                            <if condition="$count gt 4">
+                                <a href="###" class="moreType" isOpen = 'false'><img src="__HOME__/img/ms.png"/></a>
+                            </if>
+						</div>	
+					</li>
+					<li class="name">
+						<input type="search" id="name" placeholder="您的姓名"/>
+					</li>
+					<li class="phone">
+						<input type="search" id="phone" placeholder="您的电话"/>
+					</li>
+					<li class="city">
+						<div class="floatl area1">
+							<p>请选择省</p>						
+						</div>
+						<div class="floatl area2">
+							<p>请选择市</p>
+						</div>
+						<div class="floatr area3">
+							<p>请选择区</p>
+						</div>
+						<div class="clearBoth"></div>
+					</li>
+					<li>
+						<button class="btn" onclick="add_order()">确定提交</button>
+					</li>
+				</ul>
+				<p class="titleWarm">温馨提示：已交付定金的客户请勿申请，谢谢~</p>
 			</div>
-		</footer>
-		<script type="text/javascript" src="js/public.js" ></script>
-		<script type="text/javascript" src="js/book.js" ></script>
-	</body>
-</html>
+		</div>
+
+<include file="Public:footer" />
+<script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
+<script type="text/javascript" src="__HOME__/js/public.js" ></script>
+<script type="text/javascript" src="__HOME__/js/book.js" ></script>
+
+
+
+
