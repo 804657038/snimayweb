@@ -218,7 +218,7 @@ header {
         color: #ffffff;
         padding: 30px 20px 30px;
         line-height: 20px;
-        height: 20px;
+        /*height: 20px;*/
         position: relative;
         z-index: 5; }
       header nav .navR ul li > a:before {
@@ -287,7 +287,7 @@ header {
   overflow: hidden; }
 
 .linkBoxs:hover .linkBox {
-  height: 380px; }
+  height: 340px; }
 
 .linkBoxs {
   position: relative; }

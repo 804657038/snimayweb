@@ -1,88 +1,81 @@
-$(function(){
-	//空间选择
-	$('.room').find('a').click(function(){
-		$('.room').find('a').removeClass('clActive');
-		$(this).addClass('clActive');
-		var cat_id = $(this).attr('catid');//分类ID
 
-		var index = $(this).attr('index');
-		var html = "";
-		html += '<div class="hasChoice rchoice"><p>'+$(this).find('p').html()+'</p><a href="javascript:;" class="rclose'+index+'" index='+index+'></a></div>';
-		if($('.rchoice').length == 0)
-		{		
-			$('.all').append(html);
-		}else{
-			var rindex = $('.rchoice').find('a').attr('index');
-			$('.rchoice').find('a').removeClass('close'+rindex);
-			$('.rchoice').find('p').html($(this).find('p').html());
-			$('.rchoice').find('a').addClass('close'+index);
-			$('.rchoice').find('a').attr('index',index);
-		}
-		$('.rclose'+index).click(function(){
-			$('.rchoice').animate({'width':'0%','padding':'0%'},400,function(){
-				$(this).remove();
-			});
-			$('.room').find('.cl'+$(this).attr('index')).removeClass('clActive');
-		});
-	});
+var urls = img_path+"index.php/getList";
+function js_aup2(cat_id2,id){
+    urls += "?cat_id2="+id;
+    if(push_catid[1] != null){
+        urls += "&cat_id3="+push_catid[1];
+    }
+    if(push_catid[2] != null){
+        urls += "&cat_id4="+push_catid[2];
+    }
+    window.location.href = urls;
+}
+function js_aup3(cat_id3,id){
+    urls += "?cat_id3="+id;
+    if(push_catid[0] != null){
+        urls += "&cat_id2="+push_catid[0];
+    }
+    if(push_catid[2] != null){
+        urls += "&cat_id4="+push_catid[2];
+    }
+    window.location.href = urls;
+}
+function js_aup4(cat_id4,id){
+    urls += "?cat_id4="+id;
+    if(push_catid[0] != null){
+        urls += "&cat_id2="+push_catid[0];
+    }
+    if(push_catid[1] != null){
+        urls += "&cat_id3="+push_catid[1];
+    }
+    window.location.href = urls;
+}
 
-
-
-	//类型选择
-	$('.style').find('a').click(function(){
-		$('.style').find('a').removeClass('clActive');
-		$(this).addClass('clActive');
-        var cat_id = $(this).attr('catid');//分类ID
-		
-		var index = $(this).attr('index');
-		var html = "";
-		html += '<div class="hasChoice tchoice"><p>'+$(this).find('p').html()+'</p><a href="javascript:;" class="tclose'+index+'" index='+index+'></a></div>';
-		if($('.tchoice').length == 0)
-		{		
-			$('.all').append(html);
-		}else{
-			var lindex = $('.tchoice').find('a').attr('index');
-			$('.tchoice').find('a').removeClass('close'+lindex);
-			$('.tchoice').find('p').html($(this).find('p').html());
-			$('.tchoice').find('a').addClass('close'+index);
-			$('.tchoice').find('a').attr('index',index);
-		}
-		$('.tclose'+index).click(function(){
-			$('.tchoice').animate({'width':'0%','padding':'0%'},400,function(){
-				$(this).remove();
-			});
-			console.log($(this).attr('index'));
-			$('.style').find('.cl'+$(this).attr('index')).removeClass('clActive');
-		});
-	});
-	//系列选择
-	$('.series').find('a').click(function(){
-		$('.series').find('a').removeClass('clActive');
-		$(this).addClass('clActive');
-        var cat_id = $(this).attr('catid');//分类ID
-		
-		var index = $(this).attr('index');
-		var html = "";
-		html += '<div class="hasChoice schoice"><p>'+$(this).find('p').html()+'</p><a href="javascript:;" class="sclose'+index+'" index='+index+'></a></div>';
-		if($('.schoice').length == 0)
-		{		
-			$('.all').append(html);
-		}else{
-			var sindex = $('.schoice').find('a').attr('index');
-			$('.schoice').find('a').removeClass('close'+sindex);
-			$('.schoice').find('p').html($(this).find('p').html());
-			$('.schoice').find('a').addClass('close'+index);
-			$('.schoice').find('a').attr('index',index);
-		}
-		$('.sclose'+index).click(function(){
-			$('.schoice').animate({'width':'0%','padding':'0%'},400,function(){
-				$(this).remove();
-			});
-			$('.series').find('.cl'+$(this).attr('index')).removeClass('clActive');
-		});
-	});
+$('.cat_id2').on('click',function(){
+    $(this).parent('.schoice').animate({'width':'0%','padding':'0%'},400,function(){
+        $(this).remove();
+    });
+    var cat_id3 = $('.cat_id3').attr('index');
+    var cat_id4 = $('.cat_id4').attr('index');
+    if(cat_id3 && cat_id4){
+        urls += "?cat_id3="+cat_id3+"&cat_id4="+cat_id4;
+    }else if(cat_id3){
+        urls += "?cat_id3="+cat_id3;
+    }else if(cat_id4){
+        urls += "?cat_id4="+cat_id4;
+    }
+    window.location.href = urls;
 });
-
+$('.cat_id3').on('click',function(){
+    $(this).parent('.schoice').animate({'width':'0%','padding':'0%'},400,function(){
+        $(this).remove();
+    });
+    var cat_id2 = $('.cat_id2').attr('index');
+    var cat_id4 = $('.cat_id4').attr('index');
+    if(cat_id2 && cat_id4){
+        urls += "?cat_id2="+cat_id2+"&cat_id4="+cat_id4;
+    }else if(cat_id2){
+        urls += "?cat_id2="+cat_id2;
+    }else if(cat_id4){
+        urls += "?cat_id4="+cat_id4;
+    }
+    window.location.href = urls;
+});
+$('.cat_id4').on('click',function(){
+    $(this).parent('.schoice').animate({'width':'0%','padding':'0%'},400,function(){
+        $(this).remove();
+    });
+    var cat_id2 = $('.cat_id2').attr('index');
+    var cat_id3 = $('.cat_id3').attr('index');
+    if(cat_id2 && cat_id3){
+        urls += "?cat_id2="+cat_id2+"&cat_id3="+cat_id3;
+    }else if(cat_id2){
+        urls += "?cat_id2="+cat_id2;
+    }else if(cat_id3){
+        urls += "?cat_id3="+cat_id3;
+    }
+    window.location.href = urls;
+});
 
 function details(id) {
     window.location.href = img_path+"index.php/getGoodsDetail?id="+id;

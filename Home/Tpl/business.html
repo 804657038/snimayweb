@@ -1,10 +1,14 @@
 <include file="Public:header" />
 <link rel="stylesheet" href="__HOME__/css/business.css" />
+<script type="text/javascript">
+    var push_catid = {$push_catid};
+</script>
 
+    <input type="hidden" id="cats_ids" value="{$cats_ids}">
 		<!--轮播图-->
 			<img src="__PIC__/{$guanyu.original_img}" />
 		</div>
-		<a id="threeD" href="####">
+		<a id="threeD" href="http://3d.snimay.com" target="_blank">
 			<img src="__HOME__/img/3D.png" />
 		</a>
 		<div id="choiceBox">
@@ -14,6 +18,7 @@
 						<p>全部</p>
 					</div>
 					<div class="tBox all">
+                        {$htmlList}
 					</div>
 					<div class="clearl"></div>
 				</div>
@@ -24,14 +29,29 @@
 						<p>{$vo.cat_name}</p>
 					</div>
 
-                    <div class="tBox <if condition="$k eq 0"> room <elseif condition="$k eq 1"/> style <elseif condition="$k eq 2"/>series<else/></if>">
+                    <div class="tBox room">
 						<div class="clBox">
-                            <php>$ground = $vo['ground'];</php>
-                            <foreach name="ground" item="vv" key="k1">
-							<a href="javascript:;" class="choiceList cl{$k1+1}" index='{$k1+1}' catid="{$vv.id}">
-								<p>{$vv.title}</p>
-								<span></span>
-							</a>
+                            <foreach name="vo.ground" item="vv" key="k1">
+                                <if condition="$k eq 0">
+                                    <a href="javascript:js_aup2('cat_id2',{$vv.id});" class="choiceList cl{$k1+1}" index='{$k1+1}' catid="{$vv.id}" >
+                                        <p>{$vv.title}</p>
+                                        <span></span>
+                                    </a>
+                                </if>
+                                <if condition="$k eq 1">
+                                    <a href="javascript:js_aup3('cat_id3',{$vv.id});" class="choiceList cl{$k1+1}" index='{$k1+1}' catid="{$vv.id}" >
+                                        <p>{$vv.title}</p>
+                                        <span></span>
+                                    </a>
+                                </if>
+                                <if condition="$k eq 2">
+                                    <a href="javascript:js_aup4('cat_id4',{$vv.id});" class="choiceList cl{$k1+1}" index='{$k1+1}' catid="{$vv.id}" >
+                                        <p>{$vv.title}</p>
+                                        <span></span>
+                                    </a>
+                                </if>
+
+
                             </foreach>
 
 							<div class="clearl"></div>
@@ -40,164 +60,44 @@
 				</div>
                 </foreach>
 
-
-				<!--<div class="typeBox">-->
-					<!--<div class="tTitle">-->
-						<!--<p>风格</p>-->
-					<!--</div>-->
-					<!--<div class="tBox style">-->
-						<!--<div class="clBox">-->
-							<!--<a href="###" class="choiceList cl1" index='1'>-->
-								<!--<p>简欧风格</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl2" index='2'>-->
-								<!--<p>欧式风格</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl3" index='3'>-->
-								<!--<p>都市时尚风格</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl4" index='4'>-->
-								<!--<p>现代简约风格</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl5" index='5'>-->
-								<!--<p>新中式风格</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<div class="clearl"></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="typeBox">-->
-					<!--<div class="tTitle">-->
-						<!--<p>系列</p>-->
-					<!--</div>-->
-					<!--<div class="tBox series">-->
-						<!--<div class="clBox">-->
-							<!--<a href="###" class="choiceList cl1" index='1'>-->
-								<!--<p>Basic贝思科</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl2" index='2'>-->
-								<!--<p>唐顿庄园</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl3" index='3'>-->
-								<!--<p>印象极简</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl4" index='4'>-->
-								<!--<p>星光系列</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl5" index='5'>-->
-								<!--<p>都市梦想</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl6" index='6'>-->
-								<!--<p>E灵动</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<div class="clearl"></div>-->
-						<!--</div>-->
-						<!--<div class="clBox">-->
-							<!--<a href="###" class="choiceList cl7" index='7'>-->
-								<!--<p>米谨利</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl8" index='8'>-->
-								<!--<p>优生活系列</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl9" index='9'>-->
-								<!--<p>风尔赛系列</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl10" index='10'>-->
-								<!--<p>洛可可</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl11" index='11'>-->
-								<!--<p>D调奢华</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl12" index='12'>-->
-								<!--<p>凯撒</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<div class="clearl"></div>-->
-						<!--</div>-->
-						<!--<div class="clBox">-->
-							<!--<a href="###" class="choiceList cl13" index='13'>-->
-								<!--<p>凯旋门</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl14" index='14'>-->
-								<!--<p>埃菲尔</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl15" index='15'>-->
-								<!--<p>榻榻米</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl16" index='16'>-->
-								<!--<p>月亮宝盒</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl17" index='17'>-->
-								<!--<p>配套产品 -沙发</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl18" index='18'>-->
-								<!--<p>配套产品-床</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<div class="clearl"></div>-->
-						<!--</div>-->
-						<!--<div class="clBox">-->
-							<!--<a href="###" class="choiceList cl19" index='19'>-->
-								<!--<p>配套产品-床垫</p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<a href="###" class="choiceList cl20" index='20'>-->
-								<!--<p>其他配套产品 </p>-->
-								<!--<span></span>-->
-							<!--</a>-->
-							<!--<div class="clearl"></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
 			</div>
 		</div>
-		<div id="results">
-			<div class="resultBox">
+        <empty name="good">
+            <div class="noResult">
+                <div class="nomored">
+                    <img src="__HOME__/img/centers.png" />
+                </div>
+                <p>很抱歉，该分类下暂无产品！</p>
+            </div>
+            <else/>
 
-                <foreach name="good" item="go">
-                    <div class="result floatl" onclick="details('{$go.goods_id}')">
-                        <div class="rImg">
-                            <img src="__PIC__/{$go.goods_img}" alt="" />
-                        </div>
-                        <div class="rContent">
-                            <div class="floatl rp">
-                                <p>{$go.title}<span></span></p>
-                            </div>
-                            <div class="floatl rm">
-                                <a href="javascript:;"><img src="__HOME__/img/circleB.png"/></a>
-                            </div>
-                            <div class="clearl"></div>
-                        </div>
-                    </div>
-                </foreach>
+            <div id="results">
+                <div class="resultBox" >
 
-				<div class="clearl"></div>
-			</div>
-			<div class="page" align="center">
-                {$page}
-			</div>
-		</div>
+                    <foreach name="good" item="go">
+                        <div class="result floatl" onclick="details('{$go.goods_id}')">
+                            <div class="rImg">
+                                <img src="__PIC__/{$go.goods_img}" alt="" />
+                            </div>
+                            <div class="rContent">
+                                <div class="floatl rp">
+                                    <p>{$go.title}<span></span></p>
+                                </div>
+                                <div class="floatl rm">
+                                    <a href="javascript:;"><img src="__HOME__/img/circleB.png"/></a>
+                                </div>
+                                <div class="clearl"></div>
+                            </div>
+                        </div>
+                    </foreach>
+
+                    <div class="clearl"></div>
+                </div>
+                <div class="page" align="center">
+                    {$page}
+                </div>
+            </div>
+        </empty>
 
 <include file="Public:footer" />
 <script type="text/javascript" src="__HOME__/js/business.js" ></script>

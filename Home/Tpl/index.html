@@ -22,7 +22,7 @@
 			</div>
             <foreach name="acat" item="v1">
 			<div class="floatl">
-				<a href="###">
+				<a href="{:U('Business/index')}">
 					<div>
 						<div>
 							<img src="__HOME__/img/centers.png" />
@@ -122,32 +122,12 @@
 									<p>{$soreArr['k3']['title']}</p>
 									<div align="center">
 										<ul class="od">
+                                            <foreach name="goodscat" item="vg">
 											<li>
-												<a href="###">入户空间</a>
+												<a href="{:U('Business/index')}">{$vg.title}</a>
 											</li>
-											<li>
-												<a href="###">多功能房</a>
-											</li>
-											<li>
-												<a href="###">餐厅</a>
-											</li>
-											<li>
-												<a href="###">卧房</a>
-											</li>
-										</ul>
-										<ul class="od">
-											<li>
-												<a href="###">阳台空间</a>
-											</li>
-											<li>
-												<a href="###">儿 童 房</a>
-											</li>
-											<li>
-												<a href="###">客厅</a>
-											</li>
-											<li>
-												<a href="###">厨房</a>
-											</li>
+                                            </foreach>
+
 										</ul>
 									</div>
 								</div>

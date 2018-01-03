@@ -249,5 +249,25 @@ header {
   -ms-transform: rotateY(360deg);
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg); }
+.noResult{
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+.nomored{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.nomored img{
+    margin-top: -160px;
+    margin-left: -220px;
+}
+.noResult p{
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    text-align: center;
+}
 
 /*# sourceMappingURL=business.css.map */

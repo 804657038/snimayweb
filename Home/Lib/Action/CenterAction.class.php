@@ -112,11 +112,16 @@ class CenterAction extends CommonAction
 
         import("ORG.Util.Page");       //载入分页类
         //公司新闻
+        $key = $_GET['key'];
+        $map = array();
+        if($key != ''){
+            $map['title'] =array('like','%'.$key.'%');
+        }
         $article = M('article');
-        $count1 		= $article->where('cat_id=16')->count();
+        $count1 		= $article->where('cat_id=16')->where($map)->count();
         $page1 		= new Page($count1,10);
         $showPage1 	= $page1->show();
-        $xinwen = $article->where('cat_id=16')->order('article_id desc')->limit($page1->firstRow.','.$page1->listRows)->select();
+        $xinwen = $article->where('cat_id=16')->where($map)->order('article_id desc')->limit($page1->firstRow.','.$page1->listRows)->select();
         $this->assign("page1", $showPage1);
         $this->assign("xinwen", $xinwen);
         //媒体报道

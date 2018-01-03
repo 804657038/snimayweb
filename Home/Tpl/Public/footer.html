@@ -3,7 +3,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="{:U('Center/center_four')}" target="_black"><img src="__HOME__/img/circle.png" /></a>
                 <p>最新消息</p>
             </li>
             <li>
@@ -14,7 +14,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="###"><img src="__HOME__/img/circle.png" /></a>
+                <a href="http://p.qiao.baidu.com//im/index?siteid=2911356&ucid=6160127" target="_black"><img src="__HOME__/img/circle.png" /></a>
                 <p>在线咨询</p>
             </li>
             <li>
@@ -25,7 +25,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="{:U('Book/index')}"><img src="__HOME__/img/circle.png" /></a>
+                <a href="{:U('Book/index')}" target="_black"><img src="__HOME__/img/circle.png" /></a>
                 <p>预约量尺</p>
             </li>
             <li>
@@ -36,7 +36,7 @@
     <div class="rNavChild">
         <ul>
             <li>
-                <a href="{:U('JoinMessage/index')}"><img src="__HOME__/img/circle.png" /></a>
+                <a href="{:U('JoinMessage/index')}" target="_black"><img src="__HOME__/img/circle.png" /></a>
                 <p>加盟留言</p>
             </li>
         </ul>
@@ -52,22 +52,22 @@
     <div class="fTop" align="center">
         <ul>
             <li>
-                <a href="{$arr.link2}">诗尼曼天猫旗舰店</a>
+                <a href="{$arr.link2}" target="_black">诗尼曼天猫旗舰店</a>
             </li>
             <li>
-                <a href="{$arr.link1}">诗尼曼京东旗舰店</a>
+                <a href="{$arr.link1}" target="_black">诗尼曼京东旗舰店</a>
             </li>
             <li>
-                <a href="{$arr.link5}">商学院学习系统</a>
+                <a href="{$arr.link5}" target="_black">商学院学习系统</a>
             </li>
             <li>
-                <a href="{$arr.link6}">经销商登录</a>
+                <a href="{$arr.link6}" target="_black">经销商登录</a>
             </li>
             <li>
-                <a href="###">站点地图</a>
+                <a href="{$arr.link7}" target="_black">橱柜加盟</a>
             </li>
             <li>
-                <a href="###">企业营业执照</a>
+                <a href="https://www.tianyancha.com/company/3093933522" target="_black">企业营业执照</a>
             </li>
         </ul>
     </div>
@@ -142,24 +142,12 @@
                     <li>
                         <p>投资者关系</p>
                     </li>
+                    <foreach name="touzi" item="tu">
                     <li>
-                        <a href="javascript:;" onclick="touzizhe()">最新公告</a>
+                        <a href="javascript:;" onclick="touzizhe()">{$tu.cat_name}</a>
                     </li>
-                    <li>
-                        <a href="javascript:;" onclick="touzizhe()">战略投资价值</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" onclick="touzizhe()">投资者服务</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" onclick="touzizhe()">年报下载</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" onclick="touzizhe()">实时股价</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" onclick="touzizhe()">股东大会通知</a>
-                    </li>
+                    </foreach>
+
                 </ul>
             </div>
             <div class="allServer">
@@ -219,7 +207,7 @@
     </div>
     <!--尾部底部-->
     <div class="fBottom">
-        <p>Copyright&copy;2017{$arr.icp}</p>
+        <p>Copyright&copy;2017{$arr.icp} 广州诗尼曼家居股份有限公司</p>
     </div>
 </footer>
 <script type="text/javascript" src="__HOME__/lib/layui.js" ></script>

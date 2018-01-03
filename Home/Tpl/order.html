@@ -1,73 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta content="yes" name="apple-mobile-web-app-capable"/>
-	    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-	    <meta content="telephone=no" name="format-detection"/>
-	    <link rel="stylesheet" href="css/demo.css" />
-		<link rel="stylesheet" href="css/ydui.css" />
-	    <link rel="stylesheet" href="css/reset.min.css" />
-	    <link rel="stylesheet" href="css/public.css" />
-	    <link rel="stylesheet" href="css/server.css" />
-	    <link rel="stylesheet" href="lib/css/layui.css" />
-	    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
-	    <link rel="stylesheet" href="css/order.css" />
-	    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<title>品质服务</title>
-	</head>
-	<body>
-		<div id="banner">
-			<!--导航-->
-			<header>
-				<nav>
-					<div class="floatl logoL">
-						<a href="index.html">
-							<img src="img/logobb.png" />
-						</a>
-					</div>
-					<div class="floatr navR">
-						<ul>
-							<li>
-								<a href="index.html"  >首页</a>
-							</li>
-							<li>
-								<a href="###">业务中心</a>
-							</li>
-							<li class="nActive">
-								<a href="server.html">品质服务</a>
-							</li>
-							<li>
-								<a href="join.html">加入诗尼曼</a>
-							</li>
-							<li>
-								<a href="social.html">社会责任</a>
-							</li>
-							<li>
-								<a href="###">投资者关系</a>
-							</li>
-							<li>
-								<a href="center.html">资讯中心</a>
-							</li>
-							<li>
-								<a href="about.html">关于诗尼曼</a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/more.png"/></a>
-							</li>
-							<li>
-								<a href="###" class="imgBtn"><img  src="img/search.png"/></a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearBoth"></div>
-				</nav>
-			</header>
+<include file="Public:header" />
+<link rel="stylesheet" href="__HOME__/css/demo.css" />
+<link rel="stylesheet" href="__HOME__/css/ydui.css" />
+<link rel="stylesheet" href="__HOME__/css/server.css" />
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+<link rel="stylesheet" href="__HOME__/css/order.css" />
 		<!--轮播图-->
-			<img src="img/serverBanner.jpg" />
+			<img src="__PIC__/{$fuwu.original_img}" />
 		</div>
 		<!--订单查询-->
 		<div id="order">
@@ -87,7 +25,7 @@
 				</div>
 				<div class="sbox">
 					<div class="floatl input">
-						<input type="search" placeholder="请输入您的手机号码（以门店预留手机号为准）"/>
+						<input type="search" id="phone" placeholder="请输入您的手机号码（以门店预留手机号为准）"/>
 					</div>
 					<div class="floatl sbtn">
 						<button></button>
@@ -99,7 +37,7 @@
 						<ul>
 							<li>
 								<div class="circleBox">
-									<img src="img/circleB.png" />
+									<img src="__HOME__/img/circleB.png" />
 								</div>
 							</li>
 							<li>
@@ -117,7 +55,7 @@
 						<ul>
 							<li>
 								<div class="circleBox">
-									<img src="img/circleB.png" />
+									<img src="__HOME__/img/circleB.png" />
 								</div>
 							</li>
 							<li>
@@ -135,7 +73,7 @@
 						<ul>
 							<li>
 								<div class="circleBox">
-									<img src="img/circleB.png" />
+									<img src="__HOME__/img/circleB.png" />
 								</div>
 							</li>
 							<li>
@@ -153,7 +91,7 @@
 						<ul>
 							<li>
 								<div class="circleBox">
-									<img src="img/circleB.png" />
+									<img src="__HOME__/img/circleB.png" />
 								</div>
 							</li>
 							<li>
@@ -164,9 +102,9 @@
 							</li>
 							<li>
 								<p class="stp">全国统一服务热线：<br/>
-									400-883-2239<br/>
+                                    {$arr.tel_hot}<br/>
 									假冒诗尼曼产品举报电话：<br/>
-									13925062507    020-34756267</p>
+                                    {$arr.tel}</p>
 							</li>
 						</ul>
 					</div>
@@ -198,31 +136,10 @@
 				</div>
 			</div>
 			<div class="resultBox">
-				<table >
-					<tr>
-						<td>序号</td>
-						<td>订单号</td>
-						<td>状态</td>
-						<td>生产信息</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>00698A170915002D</td>
-						<td>已作废</td>
-						<td>
-							
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>00698A170915002D</td>
-						<td>已作废</td>
-						<td>
-							<button class="look">点击查看</button>
-						</td>
-					</tr>
+				<table id="shop_y">
+
 				</table>
-				<table class="nomore" style="display: none;">
+				<table class="nomore" id="shop_n" style="display: none;">
 					<tr>
 						<td>序号</td>
 						<td>订单号</td>
@@ -232,9 +149,9 @@
 					<tr>
 						<td colspan="4">
 							<div class="nomored">
-								<img src="img/centers.png" />
+								<img src="__HOME__/img/centers.png" />
 							</div>
-							<p>很抱歉，该地区暂时没有门店！</p>
+							<p>很抱歉，暂时没有订单信息！</p>
 						</td>
 					</tr>
 				</table>
@@ -265,285 +182,23 @@
 			<div class="resultDetails">
 				<table>
 					<tr>
-						<td>订单号：00698A170918009DX</td>
-						<td>订单状态：订单已发货</td>
-						<td>受理时间：2017-09-22</td>
+						<td id="danH">订单号：00698A170918009DX</td>
+						<td id="status">订单状态：订单已发货</td>
+						<td id="acceptDate">受理时间：2017-09-22</td>
 					</tr>
 					<tr>
-						<td>打款时间：2017-09-25</td>
-						<td>生产时间：2017-09-25</td>
-						<td>入库时间：2017-10-02</td>
+						<td id="planMaterialDate">打款时间：2017-09-25</td>
+						<td id="quotedPriceDate">生产时间：2017-09-25</td>
+						<td id="expectStorageDate">入库时间：2017-10-02</td>
 					</tr>
 					<tr>
-						<td>发货时间：2017-10-06</td>
+						<td id="expectDeliverDate">发货时间：2017-10-06</td>
 						<td></td>
 						<td></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-		<!--侧边导航-->
-		<div id="rightNav">
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>最新消息</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>在线咨询</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>预约量尺</p>
-					</li>
-					<li>
-						<img src="img/centers.png" />
-					</li>
-				</ul>
-			</div>
-			<div class="rNavChild">
-				<ul>
-					<li>
-						<a href="###"><img src="img/circle.png" /></a>	
-						<p>加盟留言</p>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!--回到顶部-->
-		<div id="goToTop">
-			<a href="###"><img src="img/centers.png"/></a>
-		</div>
-		<!--尾部-->
-		<footer id="foot">
-			<!--尾部上部-->
-			<div class="fTop" align="center">
-				<ul>
-					<li>
-						<a href="https://shiniman.tmall.com/?spm=a220o.1000855.1997427721.d4918089.3a19f35bISW0HK">诗尼曼天猫旗舰店</a>
-					</li>
-					<li>
-						<a href="https://mall.jd.com/index-180815.html">诗尼曼京东旗舰店</a>
-					</li>
-					<li>
-						<a href="###">商学院学习系统</a>
-					</li>
-					<li>
-						<a href="###">经销商登录</a>
-					</li>
-					<li>
-						<a href="###">站点地图</a>
-					</li>
-					<li>
-						<a href="###">企业营业执照</a>
-					</li>
-				</ul>
-			</div>
-			<!--尾部中部-->
-			<div class="fMiddle">
-				<div class="fMLeft floatl">
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>业务中心</p>
-							</li>
-							<li>
-								<a href="###">大家居</a>
-							</li>
-							<li>
-								<a href="###">衣柜</a>
-							</li>
-							<li>
-								<a href="###">橱柜</a>
-							</li>
-							<li>
-								<a href="###">配套产品</a>
-							</li>
-							<li>
-								<a href="###">工程案例</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>品质服务</p>
-							</li>
-							<li>
-								<a href="###">定制服务流程</a>
-							</li>
-							<li>
-								<a href="###">10环服务</a>
-							</li>
-							<li>
-								<a href="###">问题反馈</a>
-							</li>
-							<li>
-								<a href="###">联系我们</a>
-							</li>
-							<li>
-								<a href="###">店面查询</a>
-							</li>
-							<li>
-								<a href="###">防伪查询</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">橱柜招商</a>
-							</li>
-							<li>
-								<a href="###">全屋招商</a>
-							</li>
-							<li>
-								<a href="###">门窗招商</a>
-							</li>
-							<li>
-								<a href="###">可加盟查询</a>
-							</li>
-							<li>
-								<a href="###">公司招聘</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>社会关系</p>
-							</li>
-							<li>
-								<a href="###">公益理念</a>
-							</li>
-							<li>
-								<a href="###">慈善活动</a>
-							</li>
-							<li>
-								<p>新闻中心</p>
-							</li>
-							<li>
-								<a href="###">公司新闻</a>
-							</li>
-							<li>
-								<a href="###">媒体报道</a>
-							</li>
-							<li>
-								<a href="###">家居常识</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>投资者关系</p>
-							</li>
-							<li>
-								<a href="###">最新公告</a>
-							</li>
-							<li>
-								<a href="###">战略投资价值</a>
-							</li>
-							<li>
-								<a href="###">投资者服务</a>
-							</li>
-							<li>
-								<a href="###">年报下载</a>
-							</li>
-							<li>
-								<a href="###">实时股价</a>
-							</li>
-							<li>
-								<a href="###">股东大会通知</a>
-							</li>
-						</ul>
-					</div>
-					<div class="allServer">
-						<ul>
-							<li>
-								<p>关于诗尼曼</p>
-							</li>
-							<li>
-								<a href="###">公司简介</a>
-							</li>
-							<li>
-								<a href="###">品牌历程</a>
-							</li>
-							<li>
-								<a href="###">品牌荣誉</a>
-							</li>
-							<li>
-								<a href="###">营销网络</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearl"></div>
-				</div>
-				
-				<div class="fMRight floatl">
-					<ul>
-						<li>
-							<p>全国加盟热线</p>
-						</li>
-						<li>
-							<p>400-840-0210</p>
-						</li>
-						<li>
-							<p>全国服务热线</p>
-						</li>
-						<li>
-							<p>400-605-4168</p>
-						</li>
-						<li>
-							<div class="floatl">
-								<a href="http://weibo.com/u/1763136224?topnav=1&wvr=6&topsug=1"></a>
-							</div>
-							<div class="floatl">
-								<a href="###" class="wechat">
-									<div class="zhanwei"></div>
-									<div class="wtBox">
-										<img src="img/snimayServer.jpg" />
-										<div class="floatl">
-											<p>诗尼曼服务号</p>
-										</div>
-										<div class="floatl">
-											<p>诗尼曼订阅号</p>
-										</div>
-										<div class="clearl"></div>
-									</div>
-								</a>
-							</div>
-							<div class="clearl"></div>
-						</li>
-					</ul>
-				</div>
-				<div class="clearl"></div>
-			</div>
-			<!--尾部底部-->
-			<div class="fBottom">
-				<p>Copyright&copy;2017粤ICP备14016448号</p>
-			</div>
-		</footer>
-		<script type="text/javascript" src="js/public.js" ></script>	
-		<script type="text/javascript" src="js/order.js" ></script>
-	</body>
-</html>
+
+<include file="Public:footer" />
+<script type="text/javascript" src="__HOME__/js/order.js" ></script>

@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="banner">
-    <!--导航-->
+
     <header>
         <nav>
             <div class="floatl logoL">
@@ -33,30 +33,95 @@
                     <img src="{$logo.original_img}" />
                 </a>
             </div>
-
             <div class="floatr navR">
                 <ul>
                     <li <if condition="$catid eq 0"> class="nActive" </if> >
                         <a href="http://127.0.0.1/snimayweb/">首页</a>
                     </li>
+
                     <foreach name="art" item="vv">
                     <li <if condition="$catid eq $vv['cat_id']"> class="nActive" </if> >
                         <if condition="$vv['cat_id'] eq 63">
                             <a href="javascript:;" onclick="touzizhe()">{$vv.cat_name}</a>
                             <else/>
-                        <a href="{$vv.link}">{$vv.cat_name}</a>
-                            </if>
+                            <a href="{$vv.link}">{$vv.cat_name}</a>
+                        </if>
+
+                        <div class="secondBox">
+                            <div class="swiper-container swiper-container-nav">
+                                <button><img src="__HOME__/img/leftb.png" class="prevLeft"/></button>
+                                <button><img src="__HOME__/img/rightb.png" class="nextRight"/></button>
+                                <div class="swiper-wrapper">
+
+                                    <foreach name="vv.chiled" item="c">
+                                    <div class="swiper-slide">
+                                        <div class="imgContent">
+                                            <div class="navImg" style="overflow: hidden;">
+                                                <img src="__PIC__/{$c.cat_img}" />
+                                            </div>
+                                            <div class="navContent">
+                                                <p>{$c.cat_name}</p>
+                                                <if condition="$c['parent_id'] eq 63">
+                                                    <a href="javascript:;" onclick="touzizhe()"><img src="__HOME__/img/circleB.png" /></a>
+                                                    <else/>
+                                                    <a href="{$c.link}"><img src="__HOME__/img/circleB.png" /></a>
+                                                </if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </foreach>
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     </foreach>
 
-                    <li>
+                    <li class="linkBoxs">
                         <a href="###" class="imgBtn"><img  src="__HOME__/img/more.png"/></a>
+                        <div class="linkBox">
+                            <ul>
+                                <li>
+                                    <a href="{$arr.link3}" target="_black">诗尼曼官网商城</a>
+                                </li>
+                                <li>
+                                    <a href="{:U('Business/index')}" target="_black">诗尼曼全屋定制</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link7}" target="_black">诗尼曼橱柜</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link4}" target="_black">诗尼曼门窗</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link2}" target="_black">天猫官方商城</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link1}" target="_black">京东官方商城</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link5}" target="_black">商学院学习系统</a>
+                                </li>
+                                <li>
+                                    <a href="{$arr.link6}" target="_black">经锁商入口</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    <li>
-                        <a href="###" class="imgBtn"><img  src="__HOME__/img/search.png"/></a>
+                    <li class="sBox">
+                        <div class="swordBox">
+                            <input type="search" id="search_key" placeholder="请输入关键词" class="sword"/>
+                        </div>
+                        <a href="javascript:;" onclick="searchs()" class="imgBtn searchBtn"><img  src="__HOME__/img/search.png"/></a>
                     </li>
                 </ul>
             </div>
             <div class="clearBoth"></div>
         </nav>
+        <script type="text/javascript">
+            function searchs(){
+                var key = $('#search_key').val();
+                window.location.href = img_path+"index.php/search?key="+key;
+            }
+        </script>
     </header>

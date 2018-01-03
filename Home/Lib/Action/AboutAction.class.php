@@ -56,6 +56,9 @@ class AboutAction extends CommonAction {
               $content[] = $v3['content'];
           }
       }
+      //门店
+      $men = M('article')->where('cat_id=5')->order('article_id desc')->field('z_name,z_loca,z_tel')->limit(9)->select();
+      $this->assign('men', $men);
       $this->assign('lc_title',json_encode($title));
       $this->assign('lc_short',json_encode($short));
       $this->assign('lc_content',json_encode($content));

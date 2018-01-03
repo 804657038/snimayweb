@@ -22,4 +22,11 @@ $(function(){
     	$(this).addClass('classifyActive');
     	$(this).parent('li').siblings('li').find('a').removeClass('classifyActive');
     });
+
+    //鼠标悬浮显示大图
+    $(".swiper-slide").find('img').hover(function(){
+        $(".pintroImg").find('img').attr("src",$(this).attr('src'));
+    },function(){
+        $(".pintroImg").find('img').attr("src",$('.swq1').attr('src'));
+    });
 });

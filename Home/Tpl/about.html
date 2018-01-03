@@ -102,10 +102,22 @@
 					<div class="clearl"></div>
 				</div>
 				<div class="storeList">
-					<table class="more" style="display: none;" id="shop_y">
+					<table class="more" id="shop_y">
+						<tr>
+							<td>专卖店名称</td>
+							<td>专卖店地址</td>
+							<td>营业时间</td>
+						</tr>
+						<foreach name="men" item="vo">
+                            <tr>
+                                <td>{$vo.z_name}</td>
+                                <td>{$vo.z_loca}</td>
+                                <td>{$vo.z_tel}</td>
+                            </tr>
+                        </foreach>
 
 					</table>
-					<table class="nomore" id="shop_n">
+					<table class="nomore" id="shop_n" style="display: none;">
 						<tr>
 							<td>专卖店名称</td>
 							<td>专卖店地址</td>

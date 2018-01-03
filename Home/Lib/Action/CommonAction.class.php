@@ -8,56 +8,7 @@ class CommonAction extends Action {
         //网站信息
         $this->site_info = $site_config['SITE_INFO'];
         $this->site_config = $site_config;
-		
-		//网站logo
-		$this->logo=M('ads')->where('ads_id=1')->find();
-
-        $this->bann=M('ads')->where('ads_id=11')->find();
-
-        $this->er=M('ads')->where('ads_id=30')->find();
-
-        $this->er2=M('ads')->where('ads_id=31')->find();
-
-        $cat_list = M('goodscat')->where('parent_id = 0')->order('cat_id asc')->select();
-        foreach ($cat_list as $key => $value) {
-            $cat_list[$key]['list'] = M('goods_ground')->where('cat_id='.$value['cat_id'])->order('sort_order asc')->select();
-        }
-        $this->cat_list = $cat_list;
-        $this->province = M('region')->where('parent_id=1')->order('region_id asc')->select();
-        //网站logo
-        $this->pro_ban=M('ads')->where('ads_id=17')->find();
-
-        //分页设置
-        $this->pageTheme = "%upPage% %first% %linkPage% %downPage% %end%";
-
-        $this->assign('action', ACTION_NAME);
-        $this->friendly_link=$this->get_friendly_link();
         
-
-        //来源页
-        $this->back_url = $_SERVER['HTTP_REFERER'];
-        if(strpos($this->back_url, 'logout') || strpos($this->back_url, 'change_password')) $this->back_url = '/';
-
-        //用户信息
-        $userInfo = session('userInfo');
-        if(empty($userInfo)){
-            $user_id = cookie('user_id');
-            if($user_id) $this->update_userInfo($user_id);
-        }
-        if(isMobile()){
-            header('location:http://m.snimay.com/mobile.php');
-        }
-        //if(empty($userInfo['head'])) $userInfo['head'] = "Public/Home/images/defaulthead.gif";
-        $this->assign('userInfo', $userInfo);
-
-        //所有分类
-        $this->all_cats = $this->subCat(1);
-
-        //所有分类
-        $this->all_cats1 = $this->subCat(15);
-        
-        //年
-        $this->Year     = date('Y', time());
         //-------------------------------------------------------------------------
         //网站信息
         $arr = [
@@ -66,8 +17,11 @@ class CommonAction extends Action {
             'description'=>$this->site_info['description'],
             'link1'=>$this->site_info['link1'],
             'link2'=>$this->site_info['link2'],
+            'link3'=>$this->site_info['link3'],
+            'link4'=>$this->site_info['link4'],
             'link5'=>$this->site_info['link5'],
             'link6'=>$this->site_info['link6'],
+            'link7'=>$this->site_info['link7'],
             'tel_hot'=>$this->site_info['tel_hot'],
             'tel_join'=>$this->site_info['tel_join'],
             'icp'=>$this->site_info['icp'],
@@ -90,6 +44,9 @@ class CommonAction extends Action {
         $this->assign('logo2',json_encode($logo2));
         //导航
         $art = M('articlecat')->where('parent_id=0')->order('sort_order asc')->limit(7)->select();
+        foreach($art as $k=>$v){
+            $art[$k]['chiled'] = M('articlecat')->where('parent_id='.$v['cat_id'])->order('sort_order asc')->select();
+        }
         $this->assign('art',$art);
         //次级导航
         $acat = M('articlecat')->where('parent_id=65')->order('sort_order asc')->select();
@@ -102,6 +59,8 @@ class CommonAction extends Action {
         $this->assign('gyhd',$gyhd);
         $join = M('articlecat')->where('parent_id=1')->order('sort_order asc')->limit(4)->select();
         $this->assign('join',$join);
+        $touzi = M('articlecat')->where('parent_id=63')->order('sort_order asc')->select();
+        $this->assign('touzi',$touzi);
         //服务号和订阅号
         $weixin = M('ads')->where('ads_id=162')->find();
         $this->assign('weixin',$weixin);
@@ -194,9 +153,13 @@ class CommonAction extends Action {
 
     //搜索中转
     public function search(){
-        $keyword    = trim($_REQUEST['keyword']);
-		$url        = U('Info/search', array('keyword'=>$keyword));
-        exit("<script>location.href = '$url';</script>");
+        $keyword    = trim($_REQUEST['key']);
+        $link = getenv("HTTP_REFERER");
+        if(strstr($link,"Center")){
+            $this->redirect('Center/center_four',array('key'=>$keyword));
+        }else{
+            $this->redirect('Business/index',array('key'=>$keyword));
+        }
     }
 
     //友情链接

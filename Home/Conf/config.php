@@ -57,6 +57,10 @@ $config_arr2 = array(
       'book_order'=>'Book/book_order',
       'jm_order'=>'JoinMessage/jm_order',
       'getGoodsDetail'=>'Business/getGoodsDetail',
+      'getList'=>'Business/index',
+      'getOrder'=>'Order/getOrder',
+      'getOrderResult'=>'Order/getOrderResult',
+      'search'=>'Common/search',
 
 
 
