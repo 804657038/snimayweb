@@ -658,17 +658,21 @@ function getRegionId($content){
     $area = $p[2];
     $region = M('region');
     $province=str_replace('省','',$province);
-    $city=str_replace(['市','自治区'],'',$city);
     $map['region_name'] = array('like',"%{$province}%");
     $prov=$region->where($map)->field('region_id,parent_id')->find();
-
-    $cap['region_name'] = array('like',"%{$city}%");
-    $cap['parent_id'] = array('eq',"{$prov['region_id']}");
-    $c=$region->where($cap)->field('region_id,parent_id')->find();
-
-    $ap['region_name'] = array('like',"%{$area}%");
-    $ap['parent_id'] = array('eq',"{$c['region_id']}");
-    $a=$region->where($ap)->field('region_id,parent_id')->find();
+    if(strstr($city,"区")){
+        $cap['region_name'] = array('eq',"{$city}");
+        $a=$region->where($cap)->field('region_id,parent_id')->find();
+        $c['region_id'] = 0;
+    }else{
+        $city=str_replace(['市','自治区'],'',$city);
+        $cap['region_name'] = array('like',"%{$city}%");
+        $cap['parent_id'] = array('eq',"{$prov['region_id']}");
+        $c=$region->where($cap)->field('region_id,parent_id')->find();
+        $ap['region_name'] = array('like',"%{$area}%");
+        $ap['parent_id'] = array('eq',"{$c['region_id']}");
+        $a=$region->where($ap)->field('region_id,parent_id')->find();
+    }
     $data = [
         'province'=>$prov['region_id'],
         'city'=>$c['region_id'],

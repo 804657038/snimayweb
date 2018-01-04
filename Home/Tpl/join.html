@@ -64,8 +64,8 @@
 			</div>
 			<div class="jobBox" >
                 <foreach name="zp" item="xp">
-				<div class="job floatl">
-					<a href="javascript:;" onclick="details('{$xp.article_id}')" class="rc"><img src="__HOME__/img/redCrocss.png"/></a>
+				<div class="job floatl" onclick="details('{$xp.article_id}')">
+					<a href="javascript:;" class="rc"><img src="__HOME__/img/redCrocss.png"/></a>
 					<ul>
 						<li>
 							<p class="jobNameM p1">{$xp.zw_name}</p>
@@ -179,7 +179,7 @@
 									<!--<input type="file" />-->
 								</div>
 								<span class="p1" id="cltLogo"></span>
-                                <div style="margin-top: -9px;margin-left: 2px;font-size: 12px;color: #888888;">请上传20兆之内的压缩文件</div>
+                                <div style="margin-top: -9px;margin-left: 2px;font-size: 12px;color: #888888;">请上传20兆之内的压缩文件,如：zip,rar</div>
 							</li>
 							<li>
 								<button class="btn" onclick="addJL()">确认提交</button>
@@ -199,8 +199,12 @@
         $.ajax({
             url:img_path+"/index.php/join_detail/id/"+id,
             type:"get",
-            success:function(re){
-                var re = JSON.parse(re);
+            success:function(res){
+                var re = JSON.parse(res);
+				$('.jobBox').hide();
+				$('.jobDetails').show();
+				$('.jobDetails').addClass('animated bounceInDown');
+
                 $("#t_name").html(re.zw_name);
                 $("#e_name").html(re.en_title);
                 $("#adr").html(re.location);

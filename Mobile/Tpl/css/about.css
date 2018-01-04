@@ -1,0 +1,241 @@
+#Introduction {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0.6rem; }
+
+.fSelect {
+  width: 100%;
+  overflow-x: scroll; }
+  .fSelect .fSBox {
+    width: 125%; }
+    .fSelect .fSBox .floatl {
+      width: 24.25%;
+      margin-right: 1%; }
+      .fSelect .fSBox .floatl button {
+        width: 100%;
+        border: 1px solid #c8c8c8;
+        line-height: 0.7rem;
+        display: block;
+        color: #888888;
+        font-size: 0.28rem; }
+      .fSelect .fSBox .floatl .activeBtn {
+        background-color: #a51e32;
+        color: white;
+        border-color: #a51e32; }
+    .fSelect .fSBox .floatl:nth-last-child(2) {
+      margin-right: 0; }
+
+.cContent {
+  padding: 0.6rem 0 0; }
+  .cContent .imgAndText {
+    width: 98%;
+    margin: 0 auto; }
+    .cContent .imgAndText ul li {
+      margin-top: 0.4rem; }
+    .cContent .imgAndText img {
+      width: 100%; }
+    .cContent .imgAndText p {
+      font-size: 0.24rem;
+      line-height: 0.6rem;
+      color: #888888; }
+  .cContent .imgAndP {
+    margin-top: 0.4rem; }
+    .cContent .imgAndP img {
+      width: 100%; }
+    .cContent .imgAndP p {
+      font-size: 0.28rem;
+      line-height: 1.0rem;
+      color: #888888;
+      text-align: center; }
+  .cContent .vision ul li:nth-child(1) {
+    margin-top: 0; }
+
+#selectBox {
+  width: 100%;
+  overflow: hidden; }
+
+#development {
+  padding: 0.8rem 0; }
+  #development .titles {
+    margin-bottom: 0.4rem; }
+  #development .developBox {
+    width: 90%;
+    margin-left: 4.27%;
+    border-left: 1px  dotted #939393; }
+  #development .thing {
+    width: 94%;
+    margin-left: 6%;
+    background-color: #eeeeee;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    padding: 0.25rem 0; }
+    #development .thing ul {
+      width: 90%;
+      margin: 0 auto; }
+  #development .circle {
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    border: 1px solid #c9c9c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    position: absolute;
+    background-color: white;
+    left: -0.15rem;
+    top: 0.3rem;
+    margin-left: -2px; }
+    #development .circle > div {
+      width: 0.15rem;
+      height: 0.15rem;
+      border-radius: 50%;
+      background-color: #a51e32; }
+  #development .year {
+    position: relative; }
+    #development .year p {
+      width: 94%;
+      margin-left: 6%;
+      font-size: 0.3rem;
+      color: #888888;
+      line-height: 1rem; }
+  #development .thingTitle {
+    font-size: 0.3rem;
+    color: #333333;
+    margin-bottom: 0.1rem;
+    margin-top: 0.08rem; }
+  #development .thingContent {
+    font-size: 0.26rem;
+    color: #888888;
+    line-height: 0.45rem; }
+
+#net {
+  padding: 0.8rem 0; }
+  #net .choice2 {
+    margin-top: 0.4rem; }
+    #net .choice2 > .flr {
+      width: 48%;
+      position: relative;
+      border: 1px solid #c8c8c8;
+      background-color: #eeeeee; }
+      #net .choice2 > .flr > p {
+        line-height: 0.8rem;
+        font-size: 0.28rem;
+        color: #333333;
+        text-indent: 0.28rem;
+        background: url(../img/rArrow.png) no-repeat 92% center;
+        background-size: auto 0.34rem; }
+      #net .choice2 > .flr button {
+        display: block;
+        height: 0.8rem;
+        font-size: 0.28rem;
+        color: #888888;
+        background-size: auto 0.34rem;
+        width: 100%;
+        background-color: #eeeeee; }
+      #net .choice2 > .flr > select {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2; }
+    #net .choice2 > .floatl {
+      margin-left: -1px; }
+      #net .choice2 > .floatl button {
+        background-color: white; }
+    #net .choice2 > .floatr {
+      margin-right: -1px; }
+  #net .pn {
+    margin-top: 0.8rem; }
+  #net .searchBox {
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    height: 0.8rem;
+    margin-left: -1px;
+    background: url(../img/search.png) no-repeat 0.2rem center;
+    background-size: auto 0.32rem;
+    overflow: hidden;
+    margin-top: 0.2rem; }
+    #net .searchBox input {
+      display: block;
+      width: 85%;
+      border: 0;
+      height: 100%;
+      margin-left: 12%;
+      margin-top: 1px; }
+  #net .storeChild {
+    width: 100%;
+    margin-left: -1px;
+    background-color: #eeeeee;
+    border: 1px solid #eeeeee;
+    margin-top: 0.4rem; }
+    #net .storeChild .sName {
+      width: 97%;
+      margin: 0 auto;
+      border-bottom: 1px solid #c8c8c8; }
+      #net .storeChild .sName p {
+        width: 90%;
+        padding-left: 5%;
+        font-size: 0.32rem;
+        color: #333333;
+        line-height: 0.8rem;
+        padding-top: 0.1rem; }
+    #net .storeChild .sAddress {
+      width: 97%;
+      margin: 0 auto;
+      margin-top: 0.2rem; }
+      #net .storeChild .sAddress p {
+        width: 88%;
+        padding-left: 12%;
+        font-size: 0.26rem;
+        color: #888888;
+        line-height: 0.5rem;
+        background: url(../img/address.png) no-repeat 6% 0.1rem;
+        background-size: auto 0.3rem; }
+    #net .storeChild .sTime {
+      width: 97%;
+      margin: 0 auto;
+      margin-bottom: 0.2rem; }
+      #net .storeChild .sTime p {
+        width: 88%;
+        padding-left: 12%;
+        font-size: 0.26rem;
+        color: #888888;
+        line-height: 0.5rem;
+        background: url(../img/time.png) no-repeat 6% 0.1rem;
+        background-size: auto 0.24rem; }
+
+#honor {
+  padding: 0.8rem 0; }
+  #honor .titles {
+    margin-bottom: 0.4rem; }
+  #honor .oneImg {
+    width: 100%;
+    margin-bottom: 0.3rem; }
+    #honor .oneImg img {
+      width: 100%; }
+  #honor .TwoImg {
+    width: 100%;
+    margin-bottom: 0.3rem; }
+    #honor .TwoImg .tLeft {
+      width: 48%; }
+    #honor .TwoImg .tRight {
+      width: 49%; }
+    #honor .TwoImg img {
+      width: 100%; }
+  #honor .honorp {
+    width: 96%;
+    margin: 0 auto;
+    padding-top: 0.1rem;
+    font-size: 0.26rem;
+    line-height: 0.6rem;
+    color: #888888;
+    word-break: break-all; }
+
+/*# sourceMappingURL=about.css.map */

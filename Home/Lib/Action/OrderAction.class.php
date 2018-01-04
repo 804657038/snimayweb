@@ -7,9 +7,11 @@ class OrderAction extends CommonAction
     }
     public function index(){
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
-        $logo1['original_img'] = __ROOT__.'/'.$logo1['original_img'];
-        $this->assign('logo',$logo1);
+        $logo1 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo1',json_encode($logo1));
+        $this->assign('logo2',json_encode($logo1));
+        $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
+        $this->assign('logo', $logo1);
         //banner
         $fuwu = M('ads')->where('ads_id=163')->find();
         $this->assign('fuwu',$fuwu);

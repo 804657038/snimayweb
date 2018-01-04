@@ -9,7 +9,7 @@ class BusinessAction extends CommonAction
     public function index()
     {
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1 = M('ads')->where('ads_id=160')->find();
         $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
         $this->assign('logo', $logo1);
         //banner
@@ -73,9 +73,12 @@ class BusinessAction extends CommonAction
     //详情
     public function getGoodsDetail(){
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1 = M('ads')->where('ads_id=161')->find();
+        $this->assign('logo1',json_encode($logo1));
         $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
         $this->assign('logo', $logo1);
+        $logo2 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo2',json_encode($logo2));
 
         $goods_id = $_GET['id']+0;
         $detail = M('goods')->where("goods_id=$goods_id and is_open=1")->find();

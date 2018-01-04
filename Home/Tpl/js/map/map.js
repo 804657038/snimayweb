@@ -775,83 +775,23 @@ function DrawMap(container, provinces)
                 {
                     clearTimeout(g)
                 }
-                g = setTimeout((function (u)
-                {
-                    return function ()
-                    {
-                        var C = u.left * r;
-                        var B = u.top * r;
-                        var z, E, provinces = 120,
-                            D = 20;
-                        E = B - 50;
-                        if (C < jQuery("#map_container").width() / 2)
-                        {
-                            z = C + 30
-                        } else
-                        {
-                            z = C - 30 - provinces
-                        }
-                        var v = {
-                            fill: "#4F9BD5",
-                            "fill-opacity": 0.3,
-                            stroke: "#999",
-                            "stroke-width": 1,
-                            "stroke-opacity": 0.3
-                        };
-                        if (self.triangle1)
-                        {
-                            self.triangle1.remove()
-                        }
-                        if (self.triangle2)
-                        {
-                            self.triangle2.remove()
-                        }
-                        if (self.triangle3)
-                        {
-                            self.triangle3.remove()
-                        }
-                        self.triangle1 = c.path("M " + (z + provinces).toString(10) + "," + E.toString(10) + " L " + (z + provinces).toString(10) + "," + (E + D).toString(10) + " L " + C.toString(10) + "," + B.toString() + "Z").attr(v);
-                        self.triangle2 = c.path("M " + z.toString(10) + "," + (E + D).toString(10) + " L " + (z + provinces).toString(10) + "," + (E + D).toString(10) + " L " + C.toString(10) + "," + B.toString() + "Z").attr(v);
-                        self.triangle3 = c.path("M " + z.toString(10) + "," + E.toString(10) + " L " + z.toString(10) + "," + (E + D).toString(10) + " L " + C.toString(10) + "," + B.toString() + "Z").attr(v);
-                        if (self.label != null)
-                        {
-                            self.label.remove()
-                        }
-                        self.label = c.text((z + 60), (E + 10), u.text).attr({
-                            font: "14px Arial",
-                            fill: "#000",
-                            "text-align": "center"
-                        });
-                        if (self.tip == null)
-                        {
-                            self.tip = c.rect(z, E, provinces, D).attr({
-                                fill: "90-#FFFFFF:5-#EBEBEB:95",
-                                stroke: "#CCC",
-                                "stroke-width": 5,
-                                "stroke-opacity": 0.5
-                            })
-                        } else
-                        {
-                            self.tip.stop();
-                            self.tip.animate({
-                                x: z,
-                                y: E
-                            }, 0, null)
-                        }
-                        self.tip.toFront();
-                        self.label.toFront();
-                        c.safari()
-                    }
-                })(i), 0)
+                var id = parseInt(this.id/3);
+        		$('.provice').text(provinces[id].text); 
+        		
+        		for(var ii=0;ii<citys.length;ii++)
+        		{
+        			if(citys[ii].n==provinces[id].text)
+        			{
+        				$('.area1').addClass('zjProvice');
+        				$('.area1').attr('provice',ii);
+        				$('.area2 p').html("请选择市")
+        			}
+        		}
             }
         })(provinces[q]));
         provinces[q].label.click(s);
         provinces[q].path.click(s);
-        provinces[q].path.click(function(){
-        	var id = parseInt(this.id/3);
-        	$('.provice').text(provinces[id].text);       	
-        });
-      	
+
     }
 
     var r = 1;

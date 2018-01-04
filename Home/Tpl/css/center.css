@@ -4,14 +4,14 @@ body {
 header {
   position: absolute; }
 
-#banner {
+#bannerNext {
   width: 1200px;
   position: relative;
   margin: 0 auto;
   overflow: hidden; }
-  #banner img {
+  #bannerNext img {
     width: 100%; }
-  #banner .swiper-pagination-bullet {
+  #bannerNext .swiper-pagination-bullet {
     width: auto;
     height: auto;
     padding: 18px 8px;
@@ -22,23 +22,23 @@ header {
     background-color: transparent;
     opacity: 0.8;
     margin: 0; }
-  #banner .swiper-pagination-bullet-active {
+  #bannerNext .swiper-pagination-bullet-active {
     border-bottom: 2px solid #a51e32; }
-  #banner > div:nth-child(1) {
+  #bannerNext > div:nth-child(1) {
     width: 61.58%; }
-  #banner > div:nth-child(2) {
+  #bannerNext > div:nth-child(2) {
     width: 38.42%;
     height: 520px;
     background-color: #eeeeee; }
-    #banner > div:nth-child(2) ul li:nth-child(1) {
+    #bannerNext > div:nth-child(2) ul li:nth-child(1) {
       position: relative;
       width: 100%;
       margin-bottom: 41px; }
-      #banner > div:nth-child(2) ul li:nth-child(1) > img {
+      #bannerNext > div:nth-child(2) ul li:nth-child(1) > img {
         position: relative;
         top: 0;
         left: 0; }
-      #banner > div:nth-child(2) ul li:nth-child(1) p {
+      #bannerNext > div:nth-child(2) ul li:nth-child(1) p {
         position: absolute;
         font-size: 22px;
         line-height: 150px;
@@ -48,50 +48,50 @@ header {
         top: 0;
         left: 0;
         font-weight: bold; }
-    #banner > div:nth-child(2) ul li {
+    #bannerNext > div:nth-child(2) ul li {
       position: relative;
       width: 380px;
       margin: 0 auto;
       margin-bottom: 10px;
       overflow: hidden; }
-      #banner > div:nth-child(2) ul li > div {
+      #bannerNext > div:nth-child(2) ul li > div {
         position: absolute;
         left: 12px;
         top: 23px;
         width: 12px;
         height: 12px;
         overflow: hidden; }
-        #banner > div:nth-child(2) ul li > div img {
+        #bannerNext > div:nth-child(2) ul li > div img {
           width: auto;
           margin-left: -212px; }
-      #banner > div:nth-child(2) ul li .phone {
+      #bannerNext > div:nth-child(2) ul li .phone {
         width: 15px;
         height: 15px; }
-        #banner > div:nth-child(2) ul li .phone img {
+        #bannerNext > div:nth-child(2) ul li .phone img {
           margin-left: -212px;
           margin-top: -48px; }
-      #banner > div:nth-child(2) ul li .cityes {
+      #bannerNext > div:nth-child(2) ul li .cityes {
         width: 13px;
         height: 13px; }
-        #banner > div:nth-child(2) ul li .cityes img {
+        #bannerNext > div:nth-child(2) ul li .cityes img {
           margin-top: -95px;
           margin-left: -210px; }
-      #banner > div:nth-child(2) ul li .word {
+      #bannerNext > div:nth-child(2) ul li .word {
         margin-left: 0px; }
-      #banner > div:nth-child(2) ul li input {
+      #bannerNext > div:nth-child(2) ul li input {
         width: 378px;
         height: 58px;
         border: 1px solid #c8c8c8;
         background-color: white;
         color: #333333;
         text-indent: 33px; }
-      #banner > div:nth-child(2) ul li input::-ms-input-placeholder {
+      #bannerNext > div:nth-child(2) ul li input::-ms-input-placeholder {
         color: #888888; }
-      #banner > div:nth-child(2) ul li input::-webkit-input-placeholder {
+      #bannerNext > div:nth-child(2) ul li input::-webkit-input-placeholder {
         color: #888888; }
-      #banner > div:nth-child(2) ul li input::-moz-placeholder {
+      #bannerNext > div:nth-child(2) ul li input::-moz-placeholder {
         color: #888888; }
-      #banner > div:nth-child(2) ul li button {
+      #bannerNext > div:nth-child(2) ul li button {
         position: absolute;
         left: 0;
         top: 0;
@@ -108,12 +108,12 @@ header {
         -webkit-transition: color 0.5s,border 0.5s;
         -ms-transition: color 0.5s,border 0.5s;
         transition: color 0.5s,border 0.5s; }
-      #banner > div:nth-child(2) ul li button:hover::before {
+      #bannerNext > div:nth-child(2) ul li button:hover::before {
         width: 100%; }
-      #banner > div:nth-child(2) ul li button:hover {
+      #bannerNext > div:nth-child(2) ul li button:hover {
         color: white;
         border: 1px solid #a51e32; }
-      #banner > div:nth-child(2) ul li button::before {
+      #bannerNext > div:nth-child(2) ul li button::before {
         content: "";
         position: absolute;
         top: 0;
@@ -126,12 +126,12 @@ header {
         -webkit-transition: width 0.5s;
         -ms-transition: width 0.5s;
         transition: width 0.5s; }
-    #banner > div:nth-child(2) ul li:nth-child(5) {
+    #bannerNext > div:nth-child(2) ul li:nth-child(5) {
       width: 378px;
       height: 58px;
       position: relative;
       margin-top: 19px; }
-    #banner > div:nth-child(2) ul li.city input {
+    #bannerNext > div:nth-child(2) ul li.city input {
       background: url(../img/ms.png) no-repeat 340px center;
       background-color: white; }
 

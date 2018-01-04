@@ -1,0 +1,176 @@
+<include file="Publics:header" />
+<link rel="stylesheet" href="__HOME__/css/index.css" />
+<script type="text/javascript">
+    var jon_list = {$jon_list};
+    var eights_list = {$eights_list};
+</script>
+		<!--轮播图+导航-->
+		<div id="banner">
+			<div class="swiper-container swiper-container-index">
+			    <div class="swiper-wrapper">
+
+					<volist name="banner_list" id="vo">
+			        <div class="swiper-slide">
+                        <a href="{$vo.link}"><img src="__ROOT__/{$vo.original_img}" class="img-responsive"></a>
+			        </div>
+					</volist>
+
+			    </div>
+			    <div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<!--业务中心-->
+		<div id="business" class="box">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>业务中心</p>
+					</li>
+					<li>
+						<p>Business Center</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="sixPart">
+                <foreach name="acat" item="vo" key="k">
+				<a href="" class="sChild floatl">
+                    <if condition="$k eq 0">
+                        <img src="__HOME__/img/busi01.png" />
+                    </if>
+                    <if condition="$k eq 1">
+                        <img src="__HOME__/img/busi02.png" />
+                    </if>
+                    <if condition="$k eq 2">
+                        <img src="__HOME__/img/busi03.png" />
+                    </if>
+                    <if condition="$k eq 3">
+                        <img src="__HOME__/img/busi04.png" />
+                    </if>
+                    <if condition="$k eq 4">
+                        <img src="__HOME__/img/busi05.png" />
+                    </if>
+                    <if condition="$k eq 5">
+                        <img src="__HOME__/img/busi06.png" />
+                    </if>
+
+					<p>{$vo.cat_name}</p>
+				</a>
+                </foreach>
+
+				<div class="clearl"></div>
+			</div>
+		</div>
+		<!--加入诗尼曼-->
+		<div id="join" class="box">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>加入诗尼曼</p>
+					</li>
+					<li>
+						<p>Join The Poet Neiman</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="choice3">
+                <foreach name="jon_lt" item="vo" key="k">
+				<div class="floatl">
+					<button class="normalBtn <if condition="$k eq 0">redmalBtn</if>" <if condition="$k eq 0">index=1<elseif condition="$k eq 1"/>index=2<else/>index=3</if> >
+                        {$vo.title}
+                    </button>
+				</div>
+                </foreach>
+
+				<div class="clearl"></div>
+			</div>
+			<div class="joinIntro">
+				<div class="joinImg">
+					<img src="__ROOT__/{$join_list.original_img}" />
+				</div>
+				<div class="moreBtn">
+					<button>了解更多</button>
+				</div>
+			</div>
+		</div>
+		<!--八大空间-->
+		<div id="room8" class="box">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>8大空间产品</p>
+					</li>
+					<li>
+						<p>8 large space products</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="roomBox">
+				<img src="__ROOT__/{$e_list.original_img}" />
+				<div class="roomContent">
+					<div class="rcLeft floatl">
+						<ul>
+                            <foreach name="eights" item="vo" key="k">
+							<li>
+								<p <if condition="$k eq 0">class="pActive"</if> index={$k}>{$k+1} {$vo.cat_name}</p>
+							</li>
+                            </foreach>
+						</ul>
+					</div>
+					<div class="rcRight floatl">
+						<div class="bigTitle">
+							<p>{$eights[0]['cat_name']}</p>
+						</div>
+						<div class="smallContent">
+							<p>{$eights[0]['cat_desc']}</p>
+							<a href="###"><img src="__HOME__/img/morew.png" /></a>
+						</div>
+					</div>
+					<div class="clearl"></div>
+				</div>
+			</div>
+		</div>
+		<!--资讯中心-->
+		<div id="center" class="box">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>资讯中心</p>
+					</li>
+					<li>
+						<p>Information center</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="boxCenter">
+                <foreach name="zx" item="vo" key="k">
+				<div class="centerChild floatl" onclick="javascript:window.location.href='{$vo.link2}'">
+					<div class="centerImg" style="overflow: hidden;">
+						<img src="__ROOT__/{$vo.original_img}" width="170px" height="130px"/>
+					</div>
+					<div class="centerP">
+						<p>{$vo.title}</p>
+						<a href="{$vo.link2}"><img src="__HOME__/img/more.png"/></a>
+					</div>
+				</div>
+                </foreach>
+
+				<div class="clearl"></div>
+			</div>
+		</div>
+<include file="Publics:footer" />
+<script type="text/javascript" src="__HOME__/js/index.js" ></script>
+
+
+

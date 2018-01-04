@@ -1,0 +1,191 @@
+@font-face {
+  font-family: hsg;
+  src: url("../font/HSG.otf"); }
+footer {
+  background-color: #eeeeee; }
+
+.moreLink {
+  padding: 0.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  -webkit-flex-direction: column;
+  width: 94.67%;
+  margin: 0 auto;
+  border-bottom: 1px solid #c8c8c8; }
+  .moreLink ul {
+    height: 0.5rem;
+    margin: 0 auto; }
+  .moreLink ul li {
+    float: left;
+    font-size: 0.24rem; }
+    .moreLink ul li a {
+      font-size: 0.24rem;
+      line-height: 0.5rem;
+      color: #888888; }
+      .moreLink ul li a span {
+        display: inline-block;
+        padding: 0 0.05rem; }
+
+.moreFun {
+  padding: 0.4rem 0;
+  width: 94.67%;
+  margin: 0 auto; }
+  .moreFun .floatl {
+    width: 31%;
+    margin-right: 3.5%;
+    background-color: #e4e4e4;
+    padding: 0.25rem 0; }
+    .moreFun .floatl .funBox {
+      width: 0.8rem;
+      height: 0.8rem;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 50%;
+      background-color: white; }
+      .moreFun .floatl .funBox img {
+        display: block;
+        width: 50%;
+        height: 50%;
+        margin: 25%; }
+    .moreFun .floatl .funP {
+      margin-top: 0.2rem; }
+      .moreFun .floatl .funP p {
+        text-align: center;
+        font-size: 0.28rem;
+        color: #888888;
+        line-height: 0.28rem; }
+  .moreFun .floatl:nth-last-child(2) {
+    margin-right: 0%; }
+
+.chatBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  -webkit-flex-direction: column; }
+  .chatBox ul li {
+    float: left;
+    margin-bottom: 0.4rem; }
+    .chatBox ul li a {
+      display: block;
+      width: 0.8rem; }
+      .chatBox ul li a img {
+        width: 100%; }
+  .chatBox ul li:nth-child(1) a {
+    margin-right: 0.3rem; }
+
+.case {
+  text-align: center;
+  font-size: 0.24rem;
+  width: 100%;
+  background-color: #e4e4e4;
+  line-height: 0.8rem;
+  color: #888888; }
+
+.titles ul li:nth-child(1) p {
+  text-align: center;
+  font-size: 0.32rem;
+  color: #333333;
+  line-height: 0.32rem; }
+.titles ul li:nth-child(2) p {
+  text-align: center;
+  font-size: 0.24rem;
+  color: #c8c8c8;
+  font-family: arial;
+  line-height: 0.5rem; }
+.titles ul li:nth-child(3) span {
+  display: block;
+  width: 0.8rem;
+  border-bottom: 1px solid #a51e32;
+  margin: 0 auto;
+  margin-top: 0.1rem; }
+
+.box {
+  width: 94.67%;
+  margin: 0 auto; }
+
+.noResult {
+  margin-top: 0.4rem; }
+  .noResult img {
+    width: 40%;
+    display: block;
+    margin: 0 auto; }
+  .noResult p {
+    font-size: 0.28rem;
+    text-align: center;
+    color: #333333; }
+
+.redmalBtn {
+  width: 100%;
+  height: 0.7rem;
+  display: block;
+  background-color: #a51e32;
+  color: white;
+  font-size: 0.28rem; }
+
+.p1 {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden; }
+
+.p2 {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden; }
+
+.p3 {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden; }
+
+#banner > img {
+  width: 100%; }
+
+nav {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center; }
+  nav .navBox {
+    position: relative; }
+    nav .navBox p {
+      font-size: 0.36rem;
+      color: #333333;
+      line-height: 0.8rem; }
+    nav .navBox .rNavBtn {
+      position: absolute;
+      top: 0rem;
+      padding: 0.24rem 0.25rem 0.24rem 0;
+      height: 0.32rem;
+      left: 0rem; }
+      nav .navBox .rNavBtn img {
+        height: 100%; }
+    nav .navBox .moreNav {
+      position: absolute;
+      top: 0rem;
+      padding: 0.24rem 0 0.24rem 0.25rem;
+      height: 0.3rem;
+      right: 0rem; }
+      nav .navBox .moreNav img {
+        height: 100%; }
+
+/*# sourceMappingURL=public.css.map */

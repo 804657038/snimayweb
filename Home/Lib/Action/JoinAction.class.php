@@ -12,6 +12,8 @@ class JoinAction extends CommonAction
     {
         //网站logo
         $logo1 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo1',json_encode($logo1));
+        $this->assign('logo2',json_encode($logo1));
         $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
         $this->assign('logo', $logo1);
         //banner

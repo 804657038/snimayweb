@@ -23,6 +23,12 @@ $(function(){
             scrollTop: 0
         }, 500); 
 	});
+
+	$('.hedr').hover(function(){
+        $('.logoL').find('img').attr('src',img_path+logo2.original_img);
+    },function(){
+        $('.logoL').find('img').attr('src',img_path+logo1.original_img);
+    });
 	
 	
 });	

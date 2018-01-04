@@ -264,15 +264,12 @@ function add_order() {
 			if (res.code == 1) {
 				popWindow("信息提醒","Information to remind","您的订单已经提交成功。",'感谢您对诗尼曼的支持！');
 			} else {
-                layer.msg(res.info,{time: 3000});
+                layer.msg(res.info,{time: 1000});
 				is_post = 0;
 			}
 		}, 'json');
 	} else {
-		layer.msg("请不要重复提交", {
-			icon: 5,
-			time: 1000
-		});
+		layer.msg("请不要重复提交", {icon: 5, time: 1000});
         layer.closeAll();
 	}
 }
@@ -301,10 +298,7 @@ function add_complain(){
             }
         }, 'json');
     } else {
-        layer.msg("请不要重复提交", {
-            icon: 5,
-            time: 1000
-        });
+        layer.msg("请不要重复提交", {icon: 5, time: 1000});
         layer.closeAll();
     }
 }
@@ -330,10 +324,7 @@ function add_feeback(){
             }
         }, 'json');
     } else {
-        layer.msg("请不要重复提交", {
-            icon: 5,
-            time: 1000
-        });
+        layer.msg("请不要重复提交", {icon: 5, time: 1000});
         layer.closeAll();
     }
 }

@@ -9,6 +9,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable"/>
     <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
     <meta content="telephone=no" name="format-detection"/>
+    <link rel="Shortcut Icon" href="/favicon.ico">
     <link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
     <link rel="stylesheet" href="__HOME__/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="__HOME__/css/reset.min.css" />
@@ -16,17 +17,24 @@
     <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="__HOME__/js/swiper-3.4.2.min.js" ></script>
+
     <script type="text/javascript">
         var logo1 = {$logo1};
         var logo2 = {$logo2};
         var imgLink = 'http://127.0.0.1/snimayweb/Home/Tpl/';
         var img_path = 'http://127.0.0.1/snimayweb/';
+
+        var uaTest = /Android|webOS|Windows Phone|iPhone|ucweb|ucbrowser|iPod|BlackBerry/i.test(navigator.userAgent.toLowerCase());
+        var touchTest = 'ontouchend' in document;
+        if(uaTest && touchTest){
+            window.location.href = 'http://m.snimay.com/mobile.php';
+        }
     </script>
 </head>
 <body>
 <div id="banner">
 
-    <header>
+    <header class="hedr">
         <nav>
             <div class="floatl logoL">
                 <a href="http://127.0.0.1/snimayweb/">
@@ -46,7 +54,7 @@
                             <else/>
                             <a href="{$vv.link}">{$vv.cat_name}</a>
                         </if>
-
+                        <if condition="$vv['cat_id'] neq 62">
                         <div class="secondBox">
                             <div class="swiper-container swiper-container-nav">
                                 <button><img src="__HOME__/img/leftb.png" class="prevLeft"/></button>
@@ -74,6 +82,7 @@
                                 </div>
                             </div>
                         </div>
+                        </if>
                     </li>
                     </foreach>
 

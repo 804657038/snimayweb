@@ -24,11 +24,12 @@ $(function(){
 		$(this).parents(".short").children('p').siblings('img').stop().css('transform','rotate(0deg)');
 	});
 	//查看详情
-	$('.rc').click(function(){
-		$('.jobBox').hide();
-		$('.jobDetails').show();
-		$('.jobDetails').addClass('animated bounceInDown');
-	});
+	//$('.rc').click(function(){
+	//	$('.jobBox').hide();
+	//	$('.jobDetails').show();
+	//	$('.jobDetails').addClass('animated bounceInDown');
+	//});
+
 	$('.rBtn button').click(function(){
 		$('.jobBox').show();
 		$('.jobDetails').hide();

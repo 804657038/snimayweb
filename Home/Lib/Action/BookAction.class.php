@@ -8,7 +8,7 @@ class BookAction extends CommonAction
 
     public function index(){
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1 = M('ads')->where('ads_id=160')->find();
         $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
         $this->assign('logo', $logo1);
         //banner

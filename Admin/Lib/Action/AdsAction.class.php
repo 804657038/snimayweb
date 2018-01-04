@@ -73,6 +73,7 @@ class AdsAction extends CommonAction {
 		$M_Ads = M("Ads");
 		
 		$data['link']       = $this->_post("link","","");
+        $data['link2']       = $this->_post("link2","","");
 		$data['description']= $this->_post("description","","");
 		$data['title']		= $this->_post("title","","");
 		$data['en_title']	= $this->_post("en_title","","");
@@ -114,6 +115,7 @@ class AdsAction extends CommonAction {
 		$M_Ads = M("Ads");
 		$ads_id         	= $this->_post("ads_id","intval",0);
 		$data['link']       = $this->_post("link","","");
+        $data['link2']       = $this->_post("link2","","");
 		$data['description']= $this->_post("description","","");
 		$data['title']		= $this->_post("title","","");
 		$data['en_title']	= $this->_post("en_title","","");

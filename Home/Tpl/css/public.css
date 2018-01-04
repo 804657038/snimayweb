@@ -303,7 +303,7 @@ header {
     -webkit-transition: height 0.5s;
     -moz-transition: height 0.5s;
     -ms-transition: height 0.5s;
-    box-shadow: 0 0 2px 2px rgba(231, 231, 231, 0.2); }
+  }
     .linkBoxs .linkBox ul li:nth-child(1) {
       margin-top: 10px; }
     .linkBoxs .linkBox ul li {
@@ -380,7 +380,7 @@ footer {
       footer .fTop ul li a {
         display: block;
         padding: 0 8px;
-        border-right: 1px solid #888888;
+        border-right: 1px solid #c8c8c8;
         color: #888888; }
       footer .fTop ul li a:hover {
         color: #a51e32; }

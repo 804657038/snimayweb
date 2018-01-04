@@ -5,11 +5,25 @@ class CommonAction extends Action {
     public function __construct() {
         header('Content-Type:text/html; charset=utf-8');
         $site_config = include WEB_ROOT . 'Common/systemConfig.php';
-		
         //网站信息
         $this->site_info = $site_config['SITE_INFO'];
         $this->site_config = $site_config;
-		
+        //路径
+        $this->assign('mobile_img', __ROOT__.'/Mobile/Tpl');
+        //网站信息
+        $arr = [
+            'link1'=>$this->site_info['link1'],
+            'link2'=>$this->site_info['link2'],
+            'link3'=>$this->site_info['link3'],
+            'link4'=>$this->site_info['link4'],
+            'link5'=>$this->site_info['link5'],
+            'link6'=>$this->site_info['link6'],
+            'link7'=>$this->site_info['link7'],
+            'tel_hot'=>$this->site_info['tel_hot'],
+        ];
+        $this->assign('arr',$arr);
+
+
 		//网站logo
 		$this->logo=M('ads')->where('ads_id=1')->find();
 

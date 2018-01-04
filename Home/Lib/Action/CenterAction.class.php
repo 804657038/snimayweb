@@ -9,10 +9,10 @@ class CenterAction extends CommonAction
     public function index()
     {
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
-        $this->assign('logoo', json_encode($logo1));
-        $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
-        $this->assign('logo', $logo1);
+        $logo1 = M('ads')->where('ads_id=161')->find();
+        $this->assign('logo1', json_encode($logo1));
+        $logo2 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo2',json_encode($logo2));
         //定制留言banner
         $dz = M('ads')->where('cat_id=33')->order('sort_order asc')->select();
         $this->assign('dz',$dz);
@@ -103,9 +103,12 @@ class CenterAction extends CommonAction
 
     public function center_four(){
         //网站logo
-        $logo1 = M('ads')->where('ads_id=164')->find();
+        $logo1 = M('ads')->where('ads_id=160')->find();
+        $this->assign('logo1',json_encode($logo1));
+        $this->assign('logo2',json_encode($logo1));
         $logo1['original_img'] = __ROOT__ . '/' . $logo1['original_img'];
         $this->assign('logo', $logo1);
+
         //banner
         $cen = M('ads')->where('cat_id=38')->where('ads_id=204')->order('sort_order asc')->find();
         $this->assign('cen',$cen);

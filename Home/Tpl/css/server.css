@@ -5,7 +5,8 @@
 
 #server {
   width: 100%;
-  background-color: #EEEEEE; }
+  background-color: #EEEEEE;
+  padding-bottom: 80px; }
   #server .choice {
     width: 580px;
     margin: 0 auto;
@@ -312,6 +313,10 @@
         height: 30px;
         border: 1px solid #c8c8c8;
         margin-top: 10px; }
+      #contact .contact .methods .aBox button:hover {
+        background-color: #a51e32;
+        border-color: #a51e32;
+        color: white; }
     #contact .contact .company {
       padding: 80px 0; }
       #contact .contact .company .map {
@@ -582,5 +587,9 @@
   width: 100% !important;
   height: 90% !important;
   padding-top: 0 !important; }
+
+.btnKnow{
+
+}
 
 /*# sourceMappingURL=server.css.map */

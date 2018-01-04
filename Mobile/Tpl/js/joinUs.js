@@ -1,0 +1,47 @@
+$(function(){
+	//选择地区
+	$('.choice2 select').change(function(){
+		$(this).prev('p').html($(this).children('option:selected').val());
+	});
+	//申请详情
+	$('.applyBtn button').on('click',function(){
+		$('#jobDetails').stop().show().animate({'left':'0%'},500);
+	});
+	//返回页面
+	$('.closeDetails').on('click',function(){
+		$('#jobDetails').stop().animate({'left':'100%'},500,function(){
+			$(this).hide();
+		});
+	});
+	//选择文件
+	$('.file').change(function(){
+		if($(this).val()=="")
+		{
+			$('.filesrc').text("未选择文件");
+		}else{
+			$('.filesrc').text($(this).val());
+		}
+	});
+	//申请职位
+	$('.redmalBtn').on('click',function(){
+		$('#jobPop').stop().show().animate({"top":"0%","height":'100%'},500);
+	});
+	//关闭提交页面
+	$('.redClose').on('click',function(){
+		$('#jobPop').stop().animate({"top":"50%","height":'0%'},500,function(){
+			$(this).hide();
+		});
+	});
+	//提交
+	$('.submitBtn').on('click',function(){
+		$('#jobPop').stop().animate({"top":"50%","height":'0%'},500,function(){
+			$(this).hide();
+		});
+	});
+	//向右滑
+	touch.on('#jobDetails', 'swiperight', function(ev){
+	    $('#jobDetails').stop().animate({'left':'100%'},500,function(){
+			$(this).hide();
+		});
+	});
+});

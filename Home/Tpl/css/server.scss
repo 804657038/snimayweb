@@ -11,6 +11,7 @@ $black:#333333;
 #server{
     width: 100%;
     background-color: #EEEEEE;
+    padding-bottom: 80px;
     .choice{
         width: 580px;
         margin: 0 auto;
@@ -381,6 +382,11 @@ $black:#333333;
                     height: 30px;
                     border: 1px solid #c8c8c8;
                     margin-top: 10px;
+                }
+                button:hover{
+                    background-color: $red;
+                    border-color: $red;
+                    color: white;
                 }
             }
         }

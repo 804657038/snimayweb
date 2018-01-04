@@ -1,0 +1,277 @@
+#companyJob {
+  padding: 0.8rem 0; }
+  #companyJob .choice2 {
+    margin-top: 0.4rem; }
+    #companyJob .choice2 > .flr {
+      width: 48%;
+      position: relative;
+      border: 1px solid #c8c8c8;
+      background-color: #eeeeee; }
+      #companyJob .choice2 > .flr > p {
+        line-height: 0.8rem;
+        font-size: 0.28rem;
+        color: #333333;
+        text-indent: 0.28rem;
+        background: url(../img/rArrow.png) no-repeat 92% center;
+        background-size: auto 0.34rem; }
+      #companyJob .choice2 > .flr button {
+        display: block;
+        height: 0.8rem;
+        font-size: 0.28rem;
+        color: #888888;
+        background-size: auto 0.34rem;
+        width: 100%;
+        background-color: #eeeeee; }
+      #companyJob .choice2 > .flr > select {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 2; }
+    #companyJob .choice2 > .floatl {
+      margin-left: -1px; }
+      #companyJob .choice2 > .floatl button {
+        background-color: white; }
+    #companyJob .choice2 > .floatr {
+      margin-right: -1px; }
+  #companyJob .pn {
+    margin-top: 0.8rem; }
+  #companyJob .searchBox {
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    height: 0.8rem;
+    margin-left: -1px;
+    background: url(../img/search.png) no-repeat 0.2rem center;
+    background-size: auto 0.32rem;
+    overflow: hidden;
+    margin-top: 0.2rem; }
+    #companyJob .searchBox input {
+      display: block;
+      width: 85%;
+      border: 0;
+      height: 100%;
+      margin-left: 12%;
+      margin-top: 1px; }
+  #companyJob .joinBox {
+    width: 100%;
+    background-color: #f6f6f6;
+    margin-top: 0.4rem; }
+    #companyJob .joinBox .joinTop {
+      width: 92.96%;
+      margin: 0 auto;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #c8c8c8;
+      position: relative; }
+      #companyJob .joinBox .joinTop .jobNameE {
+        font-size: 0.24rem;
+        text-indent: 0.2rem;
+        color: #888888; }
+      #companyJob .joinBox .joinTop .applyBtn {
+        width: 1.4rem;
+        position: absolute;
+        top: 0.38rem;
+        right: 0.2rem; }
+        #companyJob .joinBox .joinTop .applyBtn button {
+          width: 100%;
+          height: 0.8rem;
+          display: block;
+          font-size: 0.3rem;
+          border: 1px solid #888888;
+          background-color: transparent; }
+        #companyJob .joinBox .joinTop .applyBtn .activeBtn {
+          background-color: #a51e32;
+          color: white;
+          border-color: #a51e32; }
+
+.jobName {
+  font-size: 0.36rem;
+  color: #333333;
+  text-indent: 0.2rem; }
+
+.joinBottom {
+  width: 92.96%;
+  margin: 0 auto; }
+  .joinBottom > .floatl {
+    width: 40%;
+    font-size: 0.26rem;
+    color: #888888;
+    line-height: 0.8rem; }
+    .joinBottom > .floatl p {
+      text-indent: 0.4rem;
+      background: url(../img/person.png) no-repeat 0.1rem 0.27rem;
+      background-size: auto 0.24rem; }
+  .joinBottom > .floatl:nth-child(1) {
+    width: 20%; }
+    .joinBottom > .floatl:nth-child(1) p {
+      background-image: url(../img/person.png);
+      background-size: auto 0.22rem; }
+  .joinBottom > .floatl:nth-child(2) p {
+    background-image: url(../img/address.png);
+    background-size: auto 0.24rem; }
+  .joinBottom > .floatl:nth-child(3) p {
+    background-image: url(../img/time.png);
+    background-size: auto 0.22rem; }
+
+#jobDetails {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: none;
+  z-index: 5; }
+  #jobDetails .jobName {
+    text-indent: 0.4rem; }
+  #jobDetails nav {
+    background-color: #f6f6f6;
+    box-shadow: 0 0 2px 2px rgba(51, 51, 51, 0.1);
+    position: relative; }
+  #jobDetails .jdTop {
+    padding-top: 0.6rem;
+    border-bottom: 1px solid #c8c8c8;
+    padding-bottom: 0.1rem; }
+  #jobDetails .jdContent {
+    font-size: 0.28rem;
+    color: #333333;
+    line-height: 0.6rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #c8c8c8; }
+    #jobDetails .jdContent ul {
+      width: 91.55%;
+      margin: 0 auto; }
+    #jobDetails .jdContent .jobTitle {
+      font-size: 0.32rem; }
+  #jobDetails .jdBottom {
+    border: 0; }
+  #jobDetails .applyBox {
+    width: 55%;
+    margin: 0 auto;
+    padding: 0.2rem 0 0.6rem; }
+
+#jobPop {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  -webkit-flex-direction: column;
+  overflow: hidden; }
+  #jobPop .jobPop {
+    position: relative; }
+    #jobPop .jobPop > img {
+      width: 100%; }
+    #jobPop .jobPop .redClose {
+      width: 0.32rem;
+      position: absolute;
+      top: 0.6rem;
+      right: 10%;
+      z-index: 5; }
+      #jobPop .jobPop .redClose img {
+        width: 100%; }
+    #jobPop .jobPop .getJob {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      #jobPop .jobPop .getJob .titles {
+        margin-top: 0.8rem;
+        margin-bottom: 0.4rem; }
+      #jobPop .jobPop .getJob .joberMessage ul li {
+        width: 75%;
+        margin: 0 auto;
+        height: 0.8rem;
+        border: 1px solid #c8c8c8;
+        margin-top: 0.2rem;
+        background: url(../img/JobPhone.png) no-repeat 0.2rem center;
+        background-size: auto 0.3rem;
+        overflow: hidden; }
+        #jobPop .jobPop .getJob .joberMessage ul li input {
+          width: 80%;
+          height: 100%;
+          border: 0;
+          display: block;
+          color: #333333;
+          margin-left: 15%;
+          margin-top: 1px;
+          font-size: 0.26rem; }
+        #jobPop .jobPop .getJob .joberMessage ul li input::-moz-placeholder {
+          color: #888888; }
+        #jobPop .jobPop .getJob .joberMessage ul li input::-ms-input-placeholder {
+          color: #888888; }
+        #jobPop .jobPop .getJob .joberMessage ul li input::-webkit-input-placeholder {
+          color: #888888; }
+      #jobPop .jobPop .getJob .joberMessage ul li:nth-child(1) {
+        background-image: url(../img/name.png); }
+      #jobPop .jobPop .getJob .joberMessage ul li:nth-child(3) {
+        height: 2rem;
+        background-image: none; }
+        #jobPop .jobPop .getJob .joberMessage ul li:nth-child(3) textarea {
+          width: 92%;
+          resize: none;
+          height: 1.6rem;
+          padding: 0.22rem 0 0.18rem;
+          line-height: 0.4rem;
+          border: 0;
+          display: block;
+          margin: 0 auto;
+          font-size: 0.26rem; }
+        #jobPop .jobPop .getJob .joberMessage ul li:nth-child(3) textarea::-moz-placeholder {
+          color: #888888; }
+        #jobPop .jobPop .getJob .joberMessage ul li:nth-child(3) textarea::-ms-input-placeholder {
+          color: #888888; }
+        #jobPop .jobPop .getJob .joberMessage ul li:nth-child(3) textarea::-webkit-input-placeholder {
+          color: #888888; }
+      #jobPop .jobPop .getJob .selectFile {
+        width: 75%;
+        margin: 0 auto;
+        line-height: 1.0rem;
+        color: #888888;
+        font-size: 0.26rem;
+        position: relative;
+        margin-top: 0.05rem; }
+        #jobPop .jobPop .getJob .selectFile .filesrc {
+          width: 40%;
+          margin-left: 60%;
+          height: 1.0rem;
+          line-height: 1.0rem;
+          color: #333333; }
+        #jobPop .jobPop .getJob .selectFile .fliep {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: #333333; }
+        #jobPop .jobPop .getJob .selectFile button {
+          position: absolute;
+          top: 0.15rem;
+          left: 1.2rem;
+          width: 1.4rem;
+          height: 0.7rem;
+          background-color: #eeeeee;
+          border: 1px solid #c8c8c8; }
+          #jobPop .jobPop .getJob .selectFile button .file {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; }
+      #jobPop .jobPop .getJob .submitBtn {
+        width: 75%;
+        margin: 0 auto; }
+
+/*# sourceMappingURL=joinUs.css.map */

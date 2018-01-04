@@ -129,6 +129,10 @@ $(function() {
 							<td style="text-align:left;"><input type="text" class="txt" value="<?php echo ($cat["link"]); ?>" name="link"  /></td>
 						</tr>
 						<tr>
+							<td style="text-align:right;">手机端链接：</td>
+							<td style="text-align:left;"><input type="text" class="txt" value="<?php echo ($cat["link2"]); ?>" name="link2"  /></td>
+						</tr>
+						<tr>
 							<td>&nbsp;</td>
 							<td style="text-align:left;">
 								<input type="hidden" name="cat_id" value="<?php echo ($cat["cat_id"]); ?>"/>

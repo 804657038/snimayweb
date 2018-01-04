@@ -9,6 +9,10 @@ $config_arr2 = array(
 		'__CSS__'=>__ROOT__.'/Public/Mobile/style',
 		'__START__'=>__ROOT__.'/Public/Mobile/start',
 		'__STORE__'=>__ROOT__.'/Public/Mobile/store',
+
+
+		'__HOME__'   => __ROOT__.'/Mobile/Tpl',
+		'__PIC__'   => __ROOT__.'',
 	),
     'OUTPUT_ENCODE'=>true,
     'URL_HTML_SUFFIX'=>'html',

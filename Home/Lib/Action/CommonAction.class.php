@@ -8,7 +8,10 @@ class CommonAction extends Action {
         //网站信息
         $this->site_info = $site_config['SITE_INFO'];
         $this->site_config = $site_config;
-        
+
+        if(isMobile()){
+            header('location:http://m.snimay.com/mobile.php');
+        }
         //-------------------------------------------------------------------------
         //网站信息
         $arr = [
@@ -45,7 +48,11 @@ class CommonAction extends Action {
         //导航
         $art = M('articlecat')->where('parent_id=0')->order('sort_order asc')->limit(7)->select();
         foreach($art as $k=>$v){
-            $art[$k]['chiled'] = M('articlecat')->where('parent_id='.$v['cat_id'])->order('sort_order asc')->select();
+            if($v['cat_id']==1){
+                $art[$k]['chiled'] = M('articlecat')->where('parent_id='.$v['cat_id'])->order('sort_order asc')->limit(4)->select();
+            }else{
+                $art[$k]['chiled'] = M('articlecat')->where('parent_id='.$v['cat_id'])->order('sort_order asc')->select();
+            }
         }
         $this->assign('art',$art);
         //次级导航
@@ -55,8 +62,6 @@ class CommonAction extends Action {
         $this->assign('pzcat',$pzcat);
         $zpcat = M('articlecat')->where('parent_id=67')->order('sort_order asc')->select();
         $this->assign('zpcat',$zpcat);
-        $gyhd = M('articlecat')->where('parent_id=62')->order('sort_order asc')->select();
-        $this->assign('gyhd',$gyhd);
         $join = M('articlecat')->where('parent_id=1')->order('sort_order asc')->limit(4)->select();
         $this->assign('join',$join);
         $touzi = M('articlecat')->where('parent_id=63')->order('sort_order asc')->select();

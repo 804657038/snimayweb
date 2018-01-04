@@ -1,3 +1,4 @@
+
 <include file="Public:header" />
 <link rel="stylesheet" href="__HOME__/lib/css/demo.css" />
 <link rel="stylesheet" href="__HOME__/css/ydui.css" />
@@ -28,6 +29,7 @@
 </style>
 
 
+
 		<!--轮播图-->
 			<img src="__PIC__/{$guanyu.original_img}" />
 		</div>
@@ -37,16 +39,16 @@
 			<div class="netNavs">
 				<ul>
 					<li>
-						<button class="btnActive" eq='0'>公司介绍</button>
+						<button class="btnActive" eq='0'><span style="font-size: 20px">公司介绍</span></button>
 					</li>
 					<li>
-						<button eq='1'>品牌历程</button>
+						<button eq='1'><span style="font-size: 20px">品牌历程</span></button>
 					</li>
 					<li>
-						<button eq='2'>品牌荣誉</button>
+						<button eq='2'><span style="font-size: 20px">品牌荣誉</span></button>
 					</li>
 					<li>
-						<button eq='3'>营销网络</button>
+						<button eq='3'><span style="font-size: 20px">营销网络</span></button>
 					</li>
 				</ul>
 				<div class="clearl"></div>
@@ -73,27 +75,19 @@
 		            <div id="map_container"></div>
 				</div>  
 				<div class="moreChoice">
-					<div class="floatl short">
+
+					<div class="floatl short area1">
+
 						<img src="__HOME__/img/ms.png" />
-						<p isOpen='false' class="provice">省份</p>					
-						<div class="profess prov">
-							<ul>
-                                <foreach name="province" item="p">
- 								<li>
-									<p class="p1">{$p.region_name}</p>
-								</li>
-                                </foreach>
-							</ul>
-						</div>
+						<p isOpen='false' class="provice">省份</p>
+
 					</div>
-					<div class="floatl short">
+
+					<div class="floatl short area2">
+
 						<img src="__HOME__/img/ms.png" />
 						<p isOpen='false' class="city_dy">城市</p>
-						<div class="profess cty">
-							<ul id="cy">
 
-							</ul>
-						</div>
 					</div>
 					<div class="floatl long">
 						<input type="search" id="zw_name" placeholder="请输入关键字" />
@@ -148,7 +142,7 @@
 					<div class="proContent floatl">
 						<ul>
 							<li>
-								<p class="jobNameM p1">{$gs.title}</p>
+								<p class="jobNameM p1"><span style="font-size: 20px">{$gs.title}</span></p>
 							</li>
 							<li>
 								<p class="jobNameS p1">Company profile</p>
@@ -185,7 +179,7 @@
 					<div class="proContent floatl">
 						<ul>
 							<li>
-								<p class="jobNameM p1">{$pinpai.title}</p>
+								<p class="jobNameM p1"><span style="font-size: 20px">{$pinpai.title}</span></p>
 							</li>
 							<li>
 								<p class="jobNameS p1">Corporate Mission</p>
@@ -230,7 +224,7 @@
 					<div class="bigTitle">
 						<ul>
 							<li>
-								<p class="bt">{$yuanj.title}</p>
+								<p class="bt"><font style="font-size: 20px">{$yuanj.title}</font></p>
 							</li>
 							<li>
 								<p class="st">Brand Vision</p>
@@ -310,6 +304,10 @@
 				<div class="moreYear"><div class="dashed"></div></div>
 			</div>
 		</div>
+
+
 <include file="Public:footer" />
 <script type="text/javascript" src="__HOME__/js/about.js" ></script>
+<script type="text/javascript" src="__HOME__/js/ydui.citys.js" ></script>
+
 
