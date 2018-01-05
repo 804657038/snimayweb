@@ -124,330 +124,253 @@
             }
         </script>
     </header>
-<link rel="stylesheet" href="__HOME__/css/index.css" />
-
-		<!--轮播图-->
-			<div class="swiper-container swiper-container-index">
-			    <div class="swiper-wrapper">
-                    <?php if(is_array($ads)): foreach($ads as $key=>$vo): ?><div class="swiper-slide">
-			        	<a href="<?php echo ($vo["link"]); ?>"><img src="<?php echo ($vo["original_img"]); ?>" alt="<?php echo ($vo["title"]); ?>" class="img-responsive"/></a>
-			        </div><?php endforeach; endif; ?>
-
-			    </div>
-			    <div class="swiper-pagination"></div>
-			</div>
+<link rel="stylesheet" href="__HOME__/lib/css/layui.css" />
+<link rel="stylesheet" href="__HOME__/css/video-js.css" />
+<link rel="stylesheet" href="__HOME__/css/centerFour.css" />
+<script type="text/javascript" src="__HOME__/js/video.min.js" ></script>
+<style>
+    .img-responsive{
+        width:450px;
+        height:640px;
+    }
+</style>
+			<img src="__PIC__/<?php echo ($cen["original_img"]); ?>" />
 		</div>
-		<!--业务中心-->
-		<div id="businessCenter">
-			<div class="floatl" onclick="javascript:window.location.href='<?php echo U('Business/index');?>'">
-				<p>业务中心</p>
-				<p>Business Center</p>
+		<!--新闻中心-->
+		<div id="news">
+			<div class="sNav">
+				<div class="floatl">
+					<p>新闻中心</p>
+				</div>
+				<div class="floatr">
+					<ul class="childSelect">
+						<li index=0  class="lsdn">
+							<a href="###">公司动态</a>
+						</li>
+						<li index=1>
+							<a href="###">媒体报道</a>
+						</li>
+						<li index=2>
+							<a href="###">视频中心</a>
+						</li>
+						<li index=3>
+							<a href="###">电子报刊</a>
+						</li>
+					</ul>
+				</div>
+				<div class="clearBoth"></div>
 			</div>
-            <?php if(is_array($acat)): foreach($acat as $key=>$v1): ?><div class="floatl">
-				<a href="<?php echo U('Business/index');?>">
-					<div>
-						<div>
-							<img src="__HOME__/img/centers.png" />
-						</div>
+			<!--电子报刊-->
+			<div class="newsList email" style="display: none;">
+                <?php if(is_array($baokan)): foreach($baokan as $key=>$b): ?><div class="newsBox floatl" onclick="getDetailBaokan('<?php echo ($b["article_id"]); ?>')">
+					<div class="nImg">
+						<img src="__PIC__/<?php echo ($b["original_img"]); ?>" />
+						<a class="lookMore" href="###"></a>
 					</div>
-					<p><?php echo ($v1["cat_name"]); ?></p>
-				</a>
-			</div><?php endforeach; endif; ?>
-			<div class="clearl"></div>
-		</div>
-		<!--诗尼曼介绍-->
-		<div id="introduce">
-			<div class="introBox">
-				<div class="floatl imgBox">
-					<div class="moreFun">
-						<img alt="<?php echo ($soreArr['k0']['title']); ?>" src="<?php echo ($soreArr['k0']['original_img']); ?>" />
-						<a href="<?php echo ($soreArr['k0']['link']); ?>">
-							<div class="joiningBox">
-								<img src="__HOME__/img/centers.png" />
-							</div>
-							<p><?php echo ($soreArr['k0']['title']); ?></p>
-						</a>
+					<div class="nIntro">
+						<p class="np1"><?php echo ($b["title"]); ?></p>
+						<p class="np2"><?php echo ($b["short"]); ?></p>
 					</div>
-				</div>
-				<div class="floatl imgAndContent">
-					<div class="icTop">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<p>Join The Poet Neiman</p>
-							</li>
-							<li>
-								<p></p>
-							</li>
-							<li>
-								<p><?php echo ($soreArr['k0']['description']); ?></p>
-							</li>
-						</ul>
-					</div>
-					<div class="icBottom">
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k1']['title']); ?>" src="<?php echo ($soreArr['k1']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k1']['link']); ?>">
-									<div class="businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>		
-									<p><?php echo ($soreArr['k1']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k2']['title']); ?>" src="<?php echo ($soreArr['k2']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k2']['link']); ?>">
-									<div class="findBox businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k2']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
+				</div><?php endforeach; endif; ?>
+
 				<div class="clearl"></div>
 			</div>
-			<div class="introBox introBox1">
-				<div class="floatl imgAndContent">
-					<div class="icTop">
+			<!--视频中心-->
+			<div class="newsList videoCenter" style="display: none;">
+                <?php if(is_array($video)): foreach($video as $key=>$v): ?><div class="newsBox floatl">
+					<div class="nImg">
+						<video id="my-video1" class="video-js" controls preload="auto" width="340" height="250" poster="__PIC__/<?php echo ($v["original_img"]); ?>" data-setup="{}">
+							<source <?php echo ($v["video"]); ?> type="video/mp4"></source>
+						</video>
+						<a href="###" class="pVideo1"></a>
+					</div>
+					<div class="nIntro">
+						<p class="np1"><?php echo ($v["title"]); ?></p>
+						<p class="np2"><?php echo ($v["short"]); ?></p>
+					</div>
+				</div><?php endforeach; endif; ?>
+
+				<div class="clearl"></div>
+			</div>
+			<!--公司动态-->
+			<div class="report company">
+                <?php if(is_array($xinwen)): foreach($xinwen as $key=>$x): ?><div class="reportBox" onclick="getDetails('<?php echo ($x["article_id"]); ?>')">
+					<div class="cLeft floatl">
+						<img src="__PIC__/<?php echo ($x["original_img"]); ?>" />
+					</div>
+					<div class="cMiddle floatl">
+						<p class="cMTitle p1">
+                            <?php echo ($x["title"]); ?>
+						</p>
+						<p class="cMContent p2"><?php echo ($x["short"]); ?></p>
+					</div>
+					<div class="cRight floatl">
+						<a href="###" class="readMore"><img src="__HOME__/img/redCrocss.png"/></a>
+                        <?php $addtime = date('Y-m-d',$x['add_time']); $time = explode('-',$addtime); ?>
+						<p class="month"><?php echo ($time[1]); ?>-<?php echo ($time[2]); ?></p>
+						<p class="year"><?php echo ($time[0]); ?></p>
+					</div>
+					<div class="clearl"></div>
+				</div><?php endforeach; endif; ?>
+
+				<div class="page" align="center">
+                    <?php echo ($page1); ?>
+				</div>
+			</div>
+			<!--媒体报道-->
+			<div class="report media" style="display: none;">
+
+                <?php if(is_array($meiti)): foreach($meiti as $key=>$m): ?><div class="reportBox" onclick="getDetailmeiti('<?php echo ($m["article_id"]); ?>')">
+					<div class="cLeft floatl">
+						<img src="__PIC__/<?php echo ($m["original_img"]); ?>" />
+					</div>
+					<div class="cMiddle floatl">
+						<p class="cMTitle p1">
+                            <?php echo ($m["title"]); ?>
+						</p>
+						<p class="cMContent p2"><?php echo ($m["short"]); ?></p>
+					</div>
+					<div class="cRight floatl">
+						<a href="###" class="readMore"><img src="__HOME__/img/redCrocss.png"/></a>
+                        <?php $addtime1 = date('Y-m-d',$m['add_time']); $time1 = explode('-',$addtime1); ?>
+						<p class="month"><?php echo ($time1[1]); ?>-<?php echo ($time1[2]); ?></p>
+						<p class="year"><?php echo ($time1[0]); ?></p>
+					</div>
+					<div class="clearl"></div>
+				</div><?php endforeach; endif; ?>
+				<div class="page" align="center">
+                    <?php echo ($page2); ?>
+				</div>
+			</div>
+			<!--没有结果-->
+			<div class="noAnyResult" style="display: none;">
+				<div class="cry">					
+				</div>
+				<p>很抱歉，没有相关的结果！</p>
+			</div>
+		</div>
+		<!--详情-->
+		<div id="details">
+			<!--新闻详情-->
+			<div class="newsD" style="display: none;">
+				<div class="ndTitle">
+					<div class="return">
+						<div class="rBtn newsReturn">
+							<button>&lt;RETURN</button>
+						</div>					
+					</div>
+					<div class="ndBigTitle">
+						<p id="title">新手加盟全屋定制家具，这些注意事项不能忽视</p>
+					</div>
+					<div class="ndTimeNumber" align="center">
 						<ul>
 							<li>
-								<p><?php echo ($soreArr['k5']['title']); ?></p>
+								<p class="ndTime" id="time">2017-11-20</p>
 							</li>
 							<li>
-								<p><?php echo ($soreArr['k5']['en_title']); ?></p>
-							</li>
-							<li>
-								<p></p>
-							</li>
-							<li>
-								<p><?php echo ($soreArr['k5']['description']); ?></p>
+								<p class="ndNumber" id="click">148</p>
 							</li>
 						</ul>
 					</div>
-					<div class="icBottom">
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k3']['title']); ?>" src="<?php echo ($soreArr['k3']['original_img']); ?>" />
-								<div class="imgPop">
-									<div class="orderBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k3']['title']); ?></p>
-									<div align="center">
-										<ul class="od">
-                                            <?php if(is_array($goodscat)): foreach($goodscat as $key=>$vg): ?><li>
-												<a href="<?php echo U('Business/index');?>"><?php echo ($vg["title"]); ?></a>
-											</li><?php endforeach; endif; ?>
+				</div>
+				<!--富文本-->
+				<div class="ndContent" id="contents">
+					<p>定制家具的火爆，从各大品牌转向全屋定制以及市场强大的需求令不少行外新手意欲加盟。作为门外汉来说，行业的整体趋势利好意味着加盟有望分享市场蛋糕，而经验不足则成为新手加盟商的一大难题。想要加盟定制家居品牌，这些注意事项一定不能忽视。</p>
+					<p>首先，加盟一家全屋定制品牌，其品牌影响力已经成为影响顾客选择的重要因素。无论是线下实体门店，随处可见的品牌广告宣传，无时无刻都在加深消费者对品牌的印象。品牌影响力往往和品牌资本、技术、管理等息息相关。如果一个品牌资金力量雄厚，其对品牌广告的投入相应也会增加，从而消费者购买选择印象也会大有提升。作为定制家具企业，技术研发和生产实力也是品牌影响力的表现之一。以消费者需求为导向，满足消费者的个性化需求和实际需要，保证良好的产品研发能力，这样才能长久在市场中保持良好竞争力。</p>
+				</div>
+				<!--标签与分享-->
+				<div class="bsBox">
+					<div class="bsLeft floatl">
+						<ul id="biaoqiao">
+							<li>
+								<p>标签：</p>	
+							</li>
+							
+						</ul>
+					</div>
+					<div id="share">
+                        <div class="bsRight floatr bdsharebuttonbox">
+                            <ul>
+                                <!--<li>-->
+                                    <!--<a href="#" class="bds_more" data-cmd="more"></a>-->
+                                <!--</li>-->
+                                <li>
+                                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                </li>
+                            </ul>
+                        </div>
+					</div>
+					<div class="clearBoth"></div>
 
-										</ul>
-									</div>
+				</div>
+				<!--上一篇下一篇-->
+				<div class="npBox">
+					<div class="ndPrev floatl" id="prev">
+						<a href="###">诗尼曼湖北荆门基地顺利试产，品牌“大家居”战略格局渐显!</a>
+					</div>
+                    <div class="ndPrev floatl" id="prev_2" style="display: none">
+                        <a href="javascript:;">No More</a>
+                    </div>
+					<div class="ndNext floatl" id="nets">
+						<a href="###">诗尼曼：新品发布会洞见行业未来，掀起全屋定制新风范!</a>
+					</div>
+                    <div class="ndNext floatl" id="nets_2" style="display: none">
+                        <a href="javascript:;">No More</a>
+                    </div>
+					<div class="clearl"></div>
+				</div>
+			</div>
+			<!--电子报刊详情-->
+			<div class="emailDetails" style="display: none;">
+				<div class="emailTitle">
+					<div class="bigTitle">
+						<ul>
+							<li>
+								<p class="bt">电子报刊</p>
+							</li>
+							<li>
+								<p class="st">Electronic newspapers</p>
+							</li>
+							<li>
+								<span></span>
+							</li>
+						</ul>
+					</div>
+					<div class="return">
+						<div class="rBtn emailReturn">
+							<button class="rSearch">&lt;RETURN</button>
+						</div>
+					</div>
+				</div>
+				<div class="emailContent">
+					<div id='certify'>
+						<div class="swiper-container">
+							<div class="swiper-wrapper" id="baokanpic">
+
+								<div class="swiper-slide">
+									<p>第一版</p>
+									<img src="__HOME__/img/email1.jpg"/>
 								</div>
-							</div>
-						</div>
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k4']['title']); ?>" src="<?php echo ($soreArr['k4']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k4']['link']); ?>">
-									<div class="serverBox businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k4']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
-				<div class="floatl imgBox">
-					<div class="moreFun">
-						<img alt="<?php echo ($soreArr['k5']['title']); ?>" src="<?php echo ($soreArr['k5']['original_img']); ?>" />
-						<a href="<?php echo ($soreArr['k5']['link']); ?>">
-							<div class="loveOrderBox">
-								<img src="__HOME__/img/centers.png" />
-							</div>
-							<p><?php echo ($soreArr['k5']['title']); ?></p>
-						</a>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
-		</div>
-		<!--咨询中心-->
-		<div id="consultCenter">
-			<div class="ccTitle">
-				<ul>
-					<li>
-						<p>资讯中心</p>
-					</li>
-					<li>
-						<p>Information center</p>
-					</li>
-					<li>
-						<p></p>
-					</li>
-				</ul>
-			</div>
-			<div class="ccBox">
-				<div class="floatl">
-					<div class="ccImg01 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k0']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k0']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k0']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k0']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k0']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k0']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="ccImg02">
-						<div class="floatl ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k1']['link']); ?>'">
-							<img src="<?php echo ($zxArr['k1']['original_img']); ?>" />
-							<div class="ccOn">
-								<ul>
-									<li>
-										<p><?php echo ($zxArr['k1']['title']); ?></p>
-									</li>
-									<li>
-										<p><?php echo ($zxArr['k1']['en_title']); ?></p>
-									</li>
-									<li>
-										<p></p>
-									</li>
-									<li>
-                                        <?php $content = mb_substr($zxArr['k1']['description'],0,10,'utf-8').'...'; ?>
-										<p><?php echo ($content); ?></p>
-										<p>2017-06-04</p>
-									</li>
-									<li>
-										<a href="<?php echo ($zxArr['k1']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="floatl ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k2']['link']); ?>'">
-							<img src="<?php echo ($zxArr['k2']['original_img']); ?>" />
-							<div class="ccOn">
-								<ul>
-									<li>
-										<p><?php echo ($zxArr['k2']['title']); ?></p>
-									</li>
-									<li>
-										<p><?php echo ($zxArr['k2']['en_title']); ?></p>
-									</li>
-									<li>
-										<p></p>
-									</li>
-									<li>
-                                        <?php $content = mb_substr($zxArr['k2']['description'],0,10,'utf-8').'...'; ?>
-										<p><?php echo ($content); ?></p>
-										<p>2017-06-04</p>
-									</li>
-									<li>
-										<a href="<?php echo ($zxArr['k2']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="ccImg03 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k3']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k3']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k3']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k3']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k3']['description']); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k3']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="ccImg04 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k4']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k4']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k4']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k4']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k4']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k4']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="ccImg04 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k5']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k5']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k5']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k5']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k5']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k5']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
 
+
+							</div>							
+						</div>
+						<div class="swiper-button-prev"></div>
+    					<div class="swiper-button-next"></div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 <!--侧边导航-->
 <div id="rightNav">
     <div class="rNavChild">
@@ -656,4 +579,11 @@
         layer.msg('该功能暂未开放');
     }
 </script>
-<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>
+<script type="text/javascript" src="__HOME__/lib/layui.js" ></script>
+<script type="text/javascript" src="__HOME__/js/centerFour.js" ></script>
+<script type="text/javascript" id="bdshare_js" data="type=tools&uid=6478904" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","weixin"]}};
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>

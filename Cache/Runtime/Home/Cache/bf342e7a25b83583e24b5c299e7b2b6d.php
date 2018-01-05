@@ -124,330 +124,90 @@
             }
         </script>
     </header>
-<link rel="stylesheet" href="__HOME__/css/index.css" />
+<link rel="stylesheet" href="__HOME__/css/business.css" />
+<script type="text/javascript">
+    var push_catid = <?php echo ($push_catid); ?>;
+</script>
 
+    <input type="hidden" id="cats_ids" value="<?php echo ($cats_ids); ?>">
 		<!--轮播图-->
-			<div class="swiper-container swiper-container-index">
-			    <div class="swiper-wrapper">
-                    <?php if(is_array($ads)): foreach($ads as $key=>$vo): ?><div class="swiper-slide">
-			        	<a href="<?php echo ($vo["link"]); ?>"><img src="<?php echo ($vo["original_img"]); ?>" alt="<?php echo ($vo["title"]); ?>" class="img-responsive"/></a>
-			        </div><?php endforeach; endif; ?>
+			<img src="__PIC__/<?php echo ($guanyu["original_img"]); ?>" />
+		</div>
+		<a id="threeD" href="http://3d.snimay.com" target="_blank">
+			<img src="__HOME__/img/3D.png" />
+		</a>
+		<div id="choiceBox">
+			<div class="cType">
+				<div class="typeBox">
+					<div class="tTitle">
+						<p>全部</p>
+					</div>
+					<div class="tBox all">
+                        <?php echo ($htmlList); ?>
+					</div>
+					<div class="clearl"></div>
+				</div>
 
-			    </div>
-			    <div class="swiper-pagination"></div>
-			</div>
-		</div>
-		<!--业务中心-->
-		<div id="businessCenter">
-			<div class="floatl" onclick="javascript:window.location.href='<?php echo U('Business/index');?>'">
-				<p>业务中心</p>
-				<p>Business Center</p>
-			</div>
-            <?php if(is_array($acat)): foreach($acat as $key=>$v1): ?><div class="floatl">
-				<a href="<?php echo U('Business/index');?>">
-					<div>
-						<div>
-							<img src="__HOME__/img/centers.png" />
-						</div>
+                <?php if(is_array($goodscat)): foreach($goodscat as $k=>$vo): ?><div class="typeBox">
+					<div class="tTitle">
+						<p><?php echo ($vo["cat_name"]); ?></p>
 					</div>
-					<p><?php echo ($v1["cat_name"]); ?></p>
-				</a>
-			</div><?php endforeach; endif; ?>
-			<div class="clearl"></div>
-		</div>
-		<!--诗尼曼介绍-->
-		<div id="introduce">
-			<div class="introBox">
-				<div class="floatl imgBox">
-					<div class="moreFun">
-						<img alt="<?php echo ($soreArr['k0']['title']); ?>" src="<?php echo ($soreArr['k0']['original_img']); ?>" />
-						<a href="<?php echo ($soreArr['k0']['link']); ?>">
-							<div class="joiningBox">
-								<img src="__HOME__/img/centers.png" />
-							</div>
-							<p><?php echo ($soreArr['k0']['title']); ?></p>
-						</a>
-					</div>
-				</div>
-				<div class="floatl imgAndContent">
-					<div class="icTop">
-						<ul>
-							<li>
-								<p>加入诗尼曼</p>
-							</li>
-							<li>
-								<p>Join The Poet Neiman</p>
-							</li>
-							<li>
-								<p></p>
-							</li>
-							<li>
-								<p><?php echo ($soreArr['k0']['description']); ?></p>
-							</li>
-						</ul>
-					</div>
-					<div class="icBottom">
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k1']['title']); ?>" src="<?php echo ($soreArr['k1']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k1']['link']); ?>">
-									<div class="businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>		
-									<p><?php echo ($soreArr['k1']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k2']['title']); ?>" src="<?php echo ($soreArr['k2']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k2']['link']); ?>">
-									<div class="findBox businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k2']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
-			<div class="introBox introBox1">
-				<div class="floatl imgAndContent">
-					<div class="icTop">
-						<ul>
-							<li>
-								<p><?php echo ($soreArr['k5']['title']); ?></p>
-							</li>
-							<li>
-								<p><?php echo ($soreArr['k5']['en_title']); ?></p>
-							</li>
-							<li>
-								<p></p>
-							</li>
-							<li>
-								<p><?php echo ($soreArr['k5']['description']); ?></p>
-							</li>
-						</ul>
-					</div>
-					<div class="icBottom">
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k3']['title']); ?>" src="<?php echo ($soreArr['k3']['original_img']); ?>" />
-								<div class="imgPop">
-									<div class="orderBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k3']['title']); ?></p>
-									<div align="center">
-										<ul class="od">
-                                            <?php if(is_array($goodscat)): foreach($goodscat as $key=>$vg): ?><li>
-												<a href="<?php echo U('Business/index');?>"><?php echo ($vg["title"]); ?></a>
-											</li><?php endforeach; endif; ?>
 
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="floatl">
-							<div class="moreFun">
-								<img alt="<?php echo ($soreArr['k4']['title']); ?>" src="<?php echo ($soreArr['k4']['original_img']); ?>" />
-								<a href="<?php echo ($soreArr['k4']['link']); ?>">
-									<div class="serverBox businessBox">
-										<img src="__HOME__/img/centers.png" />
-									</div>
-									<p><?php echo ($soreArr['k4']['title']); ?></p>
-								</a>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
-				<div class="floatl imgBox">
-					<div class="moreFun">
-						<img alt="<?php echo ($soreArr['k5']['title']); ?>" src="<?php echo ($soreArr['k5']['original_img']); ?>" />
-						<a href="<?php echo ($soreArr['k5']['link']); ?>">
-							<div class="loveOrderBox">
-								<img src="__HOME__/img/centers.png" />
-							</div>
-							<p><?php echo ($soreArr['k5']['title']); ?></p>
-						</a>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
-		</div>
-		<!--咨询中心-->
-		<div id="consultCenter">
-			<div class="ccTitle">
-				<ul>
-					<li>
-						<p>资讯中心</p>
-					</li>
-					<li>
-						<p>Information center</p>
-					</li>
-					<li>
-						<p></p>
-					</li>
-				</ul>
-			</div>
-			<div class="ccBox">
-				<div class="floatl">
-					<div class="ccImg01 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k0']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k0']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k0']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k0']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k0']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k0']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="ccImg02">
-						<div class="floatl ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k1']['link']); ?>'">
-							<img src="<?php echo ($zxArr['k1']['original_img']); ?>" />
-							<div class="ccOn">
-								<ul>
-									<li>
-										<p><?php echo ($zxArr['k1']['title']); ?></p>
-									</li>
-									<li>
-										<p><?php echo ($zxArr['k1']['en_title']); ?></p>
-									</li>
-									<li>
-										<p></p>
-									</li>
-									<li>
-                                        <?php $content = mb_substr($zxArr['k1']['description'],0,10,'utf-8').'...'; ?>
-										<p><?php echo ($content); ?></p>
-										<p>2017-06-04</p>
-									</li>
-									<li>
-										<a href="<?php echo ($zxArr['k1']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="floatl ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k2']['link']); ?>'">
-							<img src="<?php echo ($zxArr['k2']['original_img']); ?>" />
-							<div class="ccOn">
-								<ul>
-									<li>
-										<p><?php echo ($zxArr['k2']['title']); ?></p>
-									</li>
-									<li>
-										<p><?php echo ($zxArr['k2']['en_title']); ?></p>
-									</li>
-									<li>
-										<p></p>
-									</li>
-									<li>
-                                        <?php $content = mb_substr($zxArr['k2']['description'],0,10,'utf-8').'...'; ?>
-										<p><?php echo ($content); ?></p>
-										<p>2017-06-04</p>
-									</li>
-									<li>
-										<a href="<?php echo ($zxArr['k2']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearl"></div>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="ccImg03 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k3']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k3']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k3']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k3']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k3']['description']); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k3']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="ccImg04 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k4']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k4']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k4']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k4']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k4']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k4']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="ccImg04 ccImg" onclick="javascript:window.location.href='<?php echo ($zxArr['k5']['link']); ?>'">
-						<img src="<?php echo ($zxArr['k5']['original_img']); ?>" />
-						<div class="ccOn">
-							<ul>
-								<li>
-									<p><?php echo ($zxArr['k5']['title']); ?></p>
-								</li>
-								<li>
-									<p><?php echo ($zxArr['k5']['en_title']); ?></p>
-								</li>
-								<li>
-									<p></p>
-								</li>
-								<li>
-                                    <?php $content = mb_substr($zxArr['k5']['description'],0,30,'utf-8').'...'; ?>
-									<p><?php echo ($content); ?></p>
-								</li>
-								<li>
-									<a href="<?php echo ($zxArr['k5']['link']); ?>"><img src='__HOME__/img/readMore.png'></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
+                    <div class="tBox room">
+						<div class="clBox">
+                            <?php if(is_array($vo["ground"])): foreach($vo["ground"] as $k1=>$vv): if($k == 0): ?><a href="javascript:js_aup2('cat_id2',<?php echo ($vv["id"]); ?>);" class="choiceList cl<?php echo ($k1+1); ?>" index='<?php echo ($k1+1); ?>' catid="<?php echo ($vv["id"]); ?>" >
+                                        <p><?php echo ($vv["title"]); ?></p>
+                                        <span></span>
+                                    </a><?php endif; ?>
+                                <?php if($k == 1): ?><a href="javascript:js_aup3('cat_id3',<?php echo ($vv["id"]); ?>);" class="choiceList cl<?php echo ($k1+1); ?>" index='<?php echo ($k1+1); ?>' catid="<?php echo ($vv["id"]); ?>" >
+                                        <p><?php echo ($vv["title"]); ?></p>
+                                        <span></span>
+                                    </a><?php endif; ?>
+                                <?php if($k == 2): ?><a href="javascript:js_aup4('cat_id4',<?php echo ($vv["id"]); ?>);" class="choiceList cl<?php echo ($k1+1); ?>" index='<?php echo ($k1+1); ?>' catid="<?php echo ($vv["id"]); ?>" >
+                                        <p><?php echo ($vv["title"]); ?></p>
+                                        <span></span>
+                                    </a><?php endif; endforeach; endif; ?>
 
+							<div class="clearl"></div>
+						</div>
+					</div>
+				</div><?php endforeach; endif; ?>
+
+			</div>
 		</div>
+        <?php if(empty($good)): ?><div class="noResult">
+                <div class="nomored">
+                    <img src="__HOME__/img/centers.png" />
+                </div>
+                <p>很抱歉，该分类下暂无产品！</p>
+            </div>
+            <?php else: ?>
+
+            <div id="results">
+                <div class="resultBox" >
+
+                    <?php if(is_array($good)): foreach($good as $key=>$go): ?><div class="result floatl" onclick="details('<?php echo ($go["goods_id"]); ?>')">
+                            <div class="rImg">
+                                <img src="__PIC__/<?php echo ($go["goods_img"]); ?>" alt="" />
+                            </div>
+                            <div class="rContent">
+                                <div class="floatl rp">
+                                    <p><?php echo ($go["title"]); ?><span></span></p>
+                                </div>
+                                <div class="floatl rm">
+                                    <a href="javascript:;"><img src="__HOME__/img/circleB.png"/></a>
+                                </div>
+                                <div class="clearl"></div>
+                            </div>
+                        </div><?php endforeach; endif; ?>
+
+                    <div class="clearl"></div>
+                </div>
+                <div class="page" align="center">
+                    <?php echo ($page); ?>
+                </div>
+            </div><?php endif; ?>
+
 <!--侧边导航-->
 <div id="rightNav">
     <div class="rNavChild">
@@ -656,4 +416,4 @@
         layer.msg('该功能暂未开放');
     }
 </script>
-<script type="text/javascript" src="__HOME__/js/index.js?v=1" ></script>
+<script type="text/javascript" src="__HOME__/js/business.js" ></script>

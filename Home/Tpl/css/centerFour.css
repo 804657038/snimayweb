@@ -541,4 +541,30 @@ body {
   height: 90% !important;
   padding-top: 0 !important; }
 
+#share a{
+    width: 45px;
+    height: 45px;
+    padding: 0;
+}
+#share a.bds_weixin{
+    background: url(../img/sharem.png) no-repeat;
+    background-size: auto 100%;
+    background-position-x: -145px;
+}
+#share a.bds_tsina{
+    background: url(../img/sharem.png) no-repeat;
+    background-size: auto 100%;
+    background-position-x: -100px;
+}
+#share a.bds_tqq{
+    background: url(../img/sharem.png) no-repeat;
+    background-size: auto 100%;
+    background-position-x: 1px;
+}
+#share a.bds_qzone{
+    background: url(../img/sharem.png) no-repeat;
+    background-size: auto 100%;
+    background-position-x: -50px;
+}
+
 /*# sourceMappingURL=centerFour.css.map */

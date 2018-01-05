@@ -6,7 +6,6 @@ $(function(){
 		$(this).siblings('li').removeClass('lsdpn');
 		$(this).prev('li').addClass('lsdpn');
 		var index = parseInt($(this).attr('index'));
-		console.log(index);
 		switch(index){
 			case 0:
 				$('.company').show();
@@ -121,18 +120,17 @@ function getDetails(id){
 	$.get(url,function(res) {
         var data = JSON.parse(res);
 		var html = "";
-        console.log(data);
 		if (data.list != '') {
             $('#news').hide();
             $('.media').hide();
             $('#details').show();
             $('.newsD').show();
-            $('.newsD').addClass('animated tada');
+            $('.newsD').addClass('animated');
 
             $('#title').text(data.list.title);
             $('#time').text(data.list.add_time);
             $('#click').text(data.list.click_sum);
-            $('#contents').text(data.list.content);
+            $('#contents').html(data.list.content);
             html +='<li>';
             html +='<p>标签：</p>	';
             html +='</li>';
@@ -180,12 +178,12 @@ function getDetailmeiti(id){
             $('.media').hide();
             $('#details').show();
             $('.newsD').show();
-            $('.newsD').addClass('animated tada');
+            $('.newsD').addClass('animated');
 
             $('#title').text(data.list.title);
             $('#time').text(data.list.add_time);
             $('#click').text(data.list.click_sum);
-            $('#contents').text(data.list.content);
+            $('#contents').html(data.list.content);
             html +='<li>';
             html +='<p>标签：</p>	';
             html +='</li>';
@@ -229,7 +227,6 @@ function getDetailBaokan(id){
         bao();
         var data = JSON.parse(res);
         var html = "";
-        console.log(data);
         for(item in data.original_img){
             html +='<div class="swiper-slide">';
             html +='<img src="'+img_path+data.original_img[item].url+'" class="img-responsive"/>';
