@@ -2,38 +2,12 @@
 class AboutAction extends CommonAction {
   public function __construct() {
     parent::__construct();
-
-    /******************************网站标题及面包屑导航******************************/
-    $cat_id = $_GET['cat_id']+0;
-    $article_id = $_GET['id']+0;
-    if($article_id)$cat_id = M('article')->where(array('article_id'=>$article_id))->getField('cat_id');
-
-    $this->cat_id = $cat_id;
-    $this->parent_id = M('articlecat')->where(array('cat_id'=>$cat_id))->getField('parent_id');
-    $this->article_cat = $this->subCat(0,'articlecat');
-    //print_r($this->article_cat);
-    $parent_cat= $this->supCat($cat_id,true,'articlecat');
-    
-    /******************************网站标题及面包屑导航******************************/
-    $ur_here = '<a href="/">Home</a>';
-    $article_site_title = array();
-    foreach($parent_cat as $key=>$value){
-      $ur_here .= " > <a href='". U('About/'.$this->action,array('cat_id'=>$value['cat_id'])) ."'>" . strip_tags($value['cat_name']) . "</a>";
-      $article_site_title[] = $value['cat_name'];
-    }
-    $this->article_site_title = implode('_',array_reverse($article_site_title));//产品页的标题
-    $this->ur_here = $ur_here;
-
-    //左边小广告图
-    $this->ads1 = M('ads')->where('ads_id=31')->find();
   }
 
-  public function index($cat_id=2) {
+  public function index() {
     //网站标题 关键字 描述
     
     $cat_info = M('articlecat')->where(array('cat_id'=>$cat_id))->find();
-    $this->hover = 2;
-    //$this->site_title = $cat_info['cat_name'] . '_' .$this->site_info['title'];
     $this->assign('cat_info',$cat_info);
 
     if($cat_info['title']){
@@ -52,43 +26,7 @@ class AboutAction extends CommonAction {
       $this->site_description = $this->site_info['description'];
     }
 
-    $this->about_jj = M('article')->where('article_id = 1')->find();
-    $this->about_ry = M('article')->where('article_id = 2')->find();
-    $this->about_sm = M('article')->where('article_id = 3')->find();
-    $this->about_pp = M('article')->where('article_id = 4')->find();
-
-    $honor_list = array();
-    $honor_cat = M('articlecat')->where('parent_id=3')->order('cat_id desc')->select();
-    foreach ($honor_cat as $key => $value) {
-      $honor_list[] =  M('article')->where('cat_id='.$value['cat_id'])->order('sort_order desc , add_time asc')->limit(6)->select();
-    }
-    $this->honor_list=$honor_list;
-    $this->honor_pic = M('ads')->where('cat_id=5')->order('sort_order asc , add_time desc')->select();
-
-    $limit      = $this->limit? $this->limit : 10;
-
-    import('ORG.Util.Page2');// 导入分页类
-    $count      = M('article')->where('cat_id=4')->count();// 查询满足要求的总记录数 $map表示查询条件
-    $Page       = new Page($count,$limit);// 实例化分页类 传入总记录数
-    $Page->setConfig('theme',$this->pageTheme);
-    $this->assign('page',$Page);
-
-    $this->recruit_list = M('article')->where('cat_id=4')->order('sort_order asc , add_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-    $this->province = M('region')->where('parent_id=1')->order('region_id asc')->select();
-    //banner图
-    $this->ban = M('ads')->find(36);
-    $this->title = '关于诗尼曼';
-    if($cat_id == 3){
-      $this->display('honor');
-    }elseif($cat_id == 4){
-      $this->display('recruit');
-    }elseif($cat_id == 14){
-      $this->display('contact');
-    }elseif($cat_id == 5){
-      $this->display('join');
-    }else{
-      $this->display();
-    }
+    $this->display(':aboutUs');
   }
 
   public function investment($cat_id=20) {

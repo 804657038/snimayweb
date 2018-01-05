@@ -28,17 +28,5 @@ class IndexAction extends CommonAction {
 
         $this->display(':index');
     }
-    public function get_product(){
-        $id = $_GET['id'];
-        $list = M('goods')->where('FIND_IN_SET('.$id.',cat_id)')->limit(4)->select();
-        foreach ($list as $key => $value) {
-            if($key%2==0){
-                echo "<li ><a href='/mobile.php/Product/detail/id/".$value['goods_id']."'><img src='".__ROOT__."/".$value['goods_img']."'><span>".$value['title']."</span></a></li>";  
-            }else{
-               
-               echo "<li class='l2'><a href='/mobile.php/Product/detail/id/".$value['goods_id']."'><img src='".__ROOT__."/".$value['goods_img']."'><span>".$value['title']."</span></a></li>";
-            }
-           
-        }
-    }
+
 }

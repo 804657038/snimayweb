@@ -8,9 +8,6 @@ $config_arr2 = array(
     '__CSS__'    => __ROOT__.'/Public/Home/style',
     '__CG__'     => __ROOT__.'/Public/Cg',
     '__START__'  => __ROOT__.'/Public/Home/start',
-
-    '__HOME__'   => __ROOT__.'/Home/Tpl',
-    '__PIC__'   => __ROOT__.'',
   ),
   'OUTPUT_ENCODE'   => true,
   'URL_HTML_SUFFIX' => 'html',
@@ -18,7 +15,7 @@ $config_arr2 = array(
   'URL_MODEL'       => 2,
   'URL_ROUTER_ON'   => true,
   'URL_ROUTE_RULES' => array( //定义路由规则
-//    'join'          => 'About/investment',
+    'join'          => 'About/investment',
     //'activites_list' => 'Sales/index',
     'activites/:id' => 'Sales/detail',
     'news'          => 'About/news?cat_id=16',
@@ -35,36 +32,7 @@ $config_arr2 = array(
     'product_list'  => 'Product/index',
     'cgzs'          => 'Cg/index',
     'zscx'          => 'Dealer/index',
-//--------------------------------------------------------------------------
-    'index'         => 'Index/index',
-    'service'       => 'Service/index',
-    'insert_order'       => 'Service/insert_order',
-      'uploadFile'=>'Service/uploadFile',
-      'insert_complain'       => 'Service/insert_complain',
-      'insert_feeback'       => 'Service/insert_feeback',
-//      'join'       => 'Join/index',
-      'join_detail'     => 'Join/join_detail',
-      'addJL'        => 'Join/add',
-      'uploadFile_zp'=>'Join/uploadFile',
-      'getCity'=>'About/getCity',
-      'getShop'=>'About/getShop',
-      'add_order'=>'Center/add_order',
-      'getDetails'=>'Center/getDetails',
-      'getDetailmeiti'=>'Center/getDetailmeiti',
-      'getDetailBaokan'=>'Center/getDetailBaokan',
-      'getQuanwu'=>'Center/getQuanwu',
-      'getGy'=>'Social/getGy',
-      'book_order'=>'Book/book_order',
-      'jm_order'=>'JoinMessage/jm_order',
-      'getGoodsDetail'=>'Business/getGoodsDetail',
-      'getList'=>'Business/index',
-      'getOrder'=>'Order/getOrder',
-      'getOrderResult'=>'Order/getOrderResult',
-      'search'=>'Common/search',
-
-
-
-  ),
+  ), 
   'LUYOU'           => array(
     'join.html'     => 'About/investment',
     //'activites_list.html' => 'Sales/index',
@@ -82,9 +50,7 @@ $config_arr2 = array(
     'product/:id'   => 'Product/detail',
     'product_list'  => 'Product/index',
     'zscx'          => 'Dealer/index',
-
   ),
 );
-
 return array_merge($config_arr1, $config_arr2);
 ?>

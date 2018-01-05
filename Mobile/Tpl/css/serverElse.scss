@@ -1,0 +1,80 @@
+$color8:#888888;
+$colorc8:#c8c8c8;
+$coloree:#eeeeee;
+$colore4:#e4e4e4;
+$black:#333333;
+$red:#a51e32;
+#banner{
+    >img{
+        width: 100%;
+    }
+}
+#made{
+    padding: 0.8rem 0;
+    .titles{
+        padding-bottom: 0.2rem;
+    }
+    .madeBox{
+        margin-top: 0.4rem;
+        .floatl{
+            width: 50%;
+            
+        }
+        .mbLeft{
+            img{
+                width: 100%;
+            }
+        }
+        .mbRight{
+            height: 100%;
+            background-color: $coloree;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: -webkit-flex;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+            -webkit-flex-direction: column;
+            position: relative;
+            img{
+                height: 30%;
+                margin-top: 0.05rem;
+            }
+            p{
+                margin-top: 0.2rem;
+                font-size: 0.26rem;
+                text-align: center;
+                color: #666666;
+                line-height: 0.26rem;
+            }
+        }
+        .sort{
+            position: absolute;
+            top: 50%;
+            margin-top: -0.3rem;
+            left: -0.3rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $colorc8;
+            flex-direction: column;
+            display: -webkit-flex;
+            -webkit-align-items: center;
+            -webkit-justify-content: center;
+            -webkit-flex-direction: column;
+            border:0.05rem  solid $coloree;
+            p{
+                margin-top: 0.05rem;
+                text-align: center;
+                line-height: 0.24rem;
+                font-size: 0.24rem;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>诗尼曼全屋定制</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta content="yes" name="apple-mobile-web-app-capable"/>
+		<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+		<meta content="telephone=no" name="format-detection"/>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/server.css" />
+		<script type="text/javascript" src="js/rem.js" ></script>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<!--轮播图+导航-->
+		<div id="banner">
+			<img src="img/serverBanner.jpg" />
+			<nav>
+				<div class="navBox box">
+					<a class="rNavBtn"><img src="img/return.png"/></a>
+					<a class="moreNav"><img src="img/moreNav.png"/></a>
+					<p>公司招聘</p>					
+				</div>
+			</nav>
+		</div>
+		<!--订单查询-->
+		<div id="order" class="box" style="display: none;">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>订单查询</p>
+					</li>
+					<li>
+						<p>Order Enquiry</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="searchBox">
+				<input type="search" placeholder="请输入您的手机号码（以门店预留手机号为准）" />
+			</div>
+			<div class="orderProtect">			
+				<ul>
+					<li>
+						<div class="opImg">
+							<img src="img/sIcon01.png" />
+						</div>
+					</li>
+					<li>
+						<p class="opTitle" >正品保证</p>
+					</li>
+					<li>
+						<span class="opLine"></span>
+					</li>
+					<li>
+						<p class="opText">在当地正规的诗尼曼专卖店购买；总部对订单管理，可以在总部（官网、官微）查询订单资料、客户资料等。</p>
+					</li>
+				</ul>
+			</div>
+			<div class="orderProtect">			
+				<ul>
+					<li>
+						<div class="opImg">
+							<img src="img/sIcon02.png" />
+						</div>
+					</li>
+					<li>
+						<p class="opTitle" >产品防伪特征</p>
+					</li>
+					<li>
+						<span class="opLine"></span>
+					</li>
+					<li>
+						<p class="opText">诗尼曼产品在特定部位都印有诗尼曼“SNIMAY”钢印或激光防伪标签，具体可咨询当地门店。</p>
+					</li>
+				</ul>
+			</div>
+			<div class="orderProtect">			
+				<ul>
+					<li>
+						<div class="opImg">
+							<img src="img/sIcon03.png" />
+						</div>
+					</li>
+					<li>
+						<p class="opTitle" >正品保证</p>
+					</li>
+					<li>
+						<span class="opLine"></span>
+					</li>
+					<li>
+						<p class="opText">感谢您选择诗尼曼家居产品，请妥善保管诗尼曼家居产品保修卡，以便为您提供产品终身维护。</p>
+					</li>
+				</ul>
+			</div>
+			<div class="orderProtect">			
+				<ul>
+					<li>
+						<div class="opImg">
+							<img src="img/sIcon04.png" />
+						</div>
+					</li>
+					<li>
+						<p class="opTitle" >售后服务</p>
+					</li>
+					<li>
+						<span class="opLine"></span>
+					</li>
+					<li class="phoneCall">
+						<p >全国统一服务热线：</p>
+						<a href="tel:400-883-2239" >400-883-2239</a>
+						<p >假冒诗尼曼产品举报电话：</p>
+						<a href="tel:13925062507" >13925062507</a>
+						<a href="tel:020-34756267" >020-34756267</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--订单列表-->
+		<div id="orderList" class="box" style="display: none;">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>订单列表</p>
+					</li>
+					<li>
+						<p>The Order List</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="orderList">
+				<table width="100%" class="table" style="display: none;">
+					<tr>
+						<th>订单号</th>
+						<th>状态</th>
+						<th>生产信息</th>
+					</tr>
+					<tr>
+						<td>
+							<p>00698A170915002D</p>
+						</td>
+						<td>
+							<p>已作废</p>
+						</td>
+						<td>
+							/
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+							00698A170915002D
+							</p>
+						</td>
+						<td>
+							<p>
+								已审核
+							</p>
+						</td>
+						<td>
+							<button>查看</button>
+						</td>
+					</tr>
+				</table>
+				<table class="no">
+					<tr>
+						<th>订单号</th>
+						<th>状态</th>
+						<th>生产信息</th>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<img src="img/nomore.png"/>
+							<p>很抱歉，暂无订单！</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--订单详情-->
+		<div id="orderDetails" class="box">
+			<div class="titles">
+				<ul>
+					<li>
+						<p>订单列表</p>
+					</li>
+					<li>
+						<p>The Order List</p>
+					</li>
+					<li>
+						<span></span>
+					</li>
+				</ul>
+			</div>
+			<div class="orderDetails">
+				<ul>
+					<li>
+						<p>订单编号：00698A170918009DX</p>
+					</li>
+					<li>
+						<p>订单状态：订单已发货</p>
+					</li>
+					<li>
+						<p>受理时间：2017-09-22</p>
+					</li>
+					<li>
+						<p>打款时间：2017-09-25</p>
+					</li>
+					<li>
+						<p>生产时间：2017-09-25</p>
+					</li>
+					<li>
+						<p>入库时间：2017-10-02</p>
+					</li>
+					<li>
+						<p>发货时间：2017-10-06</p>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<!--尾部-->
+		<footer>
+			<div class="moreLink">
+				<ul>
+					<li>
+						<a href="###">诗尼曼天猫旗舰店<span>&bull; </span></a>
+					</li>
+					<li>
+						<a href="###">诗尼曼京东旗舰店<span>&bull; </span></a>
+					</li>
+					<li>
+						<a href="###">商学院学习系统</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="###">经销商登录<span>&bull; </span></a>
+					</li>
+					<li>
+						<a href="###">站点地图<span>&bull; </span></a>
+					</li>
+					<li>
+						<a href="###">企业营业执照</a>
+					</li>
+				</ul>
+			</div>
+			<div class="moreFun">
+				<div class="floatl">
+					<div class="funBox">
+						<img src="img/onLine.png" />
+					</div>
+					<div class="funP">
+						<p>在线咨询</p>
+					</div>
+				</div>
+				<div class="floatl">
+					<div class="funBox">
+						<img src="img/phoneAsk.png" />
+					</div>
+					<div class="funP">
+						<p>电话咨询</p>
+					</div>
+				</div>
+				<div class="floatl">
+					<div class="funBox">
+						<img src="img/order.png" />
+					</div>
+					<div class="funP">
+						<p>订单查询</p>
+					</div>
+				</div>
+				<div class="clearl"></div>
+			</div>
+			<div class="chatBox">
+				<ul>
+					<li>
+						<a href="###"><img src="img/weibo.png"/></a>
+					</li>
+					<li>
+						<a href="###"><img src="img/wechat.png"/></a>
+					</li>
+				</ul>
+			</div>
+			<div class="case">
+				<p>Copyright©2017粤ICP备14016448号</p>
+			</div>
+		</footer>
+		<script type="text/javascript" src="js/public.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+#business .choice3 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  width: 100%; }
+  #business .choice3 > .flr {
+    width: 32%;
+    position: relative;
+    border: 1px solid #c8c8c8;
+    background-color: #eeeeee;
+    margin-right: 1%; }
+    #business .choice3 > .flr > p {
+      line-height: 0.7rem;
+      font-size: 0.28rem;
+      color: #333333;
+      text-indent: 0.28rem;
+      background: url(../img/rArrow.png) no-repeat 92% center;
+      background-size: auto 0.34rem; }
+    #business .choice3 > .flr > select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2; }
+  #business .choice3 > .flr:nth-last-child(2) {
+    margin-right: 0%; }
+#business .produceBox {
+  width: 100%; }
+  #business .produceBox a {
+    display: block;
+    width: 100%;
+    font-size: 0.3rem;
+    line-height: 0.9rem;
+    color: #888888;
+    margin-bottom: 0.6rem; }
+    #business .produceBox a .proImg {
+      width: 100%; }
+      #business .produceBox a .proImg img {
+        width: 100%; }
+    #business .produceBox a .proP {
+      background-color: #eeeeee; }
+      #business .produceBox a .proP p {
+        width: 90%;
+        margin: 0 auto;
+        background: url(../img/more.png) no-repeat right center;
+        background-size: auto 0.38rem; }
+#business .choice2 {
+  margin-top: 0.4rem; }
+  #business .choice2 > .flr {
+    width: 48%;
+    position: relative;
+    border: 1px solid #c8c8c8;
+    background-color: #eeeeee; }
+    #business .choice2 > .flr > p {
+      line-height: 0.8rem;
+      font-size: 0.28rem;
+      color: #333333;
+      text-indent: 0.28rem;
+      background: url(../img/rArrow.png) no-repeat 92% center;
+      background-size: auto 0.34rem; }
+    #business .choice2 > .flr button {
+      display: block;
+      height: 0.8rem;
+      font-size: 0.28rem;
+      color: #888888;
+      background-size: auto 0.34rem;
+      width: 100%;
+      background-color: #eeeeee; }
+    #business .choice2 > .flr > select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2; }
+  #business .choice2 > .floatl button {
+    background-color: white; }
+#business .pn {
+  margin-top: 0rem;
+  margin-bottom: 0.8rem; }
+
+/*# sourceMappingURL=business.css.map */

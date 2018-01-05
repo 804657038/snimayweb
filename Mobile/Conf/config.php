@@ -21,7 +21,7 @@ $config_arr2 = array(
 	'URL_ROUTER_ON' =>true,
     'URL_ROUTE_RULES' => array( //定义路由规则 
 
-		'join'    => 'About/investment',
+//		'join'    => 'About/investment',
 		'activites_list' => 'Sales/index',
 		'activites/:id' => 'Sales/detail',
 		'news'    => 'About/news?cat_id=16',

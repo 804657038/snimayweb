@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>诗尼曼全屋定制</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-		<meta content="yes" name="apple-mobile-web-app-capable"/>
-		<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-		<meta content="telephone=no" name="format-detection"/>
-		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
-		<link rel="stylesheet" href="css/reset.css" />
-		<link rel="stylesheet" href="css/public.css" />
-		<link rel="stylesheet" href="css/joinUs.css" />
-		<script type="text/javascript" src="js/rem.js" ></script>
-		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
-	</head>
-	<body>
+<include file="Publics:header" />
+<link rel="stylesheet" href="__HOME__/css/joinUs.css" />
+
 		<!--轮播图+导航-->
 		<div id="banner">
-			<img src="img/JoinUsBanner.jpg" />
+			<img src="__HOME__/img/JoinUsBanner.jpg" />
 			<nav>
 				<div class="navBox box">
-					<a class="rNavBtn"><img src="img/return.png"/></a>
-					<a class="moreNav"><img src="img/moreNav.png"/></a>
+					<a class="rNavBtn"><img src="__HOME__/img/return.png"/></a>
+					<a class="moreNav"><img src="__HOME__/img/moreNav.png"/></a>
 					<p>公司招聘</p>					
 				</div>
 			</nav>
@@ -159,7 +144,7 @@
 				</div>
 			</div>
 			<div class="noResult" style="display: none;">
-				<img src="img/nomore.png" />
+				<img src="__HOME__/img/nomore.png" />
 				<p>很抱歉！没有更多结果！</p>
 			</div>
 		</div>
@@ -167,7 +152,7 @@
 		<div id="jobDetails">
 			<nav>
 				<div class="navBox box">
-					<a class="rNavBtn closeDetails"><img src="img/return.png"/></a>
+					<a class="rNavBtn closeDetails"><img src="__HOME__/img/return.png"/></a>
 					<p>职位详情</p>					
 				</div>
 			</nav>
@@ -242,8 +227,8 @@
 		<!--职位弹窗-->
 		<div id="jobPop" style="display: none;">
 			<div class="jobPop box">
-				<img src="img/joinPop.png" />
-				<a href="###" class="redClose"><img src="img/redClose.png"/></a>
+				<img src="__HOME__/img/joinPop.png" />
+				<a href="###" class="redClose"><img src="__HOME__/img/redClose.png"/></a>
 				<div class="getJob">
 					<div class="titles">
 						<ul>
@@ -285,76 +270,7 @@
 				</div>
 			</div>
 		</div>
-		<!--尾部-->
-		<footer>
-			<div class="moreLink">
-				<ul>
-					<li>
-						<a href="###">诗尼曼天猫旗舰店<span>&bull; </span></a>
-					</li>
-					<li>
-						<a href="###">诗尼曼京东旗舰店<span>&bull; </span></a>
-					</li>
-					<li>
-						<a href="###">商学院学习系统</a>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<a href="###">经销商登录<span>&bull; </span></a>
-					</li>
-					<li>
-						<a href="###">站点地图<span>&bull; </span></a>
-					</li>
-					<li>
-						<a href="###">企业营业执照</a>
-					</li>
-				</ul>
-			</div>
-			<div class="moreFun">
-				<div class="floatl">
-					<div class="funBox">
-						<img src="img/onLine.png" />
-					</div>
-					<div class="funP">
-						<p>在线咨询</p>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="funBox">
-						<img src="img/phoneAsk.png" />
-					</div>
-					<div class="funP">
-						<p>电话咨询</p>
-					</div>
-				</div>
-				<div class="floatl">
-					<div class="funBox">
-						<img src="img/order.png" />
-					</div>
-					<div class="funP">
-						<p>订单查询</p>
-					</div>
-				</div>
-				<div class="clearl"></div>
-			</div>
-			<div class="chatBox">
-				<ul>
-					<li>
-						<a href="###"><img src="img/weibo.png"/></a>
-					</li>
-					<li>
-						<a href="###"><img src="img/wechat.png"/></a>
-					</li>
-				</ul>
-			</div>
-			<div class="case">
-				<p>Copyright©2017粤ICP备14016448号</p>
-			</div>
-		</footer>
-		<script src="https://cdn.bootcss.com/touchjs/0.2.14/touch.min.js"></script>
-		<script type="text/javascript" src="js/public.js" ></script>
-		<script type="text/javascript" src="js/joinUs.js" ></script>
-	</body>
-</html>
-l>
+<include file="Publics:footer" />
+<script src="https://cdn.bootcss.com/touchjs/0.2.14/touch.min.js"></script>
+<script type="text/javascript" src="__HOME__/js/public.js" ></script>
+<script type="text/javascript" src="__HOME__/js/joinUs.js" ></script>

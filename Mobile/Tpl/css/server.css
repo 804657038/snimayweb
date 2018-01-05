@@ -1,0 +1,157 @@
+#banner > img {
+  width: 100%; }
+
+#order {
+  padding: 0.8rem 0; }
+  #order .searchBox {
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    height: 0.8rem;
+    margin-left: -1px;
+    background: url(../img/search.png) no-repeat 0.2rem center;
+    background-size: auto 0.32rem;
+    overflow: hidden;
+    margin-top: 0.6rem; }
+    #order .searchBox input {
+      display: block;
+      width: 87%;
+      border: 0;
+      height: 100%;
+      margin-left: 12%;
+      margin-top: 1px;
+      font-size: 0.24rem;
+      color: #333333; }
+    #order .searchBox input::-moz-placeholder {
+      color: #888888; }
+    #order .searchBox input::-ms-input-placeholder {
+      color: #888888; }
+    #order .searchBox input::-webkit-input-placeholder {
+      color: #888888; }
+  #order .orderProtect:nth-last-child(1) {
+    padding-bottom: 0;
+    border: 0; }
+  #order .orderProtect {
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #eeeeee; }
+    #order .orderProtect .opImg {
+      width: 12.67%;
+      margin: 0 auto;
+      margin-top: 0.6rem; }
+      #order .orderProtect .opImg img {
+        width: 100%; }
+    #order .orderProtect .opTitle {
+      font-size: 0.34rem;
+      color: #333333;
+      text-align: center;
+      line-height: 0.8rem; }
+    #order .orderProtect .opLine {
+      display: block;
+      width: 14%;
+      margin: 0 auto;
+      margin-bottom: 0.2rem;
+      border-bottom: 1px solid #a51e32; }
+    #order .orderProtect .opText {
+      width: 83.3%;
+      margin: 0 auto;
+      font-size: 0.26rem;
+      color: #888888;
+      text-align: center;
+      line-height: 0.5rem; }
+    #order .orderProtect .phoneCall {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: -webkit-flex;
+      -webkit-align-items: center;
+      -webkit-justify-content: center;
+      -webkit-flex-direction: column; }
+      #order .orderProtect .phoneCall p {
+        font-size: 0.26rem;
+        color: #888888;
+        text-align: center;
+        line-height: 0.5rem; }
+      #order .orderProtect .phoneCall a {
+        font-size: 0.26rem;
+        color: #888888;
+        text-align: center;
+        line-height: 0.3rem;
+        margin: 0.1rem 0;
+        display: block;
+        color: #a51e32;
+        border-bottom: 1px solid #a51e32; }
+
+#orderList {
+  padding: 0.8rem 0; }
+  #orderList .orderList {
+    padding-top: 0.6rem; }
+    #orderList .orderList table.table {
+      width: 100%; }
+      #orderList .orderList table.table th {
+        width: 33.3333%;
+        font-size: 0.3rem;
+        text-align: center;
+        height: 0.9rem;
+        color: #333333; }
+      #orderList .orderList table.table td {
+        width: 33.3333%;
+        font-size: 0.26rem;
+        text-align: center;
+        height: 1.0rem;
+        color: #333333; }
+        #orderList .orderList table.table td p {
+          width: 70%;
+          -ms-word-break: break-all;
+          word-break: break-all;
+          margin: 0 auto;
+          text-align: center; }
+      #orderList .orderList table.table tr:nth-child(1) {
+        border-top: 1px solid #c8c8c8; }
+      #orderList .orderList table.table tr {
+        border-bottom: 1px solid #c8c8c8; }
+      #orderList .orderList table.table button {
+        width: 70%;
+        height: 0.6rem;
+        border: 1px solid #c8c8c8;
+        border-radius: 5px;
+        font-size: 0.26rem;
+        background-color: #eeeeee; }
+    #orderList .orderList table.no {
+      width: 100%; }
+      #orderList .orderList table.no th {
+        width: 33.3333%;
+        font-size: 0.3rem;
+        text-align: center;
+        height: 0.9rem;
+        color: #333333; }
+      #orderList .orderList table.no td {
+        padding: 0.4rem 0; }
+        #orderList .orderList table.no td img {
+          width: 40%;
+          margin: 0 auto; }
+        #orderList .orderList table.no td p {
+          text-align: center;
+          font-size: 0.26rem;
+          color: #333333; }
+      #orderList .orderList table.no tr:nth-child(1) {
+        border-top: 1px solid #c8c8c8; }
+      #orderList .orderList table.no tr {
+        border-bottom: 1px solid #c8c8c8; }
+
+#orderDetails {
+  padding: 0.8rem 0; }
+  #orderDetails .titles {
+    margin-bottom: 0.6rem; }
+  #orderDetails .orderDetails ul li {
+    height: 0.9rem;
+    border-bottom: 1px solid #c8c8c8; }
+    #orderDetails .orderDetails ul li p {
+      width: 92%;
+      margin: 0 auto;
+      font-size: 0.28rem;
+      line-height: 0.9rem;
+      color: #333333; }
+  #orderDetails .orderDetails ul li:nth-child(1) {
+    border-top: 1px solid #c8c8c8; }
+
+/*# sourceMappingURL=server.css.map */

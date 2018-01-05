@@ -1,0 +1,61 @@
+#banner > img {
+  width: 100%; }
+
+#made {
+  padding: 0.8rem 0; }
+  #made .titles {
+    padding-bottom: 0.2rem; }
+  #made .madeBox {
+    margin-top: 0.4rem; }
+    #made .madeBox .floatl {
+      width: 50%; }
+    #made .madeBox .mbLeft img {
+      width: 100%; }
+    #made .madeBox .mbRight {
+      height: 100%;
+      background-color: #eeeeee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: -webkit-flex;
+      -webkit-align-items: center;
+      -webkit-justify-content: center;
+      -webkit-flex-direction: column;
+      position: relative; }
+      #made .madeBox .mbRight img {
+        height: 30%;
+        margin-top: 0.05rem; }
+      #made .madeBox .mbRight p {
+        margin-top: 0.2rem;
+        font-size: 0.26rem;
+        text-align: center;
+        color: #666666;
+        line-height: 0.26rem; }
+    #made .madeBox .sort {
+      position: absolute;
+      top: 50%;
+      margin-top: -0.3rem;
+      left: -0.3rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #c8c8c8;
+      flex-direction: column;
+      display: -webkit-flex;
+      -webkit-align-items: center;
+      -webkit-justify-content: center;
+      -webkit-flex-direction: column;
+      border: 0.05rem solid #eeeeee; }
+      #made .madeBox .sort p {
+        margin-top: 0.05rem;
+        text-align: center;
+        line-height: 0.24rem;
+        font-size: 0.24rem;
+        color: white; }
+
+/*# sourceMappingURL=serverElse.css.map */
